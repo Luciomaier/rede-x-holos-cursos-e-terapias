@@ -58,9 +58,9 @@
 
 Detalhe: [campanhas/google-ads.md](campanhas/google-ads.md) · [campanhas/meta-ads.md](campanhas/meta-ads.md)
 
-## 🔴 Ciclo em andamento
+## 🔧 Ciclo em andamento
 
-- [**2026-06-09 — Micro-conversões + LP React**](ciclos/2026-06-09-microconversoes-google-lp-react.md) — janela de recalibração fechando, reclamações chegando. **Atacar hoje (15/06).**
+- [**2026-06-09 — Micro-conversões + LP React**](ciclos/2026-06-09-microconversoes-google-lp-react.md) — **diagnosticado 15/06**: o CPA desejado R$15 (calibrado nas conversões-lixo) estrangulou o lance → gasto R$911→R$25/dia. Leads reais estáveis (~30/dia, ZenPro). **Ação:** lance → Maximizar Cliques (CPC máx R$10). ⏳ Verificar performance em 2–3h + repor saldo +R$5k + consertar gap do webhook.
 
 ---
 
