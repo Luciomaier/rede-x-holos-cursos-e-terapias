@@ -170,6 +170,7 @@ Evitar: linguagem corporativa fria, promessas genéricas, tom acadêmico.
 
 ## Regras do sistema
 
+- **Núcleo de marketing (números, ROAS, campanhas, conversões):** `marketing/painel.md` é o dashboard — começar por ele. Estado das campanhas em `marketing/campanhas/`, mudanças/experimentos em `marketing/ciclos/`. Metas oficiais ficam no acordo (`acordos/rede-publicidade/acordo-rede-holos.md` → "Números oficiais"); o painel mostra realizado vs meta
 - Campanhas e conteúdo salvar em `marketing/`
 - Relatórios de tráfego em `marketing/relatorios/`
 - **Acordos e contratos (vivos/permanentes) em `acordos/`** — cada parceria com pasta própria e um documento mestre (fonte da verdade). Não usar `saidas/` para isso

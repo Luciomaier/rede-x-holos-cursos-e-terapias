@@ -16,17 +16,80 @@
 
 ---
 
-## 🔴 PENDÊNCIA ABERTA — Calibração da pasta (próxima sessão)
+## 📊 Números oficiais (fonte da verdade)
 
-> Os 4 documentos cobrem bem a operação, mas os **números divergem entre si**. Antes da pasta "responder operacionalmente", reconciliar numa fonte única. Destrava com 3 decisões:
+> Definidos com Lucio + Elis em 15/06/2026. Estes são os números que valem — qualquer divergência nos HTML deve ser corrigida para bater com esta seção.
+
+### Funil de matrículas
+
+```
+~300–350 conversas/mês  (topo — medido no ZenPro)
+            ↓
+   35 matrículas/mês     (maio/2026 real)  →  META 50/mês
+```
+
+**Matrículas — formação em massoterapia (por forma de pagamento):**
+
+| Tipo | Como paga | Vem de | Maio/2026 (real) | Meta/mês |
+|------|-----------|--------|------------------|----------|
+| **Integral** | cartão / à vista | Flex ou Presencial | 15 | 25 |
+| **Mensalista** | mensalidade | Presencial (às vezes Flex) | 20 | 25 |
+| **TOTAL** | | | **35** | **50** |
+
+- **Baseline:** maio/2026 fechado (35). **Junho parcial (15/06):** 10 integral + 3 mensalista = 13 → integral em bom ritmo, mensalista atrás.
+- **Topo do funil:** ~300–350 conversas/mês no ZenPro. O número "180" dos azulejos era um retrato do começo do mês (180 conversas já iniciadas naquele dia) — **descartado como métrica**.
+- **Taxa de conversão real:** ~11% (35/325) · **meta:** ~15% (50/325).
+- **EAD e Essencial:** metas **sugestivas** — campanhas ainda não rodando. Entram quando ligarem.
+- **Número "34" (8+7+11+8 por produto):** **superado** — era divisão por produto que não reflete como se vende. A verdade é por forma de pagamento (50).
+
+### Meta de faturamento — Junho/2026 (planilha da Elis, snapshot 15/06)
+
+Meta mensal total: **R$ 195.101,55** · Realizado no snapshot: **R$ 60.151,77 (~31%)** · Falta: **R$ 134.949,78** *(mês em andamento — normal estar em ~31% no meio do mês)*
+
+| Produto | Meta qtd | Meta R$ | Vend. qtd | Vendido R$ | % atingido |
+|---------|----------|---------|-----------|------------|------------|
+| Massoterapia 1ª mensalidade *(= mensalista)* | 25 | 10.000,00 | 3 | 2.700,00 | 27,0% |
+| Massoterapia Integral, Intensivo *(= integral)* | 20 | 72.000,00 | 9 | 26.023,18 | 36,1% |
+| Massoterapia Intensivo *(= integral)* | 5 | 18.000,00 | 1 | 2.834,17 | 15,8% |
+| Mensalidade sem a 1ª *(recorrência)* | 120 | 30.000,00 | 42 | 15.415,67 | 51,4% |
+| Mensalidade acupuntura | — | 13.000,00 | 9 | 3.483,17 | 26,8% |
+| Mensalidade kabbalah | — | 7.000,00 | 17 | 1.657,00 | 23,7% |
+| Aluguel de Salas | — | 3.000,00 | 17 | 1.233,00 | 41,1% |
+| Aluguel apto Lu | — | 2.101,55 | — | — | 0,0% |
+| Atendimento Estágio Social | — | 3.000,00 | — | 476,00 | 15,9% |
+| Atendimento Indigo | — | 2.000,00 | 1 | 380,00 | 19,0% |
+| Cursos Livres (comercial 1 — Lu, Leo, Laura) | — | 10.000,00 | 6 | 3.073,96 | 30,7% |
+| Cursos Livres (comercial 2 — Giih) | — | 15.000,00 | 3 | 2.875,62 | 19,2% |
+| Cursos Livres (recepção) | — | 10.000,00 | — | — | 0,0% |
+| **TOTAL** | | **195.101,55** | | **60.151,77** | **~31%** |
+
+**Leitura:**
+- A planilha **confirma a meta de matrículas**: 1ª mensalidade (25) + Integral (20) + Intensivo (5) = **25 mensalista + 25 integral = 50** ✅. Vendido em junho: 3 + (9+1) = 13, igual ao informado.
+- **Massoterapia nova = R$100.000/mês** de meta (R$10k mensalistas + R$72k integral + R$18k intensivo) — bate com a apresentação.
+- O restante da receita (R$95k) vem de: **recorrência** (mensalidades já ativas, acupuntura, kabbalah), **aluguéis** (salas + apto), **atendimentos** (estágio social, índigo) e **cursos livres** (3 canais comerciais).
+- Snapshot tirado no meio do mês — os % baixos são esperados (mês ainda rodando).
+
+### Landing pages (5)
+
+LP EAD · LP Essencial · LP Flex · LP **Presencial** (turmas 6 e 12 meses) · LP **Mensalistas** (nova).
+
+### ⚠️ CRM: ZenPro, não PulsarZap
+
+O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no circuito agora**. Os HTML (gabarito, checklists, apresentação) citam "PulsarZap" — **corrigir para ZenPro**.
+
+---
+
+## 🔴 PENDÊNCIA ABERTA — Calibração (continuação)
+
+> ✅ **Resolvido em 15/06:** meta de matrículas (50/mês) + topo do funil (300–350 conversas ZenPro) + correção PulsarZap→ZenPro + planilha de faturamento da Elis registrada (meta R$195.101,55/mês). Ver seção "Números oficiais" acima.
 >
-> 1. **Meta de matrículas/mês:** 34, 50 ou outro? *(hoje: apresentação diz 50, gabarito diz 34 e "180×12")*
-> 2. **Cadência do relatório p/ Luciana:** semanal, quinzenal ou por dezena (10/20/30)? *(os 4 docs divergem)*
-> 3. **Valor "antes" real:** R$10.500 (memória) ou R$11.750 (apresentação)? — confirmar com Elis
+> **Ainda em aberto:**
+> 1. **Cadência do relatório p/ Luciana:** semanal, quinzenal ou por dezena (10/20/30)? *(os 4 docs divergem)*
+> 2. **Valor "antes" real:** R$10.500 (memória) ou R$11.750 (apresentação)? — confirmar com Elis
 >
-> Depois: propagar os números para os 3 HTML + preencher brancos (horários de reunião, datas das LPs no roadmap) + padronizar nome (Nicholas/Nick) e cor da marca.
+> **Depois de fechar:** propagar tudo para os 3 HTML + corrigir PulsarZap→ZenPro + preencher brancos (horários de reunião, datas das LPs) + padronizar nome (Nicholas/Nick) e cor da marca.
 >
-> Análise completa de prontidão feita em 14/06/2026 — scorecard ~6,5/10 (arquitetura ótima, consistência de dados a calibrar).
+> Análise de prontidão: 14/06/2026 — scorecard inicial ~6,5/10. Meta/funil calibrados em 15/06.
 
 ---
 

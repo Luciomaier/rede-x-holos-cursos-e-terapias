@@ -1,4 +1,25 @@
-# marketing/ — saídas do MazyOS
+# marketing/ — operação e saídas
+
+Duas camadas aqui:
+1. **Inteligência / controle** (núcleo do trabalho de marketing — números, campanhas, ciclos) — editada à mão, é a operação viva
+2. **Saídas de skills** (carrossel, SEO, CSVs, relatórios) — geradas automaticamente
+
+## 🎯 Camada de controle — comece por aqui
+
+| Arquivo | O que é |
+|---------|---------|
+| [**painel.md**](painel.md) | **Dashboard** — números do mês: conversas, matrículas, ROAS, faturamento (vs meta) |
+| [campanhas/google-ads.md](campanhas/google-ads.md) | Estado + histórico das campanhas Google |
+| [campanhas/meta-ads.md](campanhas/meta-ads.md) | Estado + histórico das campanhas Meta |
+| [campanhas/landing-pages.md](campanhas/landing-pages.md) | As LPs + URLs + códigos de tracking |
+| [ciclos/](ciclos/) | Log de mudanças/experimentos (começo-meio-fim) — ex: micro-conversões |
+
+> **Metas oficiais (fonte da verdade):** [`acordos/rede-publicidade/acordo-rede-holos.md`](../acordos/rede-publicidade/acordo-rede-holos.md) → seção "Números oficiais".
+> O painel mostra **realizado vs meta**; a meta mora no acordo.
+
+---
+
+## 📦 Camada de saídas de skills
 
 Tudo que as skills de marketing produzem cai aqui. Skills do MazyOS já sabem onde salvar — você raramente precisa criar pasta manualmente.
 
