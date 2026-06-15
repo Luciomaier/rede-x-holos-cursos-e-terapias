@@ -113,3 +113,79 @@ Quando o usuário pedir skill nova:
 4. Se a skill precisar de arquivos de apoio (templates, exemplos),
    criar dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code
+
+---
+
+# Holos — Espaço de Cursos e Terapias
+
+> Perfil **Empresa**. Operação estruturada em setores, várias frentes
+> rodando juntas. O sistema gira em torno de organização interna e fluxo
+> entre áreas.
+
+## O que é esse workspace
+
+Operação da Holos — a maior escola de massoterapia do Brasil (~30 anos,
+prédio próprio de 3 andares em Vila Mariana, SP). Cada setor tem sua área,
+com processos, entregas e documentos.
+
+**Estrutura de pastas:**
+- `_memoria/` — quem é a empresa, como falamos, foco atual
+- `identidade/` — marca aplicada em tudo que o sistema gera (logo, design-guide)
+- `marketing/` — campanhas, conteúdo, mídia paga, relatórios de tráfego
+- `dados/` — arquivos a analisar
+- `saidas/` — documentos pontuais
+- `scripts/` — utilitários Node/Python que as skills chamam (gerar imagem, render PNG, postar em rede social)
+- `templates/` — moldes de skills, perfis e identidade
+
+## Sobre a empresa
+
+Holos é uma escola de massoterapia e terapias complementares. Atuamos em
+formação profissional (curso de massoterapia 1.200h, certificado SINATEN)
+e cursos livres, atendendo pessoas em transição de carreira e terapeutas
+em formação. Operação presencial em SP + EAD (Holos Connect, ~1.000 alunos).
+
+## Setores e responsáveis
+
+- **Presidência:** Luciana Maier — decisão final, estratégia, preços, conteúdo
+- **Operações (COO):** Elis Augaitis — RH, financeiro, recepção, pedagógico, Instagram
+- **Comercial:** Leonardo + Laura (formação), Giovanna (cursos livres) — Mongaguá
+- **Financeiro:** Sônia — cobrança, conciliação, NF
+- **Recepção/Pedagógico:** Adriana (coringa, CLT), Bruna, Mayara
+- **Tecnologia + Tráfego:** Lucio (tráfego, plataformas, estratégia) + Nick (infra, automações, LPs) — via Rede Publicidade
+
+## O que mais fazemos aqui
+
+- Campanhas de matrícula de massoterapia (email + WhatsApp + tráfego pago, cadência D-7/D-3/D-1)
+- Conteúdo de Instagram, Reels e YouTube
+- Landing pages para modalidades e novos produtos
+- Relatórios de tráfego pago (dias 10/20/30)
+- Reativação da base de ex-alunos
+
+## Tom de voz
+
+Próximo, humano e direto — acolhe e orienta, não "vende". Autoridade pelo
+histórico (30 anos, SINATEN), não por jargão. Detalhes em `_memoria/preferencias.md`.
+
+Evitar: linguagem corporativa fria, promessas genéricas, tom acadêmico.
+
+## Regras do sistema
+
+- Campanhas e conteúdo salvar em `marketing/`
+- Relatórios de tráfego em `marketing/relatorios/`
+- **Acordos e contratos (vivos/permanentes) em `acordos/`** — cada parceria com pasta própria e um documento mestre (fonte da verdade). Não usar `saidas/` para isso
+- Documentos pontuais em `saidas/`
+- Arquivos para análise em `dados/`
+- Recomendações para a Luciana = sempre acompanhadas de dados/números
+- O acordo Rede Publicidade × Holos vive em `acordos/rede-publicidade/` — fonte da verdade dos R$13.500/mês
+
+## Ferramentas conectadas
+
+- [ ] Notion
+- [x] Gmail (holos.site@gmail.com)
+- [ ] Google Calendar
+- [x] Google Ads
+- [x] Meta Ads
+- [ ] Slack
+- [x] Brevo · [x] Sponte · [x] ZenPro/PulsarZap · [x] Holos Connect
+
+*(Marcar conforme for instalando os MCPs)*

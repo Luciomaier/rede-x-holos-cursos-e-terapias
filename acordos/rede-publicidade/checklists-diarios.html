@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Holos × Rede — Checklists Diários por Pessoa</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; margin: 12mm 14mm; }
+
+  .header { border-bottom: 3px solid #0057ff; padding-bottom: 8px; margin-bottom: 18px; }
+  .header h1 { font-size: 20px; color: #111; }
+  .header .sub { font-size: 11px; color: #555; margin-top: 2px; }
+
+  /* PESSOA TABS */
+  .pessoa-section { margin-bottom: 28px; }
+  .pessoa-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 8px 12px; border-radius: 4px; }
+  .pessoa-header.lucio { background: #e8f0ff; border-left: 5px solid #0057ff; }
+  .pessoa-header.nick { background: #e8fff0; border-left: 5px solid #1a7a40; }
+  .pessoa-header.elis { background: #fff5e8; border-left: 5px solid #b35900; }
+  .pessoa-inicial { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; color: #fff; flex-shrink: 0; }
+  .lucio .pessoa-inicial { background: #0057ff; }
+  .nick .pessoa-inicial { background: #1a7a40; }
+  .elis .pessoa-inicial { background: #b35900; }
+  .pessoa-info h2 { font-size: 16px; color: #111; }
+  .pessoa-info .cargo { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* DIAS */
+  .dias-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .dia-card { border: 1px solid #ddd; border-radius: 4px; overflow: hidden; }
+  .dia-titulo { padding: 5px 8px; font-weight: bold; font-size: 11px; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+  .lucio .dia-titulo { background: #0057ff; }
+  .nick .dia-titulo { background: #1a7a40; }
+  .elis .dia-titulo { background: #b35900; }
+  .dia-periodo { font-size: 9px; font-weight: normal; opacity: 0.85; }
+  .dia-itens { padding: 6px 8px; }
+  .item { display: flex; gap: 6px; align-items: flex-start; margin-bottom: 5px; }
+  .box { width: 13px; height: 13px; border: 1.5px solid #555; flex-shrink: 0; margin-top: 1px; }
+  .item-text { font-size: 11px; line-height: 1.4; }
+  .item-text .detalhe { font-size: 10px; color: #666; display: block; }
+  .tag-urgente { background: #ffe0e0; color: #c0000a; font-size: 9px; font-weight: bold; padding: 1px 5px; border-radius: 3px; margin-left: 4px; }
+  .tag-fixo { background: #e0eaff; color: #0040cc; font-size: 9px; padding: 1px 5px; border-radius: 3px; margin-left: 4px; }
+  .tag-semanal { background: #e8f8e8; color: #1a7a40; font-size: 9px; padding: 1px 5px; border-radius: 3px; margin-left: 4px; }
+
+  /* LINHA DIÁRIA */
+  .diario-card { border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; overflow: hidden; }
+  .diario-titulo { padding: 5px 10px; font-weight: bold; font-size: 11px; display: flex; justify-content: space-between; }
+  .diario-itens { padding: 6px 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+
+  /* RELATÓRIO */
+  .relatorio-box { background: #f5f9ff; border: 1px solid #0057ff; border-radius: 4px; padding: 10px; margin: 10px 0; }
+  .relatorio-box h4 { color: #0057ff; font-size: 11px; margin-bottom: 6px; text-transform: uppercase; }
+
+  /* SIMULADO */
+  .simulado { background: #fffbf0; border: 1px solid #f0a500; border-radius: 4px; padding: 10px; margin-top: 10px; }
+  .simulado h4 { color: #b37000; font-size: 11px; margin-bottom: 6px; text-transform: uppercase; }
+  .msg { margin-bottom: 6px; font-size: 11px; }
+  .msg .quem { font-weight: bold; }
+  .msg .texto { color: #333; font-style: italic; }
+  .msg .acao { color: #0057ff; font-size: 10px; }
+
+  h3 { font-size: 12px; color: #333; margin: 12px 0 6px 0; font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 3px; }
+
+  .footer { border-top: 1px solid #ddd; padding-top: 8px; margin-top: 20px; text-align: center; font-size: 10px; color: #888; }
+
+  @media print {
+    body { margin: 10mm 12mm; }
+    .pessoa-section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Checklists Diários — Holos × Rede Publicidade</h1>
+  <div class="sub">O que cada pessoa faz em cada dia da semana · Versão 1.0 · Junho/2026</div>
+</div>
+
+<!-- ==================== LÚCIO ==================== -->
+<div class="pessoa-section lucio">
+  <div class="pessoa-header lucio">
+    <div class="pessoa-inicial">L</div>
+    <div class="pessoa-info">
+      <h2>Lúcio</h2>
+      <div class="cargo">Google Ads · Plataformas · Estratégia · PulsarZap · Holos Connect</div>
+    </div>
+  </div>
+
+  <h3>Rotina diária (todo dia antes de tudo)</h3>
+  <div class="diario-card">
+    <div class="diario-titulo lucio" style="background:#0057ff; color:#fff;">⏰ Primeiros 15 minutos do dia</div>
+    <div class="diario-itens">
+      <div class="item"><div class="box"></div><div class="item-text">Holos Connect — algum erro crítico?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">PulsarZap — fila saudável, chips ativos?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">Google Ads — alguma campanha pausada ou reprovada?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">WhatsApp — Elis ou Nick reportaram algum problema?</div></div>
+    </div>
+  </div>
+
+  <div class="dias-grid">
+    <div class="dia-card lucio">
+      <div class="dia-titulo">Segunda <span class="dia-periodo">Planejamento</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Revisar semana anterior — o que funcionou?</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Alinhar prioridades da semana com Nick e Elis</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Google Ads — ajustes de lance se necessário</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Verificar UTMs das campanhas Meta (Nick configurou?)</div></div>
+      </div>
+    </div>
+    <div class="dia-card lucio">
+      <div class="dia-titulo">Terça <span class="dia-periodo">Otimização</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Google Ads — análise de palavras-chave e negativações</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">PulsarZap — verificar fluxo das etapas 1 e 2</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Holos Connect — tickets abertos ou bugs?</div></div>
+      </div>
+    </div>
+    <div class="dia-card lucio">
+      <div class="dia-titulo">Quarta <span class="dia-periodo">Verificação</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Mid-week: Google Ads performando?</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Leads chegando no PulsarZap e sendo atendidos?</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Alguma LP nova do Nick precisa de revisão técnica?</div></div>
+      </div>
+    </div>
+    <div class="dia-card lucio">
+      <div class="dia-titulo">Quinta <span class="dia-periodo">Relatório</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Receber relatório semanal Meta do Nick <span class="tag-urgente">AGUARDAR</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Revisar números Meta + consolidar com Google</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Google Ads — otimização semanal</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Preparar insights para Elis levar à Lu</div></div>
+      </div>
+    </div>
+    <div class="dia-card lucio">
+      <div class="dia-titulo">Sexta <span class="dia-periodo">Fechamento</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Fechar semana — o que precisa de atenção segunda?</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Holos Connect — status geral antes do fim de semana</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">PulsarZap — fila zerada antes do fim de semana?</div></div>
+      </div>
+    </div>
+    <div class="dia-card lucio">
+      <div class="dia-titulo">Sábado/Dom <span class="dia-periodo">Monitoramento</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Checar alertas críticos (apenas emergências)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Campanhas rodando? (olhada rápida)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text"><em>Sem trabalho ativo — apenas monitoramento</em></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relatorio-box">
+    <h4>📊 Quando Lúcio é acionado por Elis</h4>
+    <div class="item" style="margin-bottom:4px"><div class="box"></div><div class="item-text"><strong>Analisa</strong> os dados (campanhas, plataformas, funil)</div></div>
+    <div class="item" style="margin-bottom:4px"><div class="box"></div><div class="item-text"><strong>Responde para Elis</strong> com dados reais + causa + solução + prazo</div></div>
+    <div class="item"><div class="box"></div><div class="item-text"><strong>Nunca responde direto para Lu</strong> — sempre via Elis</div></div>
+  </div>
+</div>
+
+<!-- ==================== NICK ==================== -->
+<div class="pessoa-section nick">
+  <div class="pessoa-header nick">
+    <div class="pessoa-inicial">N</div>
+    <div class="pessoa-info">
+      <h2>Nicolas (Nick)</h2>
+      <div class="cargo">Meta Ads · Conteúdo · Edição de Vídeo · LPs · Email · Copy</div>
+    </div>
+  </div>
+
+  <h3>Rotina diária (todo dia)</h3>
+  <div class="diario-card">
+    <div class="diario-titulo" style="background:#1a7a40; color:#fff;">⏰ Primeiros 15 minutos do dia</div>
+    <div class="diario-itens">
+      <div class="item"><div class="box"></div><div class="item-text">Meta Ads — campanhas ativas, sem reprovações?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">Verba do dia sendo gasta normalmente?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">Algum anúncio com CPL muito acima da média?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">Lu mandou vídeo para editar?</div></div>
+    </div>
+  </div>
+
+  <div class="dias-grid">
+    <div class="dia-card nick">
+      <div class="dia-titulo">Segunda <span class="dia-periodo">Planejamento</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Revisar performance da semana passada (Meta)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Confirmar pauta de conteúdo da semana</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Checar se Lu mandou os 3 vídeos da semana</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Otimizar campanhas com dados do fim de semana</div></div>
+      </div>
+    </div>
+    <div class="dia-card nick">
+      <div class="dia-titulo">Terça <span class="dia-periodo">Edição + Meta</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Editar Reel 1 da semana <span class="tag-urgente">ENTREGA</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Enviar Reel 1 editado para Elis</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Meta Ads — otimização de conjuntos</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">UTMs configuradas nos anúncios novos?</div></div>
+      </div>
+    </div>
+    <div class="dia-card nick">
+      <div class="dia-titulo">Quarta <span class="dia-periodo">LP + Edição</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Trabalhar na LP da semana (conforme roadmap)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Editar Reel 2 da semana</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Enviar Reel 2 editado para Elis</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Mid-week: CPL dentro do esperado?</div></div>
+      </div>
+    </div>
+    <div class="dia-card nick">
+      <div class="dia-titulo">Quinta <span class="dia-periodo">Relatório <span class="tag-urgente">OBRIGATÓRIO</span></span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text"><strong>Entregar relatório semanal Meta para Elis</strong><span class="detalhe">Período: Qui anterior → Qua desta semana</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Relatório deve conter: CPL · ROAS · Alcance · Leads · Top anúncio · Próximos ajustes</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Editar Reel 3 da semana</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Enviar Reel 3 editado para Elis</div></div>
+      </div>
+    </div>
+    <div class="dia-card nick">
+      <div class="dia-titulo">Sexta <span class="dia-periodo">LP + Fechamento</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Entregar LP da semana (se não entregou na qua)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Fechar semana Meta — ajustes finais de lance</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Planejar criativos da próxima semana</div></div>
+      </div>
+    </div>
+    <div class="dia-card nick">
+      <div class="dia-titulo">Sábado <span class="dia-periodo">Conteúdo</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Postar Reel de sábado (Elis posta)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Meta Ads — monitoramento rápido</div></div>
+        <div class="item"><div class="box"></div><div class="item-text"><em>Sem entregas novas no domingo</em></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relatorio-box" style="border-color:#1a7a40; background:#f0fff5;">
+    <h4 style="color:#1a7a40;">📊 Relatório Semanal Meta — Modelo (toda quinta)</h4>
+    <div style="font-size:11px;">
+      <strong>Período:</strong> Qui ___/___ → Qua ___/___ &nbsp;|&nbsp; <strong>Entregue em:</strong> Qui ___/___ para Elis<br><br>
+      <table style="margin:0;">
+        <tr><th>Métrica</th><th>Semana atual</th><th>Semana anterior</th><th>Variação</th></tr>
+        <tr><td>Leads gerados</td><td></td><td></td><td></td></tr>
+        <tr><td>Custo por Lead (CPL)</td><td></td><td></td><td></td></tr>
+        <tr><td>Verba gasta</td><td></td><td></td><td></td></tr>
+        <tr><td>ROAS</td><td></td><td></td><td></td></tr>
+        <tr><td>Alcance total</td><td></td><td></td><td></td></tr>
+        <tr><td>Top anúncio da semana</td><td colspan="3"></td></tr>
+        <tr><td>Ajustes feitos</td><td colspan="3"></td></tr>
+        <tr><td>Próxima semana: foco em</td><td colspan="3"></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ELIS ==================== -->
+<div class="pessoa-section elis">
+  <div class="pessoa-header elis">
+    <div class="pessoa-inicial">E</div>
+    <div class="pessoa-info">
+      <h2>Elis</h2>
+      <div class="cargo">Gerência · Interface Holos → Rede · Conteúdo · Postagem · Reuniões</div>
+    </div>
+  </div>
+
+  <h3>Rotina diária (todo dia)</h3>
+  <div class="diario-card">
+    <div class="diario-titulo" style="background:#b35900; color:#fff;">⏰ Primeiros 15 minutos do dia</div>
+    <div class="diario-itens">
+      <div class="item"><div class="box"></div><div class="item-text">Stories do dia publicados?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">Lu mandou alguma mensagem ou pedido?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">Alguma pendência da equipe para resolver hoje?</div></div>
+      <div class="item"><div class="box"></div><div class="item-text">DMs do Instagram da Holos respondidos?</div></div>
+    </div>
+  </div>
+
+  <div class="dias-grid">
+    <div class="dia-card elis">
+      <div class="dia-titulo">Segunda <span class="dia-periodo">Post + Planejamento</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Postar post de feed <span class="tag-fixo">FIXO</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Lembrar Lu de gravar os 3 vídeos da semana</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Alinhar pauta da semana com Lucio e Nick</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Stories do dia</div></div>
+      </div>
+    </div>
+    <div class="dia-card elis">
+      <div class="dia-titulo">Terça <span class="dia-periodo">Reel + Gestão</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Receber Reel 1 do Nick e postar <span class="tag-fixo">FIXO</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Stories do dia</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Acompanhar pendências da semana</div></div>
+      </div>
+    </div>
+    <div class="dia-card elis">
+      <div class="dia-titulo">Quarta <span class="dia-periodo">Post + Gestão</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Postar post de feed <span class="tag-fixo">FIXO</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Receber Reel 2 do Nick (para postar quinta)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Stories do dia</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Verificar se LP da semana está no prazo (Nick)</div></div>
+      </div>
+    </div>
+    <div class="dia-card elis">
+      <div class="dia-titulo">Quinta <span class="dia-periodo">Reel + Relatório <span class="tag-urgente">CRÍTICO</span></span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Receber e postar Reel 2 <span class="tag-fixo">FIXO</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text"><strong>Receber relatório Meta do Nick</strong><span class="detalhe">Conferir se tem todos os campos preenchidos</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Repassar relatório para Lu com contexto</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Stories do dia</div></div>
+      </div>
+    </div>
+    <div class="dia-card elis">
+      <div class="dia-titulo">Sexta <span class="dia-periodo">Post + Alinhamento</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Postar post de feed <span class="tag-fixo">FIXO</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Alinhamento semanal com Lu (o que foi bem, o que falta)</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Fechar pendências da semana</div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Stories do dia</div></div>
+      </div>
+    </div>
+    <div class="dia-card elis">
+      <div class="dia-titulo">Sábado <span class="dia-periodo">Reel</span></div>
+      <div class="dia-itens">
+        <div class="item"><div class="box"></div><div class="item-text">Receber Reel 3 do Nick e postar <span class="tag-fixo">FIXO</span></div></div>
+        <div class="item"><div class="box"></div><div class="item-text">Stories se houver conteúdo</div></div>
+        <div class="item"><div class="box"></div><div class="item-text"><em>Domingo: sem postagem</em></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMULADO CAMPANHA FRACA -->
+  <div class="simulado">
+    <h4>🎭 Simulado — "Campanha Fraca" · Como Elis deve agir</h4>
+    <div class="msg"><span class="quem">Lu → Elis:</span> <span class="texto">"Elis, o telefone tá muito fraco essa semana. Quase não estou recebendo leads."</span></div>
+    <div class="msg"><span class="quem">Elis → Lucio:</span> <span class="texto">"Lu falou que o telefone tá fraco, poucos leads chegando. Consegues olhar as campanhas e me dar um retorno hoje?"</span></div>
+    <div class="msg"><span class="acao">[ Lucio analisa: campanhas, CPL, PulsarZap, Google, Meta ]</span></div>
+    <div class="msg"><span class="quem">Lucio → Elis:</span> <span class="texto">"O CPL subiu de R$12 para R$28 — algoritmo em fase de aprendizado após ajuste de sexta. Já corrigi. Normaliza em 48h."</span></div>
+    <div class="msg"><span class="quem">Elis → Lu:</span> <span class="texto">"Lu, o Lucio verificou. Foi uma fase de ajuste automático do algoritmo após uma otimização que fizemos. Ele já corrigiu e volta ao normal até quarta. Sem problema na campanha — é processo. O relatório de quinta confirma."</span></div>
+    <div style="margin-top:8px; font-size:10px; color:#b37000;"><strong>Regra:</strong> Elis nunca diz "não sei" para Lu sem antes consultar Lucio. E Lucio nunca responde direto para Lu sem passar por Elis.</div>
+  </div>
+</div>
+
+<div class="footer">
+  Checklists Diários · Holos × Rede Publicidade · Versão 1.0 · Junho/2026 · Documento interno
+</div>
+
+</body>
+</html>

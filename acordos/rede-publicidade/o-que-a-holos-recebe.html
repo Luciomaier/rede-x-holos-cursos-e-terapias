@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Holos — Visão do Trabalho</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #6272C4;
+    background: #fff;
+  }
+
+  /* ── PÁGINA ── */
+  .pagina {
+    width: 297mm;
+    height: 210mm;
+    padding: 10mm 14mm 8mm 14mm;
+    page-break-after: always;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── CABEÇALHO ── */
+  .topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2.5px solid #6272C4;
+    padding-bottom: 7px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+  }
+  .topo h1 { font-size: 26px; font-weight: 900; color: #6272C4; line-height: 1.15; }
+  .topo h1 small { display: block; font-size: 12px; font-weight: 400; color: #666; margin-top: 3px; }
+  .slide-num { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #bbb; text-align: right; padding-top: 4px; white-space: nowrap; }
+
+  /* ── CAPA ── */
+  .capa {
+    width: 297mm;
+    height: 210mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20mm 20mm;
+    page-break-after: always;
+  }
+  .capa .logo { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 28px; }
+  .capa h1 { font-size: 52px; font-weight: 900; line-height: 1.1; margin-bottom: 8px; }
+  .capa h1 em { display: block; font-size: 24px; font-weight: 300; font-style: normal; color: #444; margin-top: 12px; }
+  .capa .linha { width: 60px; height: 3px; background: #6272C4; margin: 26px auto; }
+  .capa .sub { font-size: 16px; color: #555; line-height: 1.8; max-width: 440px; margin-bottom: 50px; }
+  .capa .data { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #bbb; }
+
+  /* ── TABELAS ── */
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #6272C4; color: #fff; padding: 9px 11px; text-align: left; font-size: 11px; letter-spacing: 0.3px; text-transform: uppercase; }
+  td { padding: 7px 10px; border-bottom: 1px solid #e5e5e5; font-size: 11.5px; vertical-align: top; line-height: 1.4; }
+  tr:nth-child(even) td { background: #f9f9f9; }
+  .tr-total td { background: #6272C4; color: #fff; font-weight: bold; font-size: 13px; padding: 10px; }
+  .bold { font-weight: bold; }
+  .valor { font-weight: bold; font-size: 13px; white-space: nowrap; }
+
+  /* ── CARDS — sem altura forçada ── */
+  .cards { display: flex; gap: 10px; margin-top: 10px; }
+  .card { flex: 1; border: 1.5px solid #6272C4; padding: 14px; }
+  .card-tag { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 5px; }
+  .card-nome { font-size: 22px; font-weight: 900; margin-bottom: 3px; }
+  .card-cargo { font-size: 11px; color: #666; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+  .card ul { padding-left: 16px; }
+  .card li { margin-bottom: 7px; font-size: 12.5px; line-height: 1.5; }
+
+  /* ── DOIS BLOCOS ── */
+  .dois-blocos { display: flex; gap: 16px; margin-top: 14px; }
+  .bloco { flex: 1; border-left: 3px solid #6272C4; padding-left: 12px; }
+  .bloco-titulo { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  .bloco ul { padding-left: 14px; }
+  .bloco li { font-size: 13px; margin-bottom: 8px; line-height: 1.6; }
+
+  /* ── FLUXO ── */
+  .fluxo { display: flex; align-items: stretch; margin: 14px 0; }
+  .fluxo-box { border: 2px solid #6272C4; padding: 10px 14px; text-align: center; flex: 1; }
+  .fluxo-box.destaque { background: #6272C4; color: #fff; }
+  .fluxo-box strong { display: block; font-size: 13px; font-weight: 900; }
+  .fluxo-box small { font-size: 9.5px; color: #777; }
+  .fluxo-box.destaque small { color: #ccc; }
+  .fluxo-seta { display: flex; align-items: center; padding: 0 8px; font-size: 18px; font-weight: bold; }
+
+  /* ── FUNIL ── */
+  .funil { display: flex; align-items: stretch; margin: 14px 0; }
+  .funil-etapa { flex: 1; border: 1.5px solid #6272C4; padding: 10px 8px; text-align: center; margin-right: -1px; }
+  .funil-etapa.fim { background: #6272C4; color: #fff; }
+  .funil-etapa strong { display: block; font-size: 10.5px; font-weight: 900; margin-bottom: 4px; }
+  .funil-etapa small { font-size: 9px; color: #777; line-height: 1.4; }
+  .funil-etapa.fim small { color: #ccc; }
+  .funil-seta { display: flex; align-items: center; padding: 0 5px; font-size: 14px; font-weight: bold; color: #6272C4; }
+
+  /* ── LISTA NUMERADA ── */
+  .lista-num { margin-top: 12px; }
+  .item-num { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid #eee; }
+  .item-num:last-child { border-bottom: none; }
+  .num-grande { font-size: 28px; font-weight: 900; color: #ddd; min-width: 30px; line-height: 1; }
+  .item-corpo .titulo { font-size: 14px; font-weight: bold; margin-bottom: 5px; }
+  .item-corpo .desc { font-size: 12px; color: #444; line-height: 1.7; }
+  .item-corpo .resp { font-size: 10px; letter-spacing: 1px; color: #999; text-transform: uppercase; margin-top: 5px; }
+
+  /* ── GRADE CONTEÚDO ── */
+  .grade { display: grid; grid-template-columns: 70px 1fr 1fr 1fr; gap: 1px; background: #6272C4; margin-top: 12px; }
+  .gc { background: #fff; padding: 9px 10px; font-size: 12px; line-height: 1.5; }
+  .gc.header { background: #6272C4; color: #fff; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: bold; }
+  .gc.dia { font-weight: bold; }
+
+  /* ── STATUS ── */
+  .ok { display: inline-block; background: #6272C4; color: #fff; font-size: 9px; padding: 2px 8px; }
+  .andamento { display: inline-block; border: 1px solid #555; color: #555; font-size: 9px; padding: 2px 8px; }
+
+  /* ── FRASE DESTAQUE ── */
+  .frase { border-top: 1.5px solid #6272C4; border-bottom: 1.5px solid #6272C4; padding: 16px 10px; margin: 16px 0; text-align: center; font-size: 16px; line-height: 1.8; }
+  .frase strong { font-weight: 900; font-size: 17px; }
+
+  /* ── NÚMEROS GRANDES ── */
+  .nums-row { display: flex; gap: 0; margin-top: 16px; }
+  .big-num { flex: 1; text-align: center; padding: 20px 10px; border: 1.5px solid #6272C4; margin-right: -1px; }
+  .big-num .n { font-size: 60px; font-weight: 900; line-height: 1; }
+  .big-num .l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #777; margin-top: 8px; }
+
+  /* ── CAIXA DESTAQUE ── */
+  .caixa { border: 1.5px solid #6272C4; padding: 14px 16px; margin-top: 14px; }
+  .caixa-titulo { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+
+  /* ── RODAPÉ ── */
+  .rodape { margin-top: auto; padding-top: 10px; border-top: 1px solid #eee; font-size: 9px; color: #bbb; letter-spacing: 1px; text-align: center; flex-shrink: 0; }
+
+  @media print {
+    @page { margin: 0; size: A4 landscape; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pagina { page-break-after: always; }
+    .capa { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ CAPA ══ -->
+<div class="capa">
+  <div class="logo">O Rede × Holos Cursos e Terapias</div>
+  <h1>O que a Holos recebe.
+    <em>Com a parceria com O Rede.</em>
+  </h1>
+  <div class="linha"></div>
+  <div class="sub">Cada entrega com nome, responsável e propósito — para que a Holos possa crescer com clareza, previsibilidade e resultado todo mês.</div>
+  <div class="data">Junho · 2026</div>
+</div>
+
+<!-- ══ 01 — POR QUE ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>Por que estamos aqui. <small>O contexto que faltava.</small></h1>
+    <div class="slide-num">01 de 07</div>
+  </div>
+
+  <div class="frase">"Não é cobrança. É <strong>clareza.</strong>"</div>
+
+  <div class="dois-blocos">
+    <div class="bloco">
+      <div class="bloco-titulo">Como era antes</div>
+      <ul>
+        <li>Trabalho invisível — esforço sem registro</li>
+        <li>Tudo dependia de memória e suposição</li>
+        <li>"Pensei que estava sendo feito"</li>
+        <li>Sem previsibilidade de custo ou entrega</li>
+        <li>Um erro apagava dez acertos</li>
+        <li>Cobrança sem contexto, sem dados</li>
+      </ul>
+    </div>
+    <div class="bloco">
+      <div class="bloco-titulo">Como é agora</div>
+      <ul>
+        <li>Cada entrega tem nome e responsável</li>
+        <li>Fluxo de informação definido e previsível</li>
+        <li>Relatório de desempenho 3× por mês (dias 10, 20 e 30)</li>
+        <li>Custo fixo — sem surpresas no mês</li>
+        <li>Histórico visível do que foi entregue</li>
+        <li>Conversa com dados, não com suposição</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caixa" style="margin-top:18px;">
+    <div class="caixa-titulo">O que motivou este documento</div>
+    <p style="font-size:12.5px; line-height:1.8; color:#333;">
+      A Holos cresce. A equipe cresce. Quando tudo cresce junto, fica difícil enxergar quem faz o quê. Este documento existe para mudar isso — não para cobrar, mas para que você possa <strong>confiar</strong>. Para que possamos crescer juntos sem depender de memória ou suposição.
+    </p>
+  </div>
+
+  <div class="frase" style="margin-top:18px; font-size:13px;">
+    "A Holos merece saber o que está sendo entregue.<br>
+    <strong>Esse documento é a nossa resposta.</strong>"
+  </div>
+
+  <div class="rodape">Rede Publicidade · Junho/2026</div>
+</div>
+
+<!-- ══ 02 — EQUIPE ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>A equipe. <small>Três pessoas. Funções claras. Sem sobreposição.</small></h1>
+    <div class="slide-num">02 de 07</div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-tag">Gerência · Interface</div>
+      <div class="card-nome">Elis</div>
+      <div class="card-cargo">Coordenação · Conteúdo · Interface com Holos</div>
+      <ul>
+        <li>Coordena a equipe internamente</li>
+        <li>Alinha com Luciana toda semana</li>
+        <li>Publica conteúdo diariamente</li>
+        <li>Repassa relatórios com contexto</li>
+        <li>Filtra e direciona demandas</li>
+        <li>Ponto de contato oficial do Rede</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-tag">Google Ads · Plataformas</div>
+      <div class="card-nome">Lúcio</div>
+      <div class="card-cargo">Estratégia · Google · Sistemas</div>
+      <ul>
+        <li>Gestão Google Ads</li>
+        <li>Holos Connect + CRM</li>
+        <li>PulsarZap — automação WhatsApp</li>
+        <li><strong>API Oficial Meta — em desenvolvimento</strong> · migração segura, sem risco de bloqueio</li>
+        <li>Estratégia geral do funil</li>
+        <li>Google Meu Negócio</li>
+        <li>Diagnóstico de performance</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-tag">Meta Ads · Conteúdo</div>
+      <div class="card-nome">Nicholas</div>
+      <div class="card-cargo">Meta · Landing Pages · Copy · Edição</div>
+      <ul>
+        <li>Gestão Meta Ads — todas as campanhas</li>
+        <li>Relatório por dezena (dias 10, 20 e 30)</li>
+        <li>Landing pages (1 por semana)</li>
+        <li>Copy e email marketing</li>
+        <li>Edição de Reels (3 por semana)</li>
+        <li>UTMs em todos os anúncios</li>
+        <li>Estratégia geral do funil</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="caixa" style="margin-top:18px;">
+    <div class="caixa-titulo">Como funciona na prática</div>
+    <p style="font-size:12px; line-height:1.8; color:#333;">
+      Luciana fala com <strong>Elis</strong>. Elis coordena <strong>Lúcio</strong> e <strong>Nicholas</strong>. Cada demanda tem um dono. Cada entrega tem um prazo. Ninguém fica sem saber o que fazer — e Luciana nunca fica sem resposta.
+    </p>
+  </div>
+
+  <div class="frase" style="margin-top:18px;">
+    "Três pessoas. Um objetivo.<br>
+    <strong>A Holos vendendo mais todo mês.</strong>"
+  </div>
+
+  <div class="rodape">Rede Publicidade · Junho/2026</div>
+</div>
+
+<!-- ══ 03 — SERVIÇOS ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>O que está no pacote. <small>Cinco linhas. Valor fixo. Sem surpresa.</small></h1>
+    <div class="slide-num">03 de 07</div>
+  </div>
+
+  <table style="margin-top:6px;">
+    <tr>
+      <th style="width:24%">Serviço</th>
+      <th style="width:44%">O que inclui</th>
+      <th style="width:17%">Responsável</th>
+      <th style="width:15%">Valor/mês</th>
+    </tr>
+    <tr>
+      <td class="bold">Tráfego Pago</td>
+      <td>Campanhas Meta + Google · Otimização contínua · UTMs em tudo · Relatório por dezena</td>
+      <td>Nicholas + Lúcio</td>
+      <td class="valor">R$ 3.000</td>
+    </tr>
+    <tr>
+      <td class="bold">Site + LPs + Copy + Email</td>
+      <td>Landing pages (1 por semana) · Copy · E-mail marketing · Disparos</td>
+      <td>Nicholas + Elis</td>
+      <td class="valor">R$ 1.500</td>
+    </tr>
+    <tr>
+      <td class="bold">Gerência Geral</td>
+      <td>Coordenação da equipe · Reuniões · Relatórios · Alinhamento com a direção</td>
+      <td>Elis</td>
+      <td class="valor">R$ 6.000</td>
+    </tr>
+    <tr>
+      <td class="bold">Holos Connect + CRM PulsarZap <span style="font-weight:normal;font-size:10px;color:#999;">(ex-ZenPro)</span></td>
+      <td>Plataforma de alunos · CRM PulsarZap = automação WhatsApp + gestão de leads integrados · Rastreamento de leads · <strong style="color:#6272C4;">Substitui custo variável existente</strong> · média R$992/mês (jan–mai/26) · Infraestrutura por conta do Rede</td>
+      <td>Lúcio</td>
+      <td class="valor">R$ 1.000<br><span style="font-size:9px;color:#888;font-weight:normal;">era variável<br>~R$992/mês</span></td>
+    </tr>
+    <tr style="background:#f0f0f0; border-left:3px solid #6272C4;">
+      <td class="bold" style="border-left:3px solid #6272C4;">API Oficial Meta <span style="display:inline-block;background:#6272C4;color:#fff;font-size:8px;padding:2px 6px;margin-left:5px;letter-spacing:1px;">PRIORIDADE</span></td>
+      <td>Migração do número da Holos para API Oficial da Meta · Elimina risco de bloqueio · Maior entregabilidade · Escala segura de mensagens · Número protegido</td>
+      <td>Lúcio + Nicholas</td>
+      <td class="valor" style="font-size:11px;">incluso<br><span style="font-size:9px;color:#888;font-weight:normal;">mercado: R$800–3.000</span></td>
+    </tr>
+    <tr>
+      <td class="bold">Social + Edição de Vídeo</td>
+      <td>3 Reels/semana editados · Posts de feed · Stories diários · Lu grava, Nick edita, Elis publica</td>
+      <td>Nicholas + Elis</td>
+      <td class="valor">R$ 2.000</td>
+    </tr>
+    <tr style="border-top:2px solid #6272C4;">
+      <td colspan="3" style="padding:10px 11px; font-size:11px; color:#555; letter-spacing:0.5px; font-style:italic;">Parceria completa · equipe dedicada · custo previsível · resultado todo mês</td>
+      <td style="padding:10px 11px; font-weight:bold; font-size:13px; color:#6272C4; white-space:nowrap;">R$ 13.500/mês</td>
+    </tr>
+  </table>
+
+  <div style="margin-top:10px; font-size:10px; color:#888; border-left:2px solid #ddd; padding-left:8px; line-height:1.6;">
+    <strong>Não incluso:</strong> Verba de anúncio (paga pela Holos direto às plataformas) · Gravação de vídeos (Luciana grava) · Novas funcionalidades no Holos Connect (orçamento separado)
+  </div>
+
+  <div class="dois-blocos" style="margin-top:16px;">
+    <div class="bloco">
+      <div class="bloco-titulo">Contrato atual (antes)</div>
+      <ul>
+        <li>Tráfego R$ 3.000 — mantém</li>
+        <li>Site + email R$ 1.500 — mantém</li>
+        <li>Gestão Comercial R$ 3.000 — some</li>
+        <li>Lucratividade R$ 3.000 — some</li>
+        <li>Comissão R$ 1.250 — some</li>
+        <li>Social mídia R$ 0 — entra</li>
+        <li><strong>Total: R$ 11.750 + extras imprevistos</strong></li>
+      </ul>
+    </div>
+    <div class="bloco">
+      <div class="bloco-titulo">Nova proposta — Julho/2026</div>
+      <ul>
+        <li>Tráfego R$ 3.000 — mantém</li>
+        <li>Site + email R$ 1.500 — mantém</li>
+        <li>Gerência R$ 6.000 — sobe (Elis valorizada)</li>
+        <li>Social + edição R$ 2.000 — novo</li>
+        <li>API Oficial Meta — incluso (bloqueios resolvidos)</li>
+        <li>Comissão comercial O Rede — <strong>zero</strong></li>
+        <li>Participação de resultados — <em>a definir em conjunto</em></li>
+        <li><strong>Total: R$ 13.500 fixo — sem surpresas</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:10px; font-size:10px; color:#777; border-left:2px solid #C5CAE9; padding-left:8px; line-height:1.7;">
+    <strong>Readequação de comissão comercial:</strong> Giovanna (Comercial Mongaguá) — R$1.621 fixo + 10% comissão hoje. Na nova estrutura: comissão reduzida para 5% — o percentual que anteriormente era repassado ao O Rede passa a ficar na Holos. Custo variável reduz dos dois lados.
+  </div>
+
+  <div class="rodape">Rede Publicidade · Junho/2026</div>
+</div>
+
+<!-- ══ 04 — FUNIL ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>O funil comercial. <small>Como o lead vira aluno.</small></h1>
+    <div class="slide-num">04 de 07</div>
+  </div>
+
+  <div class="funil">
+    <div class="funil-etapa"><strong>Alcance</strong><small>Google · Meta<br>Email · GMN</small></div>
+    <div class="funil-seta">→</div>
+    <div class="funil-etapa"><strong>Geração de Lead</strong><small>PulsarZap · UTM<br>Tag de campanha</small></div>
+    <div class="funil-seta">→</div>
+    <div class="funil-etapa"><strong>Pré-Qualificação</strong><small>4 etapas<br>automáticas</small></div>
+    <div class="funil-seta">→</div>
+    <div class="funil-etapa"><strong>Giovanna</strong><small>Comercial Mongaguá<br>CRM · Cursos Livres<br>Encaminhamento escola</small></div>
+    <div class="funil-seta">→</div>
+    <div class="funil-etapa fim"><strong>Matrícula</strong><small>Meta: 50/mês</small></div>
+  </div>
+
+  <div class="lista-num">
+    <div class="item-num">
+      <div class="num-grande">01</div>
+      <div class="item-corpo">
+        <div class="titulo">Pré-qualificação automática — 4 etapas via PulsarZap</div>
+        <div class="desc">Lead entra → Boas-vindas + coleta Nome e Email → Região (GODOI filtra localização) → Grade de turmas → Opções de turmas + Áudios → LP do produto</div>
+        <div class="resp">Nicholas · Etapas 1 e 2 ✅ funcionando · Etapas 3 e 4 em desenvolvimento</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande">02</div>
+      <div class="item-corpo">
+        <div class="titulo">5 Mensagens de follow-up pós-qualificação</div>
+        <div class="desc">Dia 0: "ficou alguma dúvida?" · Dia 1: "o que te fez procurar a Holos?" · Dia 3: "turmas de julho preenchendo" · Dia 5: "o que te trava? Preço, tempo, localização?" · Dia 7: "quando fizer sentido, me chame"</div>
+        <div class="resp">Nicholas · Entregue em 02/06/2026</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande">03</div>
+      <div class="item-corpo">
+        <div class="titulo">Landing Pages — 1 por semana (roadmap definido)</div>
+        <div class="desc">Locação de Salas ✅ · Atendimento Social ✅ · Masso EAD · Matrículas · Masso Essencial · Masso Flex · Masso Presencial</div>
+        <div class="resp">Nicholas · 1 LP por semana a partir de junho</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caixa" style="margin-top:14px;">
+    <div class="caixa-titulo">Meta do funil</div>
+    <p style="font-size:12px; line-height:1.7;">
+      <strong>50 matrículas/mês</strong> (25 mensalistas · 25 pagamento integral) · verba gerenciada ~R$25k/mês. Cada etapa tem um dono — nenhum lead se perde. <strong>Giovanna</strong> — Comercial Mongaguá — atende via CRM, confirma cursos livres, realiza vendas presenciais e encaminha novos alunos à escola. Meta comercial: <strong>R$15k/mês</strong>.
+    </p>
+  </div>
+
+  <div class="rodape">Rede Publicidade · Junho/2026</div>
+</div>
+
+<!-- ══ 05 — CONTEÚDO + COMUNICAÇÃO ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>Conteúdo e comunicação. <small>Instagram ativo todos os dias. Informação fluindo.</small></h1>
+    <div class="slide-num">05 de 07</div>
+  </div>
+
+  <div class="grade">
+    <div class="gc header dia">Dia</div>
+    <div class="gc header">O que publica</div>
+    <div class="gc header">Nicholas</div>
+    <div class="gc header">Elis</div>
+    <div class="gc dia">Segunda</div><div class="gc">Post de feed</div><div class="gc">—</div><div class="gc">Cria e publica</div>
+    <div class="gc dia">Terça</div><div class="gc">Reel <em style="font-size:9px;color:#888;">(Lu grava e manda)</em></div><div class="gc">Edita</div><div class="gc">Publica</div>
+    <div class="gc dia">Quarta</div><div class="gc">Post de feed</div><div class="gc">—</div><div class="gc">Cria e publica</div>
+    <div class="gc dia">Quinta</div><div class="gc">Reel</div><div class="gc">Edita</div><div class="gc">Publica</div>
+    <div class="gc dia">Sexta</div><div class="gc">Post de feed</div><div class="gc">—</div><div class="gc">Cria e publica</div>
+    <div class="gc dia">Sábado</div><div class="gc">Reel <em style="font-size:9px;color:#888;">(Lu grava e manda)</em></div><div class="gc">Edita</div><div class="gc">Publica</div>
+    <div class="gc dia">Todo dia</div><div class="gc">Stories</div><div class="gc">—</div><div class="gc">Publica</div>
+  </div>
+
+  <div style="margin-top:16px;">
+    <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#888; margin-bottom:10px;">Como a informação flui</div>
+    <div class="fluxo">
+      <div class="fluxo-box"><strong>Luciana</strong><small>Diretora</small></div>
+      <div class="fluxo-seta">→</div>
+      <div class="fluxo-box destaque"><strong>Elis</strong><small>Ponto de contato</small></div>
+      <div class="fluxo-seta">→</div>
+      <div class="fluxo-box"><strong>Lúcio / Nicholas</strong><small>Execução</small></div>
+    </div>
+
+    <table style="margin-top:10px;">
+      <tr>
+        <th>Situação</th>
+        <th>Quem aciona</th>
+        <th>O que acontece</th>
+      </tr>
+      <tr>
+        <td>Poucos leads / telefone fraco</td>
+        <td>Luciana → Elis</td>
+        <td>Elis consulta Lúcio → análise com dados → resposta estruturada para Lu</td>
+      </tr>
+      <tr>
+        <td>Problema técnico (plataforma/bot)</td>
+        <td>Elis → Lúcio</td>
+        <td>Lúcio resolve + informa prazo → Elis informa Lu</td>
+      </tr>
+      <tr>
+        <td>Solicitação nova (fora do escopo)</td>
+        <td>Luciana → Elis</td>
+        <td>Elis traz para equipe avaliar e orçar separado</td>
+      </tr>
+      <tr>
+        <td>Relatório de desempenho</td>
+        <td>Nicholas → Elis</td>
+        <td>Dias 10, 20 e 30 · Elis repassa com contexto · Números reais</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="rodape">Rede Publicidade · Junho/2026</div>
+</div>
+
+<!-- ══ 06 — METAS ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>Metas e indicadores. <small>Matrículas · Faturamento · Leads · Presença digital.</small></h1>
+    <div class="slide-num">06 de 07</div>
+  </div>
+
+  <div style="display:flex; gap:18px; margin-top:8px; flex:1; min-height:0;">
+
+    <!-- ESQUERDA: Cursos e matrículas -->
+    <div style="flex:1.2;">
+      <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:5px;">Cursos · meta de matrículas</div>
+      <table>
+        <tr><th>Produto</th><th>Preço</th><th>Meta/mês</th><th>LP</th></tr>
+        <tr><td class="bold">Masso EAD</td><td>12× R$98</td><td>10</td><td><span class="andamento">Em dev</span></td></tr>
+        <tr><td class="bold">Masso Essencial</td><td>12× R$197</td><td>10</td><td><span class="andamento">Em dev</span></td></tr>
+        <tr><td class="bold">Masso Flex</td><td>12× R$290</td><td>15</td><td><span class="andamento">Em dev</span></td></tr>
+        <tr><td class="bold">Masso Presencial</td><td>12× R$350</td><td>15</td><td><span class="andamento">Em dev</span></td></tr>
+        <tr><td class="bold">Locação de Salas</td><td>—</td><td>—</td><td><span class="ok">Pronto</span></td></tr>
+        <tr><td class="bold">Atendimento Social</td><td>—</td><td>—</td><td><span class="ok">Pronto</span></td></tr>
+        <tr style="border-top:2px solid #6272C4;">
+          <td colspan="2" style="font-size:10px;color:#666;font-style:italic;padding:7px 10px;">25 mensalistas · 25 pagamento integral</td>
+          <td style="font-weight:bold;font-size:14px;color:#6272C4;padding:7px 10px;">50/mês</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- DIREITA: Financeiro + Leads + Digital -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;min-height:0;">
+
+      <div>
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:5px;">Metas financeiras</div>
+        <table>
+          <tr><th>Indicador</th><th>Atual</th><th>Meta</th></tr>
+          <tr><td class="bold">Faturamento geral</td><td style="color:#aaa;">—</td><td class="valor">R$180k–R$200k/mês</td></tr>
+          <tr><td class="bold">Novos (Masso)</td><td style="color:#aaa;">—</td><td class="valor">R$100k/mês</td></tr>
+          <tr><td class="bold">Recorrência</td><td>R$30k/mês</td><td class="valor">R$50k/mês</td></tr>
+          <tr><td class="bold">Verba campanhas</td><td>~R$25k/mês</td><td style="font-size:10px;color:#999;">a definir</td></tr>
+        </table>
+        <div style="font-size:9px;color:#bbb;padding:3px 4px;">* Recorrência já está composta no faturamento geral</div>
+      </div>
+
+      <div>
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:5px;">Leads e presença digital</div>
+        <table>
+          <tr><th>Canal</th><th>Atual</th><th>Meta</th></tr>
+          <tr><td class="bold">Novos leads/mês</td><td style="color:#aaa;">—</td><td>200–300 (email + WhatsApp CRM)</td></tr>
+          <tr><td class="bold">Instagram</td><td>23.100 seg.</td><td>+600 seg./mês · engaj. 2–3% · salvos ↑</td></tr>
+          <tr><td class="bold">YouTube TV Holos</td><td>5.790 inscritos</td><td>—</td></tr>
+          <tr><td class="bold">Google GMN ⭐ 4,7</td><td>351 avaliações</td><td>500 avaliações</td></tr>
+          <tr><td class="bold">WhatsApp Holos News</td><td>627 membros</td><td>1.000</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="rodape">Rede Publicidade · Junho/2026</div>
+</div>
+
+<!-- ══ 07 — CRM ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>Implantação do CRM. <small>Toda a equipe. Fluxos por função. Dados organizados.</small></h1>
+    <div class="slide-num">07 de 08</div>
+  </div>
+
+  <div style="margin-top:8px;">
+    <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:6px;">Quem já usa o CRM — implantação em andamento</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Luciana <span style="font-weight:normal;color:#888;">· Direção</span></span>
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Elis <span style="font-weight:normal;color:#888;">· Coordenação</span></span>
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Giovanna <span style="font-weight:normal;color:#888;">· Comercial Mongaguá</span></span>
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Cris <span style="font-weight:normal;color:#888;">· Comercial</span></span>
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Laura <span style="font-weight:normal;color:#888;">· Comercial</span></span>
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Leonardo <span style="font-weight:normal;color:#888;">· Comercial</span></span>
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Recepção <span style="font-weight:normal;color:#888;">· Atendimento</span></span>
+      <span style="border:1.5px solid #6272C4;color:#6272C4;font-size:10px;padding:3px 10px;font-weight:bold;">Sônia <span style="font-weight:normal;color:#888;">· Financeiro</span></span>
+    </div>
+  </div>
+
+  <div class="lista-num" style="margin-top:10px;">
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">01</div>
+      <div class="item-corpo">
+        <div class="titulo">Diagnóstico — quem usa, como usa, o que falta</div>
+        <div class="desc">Mapear o uso atual por função. Identificar gaps: dados duplicados, fluxos sem dono, informações que entram mas não saem organizadas. Resultado: mapa de uso real × uso ideal por função.</div>
+        <div class="resp">Lúcio · Julho/2026</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">02</div>
+      <div class="item-corpo">
+        <div class="titulo">Treinamento por grupo funcional</div>
+        <div class="desc"><strong>Comercial</strong> (Giovanna + Cris) — leads, pipeline, conversão · <strong>Financeiro</strong> (Sônia) — registros e histórico · <strong>Atendimento</strong> (Recepção + Laura + Leonardo) — entrada de contatos e encaminhamento · <strong>Gestão</strong> (Luciana + Elis) — visão geral, relatórios, decisão. Sessões curtas, focadas, com material de apoio.</div>
+        <div class="resp">Lúcio · Julho–Agosto/2026</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">03</div>
+      <div class="item-corpo">
+        <div class="titulo">Oficialização — protocolo, fluxos e integração PulsarZap</div>
+        <div class="desc">Protocolo formal de uso por função documentado. Fluxos de entrada, acompanhamento e encerramento de contatos definidos. CRM integrado ao PulsarZap — lead que entra pelo WhatsApp já aparece organizado no painel, sem trabalho manual.</div>
+        <div class="resp">Lúcio · Agosto/2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;border-left:3px solid #C5CAE9;padding-left:10px;font-size:10.5px;color:#555;line-height:1.7;">
+    <strong>Suporte técnico e desenvolvimento:</strong> Lúcio — incluso no valor mensal do Holos Connect + CRM + PulsarZap. Não é um projeto à parte — é parte do que já está contratado.
+  </div>
+
+  <div class="rodape">Rede Publicidade · Junho/2026</div>
+</div>
+
+<!-- ══ 07 — PRÓXIMOS PASSOS ══ -->
+<div class="pagina">
+  <div class="topo">
+    <h1>Próximos passos. <small>Três etapas. Sequência clara.</small></h1>
+    <div class="slide-num">08 de 08</div>
+  </div>
+
+  <div class="lista-num">
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">01</div>
+      <div class="item-corpo">
+        <div class="titulo">Esta reunião — revisão e alinhamento</div>
+        <div class="desc">Luciana revisa o escopo linha por linha. Confirma o que faz sentido. Ajusta o que precisar. Perguntas abertas — estamos aqui para ouvir e ajustar.</div>
+        <div class="resp">Luciana · Elis · Lúcio · Hoje</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">02</div>
+      <div class="item-corpo">
+        <div class="titulo">Formalização do contrato</div>
+        <div class="desc">Documento formal com escopo, valores e responsabilidades definidos. Assinado por ambas as partes. Sem ambiguidade, sem surpresa no mês.</div>
+        <div class="resp">Rede Publicidade + Holos · Julho/2026</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">03</div>
+      <div class="item-corpo">
+        <div class="titulo">Operação com visibilidade total</div>
+        <div class="desc">Cada entrega documentada. Relatório 3× por mês (dias 10, 20 e 30). Luciana focada no que sabe fazer — a equipe entregando o que prometeu.</div>
+        <div class="resp">Equipe completa · A partir de julho</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">04</div>
+      <div class="item-corpo">
+        <div class="titulo">Reunião Semanal de Marketing — toda sexta</div>
+        <div class="desc">45 min · pauta fixa · três pilares: <strong>Vendas</strong> (leads, matrículas, funil) · <strong>Custos</strong> (verba e sistemas) · <strong>Experiência do aluno</strong> (plataforma e retenção). Cada bloco: o que foi feito, o que está travado, próxima ação. Horário fixo a definir.</div>
+        <div class="resp">Luciana · Elis · Lúcio · Nicholas · Sextas · A partir de julho</div>
+      </div>
+    </div>
+    <div class="item-num">
+      <div class="num-grande" style="color:#6272C4;">05</div>
+      <div class="item-corpo">
+        <div class="titulo">Calendário de planejamento mensal — fim do timing perdido</div>
+        <div class="desc"><strong>Dia 10 — Planejamento estratégico:</strong> quais cursos recebem investimento · se há lançamento ou evento (mínimo 45 dias de antecedência) · Nicholas já sabe quais LPs construir · Luciana já sabe o que filmar. <strong>Dia 20 — Fechamento operacional:</strong> verbas por campanha fechadas · criativos confirmados · campanha pronta para entrar no ar no dia 1 do mês. <em>Quando existe estrutura, a gente consegue — e não perde o timing.</em></div>
+        <div class="resp">Elis · Lúcio · Luciana · Todo mês · A partir de julho</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:14px; padding:12px; border:1.5px solid #6272C4;">
+    <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#aaa; margin-bottom:6px;">Apresentado por</div>
+    <div style="font-size:16px; font-weight:900;">Elis · Lúcio · Nicholas</div>
+    <div style="font-size:11px; color:#777; margin-top:4px;">Rede Publicidade · Junho de 2026</div>
+  </div>
+
+  <div class="rodape" style="margin-top:16px;">Rede Publicidade · Junho/2026 · Documento interno — não distribuir sem revisão final</div>
+</div>
+
+</body>
+</html>

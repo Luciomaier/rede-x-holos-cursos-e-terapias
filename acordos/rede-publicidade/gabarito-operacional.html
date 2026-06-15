@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Holos × Rede Publicidade — Gabarito Operacional</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 12px; color: #111; background: #fff; margin: 15mm 15mm; }
+
+  /* CABEÇALHO */
+  .header { border-bottom: 3px solid #0057ff; padding-bottom: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .header h1 { font-size: 22px; color: #111; }
+  .header .meta { text-align: right; font-size: 10px; color: #555; }
+  .header .badge { background: #0057ff; color: #fff; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: bold; }
+
+  /* SEÇÕES */
+  h2 { font-size: 13px; background: #0057ff; color: #fff; padding: 6px 10px; margin: 22px 0 10px 0; letter-spacing: 0.5px; }
+  h3 { font-size: 12px; color: #0057ff; border-left: 4px solid #0057ff; padding-left: 8px; margin: 14px 0 6px 0; font-weight: bold; }
+  h4 { font-size: 11px; color: #333; margin: 10px 0 4px 0; font-weight: bold; text-transform: uppercase; letter-spacing: 0.3px; }
+
+  /* TABELAS */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 11px; }
+  th { background: #222; color: #fff; padding: 6px 8px; text-align: left; font-size: 11px; }
+  td { padding: 5px 8px; border-bottom: 1px solid #ddd; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8f8f8; }
+
+  /* CARDS DE PESSOA */
+  .team-grid { display: flex; gap: 10px; margin-bottom: 14px; }
+  .team-card { flex: 1; border: 2px solid #0057ff; padding: 10px; border-radius: 4px; }
+  .team-card .nome { font-size: 13px; font-weight: bold; color: #0057ff; margin-bottom: 2px; }
+  .team-card .cargo { font-size: 10px; color: #555; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .team-card ul { padding-left: 14px; }
+  .team-card li { margin-bottom: 2px; color: #222; }
+
+  /* CHECKLISTS */
+  .checklist { border: 1px solid #ddd; padding: 10px; margin-bottom: 12px; border-radius: 3px; }
+  .checklist-title { font-weight: bold; font-size: 11px; color: #0057ff; margin-bottom: 6px; text-transform: uppercase; }
+  .check-row { display: flex; align-items: flex-start; margin-bottom: 5px; gap: 8px; }
+  .check-box { width: 14px; height: 14px; border: 1.5px solid #333; flex-shrink: 0; margin-top: 1px; }
+  .check-text { flex: 1; }
+  .check-resp { font-size: 10px; color: #0057ff; font-weight: bold; min-width: 50px; }
+
+  /* FLUXO */
+  .fluxo { display: flex; align-items: center; gap: 6px; margin: 8px 0 12px 0; flex-wrap: wrap; }
+  .fluxo-item { background: #f0f5ff; border: 1px solid #0057ff; padding: 5px 10px; border-radius: 3px; font-size: 11px; font-weight: bold; }
+  .fluxo-arrow { color: #0057ff; font-size: 16px; font-weight: bold; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: bold; margin: 1px; }
+  .tag-lucio { background: #e8f0ff; color: #0057ff; border: 1px solid #0057ff; }
+  .tag-nick { background: #e8fff0; color: #1a7a40; border: 1px solid #1a7a40; }
+  .tag-elis { background: #fff5e8; color: #b35900; border: 1px solid #b35900; }
+  .tag-todos { background: #f5e8ff; color: #6600cc; border: 1px solid #6600cc; }
+
+  /* ALERTAS */
+  .alerta { background: #fff8e1; border-left: 4px solid #f0a500; padding: 7px 10px; margin: 8px 0; font-size: 11px; }
+  .alerta strong { color: #b37000; }
+
+  /* RODAPÉ */
+  .footer { border-top: 1px solid #ddd; padding-top: 8px; margin-top: 24px; text-align: center; font-size: 10px; color: #888; }
+
+  @media print {
+    body { margin: 12mm 12mm; }
+    h2 { break-before: avoid; }
+    .team-grid { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CABEÇALHO -->
+<div class="header">
+  <div>
+    <div style="font-size:11px; color:#555; margin-bottom:2px;">REDE PUBLICIDADE</div>
+    <h1>Gabarito Operacional</h1>
+    <div style="font-size:11px; color:#555;">Holos × Rede Publicidade — Processos e Entregas</div>
+  </div>
+  <div class="meta">
+    <div class="badge">DOCUMENTO INTERNO</div>
+    <div style="margin-top:6px;">Versão 1.0 · Junho/2026</div>
+    <div>Vigência: Julho/2026</div>
+  </div>
+</div>
+
+<!-- EQUIPE -->
+<h2>1. EQUIPE — QUEM FAZ O QUÊ</h2>
+<div class="team-grid">
+  <div class="team-card">
+    <div class="nome">Lúcio</div>
+    <div class="cargo">Google Ads · Plataformas · Estratégia</div>
+    <ul>
+      <li>Google Ads</li>
+      <li>Holos Connect + CRM</li>
+      <li>PulsarZap</li>
+      <li>Estratégia geral do funil</li>
+      <li>Relatório mensal consolidado</li>
+    </ul>
+  </div>
+  <div class="team-card">
+    <div class="nome">Nicolas (Nick)</div>
+    <div class="cargo">Meta Ads · Conteúdo · Edição</div>
+    <ul>
+      <li>Meta Ads (campanhas)</li>
+      <li>Relatórios semanais Meta</li>
+      <li>Site + LPs + Copy</li>
+      <li>Email marketing</li>
+      <li>Edição de Reels (3/semana)</li>
+      <li>UTMs em todos os anúncios</li>
+    </ul>
+  </div>
+  <div class="team-card">
+    <div class="nome">Elis</div>
+    <div class="cargo">Gerência · Conteúdo · Interface com Holos</div>
+    <ul>
+      <li>Gerência operacional</li>
+      <li>Interface Holos → Rede</li>
+      <li>Copy + textos (com Nick)</li>
+      <li>Postagem diária (feed + stories)</li>
+      <li>Alinhamento com Luciana</li>
+      <li>Relatórios para Lu</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CONTRATO -->
+<h2>2. SERVIÇOS E VALORES</h2>
+<table>
+  <tr><th>Serviço</th><th>Responsável</th><th>Valor/mês</th><th>Inclui</th></tr>
+  <tr><td>Tráfego Pago Google</td><td><span class="tag tag-lucio">Lúcio</span></td><td>R$ —</td><td>Google Ads (verba paga pela Holos)</td></tr>
+  <tr><td>Tráfego Pago Meta</td><td><span class="tag tag-nick">Nick</span></td><td>R$ 3.000</td><td>Meta Ads + relatórios semanais + UTMs</td></tr>
+  <tr><td>Site + LPs + Copy + Email</td><td><span class="tag tag-nick">Nick</span> <span class="tag tag-elis">Elis</span></td><td>R$ 1.500</td><td>LPs (1/semana), email marketing, copy</td></tr>
+  <tr><td>Gerência Operacional</td><td><span class="tag tag-elis">Elis</span></td><td>R$ 6.000</td><td>Coordenação, reuniões, relatórios, Lu</td></tr>
+  <tr><td>Holos Connect + CRM + PulsarZap</td><td><span class="tag tag-lucio">Lúcio</span></td><td>R$ 1.000</td><td>Manutenção, suporte, rastreamento de leads</td></tr>
+  <tr><td>Social + Edição de Vídeo</td><td><span class="tag tag-nick">Nick</span> <span class="tag tag-elis">Elis</span></td><td>R$ 2.000</td><td>3 Reels/semana + feed + stories diários</td></tr>
+  <tr><td><strong>TOTAL FIXO</strong></td><td></td><td><strong>R$ 13.500</strong></td><td>Verba de anúncio paga à parte pela Holos</td></tr>
+</table>
+
+<div class="alerta">
+  <strong>⚠ Não incluso no contrato:</strong> Verba de anúncio (paga pela Holos direto às plataformas) · Gravação de vídeos (Lu grava) · Novas features Holos Connect (orçamento separado) · Fotografia profissional
+</div>
+
+<!-- FLUXO DE INFORMAÇÃO -->
+<h2>3. FLUXO DE INFORMAÇÃO</h2>
+
+<h3>Canal oficial: Luciana → Elis → Lúcio</h3>
+<div class="fluxo">
+  <div class="fluxo-item">Luciana (Holos)</div>
+  <div class="fluxo-arrow">→</div>
+  <div class="fluxo-item">Elis (ponto de contato)</div>
+  <div class="fluxo-arrow">→</div>
+  <div class="fluxo-item">Lúcio (resolve)</div>
+</div>
+
+<table>
+  <tr><th>Situação</th><th>Quem aciona</th><th>Ação</th></tr>
+  <tr><td>Problema no PulsarZap</td><td>Elis chama Lúcio</td><td>Lúcio resolve + informa Elis + Elis informa Lu</td></tr>
+  <tr><td>Problema no Holos Connect</td><td>Elis chama Lúcio</td><td>Lúcio resolve + informa Elis + Elis informa Lu</td></tr>
+  <tr><td>Campanha fraca (leads ruins)</td><td>Elis chama Lúcio</td><td>Lúcio analisa + ajusta + relatório</td></tr>
+  <tr><td>Dúvida sobre entrega</td><td>Lu fala com Elis</td><td>Elis consulta o documento de entregas</td></tr>
+  <tr><td>Solicitação nova (fora do escopo)</td><td>Lu fala com Elis</td><td>Elis traz para Lúcio avaliar e orçar</td></tr>
+</table>
+
+<!-- GRADE DE CONTEÚDO -->
+<h2>4. GRADE DE CONTEÚDO SOCIAL</h2>
+<table>
+  <tr><th>Dia</th><th>Entrega</th><th>Lu</th><th>Nick</th><th>Elis</th></tr>
+  <tr><td>Segunda</td><td>Post feed</td><td>—</td><td>—</td><td>Cria + posta</td></tr>
+  <tr><td>Terça</td><td>Reel</td><td>Grava e manda</td><td>Edita</td><td>Posta</td></tr>
+  <tr><td>Quarta</td><td>Post feed</td><td>—</td><td>—</td><td>Cria + posta</td></tr>
+  <tr><td>Quinta</td><td>Reel</td><td>Grava e manda</td><td>Edita</td><td>Posta</td></tr>
+  <tr><td>Sexta</td><td>Post feed</td><td>—</td><td>—</td><td>Cria + posta</td></tr>
+  <tr><td>Sábado</td><td>Reel</td><td>Grava e manda</td><td>Edita</td><td>Posta</td></tr>
+  <tr><td>Domingo</td><td>Sem postagem</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>Todos os dias</td><td>Stories</td><td>Grava quando pode</td><td>—</td><td>Posta</td></tr>
+</table>
+
+<div class="alerta">
+  <strong>Processo de vídeo:</strong> Lu grava → manda para Nick → Nick edita em até 24h → manda para Elis → Elis posta no horário certo
+</div>
+
+<!-- FUNIL -->
+<h2>5. FUNIL COMERCIAL — ESTADO ATUAL</h2>
+
+<h3>Pré-Qualificação Automática (PulsarZap — 4 etapas)</h3>
+<table>
+  <tr><th>Etapa</th><th>Ação</th><th>Status</th><th>Responsável</th></tr>
+  <tr><td>1° Boas-vindas</td><td>Lead entra → boas-vindas + coleta Nome e Email</td><td style="color:#27ae60; font-weight:bold;">✅ Funcionando</td><td><span class="tag tag-nick">Nick</span></td></tr>
+  <tr><td>2° Endereço</td><td>Pergunta região · GODOI filtra localização</td><td style="color:#27ae60; font-weight:bold;">✅ Funcionando</td><td><span class="tag tag-nick">Nick</span></td></tr>
+  <tr><td>3° Grade de turmas</td><td>Envio automático da grade personalizada</td><td style="color:#e74c3c; font-weight:bold;">❌ Pendente</td><td><span class="tag tag-nick">Nick</span></td></tr>
+  <tr><td>4° Opções + Áudios → LP</td><td>Apresenta turmas disponíveis + direciona para LP</td><td style="color:#e74c3c; font-weight:bold;">❌ Pendente</td><td><span class="tag tag-nick">Nick</span></td></tr>
+</table>
+
+<h3>Vendedor — Qualificação Humana (hoje manual)</h3>
+<table>
+  <tr><th>Passo</th><th>Ação atual</th><th>Meta (automatizar)</th></tr>
+  <tr><td>Entrada do lead</td><td>Vendedor assume manualmente</td><td>PulsarZap qualifica + tag automática</td></tr>
+  <tr><td>Boas-vindas</td><td>Mensagem manual</td><td>Mensagem automática personalizada</td></tr>
+  <tr><td>Coleta de dados</td><td>Pergunta manualmente</td><td>Fluxo estruturado com campos</td></tr>
+  <tr><td>Envio de grade</td><td>Manda manualmente</td><td>Busca grade pela tag de qualificação</td></tr>
+  <tr><td>Fechamento</td><td>Vendedor conduz</td><td>Vendedor conduz (permanece humano)</td></tr>
+</table>
+
+<!-- ROADMAP LPs -->
+<h2>6. ROADMAP LPs — NICK (1 por semana)</h2>
+<table>
+  <tr><th>#</th><th>LP / Produto</th><th>Status</th><th>Semana</th><th>Entrega</th></tr>
+  <tr><td>1</td><td>Locação de Salas</td><td style="color:#27ae60; font-weight:bold;">✅ Pronto</td><td>—</td><td>Entregue</td></tr>
+  <tr><td>2</td><td>Atendimento Social</td><td style="color:#27ae60; font-weight:bold;">✅ Pronto</td><td>—</td><td>Entregue</td></tr>
+  <tr><td>3</td><td>LP Masso EAD</td><td style="color:#e74c3c; font-weight:bold;">❌ Pendente</td><td>Semana 1</td><td>___/06</td></tr>
+  <tr><td>4</td><td>LP Matrículas</td><td style="color:#e74c3c; font-weight:bold;">❌ Pendente</td><td>Semana 2</td><td>___/06</td></tr>
+  <tr><td>5</td><td>LP Masso Essencial</td><td style="color:#e74c3c; font-weight:bold;">❌ Pendente</td><td>Semana 3</td><td>___/06</td></tr>
+  <tr><td>6</td><td>LP Masso Flex</td><td style="color:#e74c3c; font-weight:bold;">❌ Pendente</td><td>Semana 4</td><td>___/07</td></tr>
+  <tr><td>7</td><td>LP Masso Presencial</td><td style="color:#e74c3c; font-weight:bold;">❌ Pendente</td><td>Semana 5</td><td>___/07</td></tr>
+</table>
+
+<!-- AS 5 MENSAGENS -->
+<h2>7. AS 5 MENSAGENS — Follow-up Pós-Qualificação</h2>
+<table>
+  <tr><th>#</th><th>Timing</th><th>Objetivo</th><th>Mensagem</th><th>Resp.</th></tr>
+  <tr><td>1</td><td>Dia 0</td><td>Check-in</td><td><em>[Nome], ficou alguma dúvida?</em></td><td><span class="tag tag-nick">Nick</span></td></tr>
+  <tr><td>2</td><td>Dia 1</td><td>Motivação</td><td><em>[Nome], uma pergunta — o que te fez procurar a Holos?</em></td><td><span class="tag tag-nick">Nick</span></td></tr>
+  <tr><td>3</td><td>Dia 3</td><td>Urgência</td><td><em>[Nome], as turmas de julho já estão preenchendo. Ainda tem interesse?</em></td><td><span class="tag tag-nick">Nick</span></td></tr>
+  <tr><td>4</td><td>Dia 5</td><td>Objeções</td><td><em>[Nome], tem algo te travando? Preço, tempo, localização? Me fala — posso ajudar.</em></td><td><span class="tag tag-nick">Nick</span></td></tr>
+  <tr><td>5</td><td>Dia 7</td><td>Fechar ciclo</td><td><em>[Nome], última tentativa. Quando fizer sentido, é só me chamar.</em></td><td><span class="tag tag-nick">Nick</span></td></tr>
+</table>
+<div class="alerta"><strong>✅ Entregue por Nick em 02/06/2026</strong> — implementar no PulsarZap junto com etapas 3 e 4</div>
+
+<!-- CHECKLISTS SEMANAIS -->
+<h2>8. CHECKLISTS SEMANAIS POR PESSOA</h2>
+
+<h3>Nick — toda semana</h3>
+<div class="checklist">
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Campanhas Meta rodando e otimizadas</div><div class="check-resp">Nick</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">UTMs configuradas em todos os anúncios novos</div><div class="check-resp">Nick</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Relatório semanal Meta enviado (até sexta)</div><div class="check-resp">Nick</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">3 Reels editados e entregues para Elis</div><div class="check-resp">Nick</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">LP da semana entregue (conforme roadmap)</div><div class="check-resp">Nick</div></div>
+</div>
+
+<h3>Elis — toda semana</h3>
+<div class="checklist">
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Postagens da semana publicadas (feed + Reels + stories)</div><div class="check-resp">Elis</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Alinhamento semanal com Luciana realizado</div><div class="check-resp">Elis</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Pendências da semana anterior resolvidas ou comunicadas</div><div class="check-resp">Elis</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Lembrou Lu de gravar os 3 vídeos da semana</div><div class="check-resp">Elis</div></div>
+</div>
+
+<h3>Lúcio — toda semana</h3>
+<div class="checklist">
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Google Ads otimizado e sem anomalias</div><div class="check-resp">Lúcio</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Holos Connect funcionando (sem erros críticos)</div><div class="check-resp">Lúcio</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">PulsarZap operacional (fila saudável, chips ativos)</div><div class="check-resp">Lúcio</div></div>
+  <div class="check-row"><div class="check-box"></div><div class="check-text">Estratégia da semana alinhada com Nick e Elis</div><div class="check-resp">Lúcio</div></div>
+</div>
+
+<!-- REUNIÕES -->
+<h2>9. CADÊNCIA DE REUNIÕES</h2>
+<table>
+  <tr><th>Reunião</th><th>Frequência</th><th>Participantes</th><th>Pauta padrão</th><th>Horário</th></tr>
+  <tr><td>Alinhamento interno Rede</td><td>Semanal</td><td>Lucio + Nick + Elis</td><td>LPs, campanhas, pendências, semana que vem</td><td>___h ___</td></tr>
+  <tr><td>Relatório Holos (Lu)</td><td>Quinzenal</td><td>Elis + Lucio + Lu</td><td>Resultados, o que funcionou, próximos 15 dias</td><td>___h ___</td></tr>
+  <tr><td>Estratégia Holos</td><td>Mensal</td><td>Elis + Lucio + Lu (+ Nick se necessário)</td><td>Metas, verbas, campanhas do mês, produtos</td><td>___h ___</td></tr>
+</table>
+
+<!-- MÉTRICAS -->
+<h2>10. MÉTRICAS — O QUE MEDIMOS</h2>
+<table>
+  <tr><th>Área</th><th>Métrica</th><th>Meta</th><th>Quem reporta</th><th>Frequência</th></tr>
+  <tr><td>Tráfego Meta</td><td>CPL · ROAS · Conversões</td><td>ROAS >2,45×</td><td>Nick</td><td>Semanal</td></tr>
+  <tr><td>Tráfego Google</td><td>CPL · Impressões · Cliques</td><td>—</td><td>Lucio</td><td>Quinzenal</td></tr>
+  <tr><td>Funil PulsarZap</td><td>Taxa conclusão 4 etapas</td><td>>60%</td><td>Lucio</td><td>Mensal</td></tr>
+  <tr><td>Comercial</td><td>Matrículas/mês</td><td>34 matrículas</td><td>Elis</td><td>Mensal</td></tr>
+  <tr><td>Social</td><td>Alcance · Engajamento · Salvos</td><td>—</td><td>Elis</td><td>Semanal</td></tr>
+  <tr><td>Geral Holos</td><td>Faturamento · Conversão</td><td>180 conv. + 12×</td><td>Elis</td><td>Mensal</td></tr>
+</table>
+
+<!-- CANAL GI -->
+<h2>11. CANAL GI — MONGAGUÁ (a reformular)</h2>
+<table>
+  <tr><th>Item</th><th>Atual</th><th>Novo modelo (a definir)</th></tr>
+  <tr><td>Remuneração</td><td>Só comissão variável</td><td>Fixo + comissão</td></tr>
+  <tr><td>Meta de vendas</td><td>R$30.000/mês</td><td>A confirmar</td></tr>
+  <tr><td>Comissão total</td><td>R$3.000 (10% de R$30k)</td><td>A confirmar</td></tr>
+  <tr><td>Split</td><td>50% Gi / 50% Rede</td><td>A confirmar</td></tr>
+  <tr><td>Valores Gi</td><td>R$1.500 (variável)</td><td>Fixo R$_____ + comissão __%</td></tr>
+  <tr><td>Valores Rede</td><td>R$1.500 (variável)</td><td>A confirmar</td></tr>
+</table>
+
+<div class="footer">
+  Documento interno · Não apresentar à Luciana sem revisão final &nbsp;|&nbsp; Rede Publicidade · Junho/2026 &nbsp;|&nbsp; v1.0
+</div>
+
+</body>
+</html>
