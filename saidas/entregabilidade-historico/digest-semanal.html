@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Digest Semanal — Rede Publicidade</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 40px 20px;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 32px 40px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .header .meta {
+    font-size: 13px;
+    color: #999;
+    margin-top: 6px;
+  }
+  .section {
+    padding: 28px 40px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .section:last-child { border-bottom: none; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 16px;
+  }
+
+  /* Números */
+  .numeros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .numero-card {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .numero-card .valor {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .numero-card .label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  /* Entregas */
+  .pessoa {
+    margin-bottom: 20px;
+  }
+  .pessoa:last-child { margin-bottom: 0; }
+  .pessoa-nome {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+  .pessoa ul {
+    list-style: none;
+    padding: 0;
+  }
+  .pessoa ul li {
+    font-size: 14px;
+    color: #444;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .pessoa ul li:last-child { border-bottom: none; }
+  .pessoa ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #ccc;
+  }
+
+  /* Problema resolvido */
+  .problema {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .problema .situacao {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .problema .acao {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .problema .resultado {
+    font-size: 13px;
+    color: #4caf50;
+  }
+
+  /* Próxima semana */
+  .proxima ul {
+    list-style: none;
+    padding: 0;
+    counter-reset: item;
+  }
+  .proxima ul li {
+    font-size: 14px;
+    color: #444;
+    padding: 8px 0 8px 28px;
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+    counter-increment: item;
+  }
+  .proxima ul li:last-child { border-bottom: none; }
+  .proxima ul li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 9px;
+  }
+
+  .footer {
+    padding: 20px 40px;
+    background: #f8f8f8;
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Rede Publicidade × Holos</h1>
+    <div class="meta">Semana de <!-- DATA_INICIO --> a <!-- DATA_FIM --> · Gerado em <!-- DATA_GERACAO --></div>
+  </div>
+
+  <!-- BLOCO 1: NÚMEROS -->
+  <div class="section">
+    <div class="section-title">Semana em números</div>
+    <div class="numeros">
+      <div class="numero-card">
+        <div class="valor"><!-- LEADS --></div>
+        <div class="label">Leads gerados</div>
+      </div>
+      <div class="numero-card">
+        <div class="valor"><!-- ROAS --></div>
+        <div class="label">ROAS médio</div>
+      </div>
+      <div class="numero-card">
+        <div class="valor"><!-- ALUNOS_NOVOS --></div>
+        <div class="label">Alunos novos</div>
+      </div>
+      <div class="numero-card">
+        <div class="valor"><!-- EMAILS --></div>
+        <div class="label">Emails enviados</div>
+      </div>
+      <div class="numero-card">
+        <div class="valor"><!-- VERBA --></div>
+        <div class="label">Verba investida</div>
+      </div>
+      <div class="numero-card">
+        <div class="valor"><!-- AUTOMACOES --></div>
+        <div class="label">Automações ativas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 2: ENTREGAS -->
+  <div class="section">
+    <div class="section-title">O que entregamos</div>
+
+    <div class="pessoa">
+      <div class="pessoa-nome">Lucio — Tráfego &amp; Estratégia</div>
+      <ul>
+        <li><!-- LUCIO_1 --></li>
+        <li><!-- LUCIO_2 --></li>
+        <li><!-- LUCIO_3 --></li>
+      </ul>
+    </div>
+
+    <div class="pessoa">
+      <div class="pessoa-nome">Elis — Operações &amp; Plataforma</div>
+      <ul>
+        <li><!-- ELIS_1 --></li>
+        <li><!-- ELIS_2 --></li>
+        <li><!-- ELIS_3 --></li>
+      </ul>
+    </div>
+
+    <div class="pessoa">
+      <div class="pessoa-nome">Nick — Automações &amp; Infra</div>
+      <ul>
+        <li><!-- NICK_1 --></li>
+        <li><!-- NICK_2 --></li>
+        <li><!-- NICK_3 --></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCO 3: PROBLEMA RESOLVIDO -->
+  <div class="section">
+    <div class="section-title">Problema resolvido na semana</div>
+    <div class="problema">
+      <div class="situacao">Situação: <!-- PROBLEMA_SITUACAO --></div>
+      <div class="acao">O que fizemos: <!-- PROBLEMA_ACAO --></div>
+      <div class="resultado">Resultado: <!-- PROBLEMA_RESULTADO --></div>
+    </div>
+  </div>
+
+  <!-- BLOCO 4: PRÓXIMA SEMANA -->
+  <div class="section proxima">
+    <div class="section-title">Próxima semana</div>
+    <ul>
+      <li><!-- PROXIMA_1 --></li>
+      <li><!-- PROXIMA_2 --></li>
+      <li><!-- PROXIMA_3 --></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Rede Publicidade · Entregue toda sexta antes da reunião
+  </div>
+
+</div>
+</body>
+</html>

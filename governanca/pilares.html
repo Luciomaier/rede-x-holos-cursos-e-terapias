@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holos — Plano Estratégico · 3 Pilares · Mai/2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #18181b; background: #fff; line-height: 1.6; }
+    @page { size: A4 landscape; margin: 14mm 12mm; }
+    @media print { .no-break { page-break-inside: avoid; } body { font-size: 11.5px; } }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      padding: 24px 28px 20px;
+      border-radius: 0 0 12px 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .header-left .tag {
+      display: inline-block;
+      background: rgba(167,139,250,.2);
+      border: 1px solid rgba(167,139,250,.4);
+      border-radius: 20px; padding: 3px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; color: #c4b5fd;
+      margin-bottom: 8px;
+    }
+    .header-left h1 { font-size: 26px; font-weight: 900; line-height: 1.1; }
+    .header-left h1 span { color: #a78bfa; }
+    .header-right { text-align: right; }
+    .header-right .kpi { font-size: 11px; color: #a1a1aa; margin-bottom: 3px; }
+    .header-right .kpi strong { color: #fbbf24; font-size: 14px; }
+
+    /* ── 3-COLUMN GRID ── */
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .pilar {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .pilar-header {
+      padding: 14px 16px 12px;
+      color: #fff;
+    }
+    .pilar-header .num {
+      font-size: 9px; font-weight: 800; letter-spacing: .12em;
+      opacity: .7; margin-bottom: 4px;
+    }
+    .pilar-header h2 { font-size: 15px; font-weight: 900; margin-bottom: 3px; }
+    .pilar-header .sub { font-size: 11px; opacity: .75; }
+
+    .pilar.red .pilar-header   { background: #991b1b; }
+    .pilar.amber .pilar-header { background: #92400e; }
+    .pilar.blue .pilar-header  { background: #1e3a5f; }
+
+    .pilar-body {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 14px 14px;
+    }
+
+    .owner-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .pilar.red   .owner-row { background: #fee2e2; border: 1px solid #fca5a5; }
+    .pilar.amber .owner-row { background: #fef3c7; border: 1px solid #fcd34d; }
+    .pilar.blue  .owner-row { background: #dbeafe; border: 1px solid #93c5fd; }
+
+    .owner-label { font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+    .pilar.red   .owner-label { color: #991b1b; }
+    .pilar.amber .owner-label { color: #92400e; }
+    .pilar.blue  .owner-label { color: #1e40af; }
+
+    .owner-names { font-size: 11px; font-weight: 700; color: #18181b; }
+
+    .section-title {
+      font-size: 9px; font-weight: 800; letter-spacing: .1em;
+      margin: 10px 0 5px;
+    }
+    .pilar.red   .section-title { color: #dc2626; }
+    .pilar.amber .section-title { color: #d97706; }
+    .pilar.blue  .section-title { color: #1d4ed8; }
+
+    .action-list { list-style: none; padding: 0; }
+    .action-list li {
+      display: flex; align-items: flex-start; gap: 7px;
+      font-size: 11.5px; color: #374151;
+      padding: 5px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-bullet {
+      width: 5px; height: 5px; border-radius: 50%;
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .pilar.red   .action-bullet { background: #dc2626; }
+    .pilar.amber .action-bullet { background: #d97706; }
+    .pilar.blue  .action-bullet { background: #1d4ed8; }
+
+    .action-list li strong { font-weight: 700; color: #111; }
+
+    .prazo-chip {
+      display: inline-block;
+      border-radius: 5px; padding: 1px 7px;
+      font-size: 9px; font-weight: 700;
+      margin-left: 4px; vertical-align: middle;
+    }
+    .chip-7  { background: #fee2e2; color: #991b1b; }
+    .chip-30 { background: #fef3c7; color: #92400e; }
+    .chip-90 { background: #dbeafe; color: #1e40af; }
+
+    .metric-box {
+      margin-top: 10px;
+      border-radius: 8px; padding: 8px 10px;
+    }
+    .pilar.red   .metric-box { background: #fee2e2; border: 1px solid #fca5a5; }
+    .pilar.amber .metric-box { background: #fef3c7; border: 1px solid #fcd34d; }
+    .pilar.blue  .metric-box { background: #dbeafe; border: 1px solid #93c5fd; }
+
+    .metric-label { font-size: 9px; font-weight: 800; letter-spacing: .08em; margin-bottom: 3px; }
+    .pilar.red   .metric-label { color: #991b1b; }
+    .pilar.amber .metric-label { color: #92400e; }
+    .pilar.blue  .metric-label { color: #1e40af; }
+
+    .metric-text { font-size: 11px; color: #374151; }
+
+    /* ── FOOTER ROW ── */
+    .footer-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .alert-box {
+      border-radius: 8px; padding: 10px 12px;
+      border: 1px solid;
+    }
+    .alert-box.red    { background: #fef2f2; border-color: #fca5a5; }
+    .alert-box.amber  { background: #fffbeb; border-color: #fcd34d; }
+    .alert-box.blue   { background: #eff6ff; border-color: #93c5fd; }
+
+    .alert-title { font-size: 9px; font-weight: 800; letter-spacing: .08em; margin-bottom: 4px; }
+    .alert-box.red   .alert-title { color: #991b1b; }
+    .alert-box.amber .alert-title { color: #92400e; }
+    .alert-box.blue  .alert-title { color: #1e40af; }
+
+    .alert-text { font-size: 11px; color: #374151; }
+
+    .footer { margin-top: 12px; padding-top: 10px; border-top: 1px solid #e5e7eb; font-size: 10px; color: #9ca3af; text-align: center; }
+
+    .legend { display: flex; gap: 14px; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #6b7280; }
+    .legend-chip { border-radius: 4px; padding: 2px 8px; font-size: 9px; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="tag">PLANO ESTRATÉGICO · REUNIÃO 15/05/2026</div>
+    <h1>Holos — Os 3 <span>Pilares</span> de Reversão</h1>
+    <p style="color:#a1a1aa;font-size:12px;margin-top:4px;">Diagnóstico mai/2026 · Ação nos próximos 90 dias</p>
+  </div>
+  <div class="header-right">
+    <div class="kpi">Déficit acumulado (jan–mai/26) <strong>~R$35k</strong></div>
+    <div class="kpi">Maio projetado <strong style="color:#ef4444;">~R$105–115k déficit</strong></div>
+    <div class="kpi">Conversão em queda desde fev/26 <strong>▼ 31%</strong></div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-chip chip-7">7 dias</span> Esta semana</div>
+  <div class="legend-item"><span class="legend-chip chip-30">30 dias</span> Próximo mês</div>
+  <div class="legend-item"><span class="legend-chip chip-90">90 dias</span> Até agosto</div>
+</div>
+
+<div class="pilares-grid">
+
+  <!-- PILAR 1: DIMINUIR GASTOS -->
+  <div class="pilar red no-break">
+    <div class="pilar-header">
+      <div class="num">PILAR 01</div>
+      <h2>Diminuir Gastos</h2>
+      <div class="sub">Corte cirúrgico sem matar receita</div>
+    </div>
+    <div class="pilar-body">
+      <div class="owner-row">
+        <div>
+          <div class="owner-label">RESPONSÁVEL</div>
+          <div class="owner-names">Elis (COO) · apoio: Lucio</div>
+        </div>
+      </div>
+
+      <div class="section-title">AÇÕES IMEDIATAS</div>
+      <ul class="action-list">
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Auditoria de margem dos cursos livres</strong> — levantar o que o professor recebe vs o que entra para a escola. Cortar ou congelar os com margem negativa.<span class="prazo-chip chip-7">7 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Lojinha: lucro ou prejuízo?</strong> — decisão binária em 1 semana: continua, terceiriza ou fecha.<span class="prazo-chip chip-7">7 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Cobertura do turno manhã</strong> — protocolo quando Laura falta. Define quem cobre antes que aconteça de novo.<span class="prazo-chip chip-7">7 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Adriana — resolver hoje</strong> — proposta R$3.800 fixo em aberto há meses. Aceita ou negocia. Custo opaco precisa virar custo transparente.<span class="prazo-chip chip-30">30 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Contratos verbais → escritos</strong> — começar pelos professores estratégicos (maior risco de fuga).<span class="prazo-chip chip-30">30 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Revisão do acordo Rede Publicidade × Holos</strong> — validar se 30/30/40 ainda faz sentido com os números reais.<span class="prazo-chip chip-30">30 dias</span></span>
+        </li>
+      </ul>
+
+      <div class="metric-box">
+        <div class="metric-label">MÉTRICA DE SUCESSO</div>
+        <div class="metric-text">Redução de R$15–25k/mês nos custos variáveis sem impacto na receita de massoterapia principal.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 2: AUMENTAR RECEITA -->
+  <div class="pilar amber no-break">
+    <div class="pilar-header">
+      <div class="num">PILAR 02</div>
+      <h2>Aumentar Receita</h2>
+      <div class="sub">Vendas + ativos dormentes ativados</div>
+    </div>
+    <div class="pilar-body">
+      <div class="owner-row">
+        <div>
+          <div class="owner-label">RESPONSÁVEIS</div>
+          <div class="owner-names">Leo · Giovanna · Laura · Bruna · Mayara</div>
+        </div>
+      </div>
+
+      <div class="section-title">AÇÕES IMEDIATAS</div>
+      <ul class="action-list">
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Diagnóstico de conversão</strong> — Leo e Giovanna: de cada 10 leads, quantos fecham? O que os que não fecharam disseram?<span class="prazo-chip chip-7">7 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Aluguel de salas — publicar esta semana</strong> — 3 andares em Vila Mariana ociosos. Publicar como espaço para terapeutas. R$80–150/hora ou R$800–1.500/mês. Meta: R$3–8k/mês.<span class="prazo-chip chip-7">7 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Reativação dos 10.000 ex-alunos</strong> — semana 1: pergunta genuína ("você está atendendo?"). Não vender. Ouvir. Semana 2 em diante: UniMasso, Clube, reciclagem.<span class="prazo-chip chip-30">30 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Primeiro B2B corporativo</strong> — massagem em empresa. 1 contrato piloto de R$3–5k/mês usando alunos em estágio. Alvo: empresas em Vila Mariana.<span class="prazo-chip chip-30">30 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Clube do Massoterapeuta</strong> — toda nova turma entra automaticamente. Torna a matrícula mais valiosa sem custo extra.<span class="prazo-chip chip-90">90 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Taxa de empregabilidade</strong> — medir e publicar: "X% dos formados estão atendendo em 6 meses." Principal diferencial vs ex-professores.<span class="prazo-chip chip-90">90 dias</span></span>
+        </li>
+      </ul>
+
+      <div class="metric-box">
+        <div class="metric-label">MÉTRICA DE SUCESSO</div>
+        <div class="metric-text">Conversão sobe de ~2/10 para ~3–4/10 leads. Receita de salas +R$3k/mês. Primeiro contrato B2B até junho.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILAR 3: EXPERIÊNCIA DO ALUNO -->
+  <div class="pilar blue no-break">
+    <div class="pilar-header">
+      <div class="num">PILAR 03</div>
+      <h2>Experiência do Aluno</h2>
+      <div class="sub">Reputação · retenção · word-of-mouth</div>
+    </div>
+    <div class="pilar-body">
+      <div class="owner-row">
+        <div>
+          <div class="owner-label">RESPONSÁVEIS</div>
+          <div class="owner-names">Adriana · Professores · Recepção</div>
+        </div>
+      </div>
+
+      <div class="section-title">AÇÕES IMEDIATAS</div>
+      <ul class="action-list">
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Contra-narrativa do boato</strong> — coletar 5–10 depoimentos de alunos satisfeitos esta semana. Publicar no Instagram e WhatsApp. Mostrar que a escola está operando e crescendo.<span class="prazo-chip chip-7">7 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Dono do aluno com problema</strong> — definir hoje quem resolve conflito de aluno. Hoje não tem dono claro — todo problema vira escalada desnecessária.<span class="prazo-chip chip-7">7 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Pulsão dos alunos atuais</strong> — 1 pesquisa simples (3 perguntas) para alunos ativos: o que está ótimo, o que incomoda, o que mudaria.<span class="prazo-chip chip-30">30 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Gestão de professores — definir dono</strong> — quem é o gestor formal dos professores? Adriana ou Elis? Resolver o conflito de autoridade.<span class="prazo-chip chip-30">30 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Holos Connect como comunidade</strong> — 1.000 alunos na plataforma usando só para conteúdo. Abrir espaço de comunidade entre formandos.<span class="prazo-chip chip-90">90 dias</span></span>
+        </li>
+        <li>
+          <div class="action-bullet"></div>
+          <span><strong>Reformular o discurso de venda</strong> — de "maior escola" para "escola que garante que você vai trabalhar". O diferencial real vs ex-professores.<span class="prazo-chip chip-90">90 dias</span></span>
+        </li>
+      </ul>
+
+      <div class="metric-box">
+        <div class="metric-label">MÉTRICA DE SUCESSO</div>
+        <div class="metric-text">5 depoimentos publicados até sexta. NPS medido até junho. 0 ocorrências de "lead mencionou boato" no diagnóstico comercial.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER ROW: ALERTAS -->
+<div class="footer-row">
+  <div class="alert-box red">
+    <div class="alert-title">⚠️ PILAR 1 — RISCO CRÍTICO</div>
+    <div class="alert-text">Cortar cursos livres pode ser interpretado como "encolher". Enquadrar como "curar o catálogo" — focar no que tem margem positiva para a escola.</div>
+  </div>
+  <div class="alert-box amber">
+    <div class="alert-title">⚠️ PILAR 2 — RISCO CRÍTICO</div>
+    <div class="alert-text">Antes de mais verba de tráfego: entender por que os leads chegam e não fecham. Mais munição sem resolver a conversão = dinheiro queimado.</div>
+  </div>
+  <div class="alert-box blue">
+    <div class="alert-title">⚠️ PILAR 3 — RISCO CRÍTICO</div>
+    <div class="alert-text">O boato de falência está circulando. Sem uma ação de reputação esta semana, as ações dos outros pilares convertem menos do que poderiam.</div>
+  </div>
+</div>
+
+<div class="footer">Plano Estratégico Holos · Reunião 15/05/2026 · Confidencial — uso interno</div>
+
+</body>
+</html>

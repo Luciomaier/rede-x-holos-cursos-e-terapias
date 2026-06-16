@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digest Semanal — Rede Publicidade × Holos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f5;
+    color: #0f172a;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 40px 48px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header-left h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .header-left h1 span { color: #818cf8; }
+  .header-left p {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  .header-badge {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 10px 18px;
+    text-align: right;
+  }
+  .header-badge .label { font-size: 11px; color: #64748b; letter-spacing: 0.5px; }
+  .header-badge .date { font-size: 14px; font-weight: 700; color: #e2e8f0; margin-top: 2px; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+
+  /* ── METRICS GRID ── */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .metric-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+  }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #e2e8f0;
+  }
+  .metric-card.primary::before { background: #6366f1; }
+  .metric-card.success::before { background: #22c55e; }
+  .metric-card.warning::before { background: #f59e0b; }
+  .metric-card .metric-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .metric-card.primary .metric-value { color: #6366f1; }
+  .metric-card.success .metric-value { color: #16a34a; }
+  .metric-card.warning .metric-value { color: #d97706; }
+  .metric-card .metric-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #94a3b8;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .metric-card .metric-sub {
+    font-size: 12px;
+    color: #cbd5e1;
+    margin-top: 4px;
+  }
+
+  /* ── DELIVERIES ── */
+  .deliveries-block {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .delivery-person {
+    padding: 24px 28px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .delivery-person:last-child { border-bottom: none; }
+  .person-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .person-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .avatar-lucio { background: #6366f1; }
+  .avatar-elis  { background: #ec4899; }
+  .avatar-nick  { background: #0ea5e9; }
+  .person-name { font-size: 15px; font-weight: 700; color: #0f172a; }
+  .person-role { font-size: 12px; color: #94a3b8; margin-top: 1px; }
+  .delivery-list { list-style: none; }
+  .delivery-list li {
+    font-size: 14px;
+    color: #334155;
+    padding: 8px 0 8px 20px;
+    position: relative;
+    border-bottom: 1px solid #f8fafc;
+    line-height: 1.5;
+  }
+  .delivery-list li:last-child { border-bottom: none; }
+  .delivery-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #cbd5e1;
+  }
+  .delivery-list li strong { color: #0f172a; font-weight: 600; }
+
+  /* ── DIAGNOSTIC ── */
+  .diagnostic-block {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .diagnostic-header {
+    background: #ea580c;
+    padding: 16px 28px;
+  }
+  .diagnostic-header h3 { font-size: 14px; font-weight: 700; color: #fff; }
+  .diagnostic-body { padding: 24px 28px; }
+  .diag-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .diag-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 18px;
+    border: 1px solid #fed7aa;
+    text-align: center;
+  }
+  .diag-card .diag-val {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .diag-card .diag-val.red { color: #dc2626; }
+  .diag-card .diag-val.neutral { color: #0f172a; }
+  .diag-card .diag-lbl {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .diag-insight {
+    background: #fff;
+    border-left: 3px solid #ea580c;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #7c2d12;
+    line-height: 1.6;
+  }
+  .diag-insight strong { color: #9a3412; }
+
+  /* ── ACTIONS ── */
+  .actions-block {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .actions-header {
+    background: #0f172a;
+    padding: 16px 28px;
+  }
+  .actions-header h3 { font-size: 14px; font-weight: 700; color: #fff; }
+  .action-item {
+    display: flex;
+    gap: 20px;
+    padding: 22px 28px;
+    border-bottom: 1px solid #f1f5f9;
+    align-items: flex-start;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-number {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .num-red    { background: #fee2e2; color: #dc2626; }
+  .num-amber  { background: #fef3c7; color: #d97706; }
+  .num-slate  { background: #f1f5f9; color: #475569; }
+  .action-title { font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+  .action-desc  { font-size: 13px; color: #64748b; line-height: 1.5; }
+  .action-meta {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .meta-red   { background: #fee2e2; color: #dc2626; }
+  .meta-green { background: #dcfce7; color: #16a34a; }
+  .meta-slate { background: #f1f5f9; color: #475569; }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+    padding: 10px 0 20px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>Rede Publicidade <span>×</span> Holos</h1>
+      <p>Relatório semanal de entregas e resultados</p>
+    </div>
+    <div class="header-badge">
+      <div class="label">SEMANA</div>
+      <div class="date">18 – 23 mai 2026</div>
+    </div>
+  </div>
+
+  <div class="section-label">Semana em números</div>
+  <div class="metrics-grid">
+    <div class="metric-card primary">
+      <div class="metric-value">220</div>
+      <div class="metric-label">Leads recebidos</div>
+      <div class="metric-sub">7 dias · WhatsApp</div>
+    </div>
+    <div class="metric-card success">
+      <div class="metric-value">R$&nbsp;22.543</div>
+      <div class="metric-label">Receita gerada</div>
+      <div class="metric-sub">7 alunos fechados</div>
+    </div>
+    <div class="metric-card warning">
+      <div class="metric-value">3,4×</div>
+      <div class="metric-label">ROAS</div>
+      <div class="metric-sub">R$ 6.539 investidos</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">R$&nbsp;29,72</div>
+      <div class="metric-label">Custo por lead</div>
+      <div class="metric-sub">Google Ads · masso</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">2</div>
+      <div class="metric-label">Emails disparados</div>
+      <div class="metric-sub">Maio Oportunidades · Miofascial</div>
+    </div>
+    <div class="metric-card success">
+      <div class="metric-value">1</div>
+      <div class="metric-label">Retenção</div>
+      <div class="metric-sub">Aluno que ia cancelar e ficou</div>
+    </div>
+  </div>
+
+  <div class="section-label">O que foi entregue</div>
+  <div class="deliveries-block">
+    <div class="delivery-person">
+      <div class="person-header">
+        <div class="person-avatar avatar-lucio">L</div>
+        <div>
+          <div class="person-name">Lucio</div>
+          <div class="person-role">Tráfego &amp; Estratégia</div>
+        </div>
+      </div>
+      <ul class="delivery-list">
+        <li><strong>ZenPro estabilizado</strong> — fluxos e disparos da Holos funcionando sem falhas</li>
+        <li><strong>1.043 leads mapeados</strong> — planilha com nome + telefone dos últimos 3 meses, pronta para reconversão ativa</li>
+        <li><strong>Planilha RFV criada</strong> com dados do Sponte — base segmentada por recência, frequência e valor para reativar ex-alunos</li>
+        <li><strong>Recarga de verba + Business Manager (Meta)</strong> organizado — estrutura preparada para novas campanhas</li>
+      </ul>
+    </div>
+    <div class="delivery-person">
+      <div class="person-header">
+        <div class="person-avatar avatar-elis">E</div>
+        <div>
+          <div class="person-name">Elis</div>
+          <div class="person-role">Operações &amp; Plataforma</div>
+        </div>
+      </div>
+      <ul class="delivery-list">
+        <li><strong>Financeiro sem descoberto</strong> — contas cobertas e limite preservado na semana toda</li>
+        <li><strong>Instagram Holos diagnosticado</strong> — bio atualizada, destaques reorganizados</li>
+        <li><strong>2 disparos de email</strong> (Maio de Oportunidades + Miofascial) + Holos News entregue sem retrabalho</li>
+        <li><strong>Distratos processados</strong> — cálculos e pagamentos realizados (item mais trabalhoso da semana)</li>
+        <li>Suporte a alunos + Zoom Anatomia + confirmações de vendas com Giovanna — sem fila</li>
+      </ul>
+    </div>
+    <div class="delivery-person">
+      <div class="person-header">
+        <div class="person-avatar avatar-nick">N</div>
+        <div>
+          <div class="person-name">Nick</div>
+          <div class="person-role">Automações &amp; Infra</div>
+        </div>
+      </div>
+      <ul class="delivery-list">
+        <li><strong>LinkPage publicado</strong> — página de links da Holos no ar</li>
+        <li><strong>Auditoria automática de leads</strong> gerada pelo ZenPro 2.0 — diagnóstico completo do funil 16–22/05</li>
+        <li><strong>LP Locação de Salas + Página Atendimento Social</strong> em desenvolvimento — entrega semana que vem</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Diagnóstico do funil</div>
+  <div class="diagnostic-block">
+    <div class="diagnostic-header">
+      <h3>⚠️ O gargalo não está no tráfego — está no atendimento</h3>
+    </div>
+    <div class="diagnostic-body">
+      <div class="diag-grid">
+        <div class="diag-card">
+          <div class="diag-val neutral">220</div>
+          <div class="diag-lbl">Leads recebidos</div>
+        </div>
+        <div class="diag-card">
+          <div class="diag-val red">4</div>
+          <div class="diag-lbl">No ZenPro (1,8%)</div>
+        </div>
+        <div class="diag-card">
+          <div class="diag-val red">216</div>
+          <div class="diag-lbl">Fora do sistema (98,2%)</div>
+        </div>
+        <div class="diag-card">
+          <div class="diag-val red">0</div>
+          <div class="diag-lbl">Fechamentos registrados</div>
+        </div>
+      </div>
+      <div class="diag-insight">
+        A equipe comercial está atendendo — as 7 matrículas provam isso. Mas 98% das conversas acontecem diretamente no WhatsApp, fora do ZenPro. Resultado: o sistema não registra as vendas, não mede tempo de resposta e não calcula ROAS real por campanha. Além disso, <strong>47,7% dos leads chegaram sem código de rastreio</strong> — impossível saber de qual anúncio vieram, impedindo a otimização do investimento.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Próxima semana — ações definidas</div>
+  <div class="actions-block">
+    <div class="actions-header">
+      <h3>3 ações para destravar o funil</h3>
+    </div>
+    <div class="action-item">
+      <div class="action-number num-red">1</div>
+      <div class="action-content">
+        <div class="action-title">Disciplina no ZenPro — clicar "Assumir" antes de responder</div>
+        <div class="action-desc">Leo, Laura e Giovanna passam a assumir o lead no sistema antes de qualquer resposta. Sem isso, o investimento em anúncios continua sendo medido no escuro.</div>
+        <span class="action-meta meta-red">Meta: 80% no sistema em 7 dias</span>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-number num-amber">2</div>
+      <div class="action-content">
+        <div class="action-title">Links com #ref= em todos os anúncios</div>
+        <div class="action-desc">Toda campanha Google e Meta passa a usar o link rastreado do painel ZenPro. Permite saber qual anúncio trouxe qual venda e com qual ROAS real.</div>
+        <span class="action-meta meta-green">Meta: zerar leads sem rastreio em 14 dias</span>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-number num-slate">3</div>
+      <div class="action-content">
+        <div class="action-title">Triagem diária de leads — definir responsável</div>
+        <div class="action-desc">Um responsável revisa o bolsão de leads "Novo" no início e no fim de cada dia. Hoje há 216 parados — cada dia sem contato é uma venda esfriando.</div>
+        <span class="action-meta meta-slate">Definir responsável na reunião</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Rede Publicidade · Relatório gerado em 23/05/2026
+  </div>
+
+</div>
+</body>
+</html>

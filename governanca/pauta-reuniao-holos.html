@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Holos — Pauta da Reunião · 15/05/2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 13px;
+      color: #18181b;
+      background: #fff;
+      line-height: 1.55;
+    }
+
+    @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+    @media print {
+      .page-break { page-break-before: always; }
+      .no-break   { page-break-inside: avoid; }
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #0f0c29 0%, #302b63 55%, #24243e 100%);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 60px 52px;
+      color: #fff;
+    }
+    .cover-tag {
+      display: inline-block;
+      border: 1px solid rgba(167,139,250,.45);
+      border-radius: 20px; padding: 4px 16px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; color: #c4b5fd;
+      margin-bottom: 28px;
+    }
+    .cover h1 { font-size: 38px; font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+    .cover h1 span { color: #a78bfa; }
+    .cover .sub { font-size: 15px; color: #a1a1aa; margin-bottom: 48px; }
+
+    .cover-meta {
+      display: grid; grid-template-columns: repeat(3, auto);
+      gap: 0; margin-bottom: 52px;
+    }
+    .cover-meta-item {
+      padding: 18px 28px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 0;
+    }
+    .cover-meta-item:first-child { border-radius: 10px 0 0 10px; }
+    .cover-meta-item:last-child  { border-radius: 0 10px 10px 0; }
+    .cover-meta-item .val { font-size: 22px; font-weight: 800; color: #a78bfa; }
+    .cover-meta-item .lbl { font-size: 10px; color: #71717a; letter-spacing: .06em; font-weight: 600; margin-top: 2px; }
+
+    .cover-alert {
+      background: rgba(239,68,68,.12);
+      border: 1px solid rgba(239,68,68,.35);
+      border-radius: 10px; padding: 14px 18px;
+      font-size: 12px; color: #fca5a5; max-width: 480px;
+    }
+    .cover-alert strong { color: #f87171; display: block; margin-bottom: 4px; font-size: 13px; }
+
+    /* ── CONTENT ── */
+    .page { padding: 36px 8px 16px; }
+
+    h2 {
+      font-size: 17px; font-weight: 800; color: #18181b;
+      border-bottom: 2px solid #7c3aed;
+      padding-bottom: 8px; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    h2 .badge {
+      background: #7c3aed; color: #fff;
+      border-radius: 6px; font-size: 10px;
+      font-weight: 800; padding: 2px 8px;
+      letter-spacing: .04em; flex-shrink: 0;
+    }
+    h2 .badge.orange { background: #d97706; }
+    h2 .badge.blue   { background: #0891b2; }
+    h2 .badge.green  { background: #059669; }
+
+    .section { margin-bottom: 28px; }
+    .section-desc { color: #6b7280; font-size: 12px; margin-bottom: 14px; }
+
+    /* ── PRE MEETING ── */
+    .pre-block {
+      background: #faf9ff;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #7c3aed;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 18px; margin-bottom: 10px;
+    }
+    .pre-block .pre-title {
+      font-weight: 700; font-size: 13px; color: #1a1a2e; margin-bottom: 6px;
+    }
+    .pre-block ul { padding-left: 16px; }
+    .pre-block ul li { color: #374151; font-size: 12px; margin-bottom: 4px; }
+
+    /* ── BLOCKS ── */
+    .meeting-block {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .block-header {
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .block-header.purple { background: #7c3aed; }
+    .block-header.amber  { background: #d97706; }
+    .block-header.blue   { background: #0891b2; }
+    .block-header.green  { background: #059669; }
+
+    .block-num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 15px; color: #fff;
+      flex-shrink: 0;
+    }
+    .block-title { color: #fff; font-weight: 800; font-size: 14px; }
+    .block-meta  { color: rgba(255,255,255,.75); font-size: 11px; margin-top: 1px; }
+
+    .block-body { padding: 16px; }
+    .block-body .lead {
+      font-size: 13px; color: #374151; margin-bottom: 12px; font-style: italic;
+    }
+
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .mini-card {
+      background: #f9fafb; border: 1px solid #f1f5f9;
+      border-radius: 8px; padding: 12px;
+    }
+    .mini-card .mc-label {
+      font-size: 10px; font-weight: 700; color: #9ca3af;
+      letter-spacing: .06em; margin-bottom: 6px;
+    }
+    .mini-card ul { padding-left: 14px; }
+    .mini-card ul li { font-size: 12px; color: #374151; margin-bottom: 3px; }
+
+    .outcome-box {
+      background: #f0fdf4; border: 1px solid #86efac;
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 12px; color: #166534;
+    }
+    .outcome-box strong { display: block; font-size: 11px; letter-spacing: .04em; margin-bottom: 3px; color: #15803d; }
+
+    .alert-box {
+      background: #fef2f2; border: 1px solid #fca5a5;
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 12px; color: #991b1b; margin-top: 10px;
+    }
+    .alert-box strong { font-size: 11px; display: block; margin-bottom: 2px; }
+
+    /* ── QUESTIONS ── */
+    .q-list { list-style: none; padding: 0; }
+    .q-list li {
+      padding: 9px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 12.5px; color: #374151;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .q-list li:last-child { border-bottom: none; }
+    .q-num {
+      background: #ede9fe; color: #7c3aed;
+      border-radius: 5px; font-size: 10px;
+      font-weight: 800; padding: 1px 7px;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .q-num.amber { background: #fef3c7; color: #d97706; }
+    .q-num.blue  { background: #e0f2fe; color: #0891b2; }
+    .q-num.green { background: #dcfce7; color: #16a34a; }
+
+    /* ── TIMING ── */
+    .timeline {
+      display: flex; align-items: stretch;
+      gap: 0; margin: 16px 0;
+    }
+    .tl-item {
+      flex: 1; text-align: center;
+      padding: 10px 8px;
+      border: 1px solid #e5e7eb;
+      border-right: none;
+      background: #f9fafb;
+    }
+    .tl-item:first-child { border-radius: 8px 0 0 8px; }
+    .tl-item:last-child  { border-right: 1px solid #e5e7eb; border-radius: 0 8px 8px 0; }
+    .tl-item .tl-time { font-size: 15px; font-weight: 800; color: #7c3aed; }
+    .tl-item .tl-label { font-size: 10px; color: #9ca3af; font-weight: 600; letter-spacing: .04em; }
+    .tl-item .tl-name { font-size: 11px; color: #374151; font-weight: 600; margin-top: 3px; }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 32px; padding-top: 12px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 11px; color: #9ca3af; text-align: center;
+    }
+
+    /* ── NOTE BOX ── */
+    .note-box {
+      border: 1px dashed #d1d5db;
+      border-radius: 8px; padding: 12px 14px;
+      min-height: 48px; margin-top: 8px;
+      background: #fafafa;
+    }
+    .note-box .note-label {
+      font-size: 10px; color: #d1d5db;
+      font-weight: 700; letter-spacing: .06em; margin-bottom: 4px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none; border-top: 1px solid #f1f5f9; margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════ COVER ══════════════════════ -->
+<div class="cover">
+  <div class="cover-tag">USO INTERNO · CONFIDENCIAL</div>
+  <h1>Reunião Holos<br><span>Pauta Estratégica</span></h1>
+  <p class="sub">Sexta · 15 de maio de 2026 · Lucio + Elis + Luciana</p>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="val">3</div>
+      <div class="lbl">BLOCOS</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="val">~80 min</div>
+      <div class="lbl">DURAÇÃO</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="val">3</div>
+      <div class="lbl">DECISÕES</div>
+    </div>
+  </div>
+
+  <div class="cover-alert">
+    <strong>⚠️ Leia antes de entrar na reunião</strong>
+    Esta reunião não é só sobre organograma. Tem três perguntas que precisam de resposta antes de sair da sala. Este documento é o roteiro.
+  </div>
+</div>
+
+<!-- ══════════════════════ PRÉ-REUNIÃO ══════════════════════ -->
+<div class="page page-break">
+
+  <div class="section no-break">
+    <h2><span class="badge orange">PRÉ</span> Antes da Reunião — Lucio + Elis (hoje à noite)</h2>
+    <p class="section-desc">Estes alinhamentos precisam acontecer entre os dois antes de entrar na sala com a Luciana. A reunião de amanhã só funciona se vocês entrarem alinhados.</p>
+
+    <div class="pre-block no-break">
+      <div class="pre-title">1. Alinhar o número real</div>
+      <ul>
+        <li>Qual foi o resultado financeiro dos últimos 3 meses? (receita − despesa)</li>
+        <li>Elis confirma: o déficit acumulado está em quanto exatamente?</li>
+        <li>Esse número entra na reunião com a Luciana? Como e por quem é apresentado?</li>
+      </ul>
+    </div>
+
+    <div class="pre-block no-break">
+      <div class="pre-title">2. Decidir o papel de cada um na reunião</div>
+      <ul>
+        <li>Elis lidera o bloco financeiro — ela tem credibilidade operacional que Lucio não tem aqui</li>
+        <li>Lucio apresenta o organograma e facilita a conversa de estrutura</li>
+        <li>Nenhum dos dois pressiona sobre contratos diretamente — deixar emergir</li>
+      </ul>
+    </div>
+
+    <div class="pre-block no-break">
+      <div class="pre-title">3. Decidir o "mínimo aceitável" de formalização</div>
+      <ul>
+        <li>Qual é o menor passo que vocês dois aceitam como progresso amanhã?</li>
+        <li>Sugestão: Luciana mandar uma mensagem confirmando os papéis e valores já praticados</li>
+        <li>Não pedir contrato — pedir "documentar o que já existe"</li>
+      </ul>
+    </div>
+
+    <div class="pre-block no-break">
+      <div class="pre-title">4. Adriana — alinhar antes de entrar</div>
+      <ul>
+        <li>A proposta de R$3.800 fixo: vocês dois têm a mesma posição sobre isso?</li>
+        <li>O organograma coloca a Adriana como Coordenadora Pedagógica — Elis concorda com esse título e essa autoridade?</li>
+        <li>Esse ponto vai para a reunião de amanhã ou é tratado separadamente com a Adriana?</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════ BLOCOS DA REUNIÃO ══════════════════════ -->
+<div class="page page-break">
+
+  <div class="section">
+    <h2><span class="badge">PAUTA</span> Os 3 Blocos da Reunião</h2>
+    <p class="section-desc">Cada bloco tem uma pergunta principal. A reunião só avança para o próximo bloco quando a pergunta atual foi respondida — não apenas discutida.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">30 min</div>
+        <div class="tl-label">BLOCO 1</div>
+        <div class="tl-name">Realidade Financeira</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">25 min</div>
+        <div class="tl-label">BLOCO 2</div>
+        <div class="tl-name">Estrutura e Cargos</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">25 min</div>
+        <div class="tl-label">BLOCO 3</div>
+        <div class="tl-name">Próximo Passo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 1 -->
+  <div class="meeting-block no-break">
+    <div class="block-header purple">
+      <div class="block-num">1</div>
+      <div>
+        <div class="block-title">Realidade Financeira — O número na mesa</div>
+        <div class="block-meta">Lidera: Elis · 30 minutos</div>
+      </div>
+    </div>
+    <div class="block-body">
+      <p class="lead">"Antes de falar de estrutura, precisamos olhar os números juntos. Não para apontar culpa — para decidir o que priorizar."</p>
+      <div class="row2">
+        <div class="mini-card">
+          <div class="mc-label">PERGUNTAS DO BLOCO</div>
+          <ul>
+            <li>Qual foi o resultado dos últimos 3 meses?</li>
+            <li>Onde está a maior pressão de custo?</li>
+            <li>O que está custando e não está gerando retorno visível?</li>
+            <li>Existe alguma receita que ainda não ativamos?</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <div class="mc-label">CONTEXTO PARA TER NA CABEÇA</div>
+          <ul>
+            <li>Déficit acumulado confirmado (~R$35k em 5 meses)</li>
+            <li>Maio mais difícil que a média</li>
+            <li>Cursos livres: professor recebe mais que a escola</li>
+            <li>Lojinha: sem controle de estoque ou margem</li>
+            <li>Salas: 3 andares com capacidade ociosa</li>
+          </ul>
+        </div>
+      </div>
+      <div class="outcome-box">
+        <strong>SAIR COM</strong>
+        Um número real confirmado pelos três + uma decisão sobre o custo com menor retorno — ou a alavanca de receita mais rápida.
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 2 -->
+  <div class="meeting-block no-break">
+    <div class="block-header blue">
+      <div class="block-num">2</div>
+      <div>
+        <div class="block-title">Estrutura e Cargos — Dar nome ao que já existe</div>
+        <div class="block-meta">Lidera: Lucio · 25 minutos</div>
+      </div>
+    </div>
+    <div class="block-body">
+      <p class="lead">"A estrutura que vou mostrar já existe — só não tem nome. Vamos confirmar se o que está no papel reflete o que cada um faz de verdade."</p>
+      <div class="row2">
+        <div class="mini-card">
+          <div class="mc-label">PERGUNTAS DO BLOCO</div>
+          <ul>
+            <li>Esse organograma representa como a Holos funciona hoje?</li>
+            <li>Elis: você aceita o título de Diretora de Operações?</li>
+            <li>Adriana como Coordenadora Pedagógica — faz sentido?</li>
+            <li>Quem é o dono do comercial (Leo/Laura/Giovanna)?</li>
+            <li>Professores: quem contrata, quem desliga?</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <div class="mc-label">DECISÕES A TOMAR</div>
+          <ul>
+            <li>Confirmar o título formal da Elis</li>
+            <li>Confirmar o papel da Adriana</li>
+            <li>Definir dono do processo de suporte ao aluno</li>
+            <li>Definir dono da gestão dos professores</li>
+            <li>Protocolo: quem cobre Laura quando falta</li>
+          </ul>
+        </div>
+      </div>
+      <div class="outcome-box">
+        <strong>SAIR COM</strong>
+        Organograma validado pelos três — quem faz o quê, com que autoridade. Pode ser aprovado verbalmente e registrado em mensagem depois.
+      </div>
+      <div class="alert-box">
+        <strong>⚠️ Não deixar para resolver depois</strong>
+        O dono dos professores e o dono do suporte ao aluno são os dois processos mais críticos. Se saírem da reunião sem dono definido, os problemas atuais continuam.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════ BLOCO 3 + QUESTÕES ══════════════════════ -->
+<div class="page page-break">
+
+  <!-- BLOCO 3 -->
+  <div class="meeting-block no-break">
+    <div class="block-header green">
+      <div class="block-num">3</div>
+      <div>
+        <div class="block-title">Próximo Passo — Um acordo registrado</div>
+        <div class="block-meta">Lidera: Lucio · 25 minutos</div>
+      </div>
+    </div>
+    <div class="block-body">
+      <p class="lead">"A gente quer organizar o que já existe — não mudar o que fazemos, só dar nome e número ao que já é real."</p>
+      <div class="row2">
+        <div class="mini-card">
+          <div class="mc-label">PERGUNTAS DO BLOCO</div>
+          <ul>
+            <li>Conseguimos registrar hoje o que cada um entrega e recebe?</li>
+            <li>Adriana: qual é o status final da proposta R$3.800?</li>
+            <li>Qual é o menor passo que cada um aceita dar agora?</li>
+            <li>Quando revisamos esse acordo — em 30 ou 60 dias?</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <div class="mc-label">O MENOR PASSO POSSÍVEL</div>
+          <ul>
+            <li>Luciana manda mensagem confirmando os papéis e valores</li>
+            <li>OU: e-mail curto listando o que cada um entrega</li>
+            <li>OU: uma ata de 5 linhas das decisões da reunião</li>
+            <li>NÃO precisa ser contrato formal agora</li>
+          </ul>
+        </div>
+      </div>
+      <div class="outcome-box">
+        <strong>SAIR COM</strong>
+        Alguma forma de registro — mensagem, e-mail ou ata — das decisões tomadas nos blocos 1 e 2. Qualquer registro escrito é progresso real.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- QUESTÕES TRANSVERSAIS -->
+  <div class="section no-break">
+    <h2><span class="badge orange">ATENÇÃO</span> Questões que Podem Surgir — Estar Preparado</h2>
+    <p class="section-desc">Não é necessário pautar esses temas. Mas se surgirem, ter a resposta preparada evita improviso.</p>
+
+    <ul class="q-list">
+      <li>
+        <span class="q-num amber">!</span>
+        <span><strong>Professores levando alunos:</strong> se surgir, não resolver na reunião — registrar como pauta separada com advogado presente. Não criar precedente verbal.</span>
+      </li>
+      <li>
+        <span class="q-num amber">!</span>
+        <span><strong>Boato de falência:</strong> se Luciana mencionar, validar a preocupação e propor ação concreta de comunicação com alunos. Não minimizar.</span>
+      </li>
+      <li>
+        <span class="q-num amber">!</span>
+        <span><strong>Resistência à formalização:</strong> não confrontar. Usar: <em>"Não muda nada do que fazemos — só protege você se alguém de fora questionar."</em></span>
+      </li>
+      <li>
+        <span class="q-num amber">!</span>
+        <span><strong>Novas ideias da Luciana:</strong> acolher, registrar, propor avaliar na próxima reunião. Não comprometer esforço novo sem ter o atual organizado.</span>
+      </li>
+      <li>
+        <span class="q-num amber">!</span>
+        <span><strong>Custo da Rede Publicidade:</strong> se questionado, ter o comparativo pronto: o que substituímos (Curseduca + Whaticket + Builderal = R$1.120/mês) vs. o que entregamos.</span>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- REGRAS DA REUNIÃO -->
+  <div class="section no-break">
+    <h2><span class="badge blue">REGRAS</span> Como Conduzir Bem</h2>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+      <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:8px; padding:12px;">
+        <div style="font-size:11px; font-weight:700; color:#15803d; letter-spacing:.04em; margin-bottom:6px;">FAZER</div>
+        <ul style="padding-left:14px;">
+          <li style="font-size:12px; color:#374151; margin-bottom:4px;">Uma decisão por vez — terminar antes de abrir outro tema</li>
+          <li style="font-size:12px; color:#374151; margin-bottom:4px;">Nomear dono para cada decisão tomada</li>
+          <li style="font-size:12px; color:#374151; margin-bottom:4px;">Registrar em tempo real (WhatsApp aberto no celular)</li>
+          <li style="font-size:12px; color:#374151;">Perguntar "quando?" para cada próxima ação</li>
+        </ul>
+      </div>
+      <div style="background:#fef2f2; border:1px solid #fca5a5; border-radius:8px; padding:12px;">
+        <div style="font-size:11px; font-weight:700; color:#dc2626; letter-spacing:.04em; margin-bottom:6px;">NÃO FAZER</div>
+        <ul style="padding-left:14px;">
+          <li style="font-size:12px; color:#374151; margin-bottom:4px;">Abrir problemas sem solução encaminhada</li>
+          <li style="font-size:12px; color:#374151; margin-bottom:4px;">Aceitar "vamos ver" como resposta para decisão urgente</li>
+          <li style="font-size:12px; color:#374151; margin-bottom:4px;">Sair sem pelo menos uma coisa registrada por escrito</li>
+          <li style="font-size:12px; color:#374151;">Resolver tudo em uma reunião — priorizar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="section no-break" style="margin-top:20px;">
+    <h2><span class="badge">NOTAS</span> Anotações da Reunião</h2>
+    <div class="note-box" style="min-height:80px;">
+      <div class="note-label">DECISÕES TOMADAS</div>
+    </div>
+    <div class="note-box" style="min-height:60px; margin-top:8px;">
+      <div class="note-label">PRÓXIMOS PASSOS + DONOS + PRAZOS</div>
+    </div>
+    <div class="note-box" style="min-height:40px; margin-top:8px;">
+      <div class="note-label">O QUE FICA PARA A PRÓXIMA REUNIÃO</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Holos Cursos e Terapias · Pauta Estratégica · 15/05/2026 · Uso interno — Lucio, Elis e Luciana · Confidencial
+  </div>
+
+</div>
+
+</body>
+</html>

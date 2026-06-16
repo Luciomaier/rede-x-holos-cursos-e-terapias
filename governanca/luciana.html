@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holos — Pré-Reunião · Luciana</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #09090b; font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; }
+
+    .dot-grid {
+      background-image: radial-gradient(circle, #3f3f46 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .blob {
+      position: fixed; border-radius: 50%;
+      filter: blur(90px); opacity: 0.1;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    .shimmer {
+      background: linear-gradient(90deg, #7c3aed, #a855f7, #c026d3, #a855f7, #7c3aed);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeInUp 0.45s ease both; }
+
+    .card {
+      background: rgba(24,24,27,0.85);
+      border: 1px solid rgba(63,63,70,0.55);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+    }
+    .radio-opt {
+      cursor: pointer;
+      border: 1px solid rgba(63,63,70,0.55);
+      border-radius: 10px;
+      padding: 11px 14px;
+      background: rgba(24,24,27,0.5);
+      transition: border-color 0.18s, background 0.18s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .radio-opt:hover { border-color: #7c3aed; background: rgba(124,58,237,0.08); }
+    .radio-opt.sel   { border-color: #7c3aed; background: rgba(124,58,237,0.14); }
+
+    .dot {
+      width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0;
+      border: 2px solid #52525b; transition: all 0.18s;
+    }
+    .dot.sel { background: #7c3aed; border-color: #7c3aed; }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      background: rgba(24,24,27,0.55);
+      border: 1px solid rgba(63,63,70,0.55);
+      border-radius: 10px;
+      color: #f4f4f5;
+      -webkit-text-fill-color: #f4f4f5;
+      caret-color: #a78bfa;
+      font-size: 14px;
+      padding: 10px 14px;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.18s;
+      font-family: inherit;
+    }
+    textarea:focus, input[type="text"]:focus { border-color: #7c3aed; }
+    textarea::placeholder, input::placeholder { color: #52525b; -webkit-text-fill-color: #52525b; }
+
+    .progress-track {
+      height: 4px; border-radius: 2px;
+      background: rgba(63,63,70,0.4); overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7c3aed, #a855f7, #c026d3);
+      border-radius: 2px; transition: width 0.5s ease;
+    }
+    .btn {
+      width: 100%;
+      background: linear-gradient(135deg, #7c3aed, #a855f7, #c026d3);
+      border: none; border-radius: 12px; color: #fff;
+      cursor: pointer; font-weight: 700; font-size: 15px;
+      padding: 15px 32px; transition: opacity 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+    }
+    .btn:hover:not(:disabled) { opacity: 0.88; box-shadow: 0 0 28px rgba(124,58,237,0.45); }
+    .btn:disabled { opacity: 0.38; cursor: not-allowed; }
+  </style>
+</head>
+<body class="dot-grid">
+  <div class="blob" style="width:520px;height:520px;background:#7c3aed;top:-120px;left:-80px;"></div>
+  <div class="blob" style="width:420px;height:420px;background:#c026d3;bottom:-100px;right:-80px;"></div>
+  <div class="blob" style="width:300px;height:300px;background:#6d28d9;top:40%;left:50%;transform:translate(-50%,-50%);"></div>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+    const WA = '5513981552646';
+    const NOME = 'Luciana';
+
+    function RadioGroup({ options, value, onChange }) {
+      return (
+        <div style={{ display:'flex', flexDirection:'column', gap:'8px' }}>
+          {options.map(o => (
+            <div key={o} className={`radio-opt ${value===o?'sel':''}`} onClick={() => onChange(o)}>
+              <div className={`dot ${value===o?'sel':''}`} />
+              <span style={{ color:'#e4e4e7', fontSize:'14px' }}>{o}</span>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    function QCard({ num, title, sub, delay, children }) {
+      return (
+        <div className="card fade-in" style={{ padding:'24px', animationDelay:`${delay}ms` }}>
+          <div style={{ marginBottom:'16px' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'4px' }}>
+              <span style={{
+                background:'rgba(124,58,237,0.18)', border:'1px solid rgba(124,58,237,0.35)',
+                borderRadius:'8px', color:'#a78bfa', fontSize:'11px',
+                fontWeight:'700', padding:'2px 10px', letterSpacing:'0.04em'
+              }}>{num}</span>
+              <h3 style={{ color:'#f4f4f5', fontSize:'15px', fontWeight:'700' }}>{title}</h3>
+            </div>
+            {sub && <p style={{ color:'#71717a', fontSize:'13px', paddingLeft:'44px' }}>{sub}</p>}
+          </div>
+          {children}
+        </div>
+      );
+    }
+
+    function App() {
+      const [q1r, setQ1r] = useState('');
+      const [q1d, setQ1d] = useState('');
+      const [q2,  setQ2]  = useState('');
+      const [q3,  setQ3]  = useState('');
+      const [q4,  setQ4]  = useState('');
+      const [q5,  setQ5]  = useState('');
+      const [q5x, setQ5x] = useState('');
+      const [q6,  setQ6]  = useState('');
+      const [q6x, setQ6x] = useState('');
+      const [q7,  setQ7]  = useState('');
+      const [q8c, setQ8c] = useState('');
+      const [q8q, setQ8q] = useState('');
+      const [q8x, setQ8x] = useState('');
+      const [q9,  setQ9]  = useState('');
+      const [q9x, setQ9x] = useState('');
+      const [q10, setQ10] = useState('');
+      const [ok,  setOk]  = useState(false);
+
+      const score = [q1r, q2, q3, q4, q5, q6, q7, q8c, q9, q10].filter(Boolean).length;
+
+      function fmt() {
+        return `🏢 *HOLOS — PRÉ-REUNIÃO DE SEXTA*
+👤 *${NOME}*   📅 ${new Date().toLocaleDateString('pt-BR')}
+
+━━━━━━━━━━━━━━━━━━
+1️⃣ *FINANCEIRO DO ÚLTIMO MÊS*
+• Receita: R$ ${q1r||'—'}
+• Despesa: R$ ${q1d||'—'}
+
+━━━━━━━━━━━━━━━━━━
+2️⃣ *GESTOR FORMAL DOS PROFESSORES*
+${q2||'—'}
+
+━━━━━━━━━━━━━━━━━━
+3️⃣ *CONFLITO ADRIANA × ELIS — QUEM DECIDE?*
+${q3||'—'}
+
+━━━━━━━━━━━━━━━━━━
+4️⃣ *ALUNO COM PROBLEMA — PROCURA QUEM?*
+${q4||'—'}
+
+━━━━━━━━━━━━━━━━━━
+5️⃣ *ABERTURA DE TURMA — QUEM DECIDE?*
+${q5||'—'}${q5x?`\n💬 ${q5x}`:''}
+
+━━━━━━━━━━━━━━━━━━
+6️⃣ *FORMALIZAR CARGOS E CONTRATOS*
+${q6||'—'}${q6x?`\n💬 ${q6x}`:''}
+
+━━━━━━━━━━━━━━━━━━
+7️⃣ *DIREÇÃO DE CRESCIMENTO*
+${q7||'—'}
+
+━━━━━━━━━━━━━━━━━━
+8️⃣ *VOCÊ — AFASTAMENTO 3 MESES*
+• Consegue: ${q8c||'—'}
+• Quer: ${q8q||'—'}${q8x?`\n💬 ${q8x}`:''}
+
+━━━━━━━━━━━━━━━━━━
+9️⃣ *PROPOSTA ADRIANA — R$3.800 FIXO*
+${q9||'—'}${q9x?`\n💬 ${q9x}`:''}
+
+━━━━━━━━━━━━━━━━━━
+🔟 *TURNO MANHÃ QUANDO LAURA FALTA*
+${q10||'—'}
+
+━━━━━━━━━━━━━━━━━━
+✅ _Enviado via formulário pré-reunião_`;
+      }
+
+      function send() {
+        window.open(`https://wa.me/${WA}?text=${encodeURIComponent(fmt())}`, '_blank');
+        setOk(true);
+        setTimeout(() => {
+          setOk(false);
+          [setQ1r,setQ1d,setQ2,setQ3,setQ4,setQ5,setQ5x,setQ6,setQ6x,
+           setQ7,setQ8c,setQ8q,setQ8x,setQ9,setQ9x,setQ10].forEach(fn => fn(''));
+        }, 5000);
+      }
+
+      if (ok) return (
+        <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px', position:'relative', zIndex:1 }}>
+          <div className="card fade-in" style={{ padding:'52px 36px', textAlign:'center', maxWidth:'420px', width:'100%' }}>
+            <div style={{ fontSize:'52px', marginBottom:'16px' }}>✅</div>
+            <h2 style={{ color:'#f4f4f5', fontSize:'22px', fontWeight:'800', marginBottom:'8px' }}>Enviado!</h2>
+            <p style={{ color:'#71717a', fontSize:'14px' }}>Obrigada, {NOME}! As respostas foram abertas no WhatsApp.</p>
+          </div>
+        </div>
+      );
+
+      return (
+        <div style={{ maxWidth:'660px', margin:'0 auto', padding:'40px 20px 80px', position:'relative', zIndex:1 }}>
+
+          {/* Header */}
+          <div className="fade-in" style={{ textAlign:'center', marginBottom:'40px' }}>
+            <div style={{
+              display:'inline-block',
+              background:'rgba(124,58,237,0.12)', border:'1px solid rgba(124,58,237,0.28)',
+              borderRadius:'20px', padding:'4px 18px', marginBottom:'16px'
+            }}>
+              <span className="shimmer" style={{ fontSize:'11px', fontWeight:'700', letterSpacing:'0.07em' }}>
+                HOLOS · PRÉ-REUNIÃO DE SEXTA
+              </span>
+            </div>
+            <h1 style={{ color:'#f4f4f5', fontSize:'30px', fontWeight:'800', marginBottom:'8px' }}>
+              Olá, <span className="shimmer">{NOME}</span> 👋
+            </h1>
+            <p style={{ color:'#71717a', fontSize:'14px', maxWidth:'440px', margin:'0 auto', lineHeight:'1.6' }}>
+              Antes da reunião de sexta, preciso de algumas respostas suas. São 10 perguntas e leva menos de 5 minutos.
+            </p>
+            <div style={{ maxWidth:'300px', margin:'24px auto 0' }}>
+              <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'6px' }}>
+                <span style={{ color:'#52525b', fontSize:'12px' }}>Progresso</span>
+                <span style={{ color:'#a78bfa', fontSize:'12px', fontWeight:'700' }}>{score}/10</span>
+              </div>
+              <div className="progress-track">
+                <div className="progress-fill" style={{ width:`${score*10}%` }} />
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display:'flex', flexDirection:'column', gap:'14px' }}>
+
+            {/* Q1 */}
+            <QCard num="01" title="Financeiro do último mês" sub="Valores reais — quanto entrou e quanto saiu" delay={80}>
+              <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px' }}>
+                <div>
+                  <label style={{ display:'block', color:'#71717a', fontSize:'12px', marginBottom:'6px' }}>Receita (R$)</label>
+                  <input type="text" placeholder="Ex: 18.500" value={q1r} onChange={e=>setQ1r(e.target.value)} />
+                </div>
+                <div>
+                  <label style={{ display:'block', color:'#71717a', fontSize:'12px', marginBottom:'6px' }}>Despesa (R$)</label>
+                  <input type="text" placeholder="Ex: 12.300" value={q1d} onChange={e=>setQ1d(e.target.value)} />
+                </div>
+              </div>
+            </QCard>
+
+            {/* Q2 */}
+            <QCard num="02" title="Gestor formal dos professores" sub="Quem é a referência principal para os professores?" delay={140}>
+              <RadioGroup value={q2} onChange={setQ2} options={[
+                'Elis',
+                'Luciana',
+                'As duas juntas',
+                'Ninguém formalmente ainda',
+              ]} />
+            </QCard>
+
+            {/* Q3 */}
+            <QCard num="03" title="Conflito Adriana × Elis — quem decide?" sub="Quando as prioridades colidem, quem tem a palavra final?" delay={200}>
+              <RadioGroup value={q3} onChange={setQ3} options={[
+                'Elis decide',
+                'Luciana decide',
+                'Discutem até chegar a um acordo',
+                'Fica sem resolução clara — é um problema hoje',
+                'Adriana acaba resolvendo por conta',
+              ]} />
+            </QCard>
+
+            {/* Q4 */}
+            <QCard num="04" title="Aluno com problema — procura quem?" sub="Na prática, quem é o primeiro ponto de contato?" delay={260}>
+              <RadioGroup value={q4} onChange={setQ4} options={[
+                'Elis',
+                'Luciana',
+                'Quem estiver disponível no momento',
+                'O professor da turma diretamente',
+              ]} />
+            </QCard>
+
+            {/* Q5 */}
+            <QCard num="05" title="Abertura de turma — quem decide?" sub="Data, preço e número mínimo de alunos — quem define?" delay={320}>
+              <RadioGroup value={q5} onChange={setQ5} options={[
+                'Elis decide',
+                'Luciana decide',
+                'As duas juntas',
+                'Adriana participa da decisão',
+              ]} />
+              <textarea rows={3} placeholder="Como funciona na prática hoje?" value={q5x} onChange={e=>setQ5x(e.target.value)} style={{ marginTop:'12px' }} />
+            </QCard>
+
+            {/* Q6 */}
+            <QCard num="06" title="Formalizar cargos e contratos — você está aberta a isso?" sub="Transformar o que já fazemos em papel: títulos claros, valores definidos, responsabilidades escritas." delay={380}>
+              <RadioGroup value={q6} onChange={setQ6} options={[
+                'Sim, acho importante e necessário',
+                'Sim, mas quero entender melhor antes',
+                'Tenho algumas ressalvas — prefiro conversar',
+                'Prefiro manter como está por enquanto',
+              ]} />
+              <textarea rows={3} placeholder="Se quiser, explica o que pesa mais para você nessa decisão..." value={q6x} onChange={e=>setQ6x(e.target.value)} style={{ marginTop:'12px' }} />
+            </QCard>
+
+            {/* Q7 */}
+            <QCard num="07" title="Para onde a Holos deve crescer?" sub="Qual direção faz mais sentido para os próximos 12 meses?" delay={440}>
+              <RadioGroup value={q7} onChange={setQ7} options={[
+                '📈 Mais alunos — crescer em volume',
+                '💰 Mais margem — mesmo volume, ticket maior',
+                '🏢 Novas unidades — expansão física',
+                '💻 Online — EAD e conteúdo digital',
+              ]} />
+            </QCard>
+
+            {/* Q8 — LUCIANA: sobre ela mesma */}
+            <QCard num="08" title="Você consegue se afastar 3 meses? E quer isso?" sub="Pergunta importante — seja honesta, isso ajuda muito o planejamento." delay={500}>
+              <div style={{ marginBottom:'16px' }}>
+                <p style={{ color:'#71717a', fontSize:'12px', marginBottom:'10px' }}>Operacionalmente você conseguiria?</p>
+                <RadioGroup value={q8c} onChange={setQ8c} options={[
+                  'Sim, sem problema',
+                  'Sim, mas precisaria de ajustes',
+                  'Não no cenário atual',
+                  'Não sei avaliar',
+                ]} />
+              </div>
+              <div style={{ marginBottom:'12px' }}>
+                <p style={{ color:'#71717a', fontSize:'12px', marginBottom:'10px' }}>Você quer isso?</p>
+                <RadioGroup value={q8q} onChange={setQ8q} options={[
+                  'Sim, quero',
+                  'Não quero',
+                  'Talvez, dependeria de algumas coisas',
+                  'Ainda não pensei nisso',
+                ]} />
+              </div>
+              <textarea rows={3} placeholder="Pode falar mais sobre isso se quiser..." value={q8x} onChange={e=>setQ8x(e.target.value)} />
+            </QCard>
+
+            {/* Q9 */}
+            <QCard num="09" title="Proposta da Adriana — R$3.800 fixo" sub="Qual é o status dessa proposta hoje?" delay={560}>
+              <RadioGroup value={q9} onChange={setQ9} options={[
+                'Aprovada — ela já está nesse regime',
+                'Reprovada — não vai avançar',
+                'Em análise — ainda decidindo',
+                'Não estava ciente desse valor',
+              ]} />
+              <textarea rows={3} placeholder="O que você sabe sobre isso?" value={q9x} onChange={e=>setQ9x(e.target.value)} style={{ marginTop:'12px' }} />
+            </QCard>
+
+            {/* Q10 */}
+            <QCard num="10" title="Turno da manhã — quando Laura falta" sub="Quem cobre? Como funciona hoje na prática?" delay={620}>
+              <textarea rows={4} placeholder="Explica como funciona quando Laura não está..." value={q10} onChange={e=>setQ10(e.target.value)} />
+            </QCard>
+
+            {/* Submit */}
+            <div className="fade-in" style={{ animationDelay:'680ms', marginTop:'8px' }}>
+              <button className="btn" onClick={send} disabled={score < 6}>
+                {score < 6
+                  ? `Responda mais ${6-score} pergunta${6-score>1?'s':''} para continuar`
+                  : `Enviar para o Lúcio via WhatsApp ✅`}
+              </button>
+              <p style={{ textAlign:'center', color:'#3f3f46', fontSize:'12px', marginTop:'10px' }}>
+                Suas respostas abrem no WhatsApp — basta confirmar o envio.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

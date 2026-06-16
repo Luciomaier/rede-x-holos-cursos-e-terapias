@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatório de Dezena — Rede Publicidade</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #111;
+    color: #fff;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+  }
+  .nav button {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s;
+  }
+  .nav button:hover { background: rgba(255,255,255,0.28); }
+  .slide-count {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    z-index: 100;
+  }
+
+  /* SLIDES */
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+  }
+  .slide.active { display: flex; }
+
+  /* SLIDE 1 — NÚMEROS */
+  .slide-1 { background: #1a1a1a; }
+  .slide-1 .tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .slide-1 h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 48px;
+    color: #fff;
+  }
+  .grid-numeros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 860px;
+  }
+  .num-card {
+    background: #252525;
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    border: 1px solid #2e2e2e;
+  }
+  .num-card .valor {
+    font-size: 42px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+  }
+  .num-card .label {
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+  }
+  .num-card.destaque { border-color: #fff; }
+  .num-card.destaque .valor { color: #fff; }
+
+  /* SLIDE 2 — ENTREGAS */
+  .slide-2 { background: #141414; align-items: flex-start; padding: 60px 80px; }
+  .slide-2 .tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 16px;
+  }
+  .slide-2 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+  .entregas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    width: 100%;
+    max-width: 1000px;
+  }
+  .pessoa-col .nome {
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .pessoa-col ul {
+    list-style: none;
+  }
+  .pessoa-col ul li {
+    font-size: 15px;
+    color: #ddd;
+    padding: 10px 0;
+    border-bottom: 1px solid #1e1e1e;
+    line-height: 1.4;
+  }
+  .pessoa-col ul li::before {
+    content: '· ';
+    color: #555;
+  }
+  .pessoa-col ul li:last-child { border-bottom: none; }
+
+  /* SLIDE 3 — PROBLEMA RESOLVIDO */
+  .slide-3 { background: #0f0f0f; }
+  .slide-3 .tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .slide-3 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+  .problema-box {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 40px 48px;
+    max-width: 760px;
+    width: 100%;
+    border: 1px solid #2a2a2a;
+  }
+  .problema-linha {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+  .problema-linha:last-child { margin-bottom: 0; }
+  .problema-pill {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .pill-situacao { background: #2a2a2a; color: #888; }
+  .pill-acao { background: #1e2a1e; color: #6abf69; }
+  .pill-resultado { background: #1e261e; color: #81c784; }
+  .problema-texto {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+  }
+
+  /* SLIDE 4 — PRÓXIMA DEZENA */
+  .slide-4 { background: #161616; }
+  .slide-4 .tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  .slide-4 h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 48px;
+  }
+  .proximas-lista {
+    list-style: none;
+    max-width: 640px;
+    width: 100%;
+    counter-reset: item;
+  }
+  .proximas-lista li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #222;
+    font-size: 18px;
+    color: #ddd;
+    counter-increment: item;
+  }
+  .proximas-lista li:last-child { border-bottom: none; }
+  .proximas-lista li::before {
+    content: counter(item);
+    min-width: 36px;
+    height: 36px;
+    background: #fff;
+    color: #111;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .semana-label {
+    font-size: 13px;
+    color: #555;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-count" id="slideCount">1 / 4</div>
+
+<!-- SLIDE 1: NÚMEROS -->
+<div class="slide slide-1 active" id="slide-1">
+  <div class="tag">Dezena <!-- DEZENA_NUM --> — <!-- DATA_INICIO --> a <!-- DATA_FIM --></div>
+  <h2>Resultados da dezena</h2>
+  <div class="grid-numeros">
+    <div class="num-card destaque">
+      <div class="valor"><!-- LEADS --></div>
+      <div class="label">Leads gerados</div>
+    </div>
+    <div class="num-card destaque">
+      <div class="valor"><!-- ROAS --></div>
+      <div class="label">ROAS médio</div>
+    </div>
+    <div class="num-card destaque">
+      <div class="valor"><!-- ALUNOS_NOVOS --></div>
+      <div class="label">Alunos novos</div>
+    </div>
+    <div class="num-card">
+      <div class="valor"><!-- EMAILS --></div>
+      <div class="label">Emails enviados</div>
+    </div>
+    <div class="num-card">
+      <div class="valor"><!-- VERBA --></div>
+      <div class="label">Verba investida</div>
+    </div>
+    <div class="num-card">
+      <div class="valor"><!-- AUTOMACOES --></div>
+      <div class="label">Automações ativas</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: ENTREGAS -->
+<div class="slide slide-2" id="slide-2">
+  <div class="tag">O que foi feito</div>
+  <h2>Entregas da dezena</h2>
+  <div class="entregas-grid">
+    <div class="pessoa-col">
+      <div class="nome">Lucio — Tráfego &amp; Estratégia</div>
+      <ul>
+        <li><!-- LUCIO_1 --></li>
+        <li><!-- LUCIO_2 --></li>
+        <li><!-- LUCIO_3 --></li>
+      </ul>
+    </div>
+    <div class="pessoa-col">
+      <div class="nome">Elis — Operações &amp; Plataforma</div>
+      <ul>
+        <li><!-- ELIS_1 --></li>
+        <li><!-- ELIS_2 --></li>
+        <li><!-- ELIS_3 --></li>
+      </ul>
+    </div>
+    <div class="pessoa-col">
+      <div class="nome">Nick — Automações &amp; Infra</div>
+      <ul>
+        <li><!-- NICK_1 --></li>
+        <li><!-- NICK_2 --></li>
+        <li><!-- NICK_3 --></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: PROBLEMA RESOLVIDO -->
+<div class="slide slide-3" id="slide-3">
+  <div class="tag">Gestão de problemas</div>
+  <h2>Problema resolvido na dezena</h2>
+  <div class="problema-box">
+    <div class="problema-linha">
+      <span class="problema-pill pill-situacao">Situação</span>
+      <div class="problema-texto"><!-- PROBLEMA_SITUACAO --></div>
+    </div>
+    <div class="problema-linha">
+      <span class="problema-pill pill-acao">O que fizemos</span>
+      <div class="problema-texto"><!-- PROBLEMA_ACAO --></div>
+    </div>
+    <div class="problema-linha">
+      <span class="problema-pill pill-resultado">Resultado</span>
+      <div class="problema-texto"><!-- PROBLEMA_RESULTADO --></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: PRÓXIMA SEMANA -->
+<div class="slide slide-4" id="slide-4">
+  <div class="tag">Planejamento</div>
+  <h2>Próxima dezena</h2>
+  <ul class="proximas-lista">
+    <li><!-- PROXIMA_1 --></li>
+    <li><!-- PROXIMA_2 --></li>
+    <li><!-- PROXIMA_3 --></li>
+  </ul>
+  <div class="semana-label">Dezena <!-- PROXIMA_DEZENA_NUM --> — <!-- PROXIMA_DATA_INICIO --> a <!-- PROXIMA_DATA_FIM --></div>
+</div>
+
+<!-- NAVEGAÇÃO -->
+<div class="nav">
+  <button onclick="prev()">← Anterior</button>
+  <button onclick="next()">Próximo →</button>
+</div>
+
+<script>
+  let current = 1;
+  const total = 4;
+
+  function show(n) {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    document.getElementById('slide-' + n).classList.add('active');
+    document.getElementById('slideCount').textContent = n + ' / ' + total;
+    current = n;
+  }
+
+  function next() { if (current < total) show(current + 1); }
+  function prev() { if (current > 1) show(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+</script>
+
+</body>
+</html>

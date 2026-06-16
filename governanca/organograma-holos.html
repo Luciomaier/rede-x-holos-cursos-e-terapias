@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holos — Design Operacional 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: #1a1a2e;
+      background: #ffffff;
+      line-height: 1.5;
+    }
+
+    @page {
+      size: A4;
+      margin: 18mm 15mm 18mm 15mm;
+    }
+
+    @media print {
+      .page-break { page-break-before: always; }
+      .no-break { page-break-inside: avoid; }
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      padding: 60px 40px;
+    }
+    .cover-badge {
+      background: rgba(124,58,237,0.25);
+      border: 1px solid rgba(167,139,250,0.4);
+      border-radius: 20px;
+      padding: 5px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #c4b5fd;
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+    .cover h1 {
+      font-size: 42px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .cover h1 span { color: #a78bfa; }
+    .cover .subtitle {
+      font-size: 16px;
+      color: #a1a1aa;
+      margin-bottom: 48px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cover-meta-item {
+      text-align: center;
+    }
+    .cover-meta-item .val {
+      font-size: 28px;
+      font-weight: 800;
+      color: #a78bfa;
+    }
+    .cover-meta-item .lbl {
+      font-size: 11px;
+      color: #71717a;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .cover-date {
+      margin-top: 52px;
+      font-size: 12px;
+      color: #52525b;
+    }
+
+    /* ── CONTENT ── */
+    .content { padding: 32px 8px; }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #7c3aed;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2 .num {
+      background: #7c3aed;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      letter-spacing: 0.04em;
+    }
+
+    h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+
+    .section { margin-bottom: 36px; }
+
+    p { margin-bottom: 8px; color: #374151; }
+
+    /* ── ORGANOGRAM ── */
+    .org-box {
+      background: #f8f7ff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      font-family: 'Courier New', monospace;
+      font-size: 11.5px;
+      line-height: 1.8;
+      color: #1a1a2e;
+    }
+
+    /* ── TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    th {
+      background: #7c3aed;
+      color: #fff;
+      font-weight: 700;
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+    th:first-child { border-radius: 8px 0 0 0; }
+    th:last-child  { border-radius: 0 8px 0 0; }
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: top;
+      color: #374151;
+    }
+    tr:nth-child(even) td { background: #faf9ff; }
+    tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+    tr:last-child td:last-child  { border-radius: 0 0 8px 0; }
+
+    /* ── RACI ── */
+    .raci-r { color: #7c3aed; font-weight: 800; }
+    .raci-a { color: #0891b2; font-weight: 800; }
+    .raci-c { color: #059669; font-weight: 700; }
+    .raci-i { color: #9ca3af; font-weight: 500; }
+
+    /* ── CARDS ── */
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: #f8f7ff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .card .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #7c3aed;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .card .card-body { font-size: 12px; color: #374151; }
+
+    /* ── ESCALATION ── */
+    .escalation-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 10px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #f9fafb;
+      border-left: 3px solid #7c3aed;
+    }
+    .escalation-level {
+      background: #7c3aed;
+      color: #fff;
+      font-weight: 800;
+      font-size: 11px;
+      border-radius: 6px;
+      padding: 2px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .escalation-level.l2 { background: #0891b2; }
+    .escalation-level.l3 { background: #d97706; }
+    .escalation-level.l4 { background: #dc2626; }
+    .escalation-text strong { font-weight: 700; display: block; margin-bottom: 2px; font-size: 12px; }
+    .escalation-text span   { font-size: 11px; color: #6b7280; }
+
+    /* ── HIGHLIGHTS ── */
+    .highlight-box {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: #92400e;
+    }
+    .highlight-box.red {
+      background: #fef2f2;
+      border-color: #fca5a5;
+      color: #991b1b;
+    }
+    .highlight-box.green {
+      background: #f0fdf4;
+      border-color: #86efac;
+      color: #166534;
+    }
+
+    /* ── KPI TABLE ── */
+    .kpi-badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #7c3aed;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    /* ── CADENCE GRID ── */
+    .cadence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .cadence-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .cadence-card .freq {
+      font-size: 10px;
+      font-weight: 700;
+      color: #7c3aed;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .cadence-card .name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+    .cadence-card .detail {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    /* ── PERSON CARD ── */
+    .person-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+    .person-card .person-name {
+      font-weight: 800;
+      font-size: 13px;
+      color: #7c3aed;
+      margin-bottom: 2px;
+    }
+    .person-card .person-role {
+      font-size: 11px;
+      color: #6b7280;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .person-card ul {
+      padding-left: 16px;
+      font-size: 12px;
+      color: #374151;
+    }
+    .person-card ul li { margin-bottom: 3px; }
+
+    /* ── ACTION LIST ── */
+    .action-list { list-style: none; padding: 0; }
+    .action-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 12px;
+      color: #374151;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-check {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .action-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .tag-red { background: #fef2f2; color: #dc2626; }
+    .tag-yellow { background: #fffbeb; color: #d97706; }
+    .tag-green { background: #f0fdf4; color: #16a34a; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ COVER ═══ -->
+<div class="cover">
+  <div class="cover-badge">DOCUMENTO INTERNO · CONFIDENCIAL</div>
+  <h1>Holos<br><span>Design Operacional</span></h1>
+  <p class="subtitle">Organograma · Funções · Accountability · RACI</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="val">4</div>
+      <div class="lbl">DEPARTAMENTOS</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="val">7</div>
+      <div class="lbl">PROCESSOS MAPEADOS</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="val">3</div>
+      <div class="lbl">GARGALOS CRÍTICOS</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="val">+10k</div>
+      <div class="lbl">ALUNOS FORMADOS</div>
+    </div>
+  </div>
+  <p class="cover-date">Preparado em 14 de maio de 2026 · Reunião de sexta 16/05/2026</p>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 1: ORGANOGRAM ═══ -->
+<div class="content page-break">
+
+  <div class="section no-break">
+    <h2><span class="num">01</span> Organograma Proposto</h2>
+    <p>Estrutura em 4 departamentos com hierarquias claras e responsabilidades definidas.</p>
+    <div class="org-box">
+╔══════════════════════════════════════════════════════════════╗
+║                    DIRETORIA EXECUTIVA                       ║
+║          Luciana (CEO)            Vani (VP / Co-fundadora)   ║
+║          Estratégia · Vendas      Bastidores · Veto          ║
+╚══════════════════════════════════════════════════════════════╝
+                              │
+          ┌───────────────────┼───────────────────┐
+          ▼                   ▼                   ▼
+  ┌───────────────┐   ┌──────────────┐   ┌────────────────────┐
+  │  OPERAÇÕES    │   │  PEDAGÓGICO  │   │    COMERCIAL       │
+  │   Elis        │   │   Adriana    │   │    Leo (coord.)    │
+  │   (COO)       │   │  (Coord.)    │   │    Luciana (CEO)   │
+  └───────────────┘   └──────────────┘   └────────────────────┘
+          │                   │                    │
+    ┌─────┴──────┐     ┌──────┴──────┐    ┌────────┴─────────┐
+    │     │      │     │             │    │        │          │
+  Laura Bruna  Fin./ Professores Turmas/ Giovanna Tráfego   Site/
+  Recep Mayara Admin  (+10)      EAD            (Lucio)    Nick
+        Nice
+       (limp.)
+
+  ┌────────────────────────────────────────────────────────────┐
+  │              TECNOLOGIA (terceirizado)                     │
+  │  Lucio — Rede Publicidade · Nick — Infra / Automações      │
+  │  Plataforma Holos Connect · Tráfego Pago · Sites           │
+  └────────────────────────────────────────────────────────────┘
+    </div>
+  </div>
+
+  <!-- DEPT TABLE -->
+  <div class="section no-break">
+    <h3>Departamentos e Responsáveis Formais</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Departamento</th>
+          <th>Responsável Formal</th>
+          <th>Escopo Principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Operações</strong></td>
+          <td>Elis — COO / Diretora Operacional</td>
+          <td>RH, financeiro, recepção, administrativo, equipes</td>
+        </tr>
+        <tr>
+          <td><strong>Pedagógico</strong></td>
+          <td>Adriana — Coordenadora Pedagógica</td>
+          <td>Professores, turmas, conteúdo, qualidade de ensino</td>
+        </tr>
+        <tr>
+          <td><strong>Comercial</strong></td>
+          <td>Leo (coord. linha de frente) · Luciana (CEO, estratégia)</td>
+          <td>Matrículas, conversão de leads, CRM, eventos, lojinha, novos produtos</td>
+        </tr>
+        <tr>
+          <td><strong>Tecnologia</strong></td>
+          <td>Lucio — via Rede Publicidade (terceirizado)</td>
+          <td>Plataforma, tráfego pago, sites, automações</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px; color:#6b7280;">⚠️ Vani permanece como VP sem departamento fixo — consultada em decisões estratégicas, com poder de veto em mudanças de produto e precificação.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════ SECTION 2: FUNÇÕES ═══ -->
+<div class="content page-break">
+
+  <div class="section">
+    <h2><span class="num">02</span> Mapa de Funções e Responsabilidades</h2>
+    <p>Para cada pessoa: o que faz, o que decide sozinha, quando precisa consultar e pelo que responde.</p>
+
+    <div class="person-card no-break">
+      <div class="person-name">Luciana</div>
+      <div class="person-role">CEO · Fundadora · Comercial + Conteúdo</div>
+      <ul>
+        <li><strong>Faz:</strong> Define preços, lança novos cursos, cria conteúdo, fecha parcerias, apresenta produtos</li>
+        <li><strong>Decide sozinha:</strong> Lançamento de novos cursos, precificação, parcerias estratégicas</li>
+        <li><strong>Consulta antes:</strong> Elis (impacto operacional), Vani (mudanças de produto)</li>
+        <li><strong>Responde por:</strong> Resultado financeiro geral, posicionamento da marca, novos alunos</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Elis</div>
+      <div class="person-role">COO · Diretora Operacional · Administração Geral</div>
+      <ul>
+        <li><strong>Faz:</strong> Gestão do time, controle financeiro, pagamentos, RH, acesso ao banco, escala de recepção</li>
+        <li><strong>Decide sozinha:</strong> Escala da equipe, pagamentos dentro do orçamento, substituição temporária</li>
+        <li><strong>Consulta antes:</strong> Luciana (contratações fixas, gastos acima do limite aprovado)</li>
+        <li><strong>Responde por:</strong> Operação funcionando, equipe paga em dia, aluno atendido no prazo</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Adriana</div>
+      <div class="person-role">Coordenadora Pedagógica · Professores · Qualidade</div>
+      <ul>
+        <li><strong>Faz:</strong> Coordena professores, organiza grade de turmas, controla presença/entrega, responde dúvidas pedagógicas</li>
+        <li><strong>Decide sozinha:</strong> Ajustes de horário dentro da grade, substituição pontual de aula</li>
+        <li><strong>Consulta antes:</strong> Elis (questões de RH/contrato com professores), Luciana (mudança de grade ou conteúdo)</li>
+        <li><strong>Responde por:</strong> Qualidade do ensino, professores cumprindo carga, dúvidas pedagógicas do aluno</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Laura</div>
+      <div class="person-role">Recepção · Atendimento Turno Manhã</div>
+      <ul>
+        <li><strong>Faz:</strong> Recebe alunos, atende WhatsApp de rotina, controla presença física</li>
+        <li><strong>Decide sozinha:</strong> Agendamentos básicos</li>
+        <li><strong>Escala para Elis:</strong> Problemas com aluno, reclamações, falta de professores</li>
+        <li><strong>Responde por:</strong> Primeira impressão, presença registrada, WhatsApp respondido em até 2h</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Leonardo <span style="font-size:11px; color:#6b7280; font-weight:500;">(Leo)</span></div>
+      <div class="person-role">Comercial · Coordenador de Vendas · Linha de Frente</div>
+      <ul>
+        <li><strong>Faz:</strong> Atende leads (WhatsApp, ligação, presencial), apresenta cursos, fecha matrículas, coordena time comercial</li>
+        <li><strong>Decide sozinha:</strong> Abordagem de venda, follow-up com lead, desconto dentro da política aprovada</li>
+        <li><strong>Escala para Luciana/Elis:</strong> Desconto fora da política, lead com problema de cadastro, lead reclamando de algo da escola</li>
+        <li><strong>Responde por:</strong> Taxa de conversão do time, leads atendidos em até 2h, meta de matrículas mensal</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Giovanna</div>
+      <div class="person-role">Comercial · Vendas (Call Center Mongaguá)</div>
+      <ul>
+        <li><strong>Faz:</strong> Atende leads remotamente, faz follow-up por WhatsApp/ligação, fecha matrículas via contato digital</li>
+        <li><strong>Decide sozinha:</strong> Abordagem e timing de follow-up</li>
+        <li><strong>Escala para Leo:</strong> Lead com objeção fora do script, situação fora do padrão</li>
+        <li><strong>Responde por:</strong> Leads remotos atendidos, conversão da carteira digital</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Bruna · Mayara</div>
+      <div class="person-role">Recepção · Atendimento Presencial e Triagem de Leads</div>
+      <ul>
+        <li><strong>Faz:</strong> Recepciona alunos e visitantes, atende quem chega presencialmente, faz triagem inicial de interesse e encaminha para Leo</li>
+        <li><strong>Decide sozinha:</strong> Triagem e encaminhamento, agendamentos básicos</li>
+        <li><strong>Escala para Leo:</strong> Visitante com interesse em matrícula</li>
+        <li><strong>Escala para Elis:</strong> Problemas operacionais, reclamações</li>
+        <li><strong>Responde por:</strong> Nenhum lead presencial sem atendimento, primeira impressão da escola</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Nice</div>
+      <div class="person-role">Limpeza e Conservação · Suporte Operacional</div>
+      <ul>
+        <li><strong>Faz:</strong> Limpeza e conservação do espaço (3 andares), preparo das salas antes das aulas</li>
+        <li><strong>Escala para Elis:</strong> Problemas estruturais, falta de material, situações fora do padrão</li>
+        <li><strong>Responde por:</strong> Espaço limpo e organizado, salas preparadas no horário</li>
+      </ul>
+    </div>
+
+    <div class="person-card no-break">
+      <div class="person-name">Lucio <span style="font-size:11px; color:#6b7280; font-weight:500;">(via Rede Publicidade)</span></div>
+      <div class="person-role">Diretor de Tecnologia · Tráfego Pago · Plataforma</div>
+      <ul>
+        <li><strong>Faz:</strong> Tráfego pago (R$25k/mês), Holos Connect, sites, automações, relatórios de performance</li>
+        <li><strong>Decide sozinha:</strong> Otimizações táticas de campanha, manutenção preventiva da plataforma</li>
+        <li><strong>Consulta antes:</strong> Luciana (mudanças de verba, novas landing pages), Elis (integrações com operação)</li>
+        <li><strong>Responde por:</strong> Custo por lead, uptime da plataforma, performance das campanhas</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 3: RACI ═══ -->
+<div class="content page-break">
+
+  <div class="section">
+    <h2><span class="num">03</span> Matriz RACI — Processos Críticos</h2>
+    <p style="margin-bottom: 12px;">
+      <strong class="raci-r">R</strong> = Responsável (executa) &nbsp;·&nbsp;
+      <strong class="raci-a">A</strong> = Accountable (responde) &nbsp;·&nbsp;
+      <strong class="raci-c">C</strong> = Consultado &nbsp;·&nbsp;
+      <strong class="raci-i">I</strong> = Informado
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:26%">Processo</th>
+          <th style="width:14%; text-align:center">Luciana</th>
+          <th style="width:14%; text-align:center">Elis</th>
+          <th style="width:14%; text-align:center">Adriana</th>
+          <th style="width:10%; text-align:center">Laura</th>
+          <th style="width:10%; text-align:center">Lucio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Matrícula de aluno</strong></td>
+          <td style="text-align:center"><span class="raci-a">A</span></td>
+          <td style="text-align:center"><span class="raci-r">R</span></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center"><span class="raci-r">R</span></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+        </tr>
+        <tr>
+          <td><strong>Abertura de nova turma</strong></td>
+          <td style="text-align:center"><span class="raci-a">A</span></td>
+          <td style="text-align:center"><span class="raci-c">C</span></td>
+          <td style="text-align:center"><span class="raci-c">C</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+        </tr>
+        <tr>
+          <td><strong>Suporte ao aluno (problema)</strong></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center"><span class="raci-a">A</span></td>
+          <td style="text-align:center"><span class="raci-c">C*</span></td>
+          <td style="text-align:center"><span class="raci-r">R</span></td>
+          <td style="text-align:center"><span class="raci-r">R**</span></td>
+        </tr>
+        <tr>
+          <td><strong>Gestão de professores</strong></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center"><span class="raci-c">C</span></td>
+          <td style="text-align:center"><span class="raci-a">A</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center">—</td>
+        </tr>
+        <tr>
+          <td><strong>Pagamento de professores</strong></td>
+          <td style="text-align:center"><span class="raci-c">C</span></td>
+          <td style="text-align:center"><span class="raci-a raci-r">A+R</span></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center">—</td>
+        </tr>
+        <tr>
+          <td><strong>Cobertura quando Laura falta</strong></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center"><span class="raci-a raci-r">A+R</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center">—</td>
+        </tr>
+        <tr>
+          <td><strong>Lojinha (controle / reposição)</strong></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center"><span class="raci-a">A</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center"><span class="raci-r">R</span></td>
+          <td style="text-align:center">—</td>
+        </tr>
+        <tr>
+          <td><strong>Campanha de marketing</strong></td>
+          <td style="text-align:center"><span class="raci-c">C</span></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center"><span class="raci-a raci-r">A+R</span></td>
+        </tr>
+        <tr>
+          <td><strong>Fechamento financeiro mensal</strong></td>
+          <td style="text-align:center"><span class="raci-a">A</span></td>
+          <td style="text-align:center"><span class="raci-r">R</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+        </tr>
+        <tr>
+          <td><strong>Problema na plataforma</strong></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:center"><span class="raci-i">I</span></td>
+          <td style="text-align:center"><span class="raci-a raci-r">A+R</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px; color:#6b7280;">* C quando o problema é pedagógico &nbsp;·&nbsp; ** R quando o problema é técnico (plataforma)</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════ SECTION 4: ACCOUNTABILITY ═══ -->
+<div class="content page-break">
+
+  <div class="section">
+    <h2><span class="num">04</span> Sistema de Accountability</h2>
+    <p>Cada processo tem <strong>um único dono</strong>. Quando algo falha, sabe-se imediatamente quem responde.</p>
+
+    <h3>Princípio Fundamental</h3>
+    <div class="highlight-box green no-break">
+      Ambiguidade de responsabilidade é a causa raiz de quase todos os problemas operacionais da Holos hoje.
+      O objetivo deste sistema é eliminar o "achei que o outro ia resolver".
+    </div>
+
+    <h3>Protocolo de Escalada — 4 Níveis</h3>
+
+    <div class="escalation-step no-break">
+      <div class="escalation-level">N1 · OPERACIONAL</div>
+      <div class="escalation-text">
+        <strong>Resolve em até 4h — dono do processo</strong>
+        <span>Aluno sem resposta · professor atrasado · erro no site · problema de cadastro</span>
+      </div>
+    </div>
+    <div class="escalation-step no-break">
+      <div class="escalation-level l2">N2 · GERENCIAL</div>
+      <div class="escalation-text">
+        <strong>Resolve em até 24h — Elis ou Adriana</strong>
+        <span>Conflito entre setores · problema financeiro pontual · reclamação de professor</span>
+      </div>
+    </div>
+    <div class="escalation-step no-break">
+      <div class="escalation-level l3">N3 · DIRETORIA</div>
+      <div class="escalation-text">
+        <strong>Resolve em até 48h — Luciana decide, Vani consultada se estratégico</strong>
+        <span>Reclamação grave de aluno · professor pedindo demissão · gasto não previsto acima de R$1.000</span>
+      </div>
+    </div>
+    <div class="escalation-step no-break">
+      <div class="escalation-level l4">N4 · CRISE</div>
+      <div class="escalation-text">
+        <strong>Ação imediata — Luciana + Elis + Vani</strong>
+        <span>Vazamento de dados · processo judicial · cancelamento em massa · mídia negativa</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top:20px;">Dashboard Semanal Mínimo (15 min toda segunda)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Indicador</th>
+          <th>Dono</th>
+          <th>Meta</th>
+          <th>Alerta (escalada N2)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Matrículas na semana</td>
+          <td>Luciana</td>
+          <td>Definir meta mensal ÷ 4</td>
+          <td>Abaixo de 70% da meta</td>
+        </tr>
+        <tr>
+          <td>Tickets de suporte abertos</td>
+          <td>Elis</td>
+          <td>Zero tickets com +48h</td>
+          <td>Qualquer ticket acima de 48h</td>
+        </tr>
+        <tr>
+          <td>Taxa de presença nas turmas</td>
+          <td>Adriana</td>
+          <td>≥ 85%</td>
+          <td>Abaixo de 80%</td>
+        </tr>
+        <tr>
+          <td>Custo por lead (tráfego)</td>
+          <td>Lucio</td>
+          <td>Definir por curso</td>
+          <td>Acima de 120% da meta</td>
+        </tr>
+        <tr>
+          <td>Caixa disponível</td>
+          <td>Elis</td>
+          <td>≥ 30 dias de custo fixo</td>
+          <td>Abaixo de 30 dias de reserva</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════ SECTION 5: GARGALOS ═══ -->
+<div class="content page-break">
+
+  <div class="section">
+    <h2><span class="num">05</span> Top 3 Gargalos — Resolver na Reunião</h2>
+
+    <div class="card-row" style="grid-template-columns: 1fr; gap:12px;">
+
+      <div style="border-left: 4px solid #dc2626; padding: 16px; background: #fef2f2; border-radius: 0 8px 8px 0; margin-bottom:8px;" class="no-break">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span style="background:#dc2626; color:#fff; font-size:10px; font-weight:800; padding:2px 8px; border-radius:4px;">CRÍTICO</span>
+          <strong style="font-size:13px; color:#1a1a2e;">Gargalo 1 — Suporte ao Aluno sem Dono</strong>
+        </div>
+        <p style="font-size:12px;"><strong>Problema:</strong> Aluno com problema não sabe quem procurar. Todo mundo resolve ou ninguém resolve.</p>
+        <p style="font-size:12px;"><strong>Solução:</strong> Laura = 1º contato, triagem em até 2h. Se não resolve → Elis (operacional) ou Adriana (pedagógico). SLA: resolução em 24h.</p>
+        <p style="font-size:12px;"><strong>Implantação:</strong> Fluxo no WhatsApp + treinamento de 30 min para Laura. 1 semana.</p>
+      </div>
+
+      <div style="border-left: 4px solid #dc2626; padding: 16px; background: #fef2f2; border-radius: 0 8px 8px 0; margin-bottom:8px;" class="no-break">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span style="background:#dc2626; color:#fff; font-size:10px; font-weight:800; padding:2px 8px; border-radius:4px;">CRÍTICO</span>
+          <strong style="font-size:13px; color:#1a1a2e;">Gargalo 2 — Gestão de Professores em Dois Chefes</strong>
+        </div>
+        <p style="font-size:12px;"><strong>Problema:</strong> Adriana coordena pedagogicamente, Elis coordena administrativamente. Conflito de autoridade.</p>
+        <p style="font-size:12px;"><strong>Solução:</strong> Adriana = dono do relacionamento diário (escala, qualidade, presença). Elis = dono do pagamento e contrato. Demitir/contratar: Elis + Adriana propõem, Luciana decide.</p>
+        <p style="font-size:12px;"><strong>Implantação:</strong> Deixar explícito na reunião. Documentar em 1 página. Imediato.</p>
+      </div>
+
+      <div style="border-left: 4px solid #d97706; padding: 16px; background: #fffbeb; border-radius: 0 8px 8px 0; margin-bottom:8px;" class="no-break">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span style="background:#d97706; color:#fff; font-size:10px; font-weight:800; padding:2px 8px; border-radius:4px;">ALTO</span>
+          <strong style="font-size:13px; color:#1a1a2e;">Gargalo 3 — Abertura de Turma sem Processo Formal</strong>
+        </div>
+        <p style="font-size:12px;"><strong>Problema:</strong> Data, preço e mínimo de alunos decididos informalmente, às vezes na véspera.</p>
+        <p style="font-size:12px;"><strong>Solução:</strong> Checklist de 5 itens obrigatórios antes de abrir turma: mínimo definido · professor confirmado · grade no calendário · preço no sistema · campanha ativa.</p>
+        <p style="font-size:12px;"><strong>Implantação:</strong> Criar checklist no Notion ou planilha. Dono: Luciana decide, Elis executa abertura. 2h de trabalho.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CADÊNCIA -->
+  <div class="section no-break">
+    <h2><span class="num">06</span> Cadência Operacional</h2>
+    <p>Começar simples — adicionar reuniões só quando necessário.</p>
+    <div class="cadence-grid">
+      <div class="cadence-card">
+        <div class="freq">SEMANAL</div>
+        <div class="name">Alinhamento Luciana + Elis</div>
+        <div class="detail">30 min · Todo Monday · Matrículas, caixa, pendências da semana</div>
+      </div>
+      <div class="cadence-card">
+        <div class="freq">QUINZENAL</div>
+        <div class="name">Pedagógico — Elis + Adriana</div>
+        <div class="detail">45 min · Turmas, professores, qualidade, problemas de aluno</div>
+      </div>
+      <div class="cadence-card">
+        <div class="freq">MENSAL</div>
+        <div class="name">Revisão — Luciana + Elis + Lucio</div>
+        <div class="detail">90 min · Financeiro, marketing, metas, OKRs do mês</div>
+      </div>
+      <div class="cadence-card">
+        <div class="freq">TRIMESTRAL</div>
+        <div class="name">Estratégico — Diretoria + Elis</div>
+        <div class="detail">Meio dia · Luciana + Vani + Elis · Direção, investimentos, OKRs</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════ SECTION 6: NEXT STEPS ═══ -->
+<div class="content page-break">
+
+  <div class="section">
+    <h2><span class="num">07</span> Próximos Passos</h2>
+
+    <h3>Esta semana (até sexta 16/05)</h3>
+    <ul class="action-list">
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-red">URGENTE</span>
+        <span>Apresentar este organograma para Elis e Luciana aprovarem os títulos formais</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-red">URGENTE</span>
+        <span>Definir o título formal de Elis: COO ou Diretora Operacional (importa para contratos)</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-red">URGENTE</span>
+        <span>Decidir situação da Adriana: Coordenadora formal com contrato ou professora com acúmulo?</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-yellow">REUNIÃO</span>
+        <span>Validar Matriz RACI com Elis e Luciana — ajustar onde não refletir a realidade</span>
+      </li>
+    </ul>
+
+    <h3 style="margin-top:16px;">Próximas 2 semanas</h3>
+    <ul class="action-list">
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-yellow">PROCESSO</span>
+        <span>Criar fluxo de suporte ao aluno — resolve Gargalo 1 (Laura + WhatsApp)</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-yellow">PROCESSO</span>
+        <span>Criar checklist de abertura de turma — resolve Gargalo 3</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-yellow">PROCESSO</span>
+        <span>Documentar separação de autoridade Adriana × Elis — resolve Gargalo 2</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-green">JURÍDICO</span>
+        <span>Iniciar formalização de contratos com base nos cargos definidos aqui</span>
+      </li>
+    </ul>
+
+    <h3 style="margin-top:16px;">Próximo mês</h3>
+    <ul class="action-list">
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-green">SISTEMA</span>
+        <span>Implantar Dashboard Semanal com os 5 indicadores mínimos</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-green">OKR</span>
+        <span>Definir OKRs do Q3 2026 com base na direção estratégica alinhada na reunião</span>
+      </li>
+      <li>
+        <div class="action-check"></div>
+        <span class="action-tag tag-green">CONTRATOS</span>
+        <span>Contratos de professores + contrato Elis/Lucio via Rede Publicidade assinados</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Holos Cursos e Terapias · Design Operacional 2026 · Documento preparado por Lucio Maier (Rede Publicidade) ·
+    Reunião de alinhamento: 16/05/2026 · Confidencial — uso interno
+  </div>
+
+</div>
+
+</body>
+</html>

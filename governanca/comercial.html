@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holos — Diagnóstico Comercial · Time de Vendas</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #09090b; font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; }
+    .dot-grid {
+      background-image: radial-gradient(circle, #3f3f46 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .blob { position: fixed; border-radius: 50%; filter: blur(90px); opacity: 0.1; pointer-events: none; z-index: 0; }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    .shimmer {
+      background: linear-gradient(90deg, #f59e0b, #fb923c, #ef4444, #fb923c, #f59e0b);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeInUp 0.45s ease both; }
+    .card {
+      background: rgba(24,24,27,0.85);
+      border: 1px solid rgba(63,63,70,0.55);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+    }
+    .radio-opt {
+      cursor: pointer;
+      border: 1px solid rgba(63,63,70,0.55);
+      border-radius: 10px;
+      padding: 11px 14px;
+      background: rgba(24,24,27,0.5);
+      transition: border-color 0.18s, background 0.18s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .radio-opt:hover { border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+    .radio-opt.sel   { border-color: #f59e0b; background: rgba(245,158,11,0.14); }
+    .dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; border: 2px solid #52525b; transition: all 0.18s; }
+    .dot.sel { background: #f59e0b; border-color: #f59e0b; }
+    textarea, input[type="text"] {
+      width: 100%;
+      background: rgba(24,24,27,0.55);
+      border: 1px solid rgba(63,63,70,0.55);
+      border-radius: 10px;
+      color: #f4f4f5;
+      -webkit-text-fill-color: #f4f4f5;
+      caret-color: #fbbf24;
+      font-size: 14px;
+      padding: 10px 14px;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.18s;
+      font-family: inherit;
+    }
+    textarea:focus, input[type="text"]:focus { border-color: #f59e0b; }
+    textarea::placeholder, input[type="text"]::placeholder { color: #52525b; }
+    .btn-next {
+      background: linear-gradient(135deg, #d97706, #ea580c);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.18s, transform 0.18s;
+      width: 100%;
+    }
+    .btn-next:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+    .progress-bar { height: 3px; background: rgba(63,63,70,0.5); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #f59e0b, #ea580c); border-radius: 99px; transition: width 0.4s ease; }
+    .step-badge {
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: #fbbf24;
+      border-radius: 20px; padding: 3px 12px;
+      font-size: 11px; font-weight: 700; letter-spacing: .06em;
+    }
+  </style>
+</head>
+<body class="dot-grid">
+
+<div class="blob" style="width:380px;height:380px;background:#f59e0b;top:-80px;right:-80px;"></div>
+<div class="blob" style="width:300px;height:300px;background:#ea580c;bottom:-60px;left:-60px;"></div>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState } = React;
+
+const questions = [
+  {
+    id: "papel",
+    label: "Qual é o seu papel principal aqui na Holos?",
+    type: "radio",
+    options: [
+      { value: "vendas", label: "Vendas — foco em fechar matrículas" },
+      { value: "recepcao", label: "Recepção — atendo quem chega e encaminho" },
+      { value: "ambos", label: "Faço os dois — atendo e vendo" },
+    ]
+  },
+  {
+    id: "volume",
+    label: "Em média, quantos leads chegam por dia (ligações, WhatsApp, presencial)?",
+    type: "radio",
+    options: [
+      { value: "ate5", label: "Até 5 por dia" },
+      { value: "5a10", label: "Entre 5 e 10 por dia" },
+      { value: "10a20", label: "Entre 10 e 20 por dia" },
+      { value: "20mais", label: "Mais de 20 por dia" },
+    ]
+  },
+  {
+    id: "conversao",
+    label: "De cada 10 leads que chegam, quantos fecham a matrícula?",
+    type: "radio",
+    options: [
+      { value: "menos1", label: "Menos de 1 — raramente fecha" },
+      { value: "1a2", label: "1 ou 2 fecham" },
+      { value: "3a4", label: "3 ou 4 fecham" },
+      { value: "5mais", label: "5 ou mais fecham" },
+    ]
+  },
+  {
+    id: "objecao",
+    label: "Qual é a objeção que você mais ouve de quem NÃO fecha?",
+    hint: "Ex: preço, distância, preciso pensar, vou pesquisar outras escolas...",
+    type: "textarea"
+  },
+  {
+    id: "boato",
+    label: "Algum lead já mencionou ter ouvido algo negativo sobre a escola antes de ligar?",
+    hint: "Pode ser qualquer coisa: comentário sobre professores, sobre a situação da escola, sobre qualidade...",
+    type: "radio_text",
+    options: [
+      { value: "nao", label: "Não, nunca ouvi isso" },
+      { value: "raramente", label: "Raramente — uma ou duas vezes" },
+      { value: "algumas", label: "Algumas vezes — acontece" },
+      { value: "frequente", label: "Com frequência — ouço isso bastante" },
+    ],
+    textLabel: "O que você ouviu? (opcional, mas muito importante)"
+  },
+  {
+    id: "argumento",
+    label: "Quando você apresenta a Holos para um lead, qual é o argumento que mais funciona?",
+    hint: "O que você fala que parece convencer mais as pessoas?",
+    type: "textarea"
+  },
+  {
+    id: "trava",
+    label: "Tem alguma situação recorrente que trava a venda ou dificulta o fechamento?",
+    hint: "Ex: sistema lento, falta de informação, ter que esperar alguém, horário sem atendimento...",
+    type: "textarea"
+  },
+  {
+    id: "precisa",
+    label: "O que você mais precisa para fechar mais vendas?",
+    hint: "Pode ser ferramenta, informação, processo, apoio de alguém...",
+    type: "textarea"
+  },
+];
+
+function App() {
+  const [step, setStep] = useState(0);
+  const [nome, setNome] = useState("");
+  const [nomeOk, setNomeOk] = useState(false);
+  const [answers, setAnswers] = useState({});
+  const [done, setDone] = useState(false);
+
+  const q = questions[step];
+  const total = questions.length;
+  const progress = ((step) / total) * 100;
+
+  const canNext = () => {
+    const a = answers[q?.id];
+    if (!q) return false;
+    if (q.type === "textarea") return a && a.trim().length > 2;
+    if (q.type === "radio") return !!a;
+    if (q.type === "radio_text") return !!a?.value;
+    return false;
+  };
+
+  const next = () => {
+    if (step < total - 1) setStep(s => s + 1);
+    else setDone(true);
+  };
+
+  const setRadio = (val) => setAnswers(a => ({ ...a, [q.id]: val }));
+  const setRadioText = (val) => setAnswers(a => ({ ...a, [q.id]: { ...a[q.id], value: val } }));
+  const setRadioTextNote = (txt) => setAnswers(a => ({ ...a, [q.id]: { ...a[q.id], note: txt } }));
+  const setText = (val) => setAnswers(a => ({ ...a, [q.id]: val }));
+
+  if (done) return (
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <div className="card p-10 max-w-md w-full text-center fade-in" style={{position:'relative',zIndex:1}}>
+        <div style={{fontSize:52,marginBottom:16}}>🎯</div>
+        <h2 className="text-2xl font-black text-white mb-3">Valeu, {nome}!</h2>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+          Suas respostas são ouro. A Elis e o Lucio vão usar esse diagnóstico na reunião estratégica de amanhã para entender o que está acontecendo na linha de frente.
+        </p>
+        <div style={{background:'rgba(245,158,11,0.1)',border:'1px solid rgba(245,158,11,0.25)',borderRadius:10,padding:'12px 16px',marginBottom:16}}>
+          <p className="text-amber-400 text-xs font-bold mb-1">PRÓXIMO PASSO</p>
+          <p className="text-zinc-300 text-sm">Fique de olho — pode ser que a gente venha conversar mais sobre alguma resposta antes ou depois da reunião.</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (!nomeOk) return (
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <div className="card p-8 max-w-md w-full fade-in" style={{position:'relative',zIndex:1}}>
+        <div className="text-center mb-8">
+          <div style={{display:'inline-block',background:'rgba(245,158,11,0.15)',border:'1px solid rgba(245,158,11,0.3)',borderRadius:20,padding:'4px 16px',marginBottom:16}}>
+            <span className="text-amber-400 text-xs font-bold tracking-widest">DIAGNÓSTICO COMERCIAL</span>
+          </div>
+          <h1 className="text-3xl font-black text-white mb-2">
+            Time de <span className="shimmer">Vendas</span>
+          </h1>
+          <p className="text-zinc-400 text-sm">
+            Reunião estratégica · 15/05/2026<br/>
+            <span className="text-zinc-500">Responde antes das 9h de amanhã</span>
+          </p>
+        </div>
+        <div style={{background:'rgba(245,158,11,0.07)',border:'1px solid rgba(245,158,11,0.2)',borderRadius:12,padding:'14px 16px',marginBottom:24}}>
+          <p className="text-amber-300 text-xs font-bold mb-1">POR QUE ISSO IMPORTA</p>
+          <p className="text-zinc-300 text-sm leading-relaxed">
+            Quem está na linha de frente vê o que as planilhas não mostram. Suas respostas vão direto para a mesa da reunião de amanhã.
+          </p>
+        </div>
+        <label className="block text-zinc-300 text-sm font-semibold mb-2">Qual é o seu nome?</label>
+        <input
+          type="text"
+          placeholder="Leo, Giovanna, Bruna, Mayara..."
+          value={nome}
+          onChange={e => setNome(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && nome.trim().length > 1 && setNomeOk(true)}
+          style={{marginBottom:16}}
+        />
+        <button
+          className="btn-next"
+          disabled={nome.trim().length < 2}
+          onClick={() => setNomeOk(true)}
+        >
+          Começar →
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <div className="card p-8 max-w-lg w-full fade-in" style={{position:'relative',zIndex:1}} key={step}>
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <span className="step-badge">Pergunta {step + 1} de {total}</span>
+          <span className="text-zinc-500 text-xs">{nome}</span>
+        </div>
+        <div className="progress-bar mb-6">
+          <div className="progress-fill" style={{width: `${progress}%`}}></div>
+        </div>
+
+        {/* Question */}
+        <h2 className="text-white font-bold text-lg mb-2 leading-snug">{q.label}</h2>
+        {q.hint && <p className="text-zinc-500 text-xs mb-4 leading-relaxed">{q.hint}</p>}
+
+        {/* Radio */}
+        {q.type === "radio" && (
+          <div className="flex flex-col gap-2 mb-6">
+            {q.options.map(opt => (
+              <div
+                key={opt.value}
+                className={`radio-opt ${answers[q.id] === opt.value ? 'sel' : ''}`}
+                onClick={() => setRadio(opt.value)}
+              >
+                <div className={`dot ${answers[q.id] === opt.value ? 'sel' : ''}`}></div>
+                <span className="text-zinc-200 text-sm">{opt.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Textarea */}
+        {q.type === "textarea" && (
+          <div className="mb-6">
+            <textarea
+              rows={4}
+              placeholder="Escreve aqui com suas próprias palavras..."
+              value={answers[q.id] || ""}
+              onChange={e => setText(e.target.value)}
+            />
+          </div>
+        )}
+
+        {/* Radio + Text */}
+        {q.type === "radio_text" && (
+          <div className="mb-6">
+            <div className="flex flex-col gap-2 mb-4">
+              {q.options.map(opt => (
+                <div
+                  key={opt.value}
+                  className={`radio-opt ${answers[q.id]?.value === opt.value ? 'sel' : ''}`}
+                  onClick={() => setRadioText(opt.value)}
+                >
+                  <div className={`dot ${answers[q.id]?.value === opt.value ? 'sel' : ''}`}></div>
+                  <span className="text-zinc-200 text-sm">{opt.label}</span>
+                </div>
+              ))}
+            </div>
+            {answers[q.id]?.value && answers[q.id]?.value !== "nao" && (
+              <div>
+                <label className="block text-zinc-400 text-xs font-semibold mb-2">{q.textLabel}</label>
+                <textarea
+                  rows={3}
+                  placeholder="O que você ouviu especificamente?"
+                  value={answers[q.id]?.note || ""}
+                  onChange={e => setRadioTextNote(e.target.value)}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
+        <button className="btn-next" disabled={!canNext()} onClick={next}>
+          {step < total - 1 ? "Próxima →" : "Enviar respostas"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

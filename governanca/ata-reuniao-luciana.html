@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ata — Reunião Holos · 15/05/2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #18181b; background: #fff; line-height: 1.6; }
+    @page { size: A4; margin: 18mm 16mm; }
+    @media print { .no-break { page-break-inside: avoid; } .pb { page-break-before: always; } }
+
+    .header {
+      background: linear-gradient(135deg, #0f0c29, #302b63);
+      color: #fff; padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .header .tag {
+      display: inline-block;
+      border: 1px solid rgba(167,139,250,.4);
+      border-radius: 20px; padding: 3px 14px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; color: #c4b5fd; margin-bottom: 10px;
+    }
+    .header h1 { font-size: 26px; font-weight: 900; margin-bottom: 4px; }
+    .header .sub { color: #a1a1aa; font-size: 12px; }
+    .header .presentes {
+      margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .header .pessoa {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px; padding: 3px 12px;
+      font-size: 11px; color: #e4e4e7; font-weight: 600;
+    }
+
+    h2 {
+      font-size: 14px; font-weight: 800;
+      border-left: 3px solid #7c3aed;
+      padding-left: 10px; margin: 22px 0 10px; color: #18181b;
+    }
+    h2.amber { border-color: #d97706; }
+    h2.red   { border-color: #dc2626; }
+    h2.green { border-color: #059669; }
+    h2.blue  { border-color: #0891b2; }
+
+    .intro-box {
+      background: #faf9ff; border: 1px solid #e5e7eb;
+      border-radius: 10px; padding: 14px 16px; margin-bottom: 20px;
+    }
+    .intro-box p { font-size: 12px; color: #374151; margin-bottom: 6px; }
+    .intro-box p:last-child { margin-bottom: 0; }
+
+    /* BLOCO */
+    .bloco {
+      border: 1px solid #e5e7eb; border-radius: 12px;
+      overflow: hidden; margin-bottom: 16px;
+    }
+    .bloco-header {
+      padding: 12px 16px; display: flex;
+      align-items: center; gap: 12px; color: #fff;
+    }
+    .bloco-header.v1 { background: #7c3aed; }
+    .bloco-header.v2 { background: #0891b2; }
+    .bloco-header.v3 { background: #059669; }
+
+    .bloco-num {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 14px; flex-shrink: 0;
+    }
+    .bloco-title { font-weight: 800; font-size: 13px; }
+    .bloco-meta  { font-size: 11px; color: rgba(255,255,255,.75); margin-top: 1px; }
+    .bloco-body  { padding: 16px; }
+
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .mini {
+      background: #f9fafb; border: 1px solid #f1f5f9;
+      border-radius: 8px; padding: 12px;
+    }
+    .mini .mini-title {
+      font-size: 10px; font-weight: 700; color: #9ca3af;
+      letter-spacing: .06em; margin-bottom: 6px;
+    }
+    .mini ul { padding-left: 14px; }
+    .mini ul li { font-size: 12px; color: #374151; margin-bottom: 3px; }
+
+    .outcome {
+      background: #f0fdf4; border: 1px solid #86efac;
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 12px; color: #166534;
+    }
+    .outcome strong {
+      display: block; font-size: 10px;
+      letter-spacing: .05em; margin-bottom: 3px; color: #15803d;
+    }
+
+    .warn {
+      background: #fef2f2; border: 1px solid #fca5a5;
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 12px; color: #991b1b; margin-top: 8px;
+    }
+    .warn strong { display: block; font-size: 10px; letter-spacing: .05em; margin-bottom: 3px; }
+
+    /* SCRIPTS */
+    .script {
+      background: #1a1a2e; border-radius: 8px;
+      padding: 12px 14px; margin: 8px 0;
+    }
+    .script .script-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+      color: #a78bfa; margin-bottom: 5px;
+    }
+    .script .script-text {
+      font-size: 12px; color: #e4e4e7;
+      font-style: italic; line-height: 1.65;
+    }
+
+    /* TABELA */
+    table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 12px; }
+    th { background: #7c3aed; color: #fff; padding: 7px 10px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    th:first-child { border-radius: 6px 0 0 0; }
+    th:last-child  { border-radius: 0 6px 0 0; }
+    td { padding: 8px 10px; border-bottom: 1px solid #f1f5f9; color: #374151; vertical-align: top; }
+    tr:nth-child(even) td { background: #faf9ff; }
+
+    /* ATA */
+    .ata-row {
+      display: flex; gap: 0; margin-bottom: 10px;
+    }
+    .ata-label {
+      font-size: 10px; font-weight: 700; color: #fff;
+      background: #7c3aed; border-radius: 6px 0 0 6px;
+      padding: 6px 10px; writing-mode: vertical-rl;
+      text-orientation: mixed; letter-spacing: .06em;
+      display: flex; align-items: center; justify-content: center;
+      min-width: 28px;
+    }
+    .ata-label.amber { background: #d97706; }
+    .ata-label.green { background: #059669; }
+    .ata-content {
+      flex: 1; border: 1px solid #e5e7eb; border-left: none;
+      border-radius: 0 8px 8px 0; padding: 10px 14px;
+      min-height: 44px; background: #fafafa;
+    }
+    .ata-content .ata-hint {
+      font-size: 10px; color: #d1d5db; font-weight: 600;
+      letter-spacing: .05em; margin-bottom: 4px;
+    }
+
+    .footer { margin-top: 28px; padding-top: 12px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #9ca3af; text-align: center; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="tag">ATA OFICIAL · HOLOS CURSOS E TERAPIAS</div>
+  <h1>Reunião Estratégica</h1>
+  <p class="sub">Sexta-feira · 15 de maio de 2026</p>
+  <div class="presentes">
+    <span class="pessoa">Luciana Maier — Presidente</span>
+    <span class="pessoa">Elis Augaitis — Diretora de Operações</span>
+    <span class="pessoa">Lucio Maier — Diretor de Tecnologia e Marketing</span>
+  </div>
+</div>
+
+<!-- CONTEXTO -->
+<div class="intro-box no-break">
+  <p><strong>Objetivo da reunião:</strong> Alinhar a situação financeira real dos últimos meses, definir estrutura de responsabilidades e decidir um próximo passo concreto para os próximos 30 dias.</p>
+  <p><strong>Formato:</strong> 3 blocos com decisão ao final de cada um. A reunião não avança para o próximo bloco sem a decisão do bloco anterior estar registrada.</p>
+  <p><strong>Regra de ouro:</strong> Cada decisão precisa de um dono e uma data. "Vamos ver" não é uma decisão.</p>
+</div>
+
+<!-- BLOCO 1 -->
+<div class="bloco no-break">
+  <div class="bloco-header v1">
+    <div class="bloco-num">1</div>
+    <div>
+      <div class="bloco-title">Realidade — Os Números na Mesa</div>
+      <div class="bloco-meta">Lidera: Elis · 25 minutos · Contexto: relatório dos últimos 3 meses</div>
+    </div>
+  </div>
+  <div class="bloco-body">
+
+    <div class="row2">
+      <div class="mini">
+        <div class="mini-title">PERGUNTAS DO BLOCO</div>
+        <ul>
+          <li>Qual foi o resultado dos últimos 3 meses? (receita − despesa)</li>
+          <li>Onde está a maior pressão de custo hoje?</li>
+          <li>O que custa e não gera retorno visível?</li>
+          <li>Existe receita que ainda não ativamos?</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <div class="mini-title">PONTOS QUE PRECISAM ENTRAR</div>
+        <ul>
+          <li>Cursos livres: professor recebe % maior que a escola</li>
+          <li>Lojinha: sem controle de margem — pode estar no prejuízo</li>
+          <li>Salas ociosas: 3 andares com capacidade livre</li>
+          <li>10.000 ex-alunos: base praticamente inativa</li>
+          <li>Turno manhã: leads perdidos quando Laura falta</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="font-size:12px; color:#374151; margin-bottom:8px;"><strong>Se Luciana disser "precisamos vender mais" — a resposta é:</strong></p>
+    <div class="script">
+      <div class="script-tag">SCRIPT — ELIS RESPONDE</div>
+      <div class="script-text">"Lu, vender mais é sim parte da solução. Mas antes de decidir quanto precisamos vender, precisamos saber para onde vai cada real que já entra. Se tem buraco na balde, a gente precisa saber onde antes de encher mais rápido."</div>
+    </div>
+
+    <div class="outcome">
+      <strong>DECISÃO DO BLOCO 1</strong>
+      O número real confirmado pelos três + identificação de onde está o maior vazamento de margem.
+    </div>
+  </div>
+</div>
+
+<!-- BLOCO 2 -->
+<div class="bloco no-break">
+  <div class="bloco-header v2">
+    <div class="bloco-num">2</div>
+    <div>
+      <div class="bloco-title">Estrutura — Quem Faz o Quê</div>
+      <div class="bloco-meta">Lidera: Lucio · 25 minutos · Base: organograma preparado</div>
+    </div>
+  </div>
+  <div class="bloco-body">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Cargo / Papel</th>
+          <th>Pessoa</th>
+          <th>Decisão Pendente</th>
+          <th>Confirma hoje?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Diretora de Operações (COO)</td>
+          <td>Elis</td>
+          <td>Titulo formal + escopo definido</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Coordenadora Pedagógica</td>
+          <td>Adriana</td>
+          <td>Cargo + proposta R$3.800 fixo</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Dono do Suporte ao Aluno</td>
+          <td>A definir</td>
+          <td>1º contato (Laura?) + escala</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Gestor dos Professores</td>
+          <td>A definir</td>
+          <td>Quem contrata, quem desliga</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Cobertura turno manhã</td>
+          <td>A definir</td>
+          <td>Substituto de Laura quando falta</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Responsável pela Lojinha</td>
+          <td>A definir</td>
+          <td>Controle de estoque + margem</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      <strong>⚠️ PONTO SENSÍVEL — PROFESSORES</strong>
+      O tema "professores levando alunos" não deve ser resolvido nesta reunião. Se surgir: registrar como pauta urgente separada, com advogado presente. Não criar precedente verbal.
+    </div>
+
+    <div class="outcome" style="margin-top:10px;">
+      <strong>DECISÃO DO BLOCO 2</strong>
+      Organograma validado. Pelo menos 3 dos cargos acima com dono definido e confirmado por todos presentes.
+    </div>
+  </div>
+</div>
+
+<!-- BLOCO 3 -->
+<div class="bloco no-break pb">
+  <div class="bloco-header v3">
+    <div class="bloco-num">3</div>
+    <div>
+      <div class="bloco-title">Próximo Passo — Um Acordo Registrado</div>
+      <div class="bloco-meta">Lidera: Lucio · 20 minutos · Foco: sair com algo no papel</div>
+    </div>
+  </div>
+  <div class="bloco-body">
+
+    <p style="font-size:12px; color:#374151; margin-bottom:10px;"><em>"A gente quer organizar o que já existe — não mudar o que fazemos. Só dar nome e número ao que já é real. Fica mais fácil para todo mundo planejar o mês."</em></p>
+
+    <div class="script">
+      <div class="script-tag">FRASE DE ABERTURA DO BLOCO</div>
+      <div class="script-text">"Lu, a gente trabalha junto há anos e faz tudo funcionar. Quero propor uma coisa simples: que a gente registre em mensagem o que cada um entrega e recebe. Não muda nada — só protege o que a gente construiu junto, caso algum dia alguém de fora pergunte."</div>
+    </div>
+
+    <div class="row2" style="margin-top:12px;">
+      <div class="mini">
+        <div class="mini-title">OPÇÕES DE REGISTRO (DO MENOR PARA O MAIOR)</div>
+        <ul>
+          <li>✅ Mensagem de WhatsApp confirmando papéis e valores</li>
+          <li>✅ E-mail com os pontos decididos hoje</li>
+          <li>✅ Ata desta reunião assinada pelas 3 partes</li>
+          <li>⏳ Contrato formal — próxima etapa, com advogado</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <div class="mini-title">O QUE PODE CONTER O REGISTRO MÍNIMO</div>
+        <ul>
+          <li>Título da Elis + o que ela entrega</li>
+          <li>Fee da Rede Publicidade + escopo</li>
+          <li>Licença Holos Connect + valor</li>
+          <li>Próxima data de revisão deste acordo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="outcome">
+      <strong>DECISÃO DO BLOCO 3</strong>
+      Algum registro escrito — qualquer formato — das decisões tomadas hoje. Data da próxima reunião agendada antes de sair.
+    </div>
+  </div>
+</div>
+
+<!-- ATA OFICIAL -->
+<div class="no-break">
+  <h2 class="green">Registro Oficial das Decisões</h2>
+  <p style="font-size:12px; color:#6b7280; margin-bottom:12px;">Preencher durante ou imediatamente após a reunião.</p>
+
+  <div class="ata-row">
+    <div class="ata-label">FINANCEIRO</div>
+    <div class="ata-content">
+      <div class="ata-hint">RESULTADO CONFIRMADO DOS ÚLTIMOS 3 MESES</div>
+    </div>
+  </div>
+
+  <div class="ata-row">
+    <div class="ata-label">CORTE OU ALAVANCA</div>
+    <div class="ata-content">
+      <div class="ata-hint">O QUE DECIDIMOS PRIORIZAR NOS PRÓXIMOS 30 DIAS — COM DONO</div>
+    </div>
+  </div>
+
+  <div class="ata-row">
+    <div class="ata-label amber">ESTRUTURA</div>
+    <div class="ata-content">
+      <div class="ata-hint">CARGOS E RESPONSABILIDADES CONFIRMADOS</div>
+    </div>
+  </div>
+
+  <div class="ata-row">
+    <div class="ata-label amber">ADRIANA</div>
+    <div class="ata-content">
+      <div class="ata-hint">STATUS DA PROPOSTA R$3.800 + CARGO DE COORDENADORA</div>
+    </div>
+  </div>
+
+  <div class="ata-row">
+    <div class="ata-label green">PRÓXIMO PASSO</div>
+    <div class="ata-content">
+      <div class="ata-hint">FORMA DE REGISTRO ACORDADA + RESPONSÁVEL + PRAZO</div>
+    </div>
+  </div>
+
+  <div class="ata-row">
+    <div class="ata-label green">PRÓXIMA REUNIÃO</div>
+    <div class="ata-content">
+      <div class="ata-hint">DATA DEFINIDA ANTES DE SAIR DA SALA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ASSINATURAS -->
+<div class="no-break" style="margin-top:20px;">
+  <h2>Confirmação dos Presentes</h2>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:8px;">
+    <div style="border-top:2px solid #e5e7eb; padding-top:8px;">
+      <div style="font-size:11px; color:#374151; font-weight:600; margin-bottom:2px;">Luciana Maier</div>
+      <div style="font-size:10px; color:#9ca3af;">Presidente · Holos</div>
+    </div>
+    <div style="border-top:2px solid #e5e7eb; padding-top:8px;">
+      <div style="font-size:11px; color:#374151; font-weight:600; margin-bottom:2px;">Elis Augaitis</div>
+      <div style="font-size:10px; color:#9ca3af;">Diretora de Operações</div>
+    </div>
+    <div style="border-top:2px solid #e5e7eb; padding-top:8px;">
+      <div style="font-size:11px; color:#374151; font-weight:600; margin-bottom:2px;">Lucio Maier</div>
+      <div style="font-size:10px; color:#9ca3af;">Diretor de Tecnologia e Marketing</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Holos Cursos e Terapias · Ata de Reunião Estratégica · 15/05/2026 · Documento oficial</div>
+
+</body>
+</html>

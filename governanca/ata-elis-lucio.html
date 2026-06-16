@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ata — Lucio + Elis · Pré-Reunião · 14/05/2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #18181b; background: #fff; line-height: 1.6; }
+    @page { size: A4; margin: 18mm 16mm; }
+    @media print { .no-break { page-break-inside: avoid; } }
+
+    .header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 28px 32px;
+      border-radius: 0 0 12px 12px;
+      margin-bottom: 24px;
+    }
+    .header .tag {
+      display: inline-block;
+      background: rgba(167,139,250,.2);
+      border: 1px solid rgba(167,139,250,.4);
+      border-radius: 20px; padding: 3px 14px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; color: #c4b5fd;
+      margin-bottom: 10px;
+    }
+    .header h1 { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+    .header .sub { color: #a1a1aa; font-size: 12px; }
+
+    h2 {
+      font-size: 14px; font-weight: 800; color: #18181b;
+      border-left: 3px solid #7c3aed;
+      padding-left: 10px; margin: 24px 0 10px;
+    }
+    h2.orange { border-color: #d97706; }
+    h2.red    { border-color: #dc2626; }
+    h2.green  { border-color: #059669; }
+
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .card.purple { border-left: 3px solid #7c3aed; background: #faf9ff; }
+    .card.amber  { border-left: 3px solid #d97706; background: #fffbeb; }
+    .card.red    { border-left: 3px solid #dc2626; background: #fef2f2; }
+    .card.green  { border-left: 3px solid #059669; background: #f0fdf4; }
+    .card.blue   { border-left: 3px solid #0891b2; background: #f0f9ff; }
+
+    .card .card-title {
+      font-size: 11px; font-weight: 700; letter-spacing: .05em;
+      margin-bottom: 6px;
+    }
+    .card.purple .card-title { color: #7c3aed; }
+    .card.amber  .card-title { color: #b45309; }
+    .card.red    .card-title { color: #dc2626; }
+    .card.green  .card-title { color: #059669; }
+    .card.blue   .card-title { color: #0891b2; }
+
+    .card p { font-size: 12px; color: #374151; margin-bottom: 6px; }
+    .card ul { padding-left: 16px; }
+    .card ul li { font-size: 12px; color: #374151; margin-bottom: 4px; }
+
+    .script-box {
+      background: #1a1a2e;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 8px 0;
+    }
+    .script-box .script-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+      color: #a78bfa; margin-bottom: 6px;
+    }
+    .script-box .script-text {
+      font-size: 12.5px; color: #e4e4e7;
+      font-style: italic; line-height: 1.6;
+    }
+
+    .check-list { list-style: none; padding: 0; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 12px; color: #374151;
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-box {
+      width: 16px; height: 16px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px; flex-shrink: 0; margin-top: 1px;
+    }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+
+    .note-area {
+      border: 1px dashed #d1d5db;
+      border-radius: 8px; padding: 12px 14px;
+      min-height: 52px; background: #fafafa; margin-top: 6px;
+    }
+    .note-area .note-label { font-size: 10px; color: #d1d5db; font-weight: 700; letter-spacing: .06em; }
+
+    .footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid #e5e7eb; font-size: 11px; color: #9ca3af; text-align: center; }
+
+    .signal-row {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;
+    }
+    .signal {
+      background: #fef3c7; border: 1px solid #fbbf24;
+      border-radius: 6px; padding: 4px 10px;
+      font-size: 11px; color: #92400e; font-weight: 600;
+    }
+    .signal.red { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+    .signal.green { background: #dcfce7; border-color: #86efac; color: #166534; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="tag">CONFIDENCIAL · SÓ ENTRE NÓS DOIS</div>
+  <h1>Alinhamento Lucio + Elis</h1>
+  <p class="sub">Pré-reunião · 14/05/2026 · Antes de encontrar a Luciana amanhã</p>
+</div>
+
+<!-- OBJETIVO -->
+<div class="no-break">
+  <h2>Por que essa conversa precisa acontecer hoje</h2>
+  <div class="card purple">
+    <p>Amanhã a Luciana vai chegar com os números no vermelho e perguntar: <strong>"O que fazemos para reverter?"</strong>. Ela vai trazer ideias de vendas. Vai usar o vocabulário dela: martelar, minimizar danos, atirar com tudo.</p>
+    <p>Se a gente entrar nessa conversa sem alinhamento, vai sair dela com uma lista de ações táticas que não resolvem o problema estrutural — e a reunião vai ter sido mais uma.</p>
+    <p><strong>A reunião de amanhã só é diferente se nós dois chegarmos com a mesma posição e nem um de nós mudar sob pressão.</strong></p>
+  </div>
+</div>
+
+<!-- O PADRÃO QUE PRECISAMOS QUEBRAR -->
+<div class="no-break">
+  <h2 class="red">O Padrão Atual — O que Temos que Parar de Fazer</h2>
+  <div class="card red">
+    <div class="card-title">⚠️ O QUE ACONTECE HOJE NAS REUNIÕES</div>
+    <ul>
+      <li>Luciana chega com urgência → "o que fazemos?"</li>
+      <li>Elis tenta trazer perspectiva → Luciana pressiona com dúvidas</li>
+      <li>Elis diz: <em>"então ok, como você quer resolver?"</em></li>
+      <li>Luciana decide → resposta é sempre: mais vendas</li>
+      <li>A causa raiz não é discutida. Próxima reunião, mesmo ciclo.</li>
+    </ul>
+  </div>
+  <div class="card amber">
+    <div class="card-title">⚠️ O QUE ACONTECE QUANDO ELIS DEVOLVE A DECISÃO</div>
+    <p>Quando Elis diz "como você quer resolver?", ela está devolvendo o problema para quem só tem uma ferramenta: vender mais. Isso não é neutralidade — é abrir espaço para a resposta errada.</p>
+    <p><strong>A saída não é confronto. É manter a pergunta certa na mesa.</strong></p>
+  </div>
+</div>
+
+<!-- O QUE ELIS FAZ DIFERENTE AMANHÃ -->
+<div class="no-break">
+  <h2 class="green">O Que Elis Faz Diferente Amanhã</h2>
+
+  <p style="font-size:12px; color:#374151; margin-bottom:10px;">Quando Luciana pressionar com dúvidas ou virar para Elis e dizer "então como você quer resolver?", a resposta não é ceder nem confrontar. É redirecionar para a pergunta que precisa de resposta:</p>
+
+  <div class="script-box">
+    <div class="script-label">SCRIPT — QUANDO LUCIANA PRESSIONAR</div>
+    <div class="script-text">"Lu, eu ouço você. E a gente quer a mesma coisa — escola crescendo. Só preciso que a gente olhe juntos um número antes de decidir a ação. Porque se o problema estiver no custo, mais venda resolve mais devagar do que parece."</div>
+  </div>
+
+  <div class="script-box">
+    <div class="script-label">SCRIPT — QUANDO LUCIANA DISSER "MAS PRECISAMOS VENDER MAIS"</div>
+    <div class="script-text">"Sim, vender mais é parte disso. Mas para onde vai cada real de nova venda? Se a gente não sabe onde o dinheiro está saindo, a gente não sabe quanto precisa vender para fechar. Me deixa mostrar o que eu vejo nos números."</div>
+  </div>
+
+  <div class="script-box">
+    <div class="script-label">SCRIPT — O QUE NUNCA MAIS DIZER</div>
+    <div class="script-text" style="color:#fca5a5;">"Então ok, como você quer resolver isso?" → Essa frase entrega a conversa. Substituir por: "O que eu preciso que a gente decida juntos agora é X."</div>
+  </div>
+</div>
+
+<!-- PERGUNTAS PARA ALINHAR HOJE -->
+<div class="no-break">
+  <h2 class="orange">Perguntas que Lucio e Elis Precisam Responder Hoje</h2>
+
+  <ul class="check-list">
+    <li>
+      <div class="check-box"></div>
+      <span><strong>O número real:</strong> qual é o resultado financeiro dos últimos 3 meses? Elis confirma os valores antes da reunião.</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>O ponto de virada:</strong> existe algum custo concreto que pode ser reduzido em 30 dias sem impactar a operação? (lojinha, cursos livres com margem negativa, cobertura da manhã)</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>Adriana:</strong> qual a posição de vocês dois sobre a proposta dos R$3.800? Entram na reunião de amanhã alinhados nisso.</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>O mínimo de amanhã:</strong> o que vocês dois aceitam como progresso real da reunião? Definir antes de entrar.</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>O que Elis não cede:</strong> qual é a posição de Elis que ela mantém mesmo sob pressão? Nomear agora, enquanto está calma.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- PONTOS CRÍTICOS NÃO DITOS -->
+<div class="no-break">
+  <h2 class="red">Pontos Críticos que Raramente São Ditos em Reunião</h2>
+
+  <div class="two-col">
+    <div class="card red">
+      <div class="card-title">⚠️ PROFESSORES</div>
+      <p>O bloco de professores está levando alunos. O boato de falência vazou. Esses dois fatos estão afetando conversão de novos alunos — mas nunca são discutidos diretamente. Precisam entrar amanhã.</p>
+    </div>
+    <div class="card red">
+      <div class="card-title">⚠️ ADRIANA</div>
+      <p>Comissão não resolvida há meses. Ela opera tudo: cronograma, certificados, professores, recepção. Se ela sair insatisfeita, a operação trava. Isso precisa de resolução — não de adiamento.</p>
+    </div>
+    <div class="card amber">
+      <div class="card-title">⚠️ CURSOS LIVRES</div>
+      <p>Professor recebe mais que a escola. Quando tentaram revisar, houve motim. A causa do déficit pode estar parcialmente aqui — mas ninguém coloca esse número na mesa abertamente.</p>
+    </div>
+    <div class="card amber">
+      <div class="card-title">⚠️ TURNO DA MANHÃ</div>
+      <p>Quando Laura falta, leads ficam sem atendimento. Venda perdida todo dia que isso acontece. É um buraco pequeno mas constante. Tem solução simples — só precisa de decisão.</p>
+    </div>
+  </div>
+</div>
+
+<!-- O QUE PRECISAMOS SAIR COM -->
+<div class="no-break">
+  <h2 class="green">O Que Precisamos Sair da Conversa de Hoje</h2>
+  <div class="card green">
+    <div class="card-title">✅ ALINHAMENTOS MÍNIMOS</div>
+    <ul>
+      <li>O número real dos últimos 3 meses confirmado pela Elis</li>
+      <li>Uma posição comum sobre Adriana (aceita R$3.800 ou não)</li>
+      <li>O que cada um NÃO cede amanhã — escrito, não só pensado</li>
+      <li>Quem lidera o bloco financeiro (Elis lidera — ela tem mais credibilidade operacional)</li>
+      <li>Qual é o "mínimo aceitável" de amanhã para os dois saírem satisfeitos</li>
+    </ul>
+  </div>
+</div>
+
+<!-- NOTAS -->
+<h2>Notas da Conversa de Hoje</h2>
+<div class="note-area"><div class="note-label">NÚMEROS CONFIRMADOS</div></div>
+<div class="note-area" style="margin-top:8px;"><div class="note-label">POSIÇÃO SOBRE ADRIANA</div></div>
+<div class="note-area" style="margin-top:8px;"><div class="note-label">O QUE CADA UM NÃO CEDE AMANHÃ</div></div>
+<div class="note-area" style="margin-top:8px;"><div class="note-label">MÍNIMO ACEITÁVEL DA REUNIÃO DE AMANHÃ</div></div>
+
+<div class="footer">Ata interna · Lucio + Elis · 14/05/2026 · Confidencial — não compartilhar com Luciana</div>
+
+</body>
+</html>

@@ -130,10 +130,13 @@ com processos, entregas e documentos.
 
 **Estrutura de pastas:**
 - `_memoria/` — quem é a empresa, como falamos, foco atual
+- `acordos/` — acordos e contratos vivos (parceria Rede×Holos, etc.) — fonte da verdade
+- `governanca/` — documentos fundadores da estrutura (atas, organograma, plano dos 3 pilares). Origem da pasta `holos-forms`, absorvida em 15/06/2026
+- `produto/` — camada de referência dos produtos/software que o cérebro comanda mas não contém (ex: `holos-connect.md`). O código vive isolado em pastas-irmãs; aqui ficam status, links e backlog
 - `identidade/` — marca aplicada em tudo que o sistema gera (logo, design-guide)
-- `marketing/` — campanhas, conteúdo, mídia paga, relatórios de tráfego
+- `marketing/` — campanhas, conteúdo, mídia paga, relatórios + `painel.md` (dashboard de números) e `ciclos/` (experimentos)
 - `dados/` — arquivos a analisar
-- `saidas/` — documentos pontuais
+- `saidas/` — documentos pontuais (inclui `entregabilidade-historico/`, digests resgatados do antigo holos-workspace)
 - `scripts/` — utilitários Node/Python que as skills chamam (gerar imagem, render PNG, postar em rede social)
 - `templates/` — moldes de skills, perfis e identidade
 
@@ -184,9 +187,9 @@ Evitar: linguagem corporativa fria, promessas genéricas, tom acadêmico.
 - [ ] Notion
 - [x] Gmail (holos.site@gmail.com)
 - [ ] Google Calendar
-- [x] Google Ads
+- [x] Google Ads — conectado via Windsor.ai (conta "Holos Geral" 644-631-5099), puxa gasto/conversões/leads reais
 - [x] Meta Ads
 - [ ] Slack
-- [x] Brevo · [x] Sponte · [x] ZenPro/PulsarZap · [x] Holos Connect
+- [x] Brevo · [x] Sponte · [x] ZenPro (CRM operacional · PulsarZap fora do circuito agora) · [x] Holos Connect
 
 *(Marcar conforme for instalando os MCPs)*
