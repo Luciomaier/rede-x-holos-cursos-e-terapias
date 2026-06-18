@@ -14,7 +14,7 @@ Skill central de criação de conteúdo visual. Pega um tema → entrega HTMLs e
 
 ## Dependências
 
-- **Identidade visual:** `identidade/design-guide.md` — LER ANTES de criar qualquer visual
+- **Identidade visual:** `identidade/branding-book.md` — LER ANTES de criar qualquer visual (fonte única de cores, fontes e modelos)
 - **Contexto do negócio:** `_memoria/empresa.md`
 - **Tom de voz:** `_memoria/preferencias.md`
 - **Playwright:** pra renderizar HTML em PNG (`npx playwright screenshot` ou via `render.js`)
@@ -50,34 +50,36 @@ Se o tipo não estiver claro, perguntar:
 
 ## Estilo visual base
 
-O MazyOS tem um estilo próprio — editorial, calmo, premium. Sem clip-art, sem emoji decorativo, sem gradiente arco-íris, sem template genérico de IA. `identidade/design-guide.md` sobrescreve esses padrões; quando o design-guide for vago ou estiver em branco, usar o que tá aqui (não parar pra pedir `/instalar` — o `/carrossel` funciona com defaults bons).
+Estilo Holos — editorial, calmo, premium, acolhedor. Sem clip-art, sem emoji decorativo, sem gradiente arco-íris, sem template genérico de IA. **`identidade/branding-book.md` é a fonte única e definitiva** — ler de lá. O que está abaixo é só um resumo operacional dos tokens; em caso de dúvida, vale o branding book.
 
-### Tipografia padrão
+### Tipografia (3 fontes, 3 papéis — ver branding book §1)
 
-- **Fonte:** Inter (Google Fonts), pesos 400/500/600/700/800/900
-- **Título de capa:** 90-100px, weight 900, line-height 0.98, letter-spacing **-0.04em**
-- **H2 (slides internos):** 60-72px, weight 800, line-height 1.04, letter-spacing **-0.035em**
-- **Corpo:** 20-24px, weight 500, line-height 1.5
-- **Eyebrow/kicker:** 13-16px, weight 700-800, **UPPERCASE**, letter-spacing **0.22-0.32em**, cor de destaque
-- **Page counter (canto sup. dir.):** 14-16px, weight 500-600, letter-spacing 0.18em, cor muted
-- **Meta/handle (@):** 15-18px, weight 600
+- **Inter** — corpo, dados, legendas, page counter, handle. Pesos 400–900.
+- **Poppins** — títulos e headlines (capa, H2 dos slides). Pesos 700/800/900.
+- **Parisienne** (cursiva) — **uma** palavra de destaque emocional ou assinatura. Nunca frase inteira.
+- **Título de capa:** Poppins 900, 86-100px, line-height 1.0, letter-spacing **-0.03em**
+- **H2 (slides internos):** Poppins 800, 60-72px, line-height 1.04, letter-spacing **-0.035em**
+- **Corpo:** Inter 500, 20-24px, line-height 1.5
+- **Eyebrow/kicker:** Inter 700-800, 13-16px, **UPPERCASE**, letter-spacing **0.22-0.32em**, em dourado
+- **Page counter / meta / handle:** Inter, 14-18px
 
 Regra do tipo: títulos grandes com kerning **apertado** (-0.035em), eyebrows pequenos com kerning **aberto** (0.22em+). Esse contraste é o coração do estilo.
 
-### Cores padrão (quando design-guide for vago)
+### Cores (tokens oficiais — ver branding book §1)
 
-Paleta sóbria: fundo dark + off-white + **UMA** cor de destaque. Nunca quatro cores brigando.
+Roxo da marca + **UMA** cor de destaque (dourado) por peça. Nunca quatro cores brigando.
 
-- Fundo escuro: `#0E1116` ou `#1A1A1A`
-- Fundo claro alternativo: `#F5ECD7` (cream) ou `#FAFAF7`
-- Texto sobre escuro: `#FAFAF7`
-- Texto sobre claro: `#1A1A1A` (h2) e `#444` (corpo)
-- Destaque: cor da marca (uma só)
+- Roxo Holos: `#6D4C7F` · Roxo profundo: `#59248F` · Roxo médio: `#8040BF`
+- Lavanda: `#9B87F5` · Lavanda clara (fundo de card): `#EBE2F3`
+- **Destaque: dourado `#E6A028`** (palavra-chave, badge, régua, CTA)
+- Ciano secundário (parcimônia): `#33C4F0`
+- Texto sobre roxo: `#FFFFFF` · Texto sobre claro: `#171717` (h2) e `#6B7280` (corpo)
+- Gradiente: `linear-gradient(135deg, #59248F, #8040BF)`
 
 ### Elementos visuais recorrentes
 
 - **Régua fina** (3-4px de altura, 60-80px de largura, cor de destaque) entre kicker e h2 ou como divisor
-- **Logo top-left + page counter top-right** em todos os slides
+- **Logo top-left + page counter top-right** em todos os slides — usar sempre o arquivo `identidade/logo/logo-sem-fundo.png` (PNG com fundo transparente, copia pra pasta do carrossel como `logo.png`). **Nunca** usar texto ou badge de texto no lugar do logo real
 - **Border-top 1px** `rgba(255,255,255,0.12)` separando rodapé do conteúdo (em slides escuros)
 - **Stamps circulares** (200x200, border 3px translúcida, rotate -10deg) pra selos/datas/dados
 - **Tags/pills** uppercase, padding generoso, kerning 0.2em, pra rotular categoria do slide
@@ -87,7 +89,7 @@ Paleta sóbria: fundo dark + off-white + **UMA** cor de destaque. Nunca quatro c
 
 Vocabulário de layout — cada slide tem um nome. Variar entre eles pra criar ritmo:
 
-- **CAPA** — eyebrow + título grande + subtítulo + @handle. Fundo: foto com gradient overlay (`rgba(12,10,9,0.55)` → `rgba(12,10,9,0.85)`) OU sólido (escuro/claro/destaque)
+- **CAPA** — eyebrow + título grande + subtítulo + @handle. Fundo: foto com overlay roxo (`rgba(89,36,143,0.55)` → `rgba(89,36,143,0.92)`) OU sólido (roxo Holos / lavanda clara / dourado)
 - **SOLO** — split horizontal: foto à esquerda 50% + texto à direita 50% (kicker + h2 + régua + parágrafo)
 - **DUO** — texto em cima (kicker + h2 + régua + p) + 2 fotos lado a lado embaixo (ou 1 foto larga)
 - **NÚMERO** — numeral gigante (200-320px, weight 800, cor de destaque) como elemento gráfico + h2 + parágrafo de apoio
@@ -105,7 +107,7 @@ Vocabulário de layout — cada slide tem um nome. Variar entre eles pra criar r
 - **Slides internos:** usar 2-3 layouts diferentes entre `SOLO` / `DUO` / `NÚMERO` / `CITAÇÃO`
 - **Slide final:** layout `CTA FINAL`
 
-Antes de criar HTML: ler `identidade/design-guide.md`. Se estiver em branco, usar o "Estilo visual base" acima como default.
+Antes de criar HTML: ler `identidade/branding-book.md` (fonte única). O "Estilo visual base" acima é só o resumo dos tokens.
 
 ### Sequência de capas no feed (planejamento de grade)
 
@@ -138,7 +140,7 @@ Ao terminar de renderizar os PNGs, gerar **automaticamente** a legenda do post e
 ### Passo 1 — Entender e planejar
 
 1. Ler `_memoria/preferencias.md` e `_memoria/empresa.md`
-2. Ler `identidade/design-guide.md` pra cores, fontes e logo
+2. Ler `identidade/branding-book.md` pra cores, fontes e logo
 3. Identificar o tipo de conteúdo (1, 2 ou 3)
 4. Definir o tema e o ângulo
 
@@ -187,9 +189,9 @@ Se não tiver o script ainda, instruir o usuário a configurar `OPENAI_API_KEY` 
 ### Passo 4 — Criar visuais (HTML + PNG)
 
 1. Criar **um único `carrossel.html`** com TODOS os slides como `<div class="slide">` dentro do mesmo arquivo. Inline CSS, Google Fonts como única dependência externa. Aplicar:
-   - Cores e tipografia de `identidade/design-guide.md`
+   - Cores e tipografia de `identidade/branding-book.md`
    - Mínimo 2 layouts diferentes (não repetir o mesmo em todos os slides)
-   - Logo top-left + slide-counter top-right em todos os slides
+   - Logo top-left + slide-counter top-right em todos os slides — usar `<img class="logo-img" src="logo.png" alt="Holos">` com `logo.png` copiado de `identidade/logo/logo-sem-fundo.png`. CSS: `.logo-img { height: 52px; width: auto; display: block; }`
    - Slide final: logo + CTA, fundo na cor principal
 
    **Pra incluir foto IA no HTML:**
@@ -240,7 +242,7 @@ Se sim, chamar `/publicar-tema` com o mesmo tema.
 
 ## Regras
 
-- Sempre ler `identidade/design-guide.md` antes de criar qualquer visual
+- Sempre ler `identidade/branding-book.md` antes de criar qualquer visual
 - Carrossel: 1080x1350 (4:5 retrato) — sempre. TikTok/Reels: 1080x1920 (9:16) — só quando pedido explicitamente
 - Linguagem segue `_memoria/preferencias.md` estritamente
 - Sempre considerar a sequência de capa no feed antes de definir capa nova

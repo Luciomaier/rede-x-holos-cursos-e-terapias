@@ -20,7 +20,7 @@ Skill orquestradora. Pega um tema → entrega artigo no blog + carrossel + 3 leg
 - **Skill carrossel:** `.claude/skills/carrossel/SKILL.md` — usar pra fase do carrossel
 - **Site (blog):** `site/` — destino dos artigos. Estrutura comum: Astro em `site/astro-site/src/content/blog/`, ou WordPress, ou outro. Se ainda não tiver site, perguntar antes
 - **Tom de voz:** `_memoria/preferencias.md`
-- **Contexto:** `_memoria/empresa.md`, `identidade/design-guide.md`
+- **Contexto:** `_memoria/empresa.md`, `identidade/branding-book.md`
 
 ---
 

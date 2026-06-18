@@ -17,6 +17,14 @@ Thumbs.db
 # Dependências
 node_modules/
 
+# Credenciais — NUNCA versionar
+.env
+.env.local
+.env.*
+
+# Playwright MCP (logs de sessão e screenshots temporários)
+.playwright-mcp/
+
 # Arquivos temporários
 *.log
 *.tmp

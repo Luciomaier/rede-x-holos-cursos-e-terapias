@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; background: #1a1a1a; }
+
+.slide {
+  width: 1080px;
+  height: 1350px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+/* ─── TIPOGRAFIA BASE ─── */
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #E6A028;
+}
+.titulo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+.cursiva {
+  font-family: 'Parisienne', cursive;
+  color: #E6A028;
+  display: block;
+  line-height: 0.95;
+}
+.corpo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.85);
+}
+.regua {
+  width: 72px;
+  height: 4px;
+  background: #E6A028;
+  border-radius: 2px;
+}
+
+/* ─── LOGO ─── */
+.logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+/* ─── HANDLE ─── */
+.handle {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.02em;
+}
+.num-slide {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ─────────────────────────────────────────
+   SLIDE 1 — CAPA (foto + overlay)
+───────────────────────────────────────── */
+#s1 {
+  background: #59248F;
+}
+#s1 .foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+#s1 .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(89,36,143,0.55) 0%,
+    rgba(89,36,143,0.70) 35%,
+    rgba(89,36,143,0.90) 58%,
+    rgba(89,36,143,0.97) 100%
+  );
+}
+#s1 .ui {
+  position: absolute;
+  inset: 0;
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#s1 .topo { display: flex; justify-content: space-between; align-items: flex-start; }
+#s1 .rodape { }
+#s1 .eyebrow { margin-bottom: 20px; }
+#s1 .titulo { font-size: 96px; margin-bottom: 4px; }
+#s1 .cursiva { font-size: 148px; margin-bottom: 36px; }
+#s1 .regua { margin-bottom: 36px; }
+#s1 .footer-row { display: flex; justify-content: space-between; align-items: center; }
+#s1 .sinaten {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ─────────────────────────────────────────
+   SLIDE 2 — NÚMERO "460h"
+───────────────────────────────────────── */
+#s2 {
+  background: linear-gradient(160deg, #3D1A6E 0%, #59248F 60%, #6D4C7F 100%);
+}
+#s2 .ui {
+  position: absolute;
+  inset: 0;
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#s2 .num-grande {
+  font-family: 'Poppins', sans-serif;
+  font-size: 240px;
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  color: #E6A028;
+}
+#s2 .titulo { font-size: 64px; margin-top: 16px; }
+#s2 .corpo { font-size: 24px; margin-top: 16px; }
+#s2 .regua { margin: 36px 0; }
+#s2 .topo { display: flex; justify-content: space-between; align-items: center; }
+#s2 .meio { flex: 1; position: relative; }
+#s2 .bloco { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); }
+
+/* ─────────────────────────────────────────
+   SLIDE 3 — CATÁLOGO DE CURSOS (fundo claro)
+───────────────────────────────────────── */
+#s3 {
+  background: #EBE2F3;
+}
+#s3 .ui {
+  position: absolute;
+  inset: 0;
+  padding: 50px 60px 44px;
+  display: flex;
+  flex-direction: column;
+}
+#s3 .eyebrow { color: #6D4C7F; margin-bottom: 8px; }
+#s3 .titulo { color: #3D1A6E; font-size: 52px; margin-bottom: 6px; }
+#s3 .regua { background: #6D4C7F; margin-bottom: 20px; }
+#s3 .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 8px;
+  flex: 1;
+}
+#s3 .card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 8px rgba(109,76,127,0.10);
+}
+#s3 .num { display: none; }
+#s3 .tecnica {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3D1A6E;
+  line-height: 1.25;
+}
+#s3 .topo-row { display: flex; justify-content: space-between; align-items: flex-start; }
+
+/* ─────────────────────────────────────────
+   SLIDE 4 — CITAÇÃO
+───────────────────────────────────────── */
+#s4 {
+  background: linear-gradient(160deg, #59248F 0%, #6D4C7F 100%);
+}
+#s4 .ui {
+  position: absolute;
+  inset: 0;
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#s4 .aspas {
+  font-family: 'Poppins', sans-serif;
+  font-size: 220px;
+  font-weight: 900;
+  color: rgba(230,160,40,0.18);
+  line-height: 0.7;
+  margin-bottom: -20px;
+}
+#s4 .frase {
+  font-family: 'Poppins', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 36px;
+}
+#s4 .frase em { color: #E6A028; font-style: normal; }
+#s4 .autor {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+#s4 .topo { display: flex; justify-content: space-between; align-items: center; }
+#s4 .meio { flex: 1; position: relative; }
+#s4 .bloco { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); }
+#s4 .regua { margin-bottom: 28px; }
+
+/* ─────────────────────────────────────────
+   SLIDE 5 — PREÇO
+───────────────────────────────────────── */
+#s5 {
+  background: linear-gradient(160deg, #3D1A6E 0%, #59248F 100%);
+}
+#s5 .ui {
+  position: absolute;
+  inset: 0;
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#s5 .topo { display: flex; justify-content: space-between; align-items: center; }
+#s5 .preco-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 8px;
+}
+#s5 .preco-valor {
+  font-family: 'Poppins', sans-serif;
+  font-size: 200px;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #E6A028;
+}
+#s5 .preco-info {
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-top: 16px;
+  margin-bottom: 40px;
+}
+#s5 .comparativo {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(230,160,40,0.35);
+  border-radius: 14px;
+  padding: 22px 28px;
+}
+#s5 .comparativo p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+#s5 .comparativo strong { color: #E6A028; font-weight: 700; }
+#s5 .regua { margin: 36px 0; }
+
+/* ─────────────────────────────────────────
+   SLIDE 6 — BÔNUS (foto + overlay)
+───────────────────────────────────────── */
+#s6 {
+  background: #6D4C7F;
+}
+#s6 .foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45);
+}
+#s6 .ui {
+  position: absolute;
+  inset: 0;
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#s6 .topo { display: flex; justify-content: space-between; align-items: center; }
+#s6 .eyebrow { margin-bottom: 12px; }
+#s6 .titulo { font-size: 62px; margin-bottom: 36px; }
+#s6 .bonus-list { display: flex; flex-direction: column; gap: 18px; flex: 1; justify-content: center; }
+#s6 .bonus-item {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(230,160,40,0.30);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+#s6 .bonus-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #E6A028;
+  line-height: 1;
+  min-width: 40px;
+}
+#s6 .bonus-txt { }
+#s6 .bonus-titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+#s6 .bonus-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.70);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+#s6 .footer-row { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; }
+
+/* ─────────────────────────────────────────
+   SLIDE 7 — CTA FINAL
+───────────────────────────────────────── */
+#s7 {
+  background: linear-gradient(160deg, #59248F 0%, #6D4C7F 55%, #8040BF 100%);
+}
+#s7 .ui {
+  position: absolute;
+  inset: 0;
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+#s7 .meio { display: flex; flex-direction: column; align-items: center; flex: 1; justify-content: center; }
+#s7 .logo-img { height: 80px; margin-bottom: 52px; }
+#s7 .titulo { font-size: 96px; margin-bottom: 0; }
+#s7 .cursiva { font-size: 158px; margin-bottom: 40px; }
+#s7 .regua { margin: 0 auto 40px; }
+#s7 .cta-info {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.70);
+  line-height: 1.6;
+  margin-bottom: 52px;
+}
+#s7 .cta-info strong { color: rgba(255,255,255,0.95); font-weight: 700; }
+#s7 .handle-bottom {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.04em;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 1 — CAPA
+══════════════════════════════════════════ -->
+<div class="slide" id="s1">
+  <img class="foto" src="foto-capa.png" alt="">
+  <div class="overlay"></div>
+  <div class="ui">
+    <div class="topo">
+      <img class="logo-img" src="logo.png" alt="Holos">
+      <span class="num-slide">01 / 07</span>
+    </div>
+    <div class="rodape">
+      <div class="eyebrow">Formação EAD · Certificação</div>
+      <div class="titulo">Aprenda massoterapia</div>
+      <div class="cursiva">de onde você estiver</div>
+      <div class="regua"></div>
+      <div class="footer-row">
+        <span class="handle">@holos_cursos</span>
+        <span class="sinaten">18 anos · +12 mil formados</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 2 — NÚMERO 460h
+══════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="ui">
+    <div class="topo">
+      <img class="logo-img" src="logo.png" alt="Holos">
+      <span class="num-slide">02 / 07</span>
+    </div>
+    <div class="meio">
+      <div class="bloco">
+        <div class="eyebrow">Formação completa</div>
+        <div class="num-grande">460h</div>
+        <div class="titulo">de conteúdo em massoterapia</div>
+        <div class="corpo">10 técnicas. Do básico ao que o mercado realmente busca.</div>
+        <div class="regua"></div>
+      </div>
+    </div>
+    <div class="handle">@holos_cursos</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 3 — CATÁLOGO DE CURSOS
+══════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="ui">
+    <div class="topo-row">
+      <div>
+        <div class="eyebrow">O que está incluído</div>
+        <div class="titulo">14 cursos<br>na plataforma</div>
+        <div class="regua"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <img class="logo-img" src="logo.png" alt="Holos">
+        <span class="num-slide" style="color:#9B87F5">03 / 07</span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><span class="tecnica">Curso de 5 Elementos</span></div>
+      <div class="card"><span class="tecnica">Anatomia para Massoterapeutas</span></div>
+      <div class="card"><span class="tecnica">Auriculoterapia</span></div>
+      <div class="card"><span class="tecnica">Aromaterapia</span></div>
+      <div class="card"><span class="tecnica">Bioenergética</span></div>
+      <div class="card"><span class="tecnica">Geoterapia</span></div>
+      <div class="card"><span class="tecnica">Massagem Relaxante</span></div>
+      <div class="card"><span class="tecnica">Técnicas de Atendimento</span></div>
+      <div class="card"><span class="tecnica">Reflexologia Podal</span></div>
+      <div class="card"><span class="tecnica">Reequilíbrio dos Chakras</span></div>
+      <div class="card"><span class="tecnica">Massagem Tui-ná</span></div>
+      <div class="card"><span class="tecnica">Ética Profissional</span></div>
+      <div class="card"><span class="tecnica">Shiatsu</span></div>
+      <div class="card"><span class="tecnica">Quiroterapia</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 4 — CITAÇÃO
+══════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="ui">
+    <div class="topo">
+      <img class="logo-img" src="logo.png" alt="Holos">
+      <span class="num-slide">04 / 07</span>
+    </div>
+    <div class="meio">
+      <div class="bloco">
+        <div class="aspas">"</div>
+        <div class="frase">Entrei achando que era <em>tarde demais</em> pra recomeçar. Hoje atendo no meu próprio espaço.</div>
+        <div class="regua"></div>
+        <div class="autor">Aluna formada · Turma EAD</div>
+      </div>
+    </div>
+    <div class="handle">@holos_cursos</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 5 — PREÇO
+══════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="ui">
+    <div class="topo">
+      <img class="logo-img" src="logo.png" alt="Holos">
+      <span class="num-slide">05 / 07</span>
+    </div>
+    <div>
+      <div class="eyebrow">Investimento</div>
+      <div class="titulo" style="font-size:72px; margin-bottom:36px;">Conheça o plano<br>que cabe no<br>seu bolso</div>
+      <div class="regua" style="margin-bottom:36px;"></div>
+      <div class="comparativo">
+        <p style="margin-bottom:16px;">Você pode <strong>estudar de qualquer lugar</strong>, no seu ritmo.</p>
+        <p style="margin-bottom:16px;">Encontros mensais ao vivo e online pelo <strong>Zoom</strong> — tira dúvidas em tempo real.</p>
+        <p>À vista no PIX ou parcelado em <strong>12× no cartão</strong>.</p>
+      </div>
+    </div>
+    <div class="handle">@holos_cursos</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 6 — BÔNUS (foto)
+══════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <img class="foto" src="foto-bonus.png" alt="">
+  <div class="ui">
+    <div class="topo">
+      <img class="logo-img" src="logo.png" alt="Holos">
+      <span class="num-slide">06 / 07</span>
+    </div>
+    <div>
+      <div class="eyebrow">Vem junto</div>
+      <div class="titulo">3 bônus pra quem<br>estuda à distância</div>
+      <div class="bonus-list">
+        <div class="bonus-item">
+          <div class="bonus-num">01</div>
+          <div class="bonus-txt">
+            <div class="bonus-titulo">Comunidade exclusiva de alunos</div>
+            <div class="bonus-desc">Tire dúvidas, troque experiências e construa sua rede desde o primeiro dia.</div>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-num">02</div>
+          <div class="bonus-txt">
+            <div class="bonus-titulo">Guia de precificação e primeiros clientes</div>
+            <div class="bonus-desc">Criado por quem já formou 12.000 terapeutas.</div>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-num">03</div>
+          <div class="bonus-txt">
+            <div class="bonus-titulo">Aulas ao vivo mensais com professores</div>
+            <div class="bonus-desc">Técnica aprofundada e dúvidas em tempo real — uma vez por mês.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-row">
+      <span class="handle">@holos_cursos</span>
+      <span style="font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Garantia 7 dias</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 7 — CTA FINAL
+══════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="ui">
+    <img class="logo-img" src="logo.png" alt="Holos">
+    <div class="meio">
+      <div class="titulo">Sua vaga espera</div>
+      <div class="cursiva">por você</div>
+      <div class="regua"></div>
+      <div class="cta-info">
+        <strong>12 meses de acesso</strong> · Garantia de 7 dias<br>
+        <strong>Link na bio</strong> ou chama no WhatsApp<br>
+        (11) 97699-4647
+      </div>
+    </div>
+    <div class="handle-bottom">@holos_cursos</div>
+  </div>
+</div>
+
+</body>
+</html>

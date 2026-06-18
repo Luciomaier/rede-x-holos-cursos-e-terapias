@@ -1,57 +1,92 @@
-# MazyOS — Sistema operacional do negócio
+# Holos Cursos e Terapias — MazyOS
 
-Sua empresa roda em cima desse arquivo. Aqui ficam as regras de operação
-do MazyOS — como o Claude lê o contexto, aprende com correções, mantém
-tudo atualizado e cria skills novas conforme a operação evolui.
+Operação central da Holos. Cada setor tem sua área, com processos, entregas e documentos. O sistema conhece quem a empresa é, como fala e onde está o atrito — e usa isso antes de qualquer resposta.
 
-Esse arquivo é editável. Quando o `/instalar` rodar, ele complementa o
-final dessa página com as regras específicas do seu negócio.
+**Estrutura de pastas:**
+- `_memoria/` — quem é a empresa, como falamos, foco atual
+- `identidade/` — marca aplicada em tudo que o sistema gera
+- `marketing/` — campanhas, conteúdo, mídia paga
+- `saidas/` — documentos e entregas pontuais
+- `dados/` — arquivos a analisar
+- `scripts/` — automações e templates de código
+- `templates/` — moldes reutilizáveis
+
+## Sobre a empresa
+
+A Holos Cursos e Terapias é uma empresa de educação terapêutica holística. Atua no mercado de saúde integrativa e bem-estar, atendendo dois públicos: (1) pessoas que buscam cura, autoconhecimento e bem-estar; (2) profissionais da saúde que buscam formação e certificação em terapias holísticas. A equipe tem 5+ pessoas com setores definidos.
+
+## O que mais fazemos aqui
+
+- Criação de conteúdo para redes sociais (carrosseis, legendas, posts)
+- Relatórios e análises de desempenho
+- Campanhas de captação de alunos e clientes
+- Materiais de formação e atendimento
+- Comunicações com alunos e potenciais clientes
+
+## Tom de voz
+
+Formal sem gírias, com credibilidade e ao mesmo tempo acolhedor. Como um terapeuta experiente — você se sente seguro e bem recebido, não pressionado. Evitar: jargões motivacionais, tom hype, linguagem clínica fria, excesso de emojis.
+
+## Render de peças sociais (carrossel, capa de reel, story)
+
+Workflow testado e operacional:
+1. Subir servidor local: `python -m http.server 7823` na raiz do projeto
+2. Renderizar com Python Playwright (não Node.js — `playwright` não está instalado pro Node):
+```python
+from playwright.async_api import async_playwright
+# viewport 1080x1920, locator('.slide').screenshot()
+```
+3. Imagens que não têm proporção 9:16 devem ser pré-processadas com Pillow (`background-size: cover` via CSS não funciona no MCP browser)
+
+> `scripts/gerar-capa.js` e `scripts/gerar-imagem.js` são legados (Node.js) — não funcionam, não usar.
+
+## Ferramentas conectadas
+
+- [ ] Notion
+- [x] Gmail
+- [x] Google Calendar
+- [x] Google Drive
+- [ ] Google Ads
+- [ ] Meta Ads
+- [ ] Google Analytics
+- [x] Windsor.ai (agrega dados de Meta Ads, Google Ads, GA4 e outros)
+- [x] Playwright (abre browser, tira screenshot, interage com sites)
+
+*(Marcar conforme for instalando os MCPs)*
 
 ---
 
 ## Contexto do negócio
 
-No início de toda conversa, ler os seguintes arquivos (quando existirem
-e estiverem preenchidos):
+No início de toda conversa, ler os seguintes arquivos (quando existirem e estiverem preenchidos):
 
-1. `_memoria/empresa.md` — quem é o usuário, o que faz, como funciona o negócio
+1. `_memoria/empresa.md` — quem é a Holos, o que faz, como funciona
 2. `_memoria/preferencias.md` — tom de voz, estilo de escrita, o que evitar
 3. `_memoria/estrategia.md` — foco atual, prioridades, prazos
 
-Usar essas informações como base pra qualquer resposta ou decisão. Ao
-sugerir prioridades, formatos ou abordagens, considerar o foco atual
-descrito em `estrategia.md`.
+Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 
-Pra qualquer tarefa visual (carrossel, post, landing page), consultar
-`identidade/design-guide.md` como referência de estilo.
+Pra qualquer tarefa visual (carrossel, post, landing page), consultar `identidade/branding-book.md` — a fonte única de identidade (cores, fontes, logo, modelos, voz). Roxo Holos #6D4C7F é a cor central, acento dourado #E6A028; fontes Inter (corpo), Poppins (títulos sociais) e Parisienne (cursiva de destaque).
 
-Não é necessário listar o que foi lido nem confirmar a leitura. Apenas
-usar o contexto naturalmente.
+Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o contexto naturalmente.
 
 ---
 
 ## Fluxo de trabalho
 
-Antes de executar qualquer tarefa, verificar se existe skill relevante
-em `.claude/skills/`. Se encontrar, seguir as instruções da skill. Se
-não encontrar, executar a tarefa normalmente.
+Antes de executar qualquer tarefa, verificar se existe skill relevante em `.claude/skills/`. Se encontrar, seguir as instruções da skill. Se não encontrar, executar a tarefa normalmente.
 
-Ao concluir uma tarefa que não tinha skill mas parece repetível (o
-usuário provavelmente vai pedir de novo no futuro), perguntar:
+Ao concluir uma tarefa que não tinha skill mas parece repetível, perguntar:
 
 > "Isso pode virar uma skill pra próxima vez. Quer que eu crie?"
 
-Não perguntar pra tarefas pontuais ou perguntas simples. Só quando o
-padrão de repetição for claro.
+Não perguntar pra tarefas pontuais ou perguntas simples. Só quando o padrão de repetição for claro.
 
 ---
 
 ## Aprender com correções
 
-Quando o usuário corrigir algo, melhorar uma resposta ou dar uma
-instrução que parece permanente (frases como "na verdade é assim", "não
-faça mais isso", "prefiro assim", "sempre que...", "evita...", "da
-próxima vez..."), perguntar:
+Quando a usuária corrigir algo, melhorar uma resposta ou dar uma instrução que parece permanente ("na verdade é assim", "não faça mais isso", "prefiro assim", "sempre que...", "evita...", "da próxima vez..."), perguntar:
 
 > "Quer que eu salve isso pra não precisar repetir?"
 
@@ -62,20 +97,13 @@ Se sim, identificar onde faz mais sentido salvar:
 - **Sobre prioridades e foco** (projetos, metas, prazos) → `_memoria/estrategia.md`
 - **Regra de comportamento nessa pasta** → próprio `CLAUDE.md`
 
-Salvar com uma linha nova clara, sem reformatar o arquivo inteiro.
-Confirmar mostrando a linha adicionada.
-
-Não perguntar se a correção for óbvia de contexto imediato (ex: "na
-verdade o arquivo se chama X"). Só perguntar quando a informação tiver
-valor duradouro.
+Salvar com uma linha nova clara, sem reformatar o arquivo inteiro. Confirmar mostrando a linha adicionada.
 
 ---
 
 ## Manter contexto atualizado
 
-Ao terminar uma tarefa que mudou algo relevante (cliente novo, skill
-nova, mudança de foco, processo novo, ferramenta instalada, estrutura
-alterada), perguntar:
+Ao terminar uma tarefa que mudou algo relevante (cliente novo, skill nova, mudança de foco, processo novo, ferramenta instalada), perguntar:
 
 > "Isso mudou algo no teu contexto. Quer que eu atualize a memória?"
 
@@ -85,10 +113,9 @@ Se sim, identificar o que atualizar:
 - **Mudança de prioridade ou foco** → `_memoria/estrategia.md`
 - **Tom ou estilo** → `_memoria/preferencias.md`
 - **Pasta, regra de organização, skill criada** → `CLAUDE.md`
-- **Visual (cores, fontes, logo)** → `identidade/design-guide.md`
+- **Visual (cores, fontes, logo)** → `identidade/branding-book.md`
 
-Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo
-inteiro, só adicionar ou editar a linha relevante.
+Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo inteiro, só adicionar ou editar a linha relevante.
 
 **Quando NÃO perguntar:**
 - Tarefas pontuais sem impacto no contexto (escrever um email avulso, criar um post)
@@ -101,15 +128,12 @@ inteiro, só adicionar ou editar a linha relevante.
 
 ## Criação de skills
 
-Quando o usuário pedir skill nova:
+Quando a usuária pedir skill nova:
 
-1. Verificar se existe template relevante em `templates/skills/`. Se
-   existir, usar como base e adaptar pro contexto
+1. Verificar se existe template relevante em `templates/skills/`. Se existir, usar como base e adaptar pro contexto
 2. Perguntar se é específica desse projeto ou útil em qualquer:
    - Específica → `.claude/skills/nome-da-skill/SKILL.md` (local)
    - Universal → `~/.claude/skills/nome-da-skill/SKILL.md` (global)
-3. Ler `_memoria/empresa.md` e `_memoria/preferencias.md` pra calibrar
-   o conteúdo da skill ao contexto do negócio
-4. Se a skill precisar de arquivos de apoio (templates, exemplos),
-   criar dentro da pasta da skill
+3. Ler `_memoria/empresa.md` e `_memoria/preferencias.md` pra calibrar o conteúdo da skill ao contexto da Holos
+4. Se a skill precisar de arquivos de apoio (templates, exemplos), criar dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code

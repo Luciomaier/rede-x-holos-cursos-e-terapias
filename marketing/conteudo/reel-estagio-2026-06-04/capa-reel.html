@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 1080px; height: 1920px; overflow: hidden; }
+
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(67, 48, 107, 0.20) 0%,
+        rgba(67, 48, 107, 0.35) 25%,
+        rgba(67, 48, 107, 0.65) 48%,
+        rgba(67, 48, 107, 0.92) 65%,
+        rgba(67, 48, 107, 0.98) 100%
+      );
+    }
+
+    .ui {
+      position: absolute;
+      inset: 0;
+      padding: 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .topo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 22px;
+    }
+
+    .logo-badge {
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 14px 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-badge img {
+      height: 44px;
+      width: auto;
+    }
+
+    .logo-fallback {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #5B3E8E;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      background: #EF8904;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .rodape {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .titulo {
+      font-size: 86px;
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+
+    .destaque {
+      color: #EF8904;
+    }
+
+    .regua {
+      width: 80px;
+      height: 4px;
+      background: #EF8904;
+      margin: 28px 0 36px;
+      border-radius: 2px;
+    }
+
+    .footer-linha {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .handle {
+      font-size: 26px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+
+    .coracao {
+      font-size: 34px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <img class="bg" src="../../fotos/estagio-pratico.jpg" alt="">
+  <div class="overlay"></div>
+  <div class="ui">
+    <div class="topo">
+      <div class="logo-badge">
+        <img src="../../../identidade/holos-logo-registrada.png" alt="Holos"
+             onerror="this.style.display='none';document.getElementById('logo-fb').style.display='block'">
+        <span id="logo-fb" class="logo-fallback" style="display:none">holos</span>
+      </div>
+      <div class="tag">REEL DIÁRIO</div>
+    </div>
+    <div class="rodape">
+      <div class="titulo">
+        Enquanto você lê isso,<br>uma turma está<br>acontecendo<br><span class="destaque">aqui.</span>
+      </div>
+      <div class="regua"></div>
+      <div class="footer-linha">
+        <span class="handle">@holos_cursos</span>
+        <span class="coracao">💜</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

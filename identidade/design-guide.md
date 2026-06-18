@@ -1,59 +1,14 @@
-# Identidade visual
+# Identidade visual → ver Branding Book
 
-> Como a marca aparece em tudo que o MazyOS gera.
-> As skills de conteúdo, carrossel e post leem esse arquivo antes de criar qualquer visual.
-> Edite quando a marca evoluir.
+> **A fonte única de identidade da Holos agora é [`branding-book.md`](branding-book.md).**
+> Cores, fontes, logo, modelos por formato, especificações técnicas e voz estão todos lá, com valores verificados ao vivo no produto e no Instagram.
+>
+> Este arquivo virou um ponteiro para não quebrar referências antigas. **Não edite cores ou fontes aqui** — edite no branding book.
 
----
+**Atalho dos tokens (resumo — o detalhe está no branding book):**
+- Roxos: `#6D4C7F` (dominante) · `#59248F` (profundo) · `#8040BF` (médio) · `#9B87F5` (lavanda) · `#EBE2F3` (lavanda clara)
+- Acento dourado: `#E6A028` · ciano secundário: `#33C4F0`
+- Fontes: **Inter** (corpo/UI) · **Poppins** (títulos sociais) · **Parisienne** (cursiva de destaque, uma palavra)
+- Logo: circular, fundo branco, anel gradiente rosa→laranja
 
-## Cores
-
-- **Fundo principal:**
-
-- **Cor de destaque / CTA:**
-
-- **Texto principal:**
-
-- **Fundo alternativo / cards:**
-
-- **Cor proibida:**
-
----
-
-## Tipografia
-
-- **Títulos e destaques:**
-
-- **Corpo, subtítulos e botões:**
-
-- **Peso do título:**
-
----
-
-## Estilo geral
-
----
-
-## Elementos-chave
-
-- Bordas:
-- Border-radius dos cards:
-- Botões:
-- Sombras:
-
----
-
-## O que NUNCA fazer
-
----
-
-## Logo
-
-- **Arquivo:** *(ex: identidade/logo.png ou identidade/logo.svg)*
-- **Versão pra fundo escuro:** *(se tiver — ex: identidade/logo-branco.png)*
-- **Onde usar:** slide final do carrossel (CTA), header de propostas, slides de apresentação
-- **Tamanho sugerido:** largura entre 120-200px nos HTMLs
-
----
-
-## Observações adicionais
+→ **[Abrir o Branding Book completo](branding-book.md)**

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 1080px; height: 1920px; overflow: hidden; background: #3E0E55; }
+
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOPO — fundo branco com foto */
+    .topo {
+      width: 1080px;
+      height: 960px;
+      background: #ffffff;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .topo img.foto {
+      position: absolute;
+      top: 0; left: 0;
+      width: 1080px;
+      height: 960px;
+      display: block;
+    }
+
+    /* Logo no canto superior esquerdo */
+    .logo-wrap {
+      position: absolute;
+      top: 36px;
+      left: 40px;
+      z-index: 10;
+    }
+
+    .logo-wrap img {
+      height: 56px;
+      width: auto;
+    }
+
+    /* Overlay gradiente na base da foto */
+    .topo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 1080px;
+      height: 520px;
+      background: linear-gradient(
+        180deg,
+        rgba(62, 14, 85, 0.00)  0%,
+        rgba(62, 14, 85, 0.30) 35%,
+        rgba(62, 14, 85, 0.75) 65%,
+        rgba(62, 14, 85, 1.00) 100%
+      );
+    }
+
+    /* Faixa de transição — mantida fina pra costurar sem gap */
+    .transicao {
+      width: 1080px;
+      height: 4px;
+      background: #3E0E55;
+      flex-shrink: 0;
+    }
+
+    /* BLOCO INFERIOR — roxo com informações */
+    .info {
+      flex: 1;
+      background: #3E0E55;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 64px 60px;
+    }
+
+    /* Badge de data */
+    .badge-data {
+      display: inline-block;
+      background: #E6A028;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      border-radius: 6px;
+      align-self: flex-start;
+      margin-bottom: 28px;
+    }
+
+    /* Nome do curso */
+    .curso-nome {
+      font-family: 'Poppins', sans-serif;
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+
+    .curso-nome .destaque {
+      color: #E6A028;
+    }
+
+    /* Régua dourada */
+    .regua {
+      width: 72px;
+      height: 4px;
+      background: #E6A028;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    /* Detalhes — horário e professor */
+    .detalhe {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .detalhe-icon {
+      width: 8px;
+      height: 8px;
+      background: #E6A028;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .detalhe-texto {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      color: #EBE2F3;
+      line-height: 1.3;
+    }
+
+    /* Spacer */
+    .spacer { flex: 1; }
+
+    /* CTA WhatsApp */
+    .cta {
+      background: rgba(255,255,255,0.10);
+      border: 1.5px solid rgba(230,160,40,0.5);
+      border-radius: 12px;
+      padding: 22px 32px;
+      margin-bottom: 28px;
+    }
+
+    .cta-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #9B87F5;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .cta-numero {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #E6A028;
+      letter-spacing: 0.02em;
+    }
+
+    /* Rodapé */
+    .rodape {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .handle {
+      font-family: 'Inter', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- TOPO: foto + logo -->
+  <div class="topo">
+    <img class="foto" src="foto-nelson-proc.png" alt="">
+    <div class="logo-wrap">
+      <img src="/identidade/logo/logo-original.png" alt="Holos">
+    </div>
+    <div class="topo-overlay"></div>
+  </div>
+
+  <!-- TRANSIÇÃO -->
+  <div class="transicao"></div>
+
+  <!-- INFO -->
+  <div class="info">
+    <div class="badge-data">20 DE JUNHO</div>
+
+    <div class="curso-nome">
+      Massagem<br>
+      <span class="destaque">Desportiva 4×1</span>
+    </div>
+
+    <div class="regua"></div>
+
+    <div class="detalhe">
+      <div class="detalhe-icon"></div>
+      <span class="detalhe-texto">09h às 17h</span>
+    </div>
+    <div class="detalhe">
+      <div class="detalhe-icon"></div>
+      <span class="detalhe-texto">Prof. Nelson</span>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="cta">
+      <div class="cta-label">Informações e inscrições</div>
+      <div class="cta-numero">(11) 97699-4647</div>
+    </div>
+
+    <div class="rodape">
+      <span class="handle">@holos_cursos</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
