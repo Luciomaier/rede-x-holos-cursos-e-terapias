@@ -1,7 +1,7 @@
 # Ciclo — Micro-conversões Google + LP React (09–16/06/2026)
 
 > Um "ciclo" é uma mudança com começo, meio e fim — registrada pra a gente medir o efeito e não repetir cego.
-> **Status:** 🔴 Em andamento — janela fechando, reclamações chegando. **Atacar 15/06.**
+> **Status:** ✅ Rodada 2 resolvida (19/06) — auto-apply DESLIGADO (causa-raiz) + lance redefinido pra Maximizar Conversões SEM teto de CPA. Pendente: confirmar reposição de saldo +R$5k e reavaliar em ~7 dias.
 > ← [Painel de Marketing](../painel.md)
 
 ---
@@ -70,6 +70,32 @@ As **micro-conversões** (Engajamento, Ver rota, Compra) davam sinal sujo ao Goo
 - [ ] **Repor saldo +R$5k** (Holos paga a verba) quando confirmar entrega
 - [ ] **Consertar o gap de conversão:** webhook ZenPro→Google deve mandar os ~8 leads reais, não só 2. Quando o Google contar o real, dá pra voltar ao lance por conversão **com tCPA recalibrado** (realista: R$80–130, não R$15)
 - [ ] Reavaliar em ~7 dias: com sinal real, migrar de volta pra Maximizar Conversões se fizer sentido
+
+---
+
+## 🔁 Rodada 2 — 19/06/2026: o lance voltou sozinho (auto-apply)
+
+**Sintoma:** depois de 3 dias saudáveis no Maximizar Cliques, o gasto despencou de novo.
+
+| Dia | Gasto | Conversões | Custo/conv | Estratégia |
+|-----|-------|-----------|-----------|-----------|
+| 18/06 | R$ 1.020 (budget cheio) | 26 | R$ 39,33 | Maximizar Cliques — **saudável** |
+| 19/06 (parcial) | R$ 29,34 | 1 | R$ 29,34 | Maximizar Conversões tCPA R$14,27 — **travada** |
+
+**Prova (Histórico de alterações):** em **18/06 às 21:38:20**, a ferramenta **"Recommendations Auto-Apply"** (Aplicação automática de recomendações) mudou a Masso Geral de **"Maximizar cliques" → "Maximizar conversões"** com **CPA desejado R$ 14,27**. Marcado como *"não é possível desfazer"*.
+
+**Causa-raiz (confirmada):** o **auto-aplicar recomendações** estava ligado. O Google olha o histórico (que ainda inclui o período das micro-conversões-lixo, CPA aparente ~R$13) e "recomenda" voltar pra tCPA ~R$14 — **1/3 do CPA real (R$39)**. Com a meta abaixo do custo real, o algoritmo fecha a torneira. **Foi o mesmo estrangulamento de 15/06, re-aplicado pela máquina.**
+
+**Causa secundária:** saldo pré-pago baixo (*"Há pouco fundo pré-pago na conta"*) — freia a entrega. O +R$5k planejado em 15/06 não foi reposto.
+
+**Ponto positivo (confirmado):** ontem o Google contou **26 conversões** (vs ~2/dia em 09–14/06) → webhook ZenPro→Google melhorou a contagem. Dá pra confiar no **CPA real R$39** pra calibrar o lance de vez.
+
+## ✅ Ações — Rodada 2 (resolvidas 19/06)
+
+- [x] **Auto-aplicar recomendações DESLIGADO** (Recomendações → Configurações de aplicação automática → Gerenciar): "Mantenha seus anúncios" 7→0 e "Amplie seus negócios" 4→0. Os 4 culpados eram todos de lance: *Maximizar conversões*, *Maximizar conversões c/ CPA desejado*, *Definir um CPA desejado*, *Ajustar metas de CPA*. **Era a causa-raiz — o robô recolocava o tCPA ~R$14 sozinho.**
+- [x] **Lance redefinido na mão:** Maximizar Conversões **sem teto de CPA** (campo "Definir custo por ação desejado" desmarcado) — decisão: otimizar pra lead, contagem confiável (26 conv em 18/06), volume sobra pra aprender
+- [ ] **Repor saldo pré-pago +R$5k** — confirmar se já entrou
+- [ ] Reavaliar ~26/06 (≈7 dias): gasto voltou ao ritmo de ~R$1.000/dia? CPA estabilizou perto de R$39?
 
 ---
 

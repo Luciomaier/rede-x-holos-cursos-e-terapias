@@ -39,6 +39,7 @@ marketing do cérebro vende. Co-donos: Lucio + Luciana.
 | 🟠 | Ativar Leaked Password Protection (Supabase Auth) | Segurança |
 | 🟡 | Integrar módulo financeiro real (tirar do mock) | Controle |
 | 🟡 | Expandir catálogo de cursos EAD | Receita |
+| 🔴 | Confirmação de email + nutrição (leads `leads_campanha`) → spec em [marketing/automacoes.md](../marketing/automacoes.md) | Recupera leads de form hoje parados |
 
 ## ⚠️ Pendência de segurança
 

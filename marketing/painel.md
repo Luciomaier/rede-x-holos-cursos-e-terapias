@@ -2,7 +2,7 @@
 
 > **O dashboard da operação.** Abre aqui pra ver onde estamos no mês: conversas, matrículas, ROAS, faturamento — sempre contra a meta.
 > **Metas oficiais (fonte da verdade):** [acordo-rede-holos.md → Números oficiais](../acordos/rede-publicidade/acordo-rede-holos.md)
-> **Atualizado:** 15/06/2026
+> **Atualizado:** 19/06/2026
 
 ---
 
@@ -60,7 +60,7 @@ Detalhe: [campanhas/google-ads.md](campanhas/google-ads.md) · [campanhas/meta-a
 
 ## 🔧 Ciclo em andamento
 
-- [**2026-06-09 — Micro-conversões + LP React**](ciclos/2026-06-09-microconversoes-google-lp-react.md) — **diagnosticado 15/06**: o CPA desejado R$15 (calibrado nas conversões-lixo) estrangulou o lance → gasto R$911→R$25/dia. Leads reais estáveis (~30/dia, ZenPro). **Ação:** lance → Maximizar Cliques (CPC máx R$10). ⏳ Verificar performance em 2–3h + repor saldo +R$5k + consertar gap do webhook.
+- [**2026-06-09 — Micro-conversões + LP React**](ciclos/2026-06-09-microconversoes-google-lp-react.md) — **Rodada 2 RESOLVIDA (19/06):** o *auto-aplicar recomendações* tinha revertido o lance (→ Max Conversões tCPA R$14,27) em 18/06 21:38 → gasto despencou R$1.020→R$29/dia. **Fix:** auto-apply desligado (causa-raiz) + lance → Max Conversões **sem teto**. ⏳ Pendente: repor saldo +R$5k · reavaliar ~26/06. Ponto bom: 26 conv contadas em 18/06 → CPA real R$39.
 
 ---
 

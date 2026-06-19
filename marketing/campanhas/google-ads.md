@@ -9,7 +9,7 @@
 
 | Campanha | Tipo | Budget | LP | Tracking | Status |
 |----------|------|--------|----|----------|--------|
-| Masso Geral (PG_B) | Search | ~R$820–950/dia | LP Masso React (Vercel) | GC-0hh1dj | ✅ Foco total |
+| Masso Geral (PG_B) | Search | R$1.000/dia (teto) | LP Masso React (Vercel) | GC-0hh1dj | ✅ Maximizar Conversões s/ teto (19/06) |
 | Auriculo | Search | — | LP Auriculo | — | ✅ Rodando |
 | Locação de Salas | Search | R$25–50/dia | LP Salas | — | 🔵 Criar |
 
@@ -27,6 +27,7 @@
 3. Display só reativar com público segmentado (remarketing), nunca broad
 4. Nova campanha: testar R$25–50/dia por 7 dias antes de escalar
 5. **Conversão = lead real (formulário ou WhatsApp), nunca micro-conversão**
+6. **Auto-aplicar recomendações DESLIGADO** — em 18/06 (21:38) o Google reverteu sozinho Max Cliques → Max Conversões tCPA R$14,27 e estrangulou a campanha. Lance é decisão nossa, não do robô (ver [ciclo 09/06 → Rodada 2](../ciclos/2026-06-09-microconversoes-google-lp-react.md))
 
 ## Conversões — config atual (desde 09/06)
 
