@@ -2,7 +2,7 @@
 
 > **O dashboard da operação.** Abre aqui pra ver onde estamos no mês: conversas, matrículas, ROAS, faturamento — sempre contra a meta.
 > **Metas oficiais (fonte da verdade):** [acordo-rede-holos.md → Números oficiais](../acordos/rede-publicidade/acordo-rede-holos.md)
-> **Atualizado:** 19/06/2026
+> **Atualizado:** 21/06/2026
 
 ---
 
@@ -60,7 +60,7 @@ Detalhe: [campanhas/google-ads.md](campanhas/google-ads.md) · [campanhas/meta-a
 
 ## 🔧 Ciclo em andamento
 
-- [**2026-06-09 — Micro-conversões + LP React**](ciclos/2026-06-09-microconversoes-google-lp-react.md) — **Rodada 2 RESOLVIDA (19/06):** o *auto-aplicar recomendações* tinha revertido o lance (→ Max Conversões tCPA R$14,27) em 18/06 21:38 → gasto despencou R$1.020→R$29/dia. **Fix:** auto-apply desligado (causa-raiz) + lance → Max Conversões **sem teto**. ⏳ Pendente: repor saldo +R$5k · reavaliar ~26/06. Ponto bom: 26 conv contadas em 18/06 → CPA real R$39.
+- [**2026-06-09 — Micro-conversões + LP React**](ciclos/2026-06-09-microconversoes-google-lp-react.md) — **Rodada 2 — fix confirmado (21/06):** auto-apply desligado + lance Max Conversões sem teto **destravou** — gasto rampando R$70→282→365/dia, 15-18 conv/dia a R$15-24 (CPA ótimo). Auto-apply OFF confirmado (otim. score 79%→47%). Saldo R$3.900 (não é o gargalo). **Novo gargalo: ALCANCE** (Google: "segmentando menos pesquisas") → ampliar palavras-chave. ⏳ Cross-check ZenPro + deixar aprendizado fechar (~2 sem).
 
 ---
 

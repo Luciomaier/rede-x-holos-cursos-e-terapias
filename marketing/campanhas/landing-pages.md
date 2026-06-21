@@ -41,12 +41,22 @@
 
 | Código | Canal | LP | Observação |
 |--------|-------|----|-----------|
-| `IS-9iyrwz` | Instagram/social | desportiva-4x1 | Meta Ads jun/26 · WhatsApp Giovanna (cursos livres) |
-| `IS-vygsza` | Instagram/social | mensalistas | Meta Ads jun/26 · WhatsApp formação (Leo/Laura) |
-| `GC-0hh1dj` | Google Search | massoterapia-lp | Masso Geral |
-| `ME-ESTAG` | Meta | estágio social | 🔵 a criar |
+| `IS-9iyrwz` | Instagram/social | desportiva-4x1 | Meta Ads jun/26 · WhatsApp Giovanna · ⚠️ registrar no ZenPro |
+| `IS-vygsza` | Instagram/social | mensalistas | Meta Ads jun/26 · WhatsApp formação · ⚠️ registrar no ZenPro |
+| `GC-0hh1dj` | Google Search | massoterapia-lp | Masso Geral ✅ registrado |
+| `GC-ab9924b9` | Google Search | auriculo | Auriculo ✅ registrado |
+| `estagio-social` | Meta | Estágio Social | 🚨 rodando como órfão — registrar no ZenPro |
 
-> ⚠️ **Formato do Ref padronizado** em todas as LPs: `Ref: <código>` (linha nova). A `mensalistas` usava `#ref=` (corrigido em 19/06). O ZenPro lê esse formato.
+> ⚠️ **Formato do Ref padronizado** em todas as LPs: `Ref: <código>` (linha nova). A `mensalistas` usava `#ref=` (corrigido 19/06); a `massoterapia-lp` ainda usa `#ref=` (follow-up). O ZenPro lê esse formato.
+
+### 🔑 Atribuição: o código tem que estar nos DOIS lados
+
+Cross-check 21/06 (Google Ads × ZenPro, leads 19–21/06):
+- ✅ **Leads do Masso Geral confirmados reais** no ZenPro (`GC-0hh1dj`: 3→10→7, crescendo junto com o gasto). Não é conversão-fantasma.
+- 🔑 **Regra:** o ZenPro só atribui código **registrado na tabela `campaigns`**. Botar o código só na LP (`utm_campaign`) **não basta** — sem registro no ZenPro, o lead entra como **órfão** (sem campanha).
+- 🚨 Órfãos achados (Meta/IG): `estagio-social` (5), `mensalistas` (2, legado), `FB-69e9d0` (1), ID cru do Meta `120246…` (2). Bug: `GC-0hh1dj` truncando pra `GC-0hh1d`.
+
+**🔴 Pendência (handoff feito pro repo ZenPro em 21/06):** registrar `IS-9iyrwz` e `IS-vygsza` **antes** de subir as campanhas + tratar órfãos + corrigir truncamento + ID cru do Meta.
 
 **Como a LP `desportiva-4x1` rastreia (HTML estático):**
 - Lê `utm_source/medium/campaign` + `ref` da **query** (do `?`, **não** do `#`).

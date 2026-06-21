@@ -94,8 +94,30 @@ As **micro-conversões** (Engajamento, Ver rota, Compra) davam sinal sujo ao Goo
 
 - [x] **Auto-aplicar recomendações DESLIGADO** (Recomendações → Configurações de aplicação automática → Gerenciar): "Mantenha seus anúncios" 7→0 e "Amplie seus negócios" 4→0. Os 4 culpados eram todos de lance: *Maximizar conversões*, *Maximizar conversões c/ CPA desejado*, *Definir um CPA desejado*, *Ajustar metas de CPA*. **Era a causa-raiz — o robô recolocava o tCPA ~R$14 sozinho.**
 - [x] **Lance redefinido na mão:** Maximizar Conversões **sem teto de CPA** (campo "Definir custo por ação desejado" desmarcado) — decisão: otimizar pra lead, contagem confiável (26 conv em 18/06), volume sobra pra aprender
-- [ ] **Repor saldo pré-pago +R$5k** — confirmar se já entrou
-- [ ] Reavaliar ~26/06 (≈7 dias): gasto voltou ao ritmo de ~R$1.000/dia? CPA estabilizou perto de R$39?
+- [x] **Saldo pré-pago:** R$3.900 em 21/06 — **não é o gargalo** (gasta R$365 de saldo cheio)
+- [x] Reavaliar gasto/CPA → ver **Verificação 21/06** abaixo
+
+---
+
+## 📈 Verificação — 21/06/2026 (fix confirmado)
+
+Dois dias após o fix. **Destravou.**
+
+| Dia | Gasto | Conv | CPA |
+|-----|-------|------|-----|
+| 18/06 *(Max Cliques, ref)* | R$ 1.020 | 26 | R$ 39 |
+| 19/06 *(dia do fix)* | R$ 70 | 5 | R$ 14,02 |
+| 20/06 | R$ 282 | 18 | R$ 15,64 |
+| 21/06 *(parcial)* | R$ 365 | 15 | R$ 24,32 |
+
+- ✅ Saiu do estrangulamento (R$29 → rampando dia a dia).
+- ✅ Auto-apply OFF confirmado — pontuação de otimização caiu 79%→47% (cai justamente porque paramos de auto-aplicar; é o esperado).
+- ✅ Saldo R$3.900 — não é o gargalo.
+- ⚠️ **Novo gargalo = ALCANCE**, não lance. Avisos do Google: "não gastou o orçamento", "segmentando menos pesquisas", "público-alvo limitado". + ainda em **aprendizado** (~2 semanas após a troca de estratégia).
+
+**Próximos passos:** (1) não mexer no lance — deixar o aprendizado fechar; (2) **ampliar palavras-chave de alta intenção** pra destravar o alcance; (3) ~~cross-check ZenPro~~ ✅ feito.
+
+> ✅ **Cross-check ZenPro (21/06):** leads do Masso Geral são **REAIS** (`GC-0hh1dj` 3→10→7 no banco do ZenPro). De quebra achamos um problema de **atribuição** (códigos do Meta entrando como órfãos + bug de truncamento) → handoff pro repo ZenPro. Detalhe em [landing-pages.md → Atribuição](../campanhas/landing-pages.md).
 
 ---
 
