@@ -27,3 +27,6 @@ dados/*
 
 # Áudios (gravações pessoais — não versionar)
 audios-transcritos/
+
+# Lock files de LibreOffice / Office
+.~lock.*#
