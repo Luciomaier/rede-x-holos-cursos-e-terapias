@@ -121,6 +121,27 @@ Dois dias após o fix. **Destravou.**
 
 ---
 
+## 🔁 Rodada 3 — 23/06: teto de CPA pra travar o estouro (+ análise do código campeão)
+
+**Sintoma:** dia 23/06 gastou **R$932** (de R$1.000) com só **3 leads reais** (ZenPro) e **476 impressões** → CPA ~R$155-310/lead. "R$1.000 por 3 leads" — pânico justificado.
+
+**Diagnóstico (dado do ZenPro, escopado na org Holos `742cc473-...`):**
+- O código campeão **`GC-a89afa7e`** entregava **~275-365 leads/mês (~9-12/dia), estável** (pico jan 365 → mai 275, declínio suave). **Nunca teve dia de 3 leads.**
+- O sucessor **`GC-0hh1dj`** (desde 09/06) chegou a empatar com o campeão (semana 06-15: 65 leads, ~9/dia), mas é **volátil** (3 a 19/dia) e colapsou nos últimos dias.
+- **Causa-raiz da volatilidade:** NÃO foi a migração da LP — foi o **setup de lance/verba agressivo** (Max Conversões SEM teto + R$1.000/dia) num alcance estrangulado. O Google bidava ~R$15-16/clique pra gastar R$1.000 num inventário que não existe (476 impressões) → CPA explodindo.
+- ⚠️ **Correção de método:** as análises de *total* e *vendas* feitas antes estavam **contaminadas** (sem filtro de `organization_id` — o ZenPro é multi-tenant, atende UniMasso e outros). Só os números **por código** (Holos-específicos) eram válidos. A org real da Holos = `Holos Cursos e Terapias Ltda` (`742cc473-e27e-4973-9b2d-bb9d88abda65`).
+
+**Ação tomada (23/06):**
+- **Orçamento: R$1.000 → R$800/dia.**
+- **Lance: Maximizar Conversões com CPA desejado R$45** (era "sem teto"). Campanha otimiza por **Contatos**.
+- **Por que R$45:** acima do CPA dos dias bons (R$15-24) → não estrangula o tráfego bom (erro do R$14 que ficava abaixo); abaixo do desastre (R$155) → corta a sangria. Com o teto, "R$800 em 3 leads" fica impossível (3 × R$45 = R$135).
+
+**A medir (~1-2 sem, após recalibração do tCPA):** o CPA estabiliza perto de R$45? O volume volta ao patamar do campeão (~9-12/dia) quando o alcance comportar? **Monitorar diário** com a query do ZenPro (leads `GC-` por dia, escopado na org Holos).
+
+**Próximo passo (só depois de estabilizar):** ampliar palavras-chave pra devolver alcance e escalar com segurança (subir orçamento de volta apenas quando o inventário comportar).
+
+---
+
 ## Registros de origem (vault)
 
 - `wiki/daily/2026-06-09.md` — ações Google Ads do dia

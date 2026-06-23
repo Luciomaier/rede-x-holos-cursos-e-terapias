@@ -6,7 +6,23 @@
 
 ---
 
-## Resumo executivo
+## ⚠️ CORREÇÃO 23/06 — recalibrado com o código real do ZenPro
+> Este plano foi montado **por fora** (telas + suposições). Ao ler o **código real do ZenPro**, várias premissas caíram. O sistema **NÃO é cego** — rastreia e atribui de forma **determinística e auditável**.
+
+**Já funciona (não há o que construir):** captura de código (`#ref=` / UTM, **case-insensitive, SEM truncamento**) → `campaign_source` derivado pelo prefixo (GC/IS/FB…) → grava em `conversations` + `tracking_history` (re-atribuição em janela de 30d) → liga a `sales` → ROAS. O **evento `Lead` server-side pro Meta JÁ DISPARA** (`process-meta-queue` → Graph `/events`, telefone hasheado) e a **conversão Google dispara por prefixo** — é o "**Contato**" (59) que vimos no Google Ads.
+
+**O que REALMENTE falta (3 coisas menores):**
+1. **Enriquecer o evento Meta → CAPI completa** — adicionar `event_id` (dedup), `fbc`/`fbp`, `em`. É *melhoria* sobre o que já dispara, não reconstrução.
+2. **Cadastrar os códigos órfãos** (ex: `IS-`) na tabela `campaigns` (UI). O lead **não se perde** — a fonte já é derivada e gravada; o órfão é só de **relatório**, não de atribuição.
+3. **Go-live do número real no Meta** — depende do App Review + token permanente (Lucio). Bloqueio **comercial/operacional**, **NÃO de tracking**.
+
+**Premissas erradas (riscadas):** ~~atribuição quebrada/no escuro~~ ❌ · ~~CAPI greenfield~~ ❌ (já dispara) · ~~App Review bloqueia atribuição~~ ❌ (bloqueia só rotear número real) · ~~órfão = perda de atribuição~~ ❌ (é falta de cadastro). A **LP React não é o caminho do lead** — o fluxo é **WhatsApp-first**; o "C0 / mecânica da LP" provavelmente não se aplica.
+
+**Os itens C1–C5 abaixo seguem como referência técnica, mas leia-os sob esta correção (o grosso já está resolvido pelo código).**
+
+---
+
+## Resumo executivo (premissas REVISADAS — ver correção acima)
 
 Hoje a Holos decide verba **no escuro**: o Meta pago cai em "Organic Social" no GA4 (subnotifica o canal que tem o melhor CPL), os leads do Meta entram **orfaos** no ZenPro porque os codigos nunca foram cadastrados, e nao existe key event de conversao instrumentado — entao nao ha taxa de conversao por canal. As 5 correcoes abaixo destravam: (1) atribuicao GA4 correta do Meta, (2) leads Meta saindo de "orfao" para a campanha certa, (3) sinal de Pixel/CAPI integro, (4) uma conversao oficial no GA4 que importa pro Google Ads, e (5) um dashboard `Leads_ZenPro / sessions_GA4` por canal que sustenta `/painel-dezena` e `/saude-google`. **O grosso e config de gestor (Lucio), feito hoje, sem depender de codigo.** A unica parte que pode exigir dev (Nick) e o ID cru do Meta e a investigacao da mecanica real da React LP.
 

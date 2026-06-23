@@ -12,6 +12,7 @@
 | 15/06 | Lance Max Conversões (tCPA R$15) → **Max Cliques** | Google | Destravar entrega | Gasto voltou ~R$1.020/dia | ✅ (revertido pelo auto-apply) |
 | 19/06 | **Desligar auto-apply** de recomendações + Max Conversões **sem teto de CPA** | Google | Impedir o robô de retravar o lance (causa-raiz) | Gasto R$70 → 282 → 365/dia, CPA R$15–24 | ✅✅ vitória |
 | 21/06 | **Cross-check ZenPro** (leads Masso Geral) | Tracking | Validar se os leads são reais | `GC-0hh1dj` 3→10→7 reais; achou códigos Meta órfãos (backlog) | ✅ |
+| **23/06** | **Orçamento R$1.000→R$800/dia + lance Maximizar Conversões com tCPA R$45** (era "sem teto") | Google | Travar o estouro (teto de custo por lead) | **baseline 23/06: 3 leads · R$932 · 476 impr · CPA ~R$155-310/lead** | ⏳ medir 1-2 sem |
 | ⏳ 23/06+ | **Ampliar palavras-chave** alta intenção + consolidar grupos duplicados | Google | Destravar ALCANCE (gargalo atual) | — | ⏳ medir na próxima dezena |
 | ⏳ 23/06+ | **Consolidar criativos Meta** nos vencedores (de 15 anúncios) | Meta | Sair da fragmentação de verba | — | ⏳ |
 | ⏳ 23/06+ | **Fix UTM Meta** (social→paid_social) + cadastrar códigos ZenPro + evento GA4 | Tracking | Atribuição limpa por canal | — | ⏳ (ver [plano de tracking](2026-06-23-plano-correcao-tracking.md)) |

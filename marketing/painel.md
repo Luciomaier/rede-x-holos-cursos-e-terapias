@@ -2,7 +2,7 @@
 
 > **O dashboard da operação.** Abre aqui pra ver onde estamos no mês: conversas, matrículas, ROAS, faturamento — sempre contra a meta.
 > **Metas oficiais (fonte da verdade):** [acordo-rede-holos.md → Números oficiais](../acordos/rede-publicidade/acordo-rede-holos.md)
-> **Atualizado:** 21/06/2026
+> **Atualizado:** 23/06/2026 (dados Elis — Métricas Holos, dia 20)
 
 ---
 
@@ -14,23 +14,25 @@
    matrículas/mês  →  META 50  (baseline maio: 35)
 ```
 
-## Matrículas — Junho/2026 (parcial 15/06)
+## Matrículas — Junho/2026 (dia 20 · vs mesmo período de maio)
 
-| Tipo | Realizado | Meta | % | Maio (ref) |
-|------|-----------|------|---|------------|
-| Integral (cartão/à vista) | 10 | 25 | 40% | 15 |
-| Mensalista (mensalidade) | 3 | 25 | 12% | 20 |
-| **TOTAL** | **13** | **50** | **26%** | **35** |
+| Tipo | Jun D20 | Meta | % | Mai D20 | Δ vs Mai |
+|------|---------|------|---|---------|----------|
+| Integral (cartão/à vista) | 12 | 25 | 48% | 6 | **+100%** 🟢 |
+| Mensalista (1ª mensalidade) | 6 | 25 | 24% | 13 | **−54%** 🔴 |
+| **TOTAL** | **18** | **50** | **36%** | **19** | −5% |
 
-⚠️ **Mensalista é o gargalo** — atrás do passo. Integral em bom ritmo.
+✅ **Integrais dobraram** vs maio (mesmo período). 🔴 **Mensalista é o gargalo** — entrada de novos mensalistas caiu pela metade. Reversão: resgate da lista parada + oferta 50%.
 
-## Faturamento — Junho/2026 (parcial 15/06)
+## Faturamento — Junho/2026 (dia 20)
 
-| | Valor |
-|---|-------|
-| Meta mensal | R$ 195.101,55 |
-| Realizado (snapshot) | R$ 60.151,77 (~31%) |
-| Falta | R$ 134.949,78 |
+| | Valor | vs Mai D20 |
+|---|-------|------------|
+| Faturamento total | R$ 110.916,34 (57% da meta R$ 195.101) | +36% |
+| **Massoterapia (MASSO GERAL)** | **R$ 68.334,47** | **+46%** 🟢 |
+| Lucro (até dia 20) | −R$ 24.215,15 | melhora vs Mai (−R$ 33,9k) |
+
+> **Junho é o melhor mês dos últimos 3 em massoterapia** (Abr R$ 61k · Mai R$ 47k · **Jun R$ 68k**), puxado pelos integrais. ⚠️ Lucro ainda negativo — é estrutura de **custo**, não de receita de masso.
 
 *Detalhe produto a produto: [acordo → planilha da Elis](../acordos/rede-publicidade/acordo-rede-holos.md)*
 

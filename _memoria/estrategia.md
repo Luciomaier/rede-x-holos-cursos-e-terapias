@@ -27,3 +27,4 @@ Holos está em queda de receita (Maio projetado: R$80–90k vs. média de R$192k
 - **Massoterapia Integral:** caiu de R$82k (jan) → R$57k (abr) → projeção crítica em maio. É o coração do negócio
 - **Alerta de reputação:** boato de falência da Holos circulou entre alunos após conflito com professores — rescisões aumentaram. Precisa de atenção
 - **Gargalo operacional:** turno manhã do comercial sem cobertura quando Laura falta = leads perdidos
+- **Achado 23/06 — visibilidade do funil (PRIORIDADE):** o comercial atende leads **fora do ZenPro** (WhatsApp Web + celular da Lu), então o sistema não reflete o atendimento e **não dá pra medir conversão por lead**. A **implantação do ZenPro** (time atendendo dentro dele) destrava medição + recuperação sistemática. O aparente "gargalo de leads não trabalhados" é, na real, **falta de visibilidade**, não abandono
