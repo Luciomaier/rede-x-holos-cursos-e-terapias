@@ -31,3 +31,4 @@
 - Oportunidades mapeadas ainda não exploradas: aluguel de salas (3 andares ociosos), estágio/atendimento social B2B, EAD como canal de receita recorrente
 - Reputação: Google Meu Negócio ⭐ 4,7 · 351 avaliações
 - **Acordo Rede Publicidade × Holos:** fonte da verdade em `acordos/rede-publicidade/`. Proposta de R$13.500/mês fixo, alinhada internamente em 02/06/2026, aguardando apresentação à Luciana + aval de Vani — assinatura prevista Jul/2026. Acordo atual ainda verbal (~R$10.500/mês)
+- **Classificação do curso principal:** a formação em massoterapia é **formação profissional / qualificação** (certificado SINATEN, 1.200h). **NÃO é curso técnico** (não registrada como escola técnica) e **não tem reconhecimento MEC**. Distinção importante pra anúncio/LP/copy (ver `preferencias.md`)

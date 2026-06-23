@@ -16,6 +16,7 @@ Referência de escrita real (email da Luciana, base):
 - Tom clínico ou acadêmico demais
 - Textos longos no início — ir direto ao ponto e expandir se necessário
 - Disparar campanha de cursos livres sem confirmar que o mínimo de alunos está próximo
+- **Nunca** usar "curso técnico", "técnico em massoterapia", "reconhecido pelo MEC" ou "diploma de técnico" em anúncio, LP, email ou copy — a formação é **profissional/qualificação** (SINATEN, 1.200h), não técnico/MEC. Usar "formação profissional", "certificado SINATEN", "1.200h", "profissionalizante" (pode-se *lançar* na busca "curso técnico", mas o texto nunca afirma isso)
 
 ## Estilo geral
 
