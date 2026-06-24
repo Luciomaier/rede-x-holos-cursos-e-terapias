@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatório Dezenal — Junho × Maio (mesmo período) · Holos × Rede</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root{ --roxo:#6272C4; --navy:#1E2560; --corpo:#333; --cardbg:#F5F6FF; --ambar:#E08600; --linha:#E6E8F5; }
+  body{ font-family: Arial, Helvetica, sans-serif; color:var(--corpo); line-height:1.55; font-size:12.5px; background:#fff; }
+
+  .header{ display:flex; align-items:center; justify-content:space-between;
+    border-bottom:2.5px solid var(--roxo); padding-bottom:12px; margin-bottom:16px; }
+  .header img{ height:54px; }
+  .header .titlebox{ text-align:right; }
+  .header h1{ font-size:18px; font-weight:900; color:var(--navy); letter-spacing:-.3px; }
+  .header .sub{ font-size:11px; color:var(--roxo); font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+  .header .per{ font-size:11px; color:#888; margin-top:2px; }
+
+  h2{ font-size:13px; font-weight:900; color:var(--navy); text-transform:uppercase;
+    letter-spacing:.4px; margin:16px 0 8px; display:flex; align-items:center; gap:6px; }
+  h2 .bar{ width:4px; height:15px; background:var(--roxo); display:inline-block; border-radius:1px; }
+  h2 small{ font-weight:600; text-transform:none; color:#999; letter-spacing:0; font-size:11px; }
+
+  .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:9px; }
+  .kpi{ background:var(--cardbg); border-left:4px solid var(--roxo); border-radius:4px; padding:10px 11px; }
+  .kpi .num{ font-size:19px; font-weight:900; color:var(--navy); line-height:1.15; }
+  .kpi .num small{ font-size:12px; font-weight:700; }
+  .kpi .lbl{ font-size:10px; color:#666; margin-top:3px; }
+  .up{ color:var(--roxo); font-weight:900; }
+  .note{ font-size:10.5px; color:#888; margin-top:4px; font-style:italic; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:4px; font-size:12.5px; }
+  th,td{ padding:7px 10px; border-bottom:1px solid var(--linha); }
+  th{ background:var(--navy); color:#fff; font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; font-weight:700; }
+  td.r,th.r{ text-align:right; }
+  tr:last-child td{ border-bottom:none; }
+  td:first-child{ font-weight:600; color:var(--navy); }
+  .d-pos{ color:var(--roxo); font-weight:900; }
+  .d-att{ color:var(--ambar); font-weight:900; }
+  .d-neu{ color:#999; font-weight:700; }
+
+  .box{ background:var(--cardbg); border-radius:4px; padding:12px 14px; margin-top:6px; }
+  .box p{ margin-bottom:7px; } .box p:last-child{ margin-bottom:0; }
+  .box strong{ color:var(--navy); }
+
+  .ask{ border:1.5px solid var(--roxo); border-radius:4px; padding:12px 14px; margin-top:8px; background:#fff; }
+  .ask .t{ font-weight:900; color:var(--navy); text-transform:uppercase; font-size:11px; letter-spacing:.4px; margin-bottom:6px; }
+  .ask ol{ margin-left:18px; } .ask li{ margin-bottom:3px; }
+
+  .footer{ margin-top:18px; padding-top:10px; border-top:1px solid var(--linha);
+    font-size:10px; color:#999; display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="file:///home/usuario/Documentos/Projetos/holos-cursos-terapias/identidade/logo-completa.png" alt="Holos">
+    <div class="titlebox">
+      <h1>Relatório — Junho até o dia 20</h1>
+      <div class="sub">Holos × Rede Publicidade</div>
+      <div class="per">Comparado ao mesmo período de maio (dia 1 a 20)</div>
+    </div>
+  </div>
+
+  <h2><span class="bar"></span>Resultado acumulado até o dia 20</h2>
+  <div class="grid">
+    <div class="kpi"><div class="num">R$ 110.916</div><div class="lbl">Recebido pela Holos — <span class="up">+36%</span> vs maio</div></div>
+    <div class="kpi"><div class="num">19</div><div class="lbl">Matrículas novas de massoterapia (12 integrais · 1 intensivo · 6 mensalistas)</div></div>
+    <div class="kpi"><div class="num">R$ 46.176</div><div class="lbl">Em vendas novas de massoterapia</div></div>
+    <div class="kpi"><div class="num">3,4<small>×</small></div><div class="lbl">Retorno do anúncio (cada R$ 1 → R$ 3,40)</div></div>
+  </div>
+  <div class="note">Ticket médio por matrícula nova: R$ 2.430.</div>
+
+  <h2><span class="bar"></span>Quantas pessoas chegaram</h2>
+  <div class="grid">
+    <div class="kpi" style="grid-column:span 2;"><div class="num">676 contatos novos</div><div class="lbl">no WhatsApp até o dia 20 — número real do sistema</div></div>
+    <div class="kpi" style="grid-column:span 2;"><div class="num">354 <small>na quinzena</small> <span class="up" style="font-size:14px;">+10%</span></div><div class="lbl">contatos na quinzena, acima da primeira (322)</div></div>
+  </div>
+
+  <h2><span class="bar"></span>Quanto investimos na massoterapia</h2>
+  <div class="grid">
+    <div class="kpi"><div class="num">R$ 12.210</div><div class="lbl">Google (busca)</div></div>
+    <div class="kpi"><div class="num">R$ 1.366</div><div class="lbl">Instagram / Meta</div></div>
+    <div class="kpi" style="grid-column:span 2;"><div class="num">R$ 13.576</div><div class="lbl">Total investido na massoterapia</div></div>
+  </div>
+
+  <h2><span class="bar"></span>Demonstrativo &nbsp;<small>Junho × Maio (mesmo período, até o dia 20)</small></h2>
+  <table>
+    <tr><th>Indicador</th><th class="r">Maio (até 20)</th><th class="r">Junho (até 20)</th><th class="r">Variação</th></tr>
+    <tr><td>Holos recebido (caixa total)</td><td class="r">R$ 81.284</td><td class="r">R$ 110.916</td><td class="r d-pos">+36%</td></tr>
+    <tr><td>Integrais (massoterapia)</td><td class="r">6</td><td class="r">12</td><td class="r d-pos">dobraram</td></tr>
+    <tr><td>Novos mensalistas</td><td class="r">13</td><td class="r">6</td><td class="r d-att">−54% · a reverter</td></tr>
+    <tr><td>Base de mensalistas (recorrência)</td><td class="r">55</td><td class="r">58</td><td class="r d-pos">+3</td></tr>
+  </table>
+
+  <h2><span class="bar"></span>O que ajustamos — e funcionou</h2>
+  <div class="box">
+    <p><strong>Lance do Google reorganizado.</strong> O custo por contato despencou de <strong>~R$ 181 para ~R$ 42</strong> — gastamos metade e trouxemos quase o dobro de contatos pelo Google.</p>
+    <p><strong>Para recuperar mensalistas:</strong> chamar de novo quem demonstrou interesse, com <strong>oferta de 50%</strong>.</p>
+  </div>
+
+  <div class="ask">
+    <div class="t">🙏 Preciso do seu OK em 2 coisas</div>
+    <ol>
+      <li>A <strong>oferta de 50%</strong> para reverter os novos mensalistas ainda em junho.</li>
+      <li>O <strong>parecer da verba de julho</strong> — envio a planilha mostrando cada real e o retorno.</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <span>Relatório dezenal · preparado pela Rede Publicidade para a Holos Cursos e Terapias</span>
+    <span>Fechado em 24/06/2026</span>
+  </div>
+
+</body>
+</html>
