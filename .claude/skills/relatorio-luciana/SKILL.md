@@ -24,9 +24,14 @@ evolução (comparativos) e é honesto sobre o que funcionou e o que não.
 - **Metas oficiais:** [`acordos/rede-publicidade/acordo-rede-holos.md`](../../../acordos/rede-publicidade/acordo-rede-holos.md)
 - **Tom:** [`_memoria/preferencias.md`](../../../_memoria/preferencias.md)
 
-## Convenções (defaults — confirmar 1x com Lucio se mudar)
-- **Dezena = janela incremental:** D1 = 01–10, D2 = 11–20, D3 = 21–fim. Como a planilha é acumulada,
-  a janela = `acumulado(fim) − acumulado(início)` (usar snapshots da Métricas Holos).
+## Convenções — CANON (decidido 24/06/2026; ver `marketing/relatorios/README.md`)
+- **Régua canônica do número de capa = VENDIDO** (planilha *Meta de Vendas*). NÃO usar o caixa/recebido
+  (Métricas Holos) como número de capa — ele é só bastidor interno.
+- **Dezena = janela incremental:** D1 = 01–10, D2 = 11–20, D3 = 21–fim. A janela = `acumulado(fim) − acumulado(início)`.
+- **Tensão de fonte:** o *vendido* não tem corte por data na Meta de Vendas; o corte por dezena vem dos
+  snapshots datados (Métricas Holos, régua caixa) ou do **export do ZenPro** (venda por canal + data).
+  Pra ter **vendido + incremental**, o desbloqueio é o export do ZenPro. Sem ele, o incremental sai como
+  melhor-esforço e marca-se a pendência (⬜); nunca trocar a régua só pra fechar o número.
 - **"Vendas/faturamento" = venda comercial nova** da janela (massoterapia + cursos fechados), não o
   faturamento bruto total (que inclui recorrência/aluguel). Calibrar pela dezena 1 (25 vendas / R$45.524).
 
@@ -68,6 +73,7 @@ Tom da casa, pronto pra Elis **só encaminhar**.
 - Gravar a linha da dezena fechada no `historico-dezenas.md` (vira base do próximo comparativo).
 - Salvar o relatório em `marketing/relatorios/` com data.
 - Atualizar veredito das otimizações que fecharam janela no `registro-otimizacoes.md`.
+- **Tirar o RETRATO do vendido:** anotar o masso *vendido acumulado* da Meta de Vendas **na data do fechamento** (dia 10/20/30). Sem esse retrato, o vendido por dezena **não é reconstruível depois** (lição do D2-jun/2026: a Meta de Vendas não tem corte por data). É o que destrava o incremental da próxima dezena.
 
 ## Regras
 - **Sempre com comparativo** — Luciana preza isso. Nunca mandar número solto sem o Δ.

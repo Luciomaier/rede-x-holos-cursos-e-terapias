@@ -10,7 +10,7 @@
 | 09/06 | Migração LP WordPress → **React/Vercel** | LP/Google | LP mais rápida, melhor atribuição | Atribuição melhorou (via_google ↑, sem_origem ↓); surgiu "passo a mais" antes do WhatsApp | ✅⚠️ |
 | 09/06 | **Desativar micro-conversões** (Engajamento/Rota/Compra) no Google | Google | Limpar sinal sujo p/ algoritmo | Conversões-lixo sumiram (correto); mas tCPA travou o lance → gasto despencou | ✅⚠️ |
 | 15/06 | Lance Max Conversões (tCPA R$15) → **Max Cliques** | Google | Destravar entrega | Gasto voltou ~R$1.020/dia | ✅ (revertido pelo auto-apply) |
-| 19/06 | **Desligar auto-apply** de recomendações + Max Conversões **sem teto de CPA** | Google | Impedir o robô de retravar o lance (causa-raiz) | Gasto R$70 → 282 → 365/dia, CPA R$15–24 | ✅✅ vitória |
+| 19/06 | **Desligar auto-apply** de recomendações + Max Conversões **sem teto de CPA** | Google | Impedir o robô de retravar o lance (causa-raiz) | Gasto R$70 → 282 → 365/dia, CPA R$15–24. **Confirmado no D2 (24/06): CPL Google R$181→R$42 (−77%), leads Google 47→87 (+85%) gastando menos** | ✅✅ vitória |
 | 21/06 | **Cross-check ZenPro** (leads Masso Geral) | Tracking | Validar se os leads são reais | `GC-0hh1dj` 3→10→7 reais; achou códigos Meta órfãos (backlog) | ✅ |
 | **23/06** | **Orçamento R$1.000→R$800/dia + lance Maximizar Conversões com tCPA R$45** (era "sem teto") | Google | Travar o estouro (teto de custo por lead) | **baseline 23/06: 3 leads · R$932 · 476 impr · CPA ~R$155-310/lead** | ⏳ medir 1-2 sem |
 | ⏳ 23/06+ | **Ampliar palavras-chave** alta intenção + consolidar grupos duplicados | Google | Destravar ALCANCE (gargalo atual) | — | ⏳ medir na próxima dezena |
