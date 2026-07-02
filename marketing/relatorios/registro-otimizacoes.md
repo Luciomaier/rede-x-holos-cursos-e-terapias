@@ -3,7 +3,7 @@
 > **Cada mudança que a gente aplica vira uma linha aqui, com data e janela de medição.**
 > Serve pra, na hora do comparativo, saber **o que moveu o número** — e ser honesto: tem otimização que ganha e tem que perde. Pontuar as duas.
 > Detalhe de cada uma vive em [`marketing/ciclos/`](../ciclos/). Aqui é o índice/placar.
-> **Atualizado:** 23/06/2026 · **Legenda:** ✅ vitória · ❌ perda · ⚠️ efeito colateral · ⏳ medindo
+> **Atualizado:** 01/07/2026 · **Legenda:** ✅ vitória · ❌ perda · ⚠️ efeito colateral · ⏳ medindo
 
 | Data | Otimização | Área | Objetivo | Resultado medido | Veredito |
 |------|-----------|------|----------|------------------|----------|
@@ -12,7 +12,7 @@
 | 15/06 | Lance Max Conversões (tCPA R$15) → **Max Cliques** | Google | Destravar entrega | Gasto voltou ~R$1.020/dia | ✅ (revertido pelo auto-apply) |
 | 19/06 | **Desligar auto-apply** de recomendações + Max Conversões **sem teto de CPA** | Google | Impedir o robô de retravar o lance (causa-raiz) | Gasto R$70 → 282 → 365/dia, CPA R$15–24. **Confirmado no D2 (24/06): CPL Google R$181→R$42 (−77%), leads Google 47→87 (+85%) gastando menos** | ✅✅ vitória |
 | 21/06 | **Cross-check ZenPro** (leads Masso Geral) | Tracking | Validar se os leads são reais | `GC-0hh1dj` 3→10→7 reais; achou códigos Meta órfãos (backlog) | ✅ |
-| **23/06** | **Orçamento R$1.000→R$800/dia + lance Maximizar Conversões com tCPA R$45** (era "sem teto") | Google | Travar o estouro (teto de custo por lead) | **baseline 23/06: 3 leads · R$932 · 476 impr · CPA ~R$155-310/lead** | ⏳ medir 1-2 sem |
+| **23/06** | **Orçamento R$1.000→R$800/dia + lance Maximizar Conversões com tCPA R$45** (era "sem teto") | Google | Travar o estouro (teto de custo por lead) | **D3 (21–30) fechado: gasto ~R$738/dia (sob o teto R$800), CPL R$47,61 ≈ tCPA R$45.** Controle de custo ✅. Mas ROAS caiu 3,4×→1,9× — conversão em venda com lag, medir em julho | ✅⏳ |
 | ⏳ 23/06+ | **Ampliar palavras-chave** alta intenção + consolidar grupos duplicados | Google | Destravar ALCANCE (gargalo atual) | — | ⏳ medir na próxima dezena |
 | ⏳ 23/06+ | **Consolidar criativos Meta** nos vencedores (de 15 anúncios) | Meta | Sair da fragmentação de verba | — | ⏳ |
 | ⏳ 23/06+ | **Fix UTM Meta** (social→paid_social) + cadastrar códigos ZenPro + evento GA4 | Tracking | Atribuição limpa por canal | — | ⏳ (ver [plano de tracking](2026-06-23-plano-correcao-tracking.md)) |

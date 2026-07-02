@@ -36,3 +36,4 @@ Referência de escrita real (email da Luciana, base):
 - Luciana decide no emocional → trazer sempre dados + números junto da recomendação
 - **Relatórios/mensagens pra Luciana:** explicar cada termo/métrica **inline** (glossa entre parênteses, linguagem simples). Ela trava em jargão e metáfora (ex: "travada", "ponteiros do relógio") — evitar, e já entregar com as "respostinhas" prontas
 - **Reconhecimento da formação:** não é "só SINATEN" — citar os **órgãos da categoria** (SINATEN, SATOSP confirmados; CONBRAMASSO a confirmar). Reforça autoridade; a Luciana fez questão
+- **Relatórios sempre em 2 blocos:** 🥇 **Formação em Massoterapia = primário** (Integral + Intensivo + 1ª mensalidade — é a prioridade absoluta da Luciana, campanha e número giram nisso) · 🥈 **Cursos Livres = secundário** (tudo que NÃO é a formação: Auriculo, Desportiva, Shiatsu, Drenagem, etc. — inclui as vendas da Giovanna). O foco/capa é sempre a formação; os livres entram como complemento
