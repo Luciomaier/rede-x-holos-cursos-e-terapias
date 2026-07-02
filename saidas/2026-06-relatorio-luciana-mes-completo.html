@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatório — Junho completo × Maio · Holos × Rede</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root{ --roxo:#6272C4; --navy:#1E2560; --corpo:#333; --cardbg:#F5F6FF; --ambar:#E08600; --linha:#E6E8F5; }
+  body{ font-family: Arial, Helvetica, sans-serif; color:var(--corpo); line-height:1.55; font-size:12.5px; background:#fff; }
+
+  .header{ display:flex; align-items:center; justify-content:space-between;
+    border-bottom:2.5px solid var(--roxo); padding-bottom:12px; margin-bottom:16px; }
+  .header img{ height:54px; }
+  .header .titlebox{ text-align:right; }
+  .header h1{ font-size:18px; font-weight:900; color:var(--navy); letter-spacing:-.3px; }
+  .header .sub{ font-size:11px; color:var(--roxo); font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+  .header .per{ font-size:11px; color:#888; margin-top:2px; }
+
+  h2{ font-size:13px; font-weight:900; color:var(--navy); text-transform:uppercase;
+    letter-spacing:.4px; margin:16px 0 8px; display:flex; align-items:center; gap:6px; }
+  h2 .bar{ width:4px; height:15px; background:var(--roxo); display:inline-block; border-radius:1px; }
+  h2 small{ font-weight:600; text-transform:none; color:#999; letter-spacing:0; font-size:11px; }
+
+  .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:9px; }
+  .kpi{ background:var(--cardbg); border-left:4px solid var(--roxo); border-radius:4px; padding:10px 11px; }
+  .kpi .num{ font-size:19px; font-weight:900; color:var(--navy); line-height:1.15; }
+  .kpi .num small{ font-size:12px; font-weight:700; }
+  .kpi .lbl{ font-size:10px; color:#666; margin-top:3px; }
+  .up{ color:var(--roxo); font-weight:900; }
+  .note{ font-size:10.5px; color:#888; margin-top:4px; font-style:italic; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:4px; font-size:12.5px; }
+  th,td{ padding:7px 10px; border-bottom:1px solid var(--linha); }
+  th{ background:var(--navy); color:#fff; font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; font-weight:700; }
+  td.r,th.r{ text-align:right; }
+  tr:last-child td{ border-bottom:none; }
+  td:first-child{ font-weight:600; color:var(--navy); }
+  .d-pos{ color:var(--roxo); font-weight:900; }
+  .d-att{ color:var(--ambar); font-weight:900; }
+  .d-neu{ color:#999; font-weight:700; }
+
+  .box{ background:var(--cardbg); border-radius:4px; padding:12px 14px; margin-top:6px; }
+  .box p{ margin-bottom:7px; } .box p:last-child{ margin-bottom:0; }
+  .box strong{ color:var(--navy); }
+
+  .ask{ border:1.5px solid var(--roxo); border-radius:4px; padding:12px 14px; margin-top:8px; background:#fff; }
+  .ask .t{ font-weight:900; color:var(--navy); text-transform:uppercase; font-size:11px; letter-spacing:.4px; margin-bottom:6px; }
+  .ask ol{ margin-left:18px; } .ask li{ margin-bottom:3px; }
+
+  .footer{ margin-top:18px; padding-top:10px; border-top:1px solid var(--linha);
+    font-size:10px; color:#999; display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="file:///home/usuario/Documentos/Projetos/holos-cursos-terapias/identidade/logo-completa.png" alt="Holos">
+    <div class="titlebox">
+      <h1>Relatório — Junho completo</h1>
+      <div class="sub">Holos × Rede Publicidade</div>
+      <div class="per">Mês fechado (1 a 30) · comparado a maio completo — atualiza a versão "até o dia 20"</div>
+    </div>
+  </div>
+
+  <h2><span class="bar"></span>Resultado do mês</h2>
+  <div class="grid">
+    <div class="kpi"><div class="num">R$ 151.784</div><div class="lbl">Vendido pela Holos no mês (todas as frentes) — <span class="up">+22%</span> vs maio</div></div>
+    <div class="kpi"><div class="num">27</div><div class="lbl">Matrículas novas de massoterapia (15 integrais · 2 intensivos · 10 mensalistas)</div></div>
+    <div class="kpi"><div class="num">R$ 62.487</div><div class="lbl">Em vendas novas de massoterapia — <span class="up">+14%</span> vs maio</div></div>
+    <div class="kpi"><div class="num">2,8<small>×</small></div><div class="lbl">Retorno do anúncio no mês (cada R$ 1 → R$ 2,80)</div></div>
+  </div>
+  <div class="note">Ticket médio por matrícula nova: R$ 2.314 — em maio foi R$ 1.560 (+48%): entrou menos gente, porém de contrato maior.</div>
+
+  <h2><span class="bar"></span>Quantas pessoas chegaram</h2>
+  <div class="grid">
+    <div class="kpi" style="grid-column:span 2;"><div class="num">1.044 contatos novos</div><div class="lbl">no WhatsApp em junho — número real do sistema</div></div>
+    <div class="kpi" style="grid-column:span 2;"><div class="num">322 → 354 → 368</div><div class="lbl">contatos por dezena — cresceu o mês inteiro</div></div>
+  </div>
+
+  <h2><span class="bar"></span>Quanto investimos na massoterapia</h2>
+  <div class="grid">
+    <div class="kpi"><div class="num">R$ 19.590</div><div class="lbl">Google (busca)</div></div>
+    <div class="kpi"><div class="num">R$ 2.553</div><div class="lbl">Instagram / Meta</div></div>
+    <div class="kpi" style="grid-column:span 2;"><div class="num">R$ 22.143</div><div class="lbl">Total investido na massoterapia no mês</div></div>
+  </div>
+
+  <h2><span class="bar"></span>Retorno por canal &nbsp;<small>quanto cada canal já devolveu — confirmado matrícula a matrícula</small></h2>
+  <table>
+    <tr><th>Canal</th><th class="r">Investido</th><th class="r">Matrículas com origem anotada</th><th class="r">Vendido confirmado</th><th class="r">Retorno mínimo</th></tr>
+    <tr><td>Google (busca)</td><td class="r">R$ 19.590</td><td class="r">5</td><td class="r">R$ 11.286</td><td class="r">no mínimo 0,6×</td></tr>
+    <tr><td>Instagram / Meta</td><td class="r">R$ 2.553</td><td class="r">1</td><td class="r">R$ 3.284</td><td class="r">no mínimo 1,3×</td></tr>
+    <tr><td>Geral do mês (o número confiável)</td><td class="r">R$ 22.143</td><td class="r">27</td><td class="r">R$ 62.487</td><td class="r d-pos">2,8×</td></tr>
+  </table>
+  <div class="box">
+    <p><strong>Por que "no mínimo":</strong> 19 das 27 matrículas (R$ 43.967) entraram <strong>sem a origem anotada</strong> na planilha — a gente sabe que a venda aconteceu, mas não de qual canal veio. Por isso o retorno por canal aparece só com o que dá pra <strong>provar com nome e sobrenome</strong> — o real é maior. Anotando a origem de cada matrícula, esse número fecha exato já em julho.</p>
+  </div>
+
+  <h2><span class="bar"></span>Demonstrativo &nbsp;<small>Junho × Maio (mês completo, vendas fechadas)</small></h2>
+  <table>
+    <tr><th>Indicador</th><th class="r">Maio</th><th class="r">Junho</th><th class="r">Variação</th></tr>
+    <tr><td>Holos — total vendido (todas as frentes)</td><td class="r">R$ 124.035</td><td class="r">R$ 151.784</td><td class="r d-pos">+22%</td></tr>
+    <tr><td>Vendas novas de massoterapia</td><td class="r">R$ 54.593</td><td class="r">R$ 62.487</td><td class="r d-pos">+14%</td></tr>
+    <tr><td>Integrais + intensivos (matrículas)</td><td class="r">15</td><td class="r">17</td><td class="r d-pos">+2</td></tr>
+    <tr><td>Novos mensalistas</td><td class="r">20</td><td class="r">10</td><td class="r d-att">−50% · a reverter</td></tr>
+    <tr><td>Ticket médio por matrícula nova</td><td class="r">R$ 1.560</td><td class="r">R$ 2.314</td><td class="r d-pos">+48%</td></tr>
+    <tr><td>Mensalidades recebidas (recorrência)</td><td class="r">R$ 28.193</td><td class="r">R$ 30.883</td><td class="r d-pos">+10%</td></tr>
+  </table>
+
+  <h2><span class="bar"></span>O que ajustamos no mês — e o que rendeu</h2>
+  <div class="box">
+    <p><strong>Lance do Google reorganizado (19/06).</strong> O custo por contato despencou de <strong>~R$ 181 para ~R$ 42–47</strong> e os contatos do Google cresceram dezena a dezena (47 → 87 → 93).</p>
+    <p><strong>Teto de custo por contato (23/06).</strong> Limitamos o Google a R$ 45 por contato e R$ 800/dia — o gasto ficou sob controle (~R$ 738/dia), no alvo.</p>
+    <p><strong>⚠️ Ponto de atenção honesto:</strong> nos últimos 10 dias o retorno caiu para 1,9× — aceleramos a verba e a matrícula fecha com atraso (quem chegou no fim de junho assina em julho). Recomendação: <strong>não cortar a verba agora</strong> — o funil está cheio e barato; o trabalho é converter rápido.</p>
+    <p><strong>🥈 Cursos livres (complemento):</strong> R$ 39.331 vendidos no mês, com a Desportiva puxando a fila (turma 3–5/jul).</p>
+  </div>
+
+  <div class="ask">
+    <div class="t">🙏 Preciso do seu OK em 3 coisas</div>
+    <ol>
+      <li>A <strong>oferta de 50%</strong> para reativar os novos mensalistas (executamos em julho).</li>
+      <li>O <strong>parecer da verba de julho</strong> — envio a planilha mostrando cada real e o retorno.</li>
+      <li>O time <strong>anotar a origem de cada matrícula</strong> na planilha — é isso que deixa o retorno por canal exato.</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <span>Relatório mensal · preparado pela Rede Publicidade para a Holos Cursos e Terapias</span>
+    <span>Junho fechado · emitido em 02/07/2026</span>
+  </div>
+
+</body>
+</html>

@@ -3,15 +3,18 @@
 > **O que a Luciana mais preza: COMPARATIVO.** Aqui cada dezena vira uma linha.
 > Com isso o **/relatorio-luciana** compara automático: dezena atual × dezena anterior, e × mesma dezena do mês passado.
 > **Convenção (canon 24/06):** dezena = janela **incremental** (D1 = 01–10, D2 = 11–20, D3 = 21–fim). Régua de capa = **Vendido (Meta de Vendas)** — não o caixa. Leads = **ZenPro**. Detalhe: [README.md](README.md).
-> **Atualizado:** 01/07/2026
+> **Atualizado:** 02/07/2026
 >
 > **Retratos do vendido acumulado (masso novas, Meta de Vendas):** 20/06 = R$ 46.176,63 (19 vendas) · **30/06 = R$ 62.487,07 (27 vendas)**. Base pra reconstruir o incremental por dezena.
+> **Mês fechado (backfill 02/07, abas jun26/mai26):** maio completo = 35 vendas novas / R$ 54.593,11 (15 integral+intensivo · 20 mensalistas) · junho completo = 27 / R$ 62.487,07 (17 · 10). Holos total vendido: mai R$ 124.034,91 → jun R$ 151.784,20 (+22%). Relatório mensal: [2026-06-MES-relatorio-luciana.md](2026-06-MES-relatorio-luciana.md).
 
 | Período | Vendas | Faturamento | Ticket médio | Leads ZenPro | Inv. Google | Inv. Meta | Inv. Total | ROAS | Obs |
 |---------|--------|-------------|--------------|--------------|-------------|-----------|------------|------|-----|
 | **Jun · D1** (01–10) | 12 | R$ 31.557,35 | R$ 2.630 | 322 | R$ 8.520 | R$ 797 | R$ 9.317 | 3,39× | régua = masso vendas NOVAS (Integral+Intensivo+1ªmens), Meta de Vendas detalhe. *(Valor original 25/R$45.524/4,88× era all-products — corrigido 24/06)* |
 | **Jun · D2** (11–20) | 7 | R$ 14.619,28 | R$ 2.088 | 354 | R$ 3.690 | R$ 569 | R$ 4.259 | 3,43× | FECHADO 24/06 (vendido, Meta de Vendas detalhe). Momentum de matrículas caiu vs D1 apesar de leads +10% — vigiar conversão no D3 |
 | **Jun · D3** (21–30) | 8 | R$ 16.310,44 | R$ 2.039 | 368 | R$ 7.380 | R$ 1.187 | R$ 8.567 | 1,90× | FECHADO 01/07. Régua vendido novas (retrato 30/06 = R$ 62.487,07/27 − retrato 20/06 R$ 46.176,63/19). Faturamento +12% mas verba dobrou → ROAS caiu 3,4×→1,9× (lag de conversão, vigiar julho). Leads 45% sem origem (chips manuais). Investimento = só campanhas masso (Google Masso Geral + Meta MASSO.PRES, print 21–30) |
+| **Jun · MÊS** (01–30) | **27** | **R$ 62.487,07** | R$ 2.314 | 1.044 | R$ 19.590 | R$ 2.553 | R$ 22.143 | **2,82×** | FECHADO 02/07 (consolidação D1+D2+D3; bate com retrato 30/06). ROAS por canal (piso, só vendas carimbadas): Google 0,58× (5 vendas/R$ 11.286) · Meta 1,29× (1/R$ 3.284) · 19 vendas (R$ 43.967, 70%) sem origem |
+| Mai · MÊS (01–31) | 35 | R$ 54.593,11 | R$ 1.560 | ⬜ | ⬜ | ⬜ | — | — | backfill 02/07 via aba mai26 (vendido). Leads/verba de maio seguem pendentes |
 | Mai · D1 (01–10) | ⬜ | ⬜ | — | ⬜ | ⬜ | ⬜ | — | — | backfill (Métricas Holos) |
 | Mai · D2 (11–20) | ⬜ | ⬜ | — | ⬜ | ⬜ | ⬜ | — | — | backfill |
 | Mai · D3 (21–31) | ⬜ | ⬜ | — | ⬜ | ⬜ | ⬜ | — | — | backfill |
