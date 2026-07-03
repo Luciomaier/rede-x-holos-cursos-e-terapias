@@ -159,17 +159,24 @@ agora:
 campanha se o lead entrou há ≤90 dias — senão o número do mês fica bonito à toa). Mas elas
 provam que **a verba de anúncio segue pagando muito depois do mês acabar**. O funil tem cauda.
 
-## 9. Recomendações (com número)
+## 9. O que estamos fazendo — e o parecer que pedimos
 
-1. **Escalar o Meta em julho.** ROAS 3,18× na dezena com só R$ 1.187 — é o canal com melhor
-   retorno imediato. Sugestão: dobrar a verba do MASSO.PRES (R$ 40 → R$ 80/dia) mantendo o
-   criativo vencedor, e reavaliar na D1 de julho.
-2. **Google: manter R$ 800/dia com tCPA R$ 45 — não cortar.** O funil está cheio (87
-   leads/dezena carimbados) e a conversão vem com lag; cortar agora mataria as matrículas de
-   julho. Se a D1 de julho não mostrar recuperação do ROAS, aí sim rediscutir o teto.
+*(Retrato Meta em 03/07: 4 conjuntos ativos, ~R$ 495/dia configurado, gasto real ~R$ 226/dia
+na conta. MASSO.PRES R$ 250/dia · MENSALISTAS R$ 120/dia · SALAS R$ 100/dia em aprendizado ·
+3km Ana Rosa LEADS R$ 25/dia.)*
+
+1. **Meta: escalar o vencedor, não o canal inteiro.** O conjunto **3km Ana Rosa | LEADS**
+   entrega lead a **R$ 2,39** com selo "alto desempenho" do próprio Meta — e está com a menor
+   verba da conta (R$ 25/dia). Plano: subir gradual **R$ 25 → R$ 60/dia** (+40% por vez, pra
+   não resetar o aprendizado). MASSO.PRES mantém (motor do 3,18× da dezena); SALAS termina o
+   aprendizado antes de julgar. *Parecer da Luciana.*
+2. **Google: mantivemos R$ 800/dia com tCPA R$ 45.** O funil está cheio (87 leads/dezena
+   carimbados) e a conversão vem com lag; cortar agora mataria as matrículas de julho.
+   Reavaliação marcada: **D1 de julho (dia 10)**. *De acordo?*
 3. **Tracking segue prioridade nº 1:** 45% dos leads (163 de 363) ainda entram sem origem
-   pelos chips manuais. Enquanto isso, seguimos preenchendo origem na planilha (feito pra
-   junho ✅) — mas a solução definitiva é o time atender dentro do ZenPro.
+   pelos chips manuais. A origem das matrículas de junho já resolvemos na planilha ✅ — a
+   solução definitiva é o time atender dentro do ZenPro. *Como a Luciana prefere conduzir
+   com a Lu e a Gi.*
 4. **Formação continua sendo o foco** da verba (Masso Geral / MASSO.PRES). Cursos livres
    como complemento.
 
@@ -198,6 +205,13 @@ provam que **a verba de anúncio segue pagando muito depois do mês acabar**. O 
   incremental por retratos (R$ 16.310) — ajuste de valor em linha anterior; capa segue o retrato.
 - **Taís (intensivo 25/06, R$ 500)** está nas linhas datadas mas fora da QUANT oficial
   (2 intensivos) — parcial de entrada; vigiar se consolida em julho.
+- **⚠️ Método — investimento Meta (pra decidir em julho):** a régua masso do mês contou só
+  MASSO.PRES (R$ 2.553). Mas o print de 03/07 mostra a conta Meta gastando ~R$ 6.774/30d,
+  incluindo **N.E.I.MENSALISTAS (R$ 120/dia)** — e 1ª mensalidade É produto masso da capa.
+  Se o conjunto de mensalistas seguir ativo, **incluir na régua de investimento masso a partir
+  de julho** (senão o ROAS Meta fica inflado). SALAS/LEADS genérico ficam fora (outras frentes).
+- **Perfil de decisão da Luciana:** não delega; quer ver o que está sendo feito e então dar
+  parecer. Cards de decisão = "o que estamos fazendo + plano + pedir parecer", nunca "autorize".
 - **ZenPro `sales`:** existe registro de vendas no sistema (90 em jun, 162 em mai) — régua
   própria do time, mais ampla que masso novas. Não misturar; pode servir de cross-check futuro.
 

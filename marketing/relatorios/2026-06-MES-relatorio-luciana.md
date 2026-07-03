@@ -21,7 +21,7 @@
 > • **Agora com a origem de TODAS as matrículas rastreada:** anúncio responde por **47% do vendido** do mês — R$ 21,9 mil de leads do próprio junho + **R$ 7,5 mil de leads que anúncios de dez–mar plantaram** e viraram matrícula agora. Campanha continua pagando depois que o mês vira 💎
 >
 > **📲 Quantas pessoas chegaram**
-> • **1.044 contatos novos no WhatsApp** em junho *(número real do sistema)* — e cresceu o mês todo: 322 → 354 → 368 por dezena
+> • **1.039 contatos novos no WhatsApp** em junho *(número real do sistema)* — e cresceu o mês todo: 322 → 354 → 363 por dezena · **+6,5% que maio** (976)
 >
 > **📣 Quanto investimos na massoterapia**
 > • Google *(busca)*: R$ 19.590 · Instagram/Meta: R$ 2.553 · **Total: R$ 22.143**
@@ -59,9 +59,9 @@ Por dezena (histórico): D1 R$ 31.557 (3,39×) · D2 R$ 14.619 (3,43×) · D3 R$
 
 | | Mês | D1 | D2 | D3 |
 |---|---|---|---|---|
-| Contatos novos *(auditado)* | **1.044** | 322 | 354 | 368 |
+| Contatos novos *(auditado)* | **1.039** | 322 | 354 | 363 |
 
-Topo de funil cresceu as 3 dezenas. Leads carimbados do Google: 47 → 87 → 93 (227 no mês).
+Topo de funil cresceu as 3 dezenas — e mais que maio (976 · 341/312/323). Leads carimbados do Google: 47 → 87 → 87 (221 no mês).
 
 ## 3. Verba investida — massoterapia (mês)
 
@@ -123,7 +123,7 @@ antigos viram "base de campanhas antigas" (é venda que o anúncio plantou meses
 Maio registrou R$ 22.679,54 — mas **sem a linha da recepção** (régua mudou), então a comparação é parcial.
 Destaque: **Desportiva** (turma 3–5/jul) foi o livre que mais vendeu.
 
-## 8. Decisões da Luciana (3 pedidos)
+## 8. Para o parecer da Luciana
 
 1. **OK na oferta de 50%** pra reativar os novos mensalistas (executa em julho).
 2. **Parecer da verba de julho** (planilha verba × resultado).
