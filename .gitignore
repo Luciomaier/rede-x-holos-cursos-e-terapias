@@ -30,3 +30,7 @@ audios-transcritos/
 
 # Lock files de LibreOffice / Office
 .~lock.*#
+
+# credencial de leitura do ZenPro (nunca commitar)
+dados/.env.zenpro
+dados/.env.zenpro-setup.sql

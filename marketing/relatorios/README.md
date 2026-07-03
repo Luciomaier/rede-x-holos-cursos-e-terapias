@@ -25,6 +25,22 @@ mesma dezena existem pra te servir (você e a Elis), **não** vão pra ela.
 
 ⚠️ **Tensão de fonte que você precisa conhecer:** o *vendido* mora na *Meta de Vendas* (que **não tem corte por data**), e o *corte por dezena* mora nos snapshots da *Métricas Holos* (régua **caixa**) ou no **export do ZenPro** (venda por canal + data). Ou seja: pra ter **vendido + incremental** ao mesmo tempo, o desbloqueio é o **export do ZenPro com data**. Enquanto ele não vem, o número incremental sai como melhor-esforço e fecha com o ZenPro.
 
+## Regra de atribuição — 90 dias (canonizada 03/07/2026)
+
+- **Venda conta pro canal (ROAS de campanha) só se o lead entrou há ≤ 90 dias** —
+  cruzar o telefone da venda com `min(created_at)` das `conversations` no ZenPro.
+- Lead mais antigo que 90 dias → **"base de campanhas antigas"**: sai do ROAS do mês
+  (senão o número fica bonito à toa) e entra como **prova de LTV/cauda** no relatório.
+- Registrar a origem primária mesmo quando >90d (ex.: "IS- de dez/25") — é o argumento
+  de longo prazo pra não cortar verba.
+- 1ª aplicação: junho/2026 (4 vendas, R$ 7.521 — ver notas internas do D3).
+
+## Fonte de leads — padronizada (03/07/2026)
+
+- Leads = **consulta direta ao banco do ZenPro** (`claude_readonly`, ver `dados/zenpro-acesso-leitura.md`).
+- Régua: `conversations` criadas na janela · org Holos · `not is_group` · tz America/Sao_Paulo.
+- Jun/26 por essa régua: D1 322 · D2 354 · D3 363 · mês 1.039 (números antigos 368/1.044 eram de consulta manual).
+
 ## O fluxo (toda dezena, dias 10/20/30)
 
 ```

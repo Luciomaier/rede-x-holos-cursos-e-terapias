@@ -2,7 +2,7 @@
 
 > **O dashboard da operação.** Abre aqui pra ver onde estamos no mês: conversas, matrículas, ROAS, faturamento — sempre contra a meta.
 > **Metas oficiais (fonte da verdade):** [acordo-rede-holos.md → Números oficiais](../acordos/rede-publicidade/acordo-rede-holos.md)
-> **Atualizado:** 23/06/2026 (dados Elis — Métricas Holos, dia 20)
+> **Atualizado:** 03/07/2026 (**junho FECHADO** — Meta de Vendas com origem 100% + ZenPro direto)
 
 ---
 
@@ -14,38 +14,43 @@
    matrículas/mês  →  META 50  (baseline maio: 35)
 ```
 
-## Matrículas — Junho/2026 (dia 20 · vs mesmo período de maio)
+## Matrículas — Junho/2026 (MÊS FECHADO · vs maio completo)
 
-| Tipo | Jun D20 | Meta | % | Mai D20 | Δ vs Mai |
-|------|---------|------|---|---------|----------|
-| Integral (cartão/à vista) | 12 | 25 | 48% | 6 | **+100%** 🟢 |
-| Mensalista (1ª mensalidade) | 6 | 25 | 24% | 13 | **−54%** 🔴 |
-| **TOTAL** | **18** | **50** | **36%** | **19** | −5% |
+| Tipo | Jun | Meta | % | Mai | Δ vs Mai |
+|------|-----|------|---|-----|----------|
+| Integral/Flex | 15 | 20 | 75% | — | 🟢 (mai: 15 int+intens) |
+| Intensivo | 2 | 5 | 40% | — | |
+| Mensalista novo (1ª) | 10 | 25 | 40% | 20 | **−50%** 🔴 |
+| **TOTAL** | **27** | **50** | **54%** | 35 | −23% |
 
-✅ **Integrais dobraram** vs maio (mesmo período). 🔴 **Mensalista é o gargalo** — entrada de novos mensalistas caiu pela metade. Reversão: resgate da lista parada + oferta 50%.
+🟢 **Ticket médio +48%** (R$ 1.560 → R$ 2.314): menos mensalista de entrada, mais integral.
+🔴 Mensalista segue sendo o gargalo — mas a **oferta de 50% reagiu no D3** (4 novos em 10 dias vs 6 em 20).
+📲 Leads: **1.039 em junho** (vs 976 em maio, +6,5%) — D1 322 · D2 354 · D3 363 (ZenPro direto).
 
-## Faturamento — Junho/2026 (dia 20)
+## Faturamento — Junho/2026 (MÊS FECHADO, régua vendido)
 
-| | Valor | vs Mai D20 |
-|---|-------|------------|
-| Faturamento total | R$ 110.916,34 (57% da meta R$ 195.101) | +36% |
-| **Massoterapia (MASSO GERAL)** | **R$ 68.334,47** | **+46%** 🟢 |
-| Lucro (até dia 20) | −R$ 24.215,15 | melhora vs Mai (−R$ 33,9k) |
+| | Valor | vs Mai |
+|---|-------|--------|
+| Holos total vendido (todas as frentes) | **R$ 151.784,20** (77% da meta R$ 196.099) | **+22%** 🟢 |
+| **Massoterapia novas (capa)** | **R$ 62.487,07** | **+14%** 🟢 |
+| Caixa (Métricas, até 25/06 — sem retrato 30/06) | R$ 119.943,62 | — |
+| Lucro (até 25/06) | −R$ 27.473,20 | estrutura de custo, não receita |
 
-> **Junho é o melhor mês dos últimos 3 em massoterapia** (Abr R$ 61k · Mai R$ 47k · **Jun R$ 68k**), puxado pelos integrais. ⚠️ Lucro ainda negativo — é estrutura de **custo**, não de receita de masso.
+> Detalhe produto a produto e mês×mês: [relatório mensal](relatorios/2026-06-MES-relatorio-luciana.md)
 
-*Detalhe produto a produto: [acordo → planilha da Elis](../acordos/rede-publicidade/acordo-rede-holos.md)*
-
-## ROAS / Tráfego — última medição (Mar–Mai/2026)
+## ROAS / Tráfego — Junho/2026 (fechado, origem 100% + regra 90 dias)
 
 | Métrica | Valor | Obs |
 |---------|-------|-----|
-| Investido (período) | R$ 80.986 | relatório mar–mai |
-| ROAS geral | 3,67× | |
-| ROAS Instagram | 2,45× | com só 12% da verba — alavanca |
-| Google Masso Geral | 47,14% conv · R$10,97/conv | medição 22/04 |
+| Investido junho (masso) | R$ 22.143 | Google 19.590 + Meta 2.553 |
+| **ROAS geral do mês** | **2,82×** | vendido novas ÷ investido |
+| ROAS Google | 0,95× | quase se paga no mês — e deixa cauda |
+| ROAS Meta/Instagram | 1,29× | **D3 isolado: 3,18×** 🟢 — canal a escalar |
+| Cauda de campanhas antigas | R$ 7.521 | 4 matrículas de leads dez–mar (>90d) |
+| CPL Google | R$ 47,61 (plataforma) · R$ 84,80 (carimbado) | real entre os dois |
+| CPL Meta | **R$ 27,60** (D3) | |
 
-⬜ **Atualizar com números de junho** (relatório da dezena)
+> Referência histórica (mar–mai): ROAS geral 3,67× · investido R$ 80.986.
 
 ---
 

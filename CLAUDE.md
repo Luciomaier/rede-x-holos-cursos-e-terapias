@@ -190,6 +190,23 @@ Evitar: linguagem corporativa fria, promessas genéricas, tom acadêmico.
 - [x] Google Ads — conectado via Windsor.ai (conta "Holos Geral" 644-631-5099), puxa gasto/conversões/leads reais
 - [x] Meta Ads
 - [ ] Slack
-- [x] Brevo · [x] Sponte · [x] ZenPro (CRM operacional · PulsarZap fora do circuito agora) · [x] Holos Connect
+- [x] Brevo · [x] Sponte · [x] ZenPro (CRM operacional · PulsarZap fora do circuito agora · **leitura direta no banco Supabase**: usuário `claude_readonly`, credencial `dados/.env.zenpro`, guia `dados/zenpro-acesso-leitura.md`) · [x] Holos Connect
 
 *(Marcar conforme for instalando os MCPs)*
+
+## Ponte com a Rede Publicidade (regra de fronteira — 03/07/2026)
+
+A Holos também é **cliente da Rede Publicidade** (agência do grupo). O cartão de
+cliente vive em `/home/usuario/Documentos/Projetos/rede-publicidade/clientes/holos/`
+(briefing, escopo, diagnósticos pontuais da agência).
+
+- A **operação contínua** (campanhas, relatórios dezenais pra Luciana, sistema
+  dezenal, skills) permanece AQUI — sistema funcionando, não mover.
+- O **contrato Rede×Holos** (R$13.500/mês) segue com fonte da verdade em
+  `acordos/rede-publicidade/`.
+- O Lucio costuma trabalhar com a sessão aberta no `rede-publicidade/` — o Claude
+  lê e escreve aqui a partir de lá. São **repositórios git separados**: trabalho
+  feito aqui precisa de commit/push aqui.
+
+Teste da fronteira: *"se a Holos trocasse de agência amanhã, esse arquivo iria com
+a agência (→ rede-publicidade/clientes/holos) ou ficaria na escola (fica aqui)?"*

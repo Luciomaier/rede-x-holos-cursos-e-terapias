@@ -18,6 +18,7 @@
 > • **Massoterapia: 27 matrículas novas** (15 integrais · 2 intensivos · 10 mensalistas) = **R$ 62.487** em vendas novas — **+14% que maio** 🟢
 > • **Ticket médio: R$ 2.314** *(valor médio de cada matrícula nova)* — em maio foi R$ 1.560, ou seja **+48%**: entrou menos gente, mas de contrato maior
 > • **Retorno do anúncio no mês: 2,8×** *(cada R$ 1 investido voltou R$ 2,80 em matrícula nova de masso)*
+> • **Agora com a origem de TODAS as matrículas rastreada:** anúncio responde por **47% do vendido** do mês — R$ 21,9 mil de leads do próprio junho + **R$ 7,5 mil de leads que anúncios de dez–mar plantaram** e viraram matrícula agora. Campanha continua pagando depois que o mês vira 💎
 >
 > **📲 Quantas pessoas chegaram**
 > • **1.044 contatos novos no WhatsApp** em junho *(número real do sistema)* — e cresceu o mês todo: 322 → 354 → 368 por dezena
@@ -70,22 +71,33 @@ Topo de funil cresceu as 3 dezenas. Leads carimbados do Google: 47 → 87 → 93
 | Instagram / Meta | R$ 2.553 | |
 | **Total** | **R$ 22.143** | D1 9.317 + D2 4.259 + D3 8.567 |
 
-## 4. ROAS por canal — Google × Meta (pedido do Lucio)
+## 4. ROAS por canal — Google × Meta (pedido do Lucio) — ✅ ORIGEM 100% PREENCHIDA (03/07)
 
-**Régua:** venda nova de masso **com origem anotada** na Meta de Vendas (códigos `GC-`/`IS-`) ÷ investido no canal. É **piso auditado**, não o retorno real — a maioria das vendas entrou sem carimbo.
+**Régua:** venda nova de masso ÷ investido no canal. A coluna mídia foi **totalmente
+preenchida** (03/07) e cada venda foi cruzada com a **data de entrada do lead no ZenPro**.
+Regra de atribuição: venda só conta pro canal se o lead entrou há **≤ 90 dias** — leads mais
+antigos viram "base de campanhas antigas" (é venda que o anúncio plantou meses atrás).
 
-| Canal | Investido | Matrículas carimbadas | Vendido carimbado | **ROAS piso** |
-|---|---|---|---|---|
-| Google | R$ 19.590 | 5 | R$ 11.286,14 | **≥ 0,58×** |
-| Instagram / Meta | R$ 2.553 | 1 | R$ 3.283,73 | **≥ 1,29×** |
-| Orgânico | — | 2 | R$ 3.950,00 | — |
-| **Sem origem anotada** | — | **19** | **R$ 43.967,20 (70%)** | — |
-| **Geral (confiável)** | **R$ 22.143** | 27 | R$ 62.487,07 | **2,82×** |
+| De onde veio o vendido de junho (R$ 62.487) | Valor | % |
+|---|---|---|
+| **Google Ads** (leads da janela) | R$ 18.579,42 | 30% |
+| **Instagram/Meta Ads** (leads da janela) | R$ 3.283,73 | 5% |
+| 💎 Campanhas antigas (leads de dez–mar, >90 dias) | R$ 7.521,00 | 12% |
+| Orgânico | R$ 18.220,73 | 29% |
+| Indicação | R$ 10.203,01 | 16% |
+| Base interna / reativação / perfil IG | R$ 4.679,18 | 8% |
 
-> ⚠️ **Leitura honesta:** com 70% do vendido sem origem, o piso por canal subestima muito os dois canais.
-> O único ROAS confiável do mês é o **geral 2,82×**. O que destrava o número por canal de verdade:
-> (1) time preencher a coluna mídia das matrículas (lista já enviada pra Lu e Gi) · (2) fix dos chips
-> manuais que não carimbam a fonte (45% dos leads sem origem) — ver plano de tracking.
+| Canal | Investido | Vendido (janela) | **ROAS** |
+|---|---|---|---|
+| Google | R$ 19.590 | R$ 18.579,42 | **0,95×** |
+| Instagram / Meta | R$ 2.553 | R$ 3.283,73 | **1,29×** |
+| **Geral do mês** | **R$ 22.143** | R$ 62.487,07 | **2,82×** |
+
+> **Leitura:** o Google praticamente se paga no próprio mês (0,95×) **e ainda deixa cauda** —
+> das vendas de campanhas antigas, R$ 350 era lead de Google de janeiro. O Instagram converte
+> acima do investido (1,29×) e foi dele a maior venda "plantada": uma integral de R$ 3.480 de
+> um lead de **dezembro**. Somando campanha na janela + cauda de campanhas antigas, **anúncio
+> responde por R$ 29.384 (47%) do vendido do mês**.
 
 ## 5. Demonstrativo — Junho × Maio (mês completo, régua vendido)
 
@@ -115,7 +127,8 @@ Destaque: **Desportiva** (turma 3–5/jul) foi o livre que mais vendeu.
 
 1. **OK na oferta de 50%** pra reativar os novos mensalistas (executa em julho).
 2. **Parecer da verba de julho** (planilha verba × resultado).
-3. **Origem anotada em toda matrícula** na planilha — é o que fecha o ROAS por canal exato.
+3. ~~**Origem anotada em toda matrícula** na planilha~~ ✅ **FEITO (03/07)** — coluna mídia
+   100% preenchida; ROAS por canal exato na seção 4.
 
 ---
 
@@ -124,7 +137,17 @@ Destaque: **Desportiva** (turma 3–5/jul) foi o livre que mais vendeu.
 - **Régua desta edição = vendido (Meta de Vendas), mês fechado nos dois lados.** O "recebido em caixa" (Métricas Holos) usado no relatório do dia 20 (R$ 110.916) **não tem snapshot de 30/06** — a planilha para em 25/06 (R$ 119.943,62). Maio completo em caixa = R$ 144.611,83 (31/05). NÃO comparar caixa jun×mai sem o retrato de 30/06 — pareceria queda.
 - **"Integrais dobraram" (D2) ≠ mês completo:** maio arrancou no fim (6 integrais no dia 20 → 15 no dia 31). Mês fechado: 15 → 17 (+2). É o número honesto — evitar reusar o "dobraram" na versão mensal.
 - **Matrículas totais caíram 35 → 27**, mas o mix melhorou (ticket +48%): menos mensalista de entrada (R$ 300–400), mais integral (R$ 3.3–3.5k). Está mostrado na tabela, sem esconder.
-- **ROAS piso por canal** (detalhe lead-a-lead jun26): Google `GC-` = Anielle 3.776,00 + Giulia 3.401,00 + Nayane 1.759,14 (integrais) + Isac 2.000,00 + Liliane 350,00 (1ª mens) = R$ 11.286,14. Instagram `IS-ddcea3cf` = Nilia 3.283,73. Orgânico = Bruna 350 + Hugo 3.600. Sem origem = R$ 43.967,20 (19 matrículas, inclui o intensivo "????" da Chirleide).
+- **ROAS por canal v2 (03/07, origem 100%):** Google janela = Isac 2.000 + Eliane 350 +
+  Geraldo 175 + Roberto 350 (mens) + Anielle 3.776 + Giulia 3.401 + Nayane 1.759,14 +
+  Eliane 3.250 + Vladimir 3.518,28 (int) = **R$ 18.579,42**. Meta janela = Nilia 3.283,73.
+  **Excluídas pela regra 90d** (cruzamento ZenPro `min(created_at)` por telefone): Capistrano
+  (IS, dez/25, 3.480) · Kethleen (orgânico, jan/26, 3.401) · Liliane (GC, jan/26, 350) ·
+  Cristiane (IS, mar/26, 290) = R$ 7.521 "base de campanhas antigas". Soma fecha em
+  R$ 62.487,07 ✓. Regra canonizada no README.
+- **Leads padronizados pela consulta direta ao ZenPro** (`claude_readonly`): jun = 1.039
+  (D1 322 · D2 354 · D3 363) · mai = 976 (D1 341 · D2 312 · D3 323). Números antigos
+  (368/1.044) eram de consulta manual com régua levemente diferente — usar os do banco daqui
+  em diante.
 - **Mensalidades recorrência:** valor +10% (28.193→30.883), mas nº de pagamentos 77 → 69. No relatório da Lu foi em valor (o que ela sente no caixa); o count fica aqui.
 - Investimento de maio não existe no histórico (backfill pendente) → ROAS de maio não calculável.
 - Fontes: Meta de Vendas abas jun26/mai26 (Drive, lido 02/07) · historico-dezenas.md (leads + verba) · Métricas Holos (caixa, referência interna).

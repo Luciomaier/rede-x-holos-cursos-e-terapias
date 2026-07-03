@@ -12,12 +12,12 @@
 |---------|--------|-------------|--------------|--------------|-------------|-----------|------------|------|-----|
 | **Jun · D1** (01–10) | 12 | R$ 31.557,35 | R$ 2.630 | 322 | R$ 8.520 | R$ 797 | R$ 9.317 | 3,39× | régua = masso vendas NOVAS (Integral+Intensivo+1ªmens), Meta de Vendas detalhe. *(Valor original 25/R$45.524/4,88× era all-products — corrigido 24/06)* |
 | **Jun · D2** (11–20) | 7 | R$ 14.619,28 | R$ 2.088 | 354 | R$ 3.690 | R$ 569 | R$ 4.259 | 3,43× | FECHADO 24/06 (vendido, Meta de Vendas detalhe). Momentum de matrículas caiu vs D1 apesar de leads +10% — vigiar conversão no D3 |
-| **Jun · D3** (21–30) | 8 | R$ 16.310,44 | R$ 2.039 | 368 | R$ 7.380 | R$ 1.187 | R$ 8.567 | 1,90× | FECHADO 01/07. Régua vendido novas (retrato 30/06 = R$ 62.487,07/27 − retrato 20/06 R$ 46.176,63/19). Faturamento +12% mas verba dobrou → ROAS caiu 3,4×→1,9× (lag de conversão, vigiar julho). Leads 45% sem origem (chips manuais). Investimento = só campanhas masso (Google Masso Geral + Meta MASSO.PRES, print 21–30) |
-| **Jun · MÊS** (01–30) | **27** | **R$ 62.487,07** | R$ 2.314 | 1.044 | R$ 19.590 | R$ 2.553 | R$ 22.143 | **2,82×** | FECHADO 02/07 (consolidação D1+D2+D3; bate com retrato 30/06). ROAS por canal (piso, só vendas carimbadas): Google 0,58× (5 vendas/R$ 11.286) · Meta 1,29× (1/R$ 3.284) · 19 vendas (R$ 43.967, 70%) sem origem |
-| Mai · MÊS (01–31) | 35 | R$ 54.593,11 | R$ 1.560 | ⬜ | ⬜ | ⬜ | — | — | backfill 02/07 via aba mai26 (vendido). Leads/verba de maio seguem pendentes |
-| Mai · D1 (01–10) | ⬜ | ⬜ | — | ⬜ | ⬜ | ⬜ | — | — | backfill (Métricas Holos) |
-| Mai · D2 (11–20) | ⬜ | ⬜ | — | ⬜ | ⬜ | ⬜ | — | — | backfill |
-| Mai · D3 (21–31) | ⬜ | ⬜ | — | ⬜ | ⬜ | ⬜ | — | — | backfill |
+| **Jun · D3** (21–30) | 8 | R$ 16.310,44 | R$ 2.039 | 363 | R$ 7.380 | R$ 1.187 | R$ 8.567 | 1,90× | FECHADO 01/07. Régua vendido novas (retrato 30/06 = R$ 62.487,07/27 − retrato 20/06 R$ 46.176,63/19). Faturamento +12% mas verba dobrou → ROAS caiu 3,4×→1,9× (lag de conversão, vigiar julho). Leads 45% sem origem (chips manuais). Investimento = só campanhas masso (Google Masso Geral + Meta MASSO.PRES, print 21–30). **v2 03/07:** leads padronizados via ZenPro direto (363); origem 100% preenchida; ROAS por canal D3: **Meta 3,18×** · Google 0,55× (lag) |
+| **Jun · MÊS** (01–30) | **27** | **R$ 62.487,07** | R$ 2.314 | 1.039 | R$ 19.590 | R$ 2.553 | R$ 22.143 | **2,82×** | FECHADO 02/07 (consolidação D1+D2+D3; bate com retrato 30/06). **ROAS por canal v2 (03/07, origem 100% + regra 90d):** Google **0,95×** (R$ 18.579) · Meta **1,29×** (R$ 3.284) · campanhas antigas >90d R$ 7.521 · sem origem R$ 0. Leads padronizados ZenPro: 1.039 |
+| Mai · MÊS (01–31) | 35 | R$ 54.593,11 | R$ 1.560 | 976 | ⬜ | ⬜ | — | — | backfill 02/07 via aba mai26 (vendido). **Leads preenchidos 03/07 (ZenPro direto)**; verba de maio segue pendente |
+| Mai · D1 (01–10) | ⬜ | ⬜ | — | 341 | ⬜ | ⬜ | — | — | leads 03/07 (ZenPro); vendas/verba backfill (Métricas Holos) |
+| Mai · D2 (11–20) | ⬜ | ⬜ | — | 312 | ⬜ | ⬜ | — | — | leads 03/07 (ZenPro); resto backfill |
+| Mai · D3 (21–31) | ⬜ | ⬜ | — | 323 | ⬜ | ⬜ | — | — | leads 03/07 (ZenPro); resto backfill |
 
 ## Como o comparativo entra no relatório
 Para cada número, o /relatorio-luciana mostra 3 referências:

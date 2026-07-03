@@ -39,8 +39,10 @@ evolução (comparativos) e é honesto sobre o que funcionou e o que não.
 | Bloco | Número | Fonte | Quem |
 |-------|--------|-------|------|
 | Resultado comercial | Vendas (qtd) · Faturamento · Ticket médio · ROAS | META DE VENDAS + cálculo | ✅ skill puxa |
-| Pipeline real (ZenPro) | Leads confirmados no WhatsApp *(único auditado)* | ZenPro | ❌ Lucio passa |
+| Pipeline real (ZenPro) | Leads confirmados no WhatsApp *(único auditado)* | **Banco ZenPro direto** (`dados/.env.zenpro`, pooler sa-east-1; régua: conversations, org Holos, not is_group, tz SP) | ✅ skill puxa |
 | Verba investida | Google · Meta · Total | Windsor + Meta Ads | ❌ Lucio passa |
+
+> **Regra dos 90 dias (canon 03/07):** cruzar o telefone de cada venda com `min(created_at)` no ZenPro; lead >90 dias = "base de campanhas antigas" (fora do ROAS, dentro da seção de LTV). Script de consulta: `scripts/zenpro-query.js`.
 
 > Ticket = Faturamento ÷ Vendas · ROAS = Faturamento ÷ Investido. A skill calcula.
 
