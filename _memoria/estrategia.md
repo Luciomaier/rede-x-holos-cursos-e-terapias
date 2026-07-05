@@ -3,6 +3,17 @@
 > O que importa agora. Prioridades, metas, prazos.
 > O Claude usa isso pra decidir o que sugerir primeiro e o que adiar.
 
+## 🛡️ Diretriz da holding — 05/07/2026 (2ª mesa)
+
+Papel da Holos no portfólio: **blindada — proteger, não crescer.** A energia de construção do Lucio está na Rede Publicidade (foco nº1).
+
+- ✅ **Patch do WhatsApp PUBLICADO (04/07)** — `whatsapp-evolution-send` v295 no ar (resgate do 9º dígito; fim do bloqueio de 24h de contato válido). O incidente NÃO foi causado pelo UniMasso (bug era do CRM).
+- **Pendente nº1: contrato com a Lu** (proposta apresentada, martelo não bateu) — segue sendo a prioridade desta pasta.
+- **EaD = a exceção que cresce** — mas **pela equipe** (Nick + Elis executam; Lucio só decide/supervisiona e puxa o gatilho do lançamento). Checkout Asaas testado, conteúdo pronto. Se começar a puxar horas do Lucio, virou fragmentação — re-empacotar.
+- **Proteger a Elis é proteger a Holos:** ela segura Holos + dona Ana + casa. Redistribuir cuidado; vigiar sobrecarga.
+
+Fonte: `../holding-maier/_memoria/estrategia.md`.
+
 ## Fase
 
 Fase 1 — Formalização e Sustentação (Abr–Jun 2026).
