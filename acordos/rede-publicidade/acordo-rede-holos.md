@@ -10,9 +10,9 @@
 >
 > Quando os números/escopo mudarem aqui, atualizar os três HTML que derivam deste documento.
 
-**Status:** 🟡 Rascunho alinhado internamente — aguardando apresentação à Luciana + aval de Vani
-**Assinatura prevista:** Julho/2026
-**Última atualização:** 14/06/2026
+**Status:** 🟡 Proposta APRESENTADA à Luciana — martelo não bateu; a Lu está adiando as conversas de fechamento
+**Assinatura prevista:** Julho/2026 (em risco pelo adiamento)
+**Última atualização:** 07/07/2026
 
 ---
 
@@ -85,7 +85,7 @@ O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no
 >
 > **Ainda em aberto:**
 > 1. **Cadência do relatório p/ Luciana:** semanal, quinzenal ou por dezena (10/20/30)? *(os 4 docs divergem)*
-> 2. **Valor "antes" real:** R$10.500 (memória) ou R$11.750 (apresentação)? — confirmar com Elis
+> 2. ✅ **Valor "antes" real: RESOLVIDO em 07/07/2026 — R$12.500/mês** (confirmado pelo Lucio). Composição: Elis R$4.500 + tráfego R$3.000 + gestão comercial R$3.000 + comissão ~R$1.000 + Holos Connect R$1.000. As duas versões anteriores estavam erradas (R$10.500 da memória e R$11.750 da apresentação). Bate com a planilha de junho: lado Lucio R$8.000 (3k+3k+1k+1k) + Elis R$4.500 por fora. **Corrigir a coluna "antes" na apresentação HTML antes da próxima conversa com a Lu** — com o antes real, o aumento da proposta é de só **+R$1.000/mês** (argumento mais forte).
 >
 > **Depois de fechar:** propagar tudo para os 3 HTML + corrigir PulsarZap→ZenPro + preencher brancos (horários de reunião, datas das LPs) + padronizar nome (Nicholas/Nick) e cor da marca.
 >
@@ -98,7 +98,7 @@ O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no
 | Etapa | Situação |
 |-------|----------|
 | Alinhamento interno (Lucio + Elis + Nick) | ✅ Fechado em 02/06/2026 |
-| Apresentação à Luciana | ⬜ A agendar — conduz Elis, Lucio apoia |
+| Apresentação à Luciana | ✅ Apresentada — resposta pendente: **a Lu está adiando as conversas** (registro 07/07/2026) |
 | Aval de Vani (VP, 50%, poder de veto) | ⬜ Pendente — risco principal |
 | Formalização jurídica (contrato assinado) | ⬜ Prevista Julho/2026 |
 
