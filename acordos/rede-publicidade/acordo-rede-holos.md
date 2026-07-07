@@ -1,6 +1,7 @@
 # Acordo Rede Publicidade × Holos
 
-> **Fonte da verdade** da parceria comercial/técnica entre a Rede Publicidade (Lucio + Elis + Nick) e a Holos Cursos e Terapias.
+> **Fonte da verdade** da parceria comercial/técnica entre o Rede Publicidade (Lucio + Elis + Nick) e a Holos Cursos e Terapias.
+> *(Marca no masculino — decisão do Lucio, 07/07/2026: "o Rede", como "O Boticário".)*
 >
 > **Os quatro documentos desta pasta:**
 > - `acordo-rede-holos.md` (este) — **o quê** está contratado: escopo, valores, status
@@ -164,7 +165,7 @@ Luciana (Holos) → Elis (ponto de contato) → Lucio / Nick (execução)
 
 - [ ] **Confirmar a coluna "antes" real** (R$10.500 vs R$11.750) — Elis
 - [ ] Corrigir numeração das páginas no HTML (6 primeiras dizem "de 07", são 8 páginas)
-- [ ] Padronizar a marca no HTML ("O Rede" vs "Rede Publicidade")
+- [x] Padronizar a marca no HTML — **DECIDIDO (07/07/2026): "o Rede" (masculino, R maiúsculo)**; aplicar nos 3 HTML
 - [ ] Alinhar meta do funil (50 matrículas/mês aqui vs "180 conversões × 12" no Funil Documento 2)
 - [ ] Decidir: a call é só com Luciana ou a proposta precisa sobreviver ao repasse para Vani?
 - [ ] Definir se Elis entra no fee da Rede ou tem contrato MEI separado (impacto tributário/jurídico — ver Advogado Briefing no vault)
