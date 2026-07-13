@@ -34,8 +34,12 @@ identificado**. E **o tracking NÃO piorou**: os sem-origem ficaram parados (233
 dobrou (89 → 203) — o "45% → 54%" é armadilha de denominador.
 
 🚨 **URGENTE — Google sem saldo:** conta com **R$ 890,83**, gasto ~R$ 930/dia → **menos de 1 dia no ar.**
-⚠️ **Apurar:** print mostra Masso Geral em *Maximizar cliques · R$ 1.000/dia* — o registro diz
-*Max Conversões · tCPA R$ 45 · R$ 800/dia* (23/06). Confirmar com o Lucio antes de dar veredito.
+
+📌 **Orçamento do Google — resolvido (13/07):** a campanha *Masso Geral* está em **R$ 1.000/dia + Maximizar
+cliques** (a mudança pra R$800/dia + tCPA R$45, registrada em 23/06, **nunca foi aplicada** — Lucio confirmou).
+**Efeito prático nulo:** ela gasta **R$ 764/dia**, nunca encostou nos 800. **O gargalo é ALCANCE, não orçamento** —
+e com ROAS em 2,26×, a decisão é **manter os R$ 1.000 e ampliar palavras-chave**, não apertar.
+*(O CPL baixo e o gasto controlado de junho vieram da correção de 19/06 — auto-apply off —, não do tCPA fantasma.)*
 
 > Relatório: [2026-07-D1-relatorio-luciana.md](relatorios/2026-07-D1-relatorio-luciana.md) · PDF em `saidas/`
 
