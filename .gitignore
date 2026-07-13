@@ -34,3 +34,6 @@ audios-transcritos/
 # credencial de leitura do ZenPro (nunca commitar)
 dados/.env.zenpro
 dados/.env.zenpro-setup.sql
+
+# artefatos do playwright-mcp (baixa planilhas com dados pessoais de alunos)
+.playwright-mcp/

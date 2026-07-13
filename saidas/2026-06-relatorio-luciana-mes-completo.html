@@ -2,11 +2,11 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Relatório — Junho completo × Maio · Holos × Rede</title>
+<title>Relatório — Junho completo × Maio · Holos × Rede (v3)</title>
 <style>
   @page { size: A4; margin: 13mm 14mm; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root{ --roxo:#6272C4; --navy:#1E2560; --corpo:#333; --cardbg:#F5F6FF; --ambar:#E08600; --linha:#E6E8F5; }
+  :root{ --roxo:#6272C4; --navy:#1E2560; --corpo:#333; --cardbg:#F5F6FF; --ambar:#E08600; --linha:#E6E8F5; --verde:#2E7D5B; }
   body{ font-family: Arial, Helvetica, sans-serif; color:var(--corpo); line-height:1.55; font-size:12.5px; background:#fff; }
 
   .header{ display:flex; align-items:center; justify-content:space-between;
@@ -44,6 +44,14 @@
   .box p{ margin-bottom:7px; } .box p:last-child{ margin-bottom:0; }
   .box strong{ color:var(--navy); }
 
+  /* bloco da correção — o único elemento novo da v3 */
+  .fix{ border:1.5px solid var(--ambar); border-left:5px solid var(--ambar);
+    border-radius:4px; padding:12px 14px; margin-bottom:16px; background:#FFFBF3; }
+  .fix .t{ font-weight:900; color:var(--ambar); text-transform:uppercase; font-size:11px;
+    letter-spacing:.4px; margin-bottom:6px; }
+  .fix p{ margin-bottom:6px; } .fix p:last-child{ margin-bottom:0; }
+  .fix strong{ color:var(--navy); }
+
   .ask{ border:1.5px solid var(--roxo); border-radius:4px; padding:12px 14px; margin-top:8px; background:#fff; }
   .ask .t{ font-weight:900; color:var(--navy); text-transform:uppercase; font-size:11px; letter-spacing:.4px; margin-bottom:6px; }
   .ask ol{ margin-left:18px; } .ask li{ margin-bottom:3px; }
@@ -59,22 +67,33 @@
     <div class="titlebox">
       <h1>Relatório — Junho completo</h1>
       <div class="sub">Holos × Rede Publicidade</div>
-      <div class="per">Mês fechado (1 a 30) · comparado a maio completo — atualiza a versão "até o dia 20"</div>
+      <div class="per">Mês fechado (1 a 30) · comparado a maio completo · <strong>versão corrigida</strong></div>
     </div>
+  </div>
+
+  <div class="fix">
+    <div class="t">⚠️ Correção do relatório enviado em 03/07</div>
+    <p>Lu, preciso corrigir um número que te mandei — e <strong>a correção é a nosso favor</strong>.</p>
+    <p>Eu reportei que junho fechou com <strong>27 matrículas</strong> de massoterapia. <strong>Foram 32.</strong>
+       A planilha de vendas estava com um <strong>filtro ligado</strong> que escondia linhas na hora de contar.
+       O valor em dinheiro estava certo o tempo todo — <strong>quem estava errado era a contagem</strong>.</p>
+    <p>Ou seja: <strong>a escola vendeu 5 matrículas a mais</strong> do que eu te reportei. O faturamento
+       (R$ 62.487) e o retorno do anúncio (2,8×) não mudam. Já corrigimos a planilha e criamos uma
+       conferência automática pra que isso não se repita.</p>
   </div>
 
   <h2><span class="bar"></span>Resultado do mês</h2>
   <div class="grid">
     <div class="kpi"><div class="num">R$ 151.784</div><div class="lbl">Vendido pela Holos no mês (todas as frentes) — <span class="up">+22%</span> vs maio</div></div>
-    <div class="kpi"><div class="num">27</div><div class="lbl">Matrículas novas de massoterapia (15 integrais · 2 intensivos · 10 mensalistas)</div></div>
+    <div class="kpi"><div class="num">32</div><div class="lbl">Matrículas novas de massoterapia (16 integrais · 2 intensivos · 14 mensalistas)</div></div>
     <div class="kpi"><div class="num">R$ 62.487</div><div class="lbl">Em vendas novas de massoterapia — <span class="up">+14%</span> vs maio</div></div>
     <div class="kpi"><div class="num">2,8<small>×</small></div><div class="lbl">Retorno do anúncio no mês (cada R$ 1 → R$ 2,80)</div></div>
   </div>
-  <div class="note">Ticket médio por matrícula nova: R$ 2.314 — em maio foi R$ 1.560 (+48%): entrou menos gente, porém de contrato maior.</div>
+  <div class="note">Ticket médio por matrícula nova: R$ 1.953 — em maio foi R$ 1.560 (+25%): o contrato médio subiu.</div>
 
   <h2><span class="bar"></span>Quantas pessoas chegaram</h2>
   <div class="grid">
-    <div class="kpi" style="grid-column:span 2;"><div class="num">1.039 contatos novos</div><div class="lbl">no WhatsApp em junho — número real do sistema</div></div>
+    <div class="kpi" style="grid-column:span 2;"><div class="num">1.039 contatos novos</div><div class="lbl">no WhatsApp em junho — número real do sistema (+6,5% vs maio)</div></div>
     <div class="kpi" style="grid-column:span 2;"><div class="num">322 → 354 → 363</div><div class="lbl">contatos por dezena — cresceu o mês inteiro</div></div>
   </div>
 
@@ -85,24 +104,31 @@
     <div class="kpi" style="grid-column:span 2;"><div class="num">R$ 22.143</div><div class="lbl">Total investido na massoterapia no mês</div></div>
   </div>
 
-  <h2><span class="bar"></span>Retorno por canal &nbsp;<small>✅ agora com a origem de TODAS as matrículas rastreada</small></h2>
+  <h2><span class="bar"></span>Retorno por canal &nbsp;<small>com a origem de cada matrícula cruzada no sistema</small></h2>
   <table>
     <tr><th>De onde veio o vendido de junho (R$ 62.487)</th><th class="r">Valor</th><th class="r">%</th></tr>
     <tr><td>Google Ads (leads do próprio mês)</td><td class="r">R$ 18.579</td><td class="r">30%</td></tr>
-    <tr><td>Instagram/Meta Ads (leads do próprio mês)</td><td class="r">R$ 3.284</td><td class="r">5%</td></tr>
+    <tr><td>Instagram/Meta Ads (leads do próprio mês)</td><td class="r">R$ 3.700</td><td class="r">6%</td></tr>
     <tr><td>💎 Campanhas antigas (leads de dez–mar que fecharam agora)</td><td class="r">R$ 7.521</td><td class="r">12%</td></tr>
-    <tr><td>Orgânico</td><td class="r">R$ 18.221</td><td class="r">29%</td></tr>
-    <tr><td>Indicação</td><td class="r">R$ 10.203</td><td class="r">16%</td></tr>
-    <tr><td>Base interna / reativação / perfil do Instagram</td><td class="r">R$ 4.679</td><td class="r">8%</td></tr>
+    <tr><td>Orgânico · indicação · marketing interno</td><td class="r">R$ 32.686</td><td class="r">52%</td></tr>
   </table>
   <table style="margin-top:6px;">
     <tr><th>Canal</th><th class="r">Investido</th><th class="r">Vendido (leads do mês)</th><th class="r">Retorno</th></tr>
     <tr><td>Google (busca)</td><td class="r">R$ 19.590</td><td class="r">R$ 18.579</td><td class="r">0,95×</td></tr>
-    <tr><td>Instagram / Meta</td><td class="r">R$ 2.553</td><td class="r">R$ 3.284</td><td class="r d-pos">1,29×</td></tr>
+    <tr><td>Instagram / Meta</td><td class="r">R$ 2.553</td><td class="r">R$ 3.700</td><td class="r d-pos">1,45×</td></tr>
     <tr><td>Geral do mês</td><td class="r">R$ 22.143</td><td class="r">R$ 62.487</td><td class="r d-pos">2,8×</td></tr>
   </table>
   <div class="box">
-    <p><strong>Como medimos:</strong> cada matrícula foi cruzada com a data em que a pessoa chegou no WhatsApp. Venda só conta pro canal se o lead chegou há até 90 dias — mais antigo que isso vira "campanha antiga" (anúncio que plantou meses atrás e colheu agora). <strong>Somando os dois, o anúncio responde por R$ 29.384 — 47% de tudo que a formação vendeu no mês.</strong> O Google praticamente se paga dentro do próprio mês e ainda deixa cauda; o Instagram converte acima do investido — e foi dele a maior venda "plantada": uma integral de R$ 3.480 de um lead de dezembro.</p>
+    <p><strong>Como medimos:</strong> cada matrícula foi cruzada com a data em que a pessoa chegou no WhatsApp.
+      Venda só conta pro canal se o lead chegou há até 90 dias — mais antigo que isso vira "campanha antiga"
+      (anúncio que plantou meses atrás e colheu agora).</p>
+    <p><strong>🟢 A leitura que interessa:</strong> o <strong>Instagram rende 1,45× e o Google 0,95×</strong> —
+      e o Instagram está levando apenas <strong>12% da verba</strong>. O canal mais eficiente é o que
+      menos recebe dinheiro. É daí que sai a proposta de realocação.</p>
+    <p><strong>Uma ressalva honesta:</strong> o retorno de 2,8× divide <em>tudo</em> que a formação vendeu pela
+      verba de anúncio — inclusive as matrículas que vieram de orgânico e indicação, que não têm relação com
+      anúncio. Olhando <em>só</em> o que o anúncio trouxe, ele <strong>empata</strong> (1,01×). Por isso a decisão
+      de verba deve olhar o retorno <strong>por canal</strong>, não o número geral.</p>
   </div>
 
   <h2><span class="bar"></span>Demonstrativo &nbsp;<small>Junho × Maio (mês completo, vendas fechadas)</small></h2>
@@ -110,32 +136,43 @@
     <tr><th>Indicador</th><th class="r">Maio</th><th class="r">Junho</th><th class="r">Variação</th></tr>
     <tr><td>Holos — total vendido (todas as frentes)</td><td class="r">R$ 124.035</td><td class="r">R$ 151.784</td><td class="r d-pos">+22%</td></tr>
     <tr><td>Vendas novas de massoterapia</td><td class="r">R$ 54.593</td><td class="r">R$ 62.487</td><td class="r d-pos">+14%</td></tr>
-    <tr><td>Integrais + intensivos (matrículas)</td><td class="r">15</td><td class="r">17</td><td class="r d-pos">+2</td></tr>
-    <tr><td>Novos mensalistas</td><td class="r">20</td><td class="r">10</td><td class="r d-att">−50% · a reverter</td></tr>
-    <tr><td>Ticket médio por matrícula nova</td><td class="r">R$ 1.560</td><td class="r">R$ 2.314</td><td class="r d-pos">+48%</td></tr>
+    <tr><td>Matrículas novas (total)</td><td class="r">35</td><td class="r">32</td><td class="r d-neu">−9% · empate técnico</td></tr>
+    <tr><td>Integrais + intensivos (matrículas)</td><td class="r">15</td><td class="r">18</td><td class="r d-pos">+20%</td></tr>
+    <tr><td>Novos mensalistas</td><td class="r">20</td><td class="r">14</td><td class="r d-att">−30% · a reverter</td></tr>
+    <tr><td>Ticket médio por matrícula nova</td><td class="r">R$ 1.560</td><td class="r">R$ 1.953</td><td class="r d-pos">+25%</td></tr>
     <tr><td>Mensalidades recebidas (recorrência)</td><td class="r">R$ 28.193</td><td class="r">R$ 30.883</td><td class="r d-pos">+10%</td></tr>
   </table>
 
   <h2><span class="bar"></span>O que ajustamos no mês — e o que rendeu</h2>
   <div class="box">
-    <p><strong>Lance do Google reorganizado (19/06).</strong> O custo por contato despencou de <strong>~R$ 181 para ~R$ 42–47</strong> e os contatos do Google cresceram dezena a dezena (47 → 87 → 93).</p>
-    <p><strong>Teto de custo por contato (23/06).</strong> Limitamos o Google a R$ 45 por contato e R$ 800/dia — o gasto ficou sob controle (~R$ 738/dia), no alvo.</p>
-    <p><strong>⚠️ Ponto de atenção honesto:</strong> nos últimos 10 dias o retorno caiu para 1,9× — aceleramos a verba e a matrícula fecha com atraso (quem chegou no fim de junho assina em julho). Recomendação: <strong>não cortar a verba agora</strong> — o funil está cheio e barato; o trabalho é converter rápido.</p>
-    <p><strong>🥈 Cursos livres (complemento):</strong> R$ 39.331 vendidos no mês, com a Desportiva puxando a fila (turma 3–5/jul).</p>
+    <p><strong>🟢 A oferta de 50% para o mensalista funcionou.</strong> Ela entrou nos últimos 10 dias do mês e
+      trouxe <strong>7 mensalistas nesse período</strong> — contra 4 e 3 nas dezenas anteriores. A curva estava
+      <strong>subindo</strong>, não caindo. <em>(Isso estava invisível no relatório anterior: eram justamente
+      essas as linhas que o filtro da planilha escondia.)</em> <strong>Recomendação: manter.</strong></p>
+    <p><strong>Lance do Google reorganizado (19/06).</strong> O custo por contato despencou de
+      <strong>~R$ 181 para ~R$ 42–47</strong> e os contatos do Google cresceram dezena a dezena.</p>
+    <p><strong>Teto de custo por contato (23/06).</strong> Limitamos o Google a R$ 45 por contato e R$ 800/dia —
+      o gasto ficou sob controle (~R$ 738/dia), no alvo.</p>
+    <p><strong>⚠️ Ponto de atenção honesto:</strong> nos últimos 10 dias o retorno caiu para 1,9× — aceleramos a
+      verba e a matrícula fecha com atraso (quem chegou no fim de junho assina em julho). Recomendação:
+      <strong>não cortar a verba agora</strong> — o funil está cheio e barato; o trabalho é converter rápido.</p>
+    <p><strong>🥈 Cursos livres (complemento):</strong> R$ 39.331 vendidos no mês, com a Desportiva puxando a
+      fila (turma 3–5/jul).</p>
   </div>
 
   <div class="ask">
-    <div class="t">📋 Para o seu parecer — 3 pontos</div>
+    <div class="t">📋 Para o seu parecer — 2 pontos</div>
     <ol>
-      <li>A <strong>oferta de 50%</strong> para reativar os novos mensalistas (executamos em julho).</li>
-      <li>O <strong>parecer da verba de julho</strong> — envio a planilha mostrando cada real e o retorno.</li>
-      <li>✅ <strong>Feito:</strong> a origem de cada matrícula foi anotada e cruzada — o retorno por canal acima já é o exato. Próximo passo: o sistema carimbar sozinho (correção do rastreamento).</li>
+      <li><strong>Manter a oferta de 50%</strong> para os novos mensalistas — ela deu sinal claro de vida nos
+        últimos 10 dias de junho (7 matrículas).</li>
+      <li><strong>Realocar verba para o Instagram</strong> — ele rende 1,45× contra 0,95× do Google, usando
+        apenas 12% do investimento. É a alavanca mais barata que temos hoje.</li>
     </ol>
   </div>
 
   <div class="footer">
     <span>Relatório mensal · preparado pela Rede Publicidade para a Holos Cursos e Terapias</span>
-    <span>Junho fechado · v2 emitido em 03/07/2026 (origem de todas as matrículas rastreada)</span>
+    <span>Junho fechado · v3 emitido em 12/07/2026 (contagem de matrículas corrigida)</span>
   </div>
 
 </body>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Relatório — Julho D1 (1 a 10) · Massoterapia · Holos × Rede</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root{ --roxo:#6272C4; --navy:#1E2560; --corpo:#333; --cardbg:#F5F6FF; --ambar:#E08600; --linha:#E6E8F5; --verde:#2E7D5B; --vermelho:#C0392B; }
+  body{ font-family: Arial, Helvetica, sans-serif; color:var(--corpo); line-height:1.55; font-size:12.5px; background:#fff; }
+
+  .header{ display:flex; align-items:center; justify-content:space-between;
+    border-bottom:2.5px solid var(--roxo); padding-bottom:12px; margin-bottom:16px; }
+  .header img{ height:54px; }
+  .header .titlebox{ text-align:right; }
+  .header h1{ font-size:18px; font-weight:900; color:var(--navy); letter-spacing:-.3px; }
+  .header .sub{ font-size:11px; color:var(--roxo); font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+  .header .per{ font-size:11px; color:#888; margin-top:2px; }
+
+  h2{ font-size:13px; font-weight:900; color:var(--navy); text-transform:uppercase;
+    letter-spacing:.4px; margin:18px 0 8px; display:flex; align-items:center; gap:6px; }
+  h2 .bar{ width:4px; height:15px; background:var(--roxo); display:inline-block; border-radius:1px; }
+  h2 small{ font-weight:600; text-transform:none; color:#999; letter-spacing:0; font-size:11px; }
+
+  .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:9px; }
+  .kpi{ background:var(--cardbg); border-left:4px solid var(--roxo); border-radius:4px; padding:10px 11px; }
+  .kpi .num{ font-size:20px; font-weight:900; color:var(--navy); line-height:1.15; }
+  .kpi .num small{ font-size:12px; font-weight:700; }
+  .kpi .lbl{ font-size:10px; color:#666; margin-top:3px; }
+  .kpi.win{ border-left-color:var(--verde); }
+  .kpi.win .num{ color:var(--verde); }
+  .up{ color:var(--verde); font-weight:900; }
+  .note{ font-size:10.5px; color:#888; margin-top:5px; font-style:italic; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:4px; font-size:12.5px; }
+  th,td{ padding:8px 10px; border-bottom:1px solid var(--linha); }
+  th{ background:var(--navy); color:#fff; font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; font-weight:700; }
+  td.r,th.r{ text-align:right; }
+  tr:last-child td{ border-bottom:none; }
+  td:first-child{ font-weight:600; color:var(--navy); }
+  tr.tot td{ background:var(--cardbg); font-weight:900; color:var(--navy); border-top:2px solid var(--roxo); }
+  .d-pos{ color:var(--verde); font-weight:900; }
+  .d-att{ color:var(--ambar); font-weight:900; }
+  .d-neg{ color:var(--vermelho); font-weight:900; }
+  .d-neu{ color:#999; font-weight:700; }
+
+  .box{ background:var(--cardbg); border-radius:4px; padding:12px 14px; margin-top:6px; }
+  .box p{ margin-bottom:7px; } .box p:last-child{ margin-bottom:0; }
+  .box strong{ color:var(--navy); }
+
+  .win-box{ border:1.5px solid var(--verde); border-left:5px solid var(--verde);
+    border-radius:4px; padding:13px 15px; margin-bottom:16px; background:#F3FBF7; }
+  .win-box .t{ font-weight:900; color:var(--verde); text-transform:uppercase; font-size:11px;
+    letter-spacing:.4px; margin-bottom:6px; }
+  .win-box p{ margin-bottom:6px; } .win-box p:last-child{ margin-bottom:0; }
+  .win-box strong{ color:var(--verde); }
+
+  .alert{ border:1.5px solid var(--vermelho); border-left:5px solid var(--vermelho);
+    border-radius:4px; padding:12px 14px; margin-top:8px; background:#FDF4F3; }
+  .alert .t{ font-weight:900; color:var(--vermelho); text-transform:uppercase; font-size:11px;
+    letter-spacing:.4px; margin-bottom:6px; }
+  .alert p{ margin-bottom:6px; } .alert p:last-child{ margin-bottom:0; }
+  .alert strong{ color:var(--vermelho); }
+
+  .ask{ background:#fff; border:1px solid var(--linha); border-radius:4px; padding:11px 13px; margin-top:7px; }
+  .ask .n{ font-weight:900; color:var(--roxo); }
+  .ask .q{ font-style:italic; color:var(--roxo); font-weight:700; margin-top:4px; }
+
+  .foot{ margin-top:20px; padding-top:8px; border-top:1px solid var(--linha);
+    font-size:10px; color:#999; display:flex; justify-content:space-between; }
+  .alert, .win-box, .ask, .box, .kpi, table{ break-inside: avoid; page-break-inside: avoid; }
+  h2{ break-after: avoid; page-break-after: avoid; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="file:///home/usuario/Documentos/Projetos/holos-cursos-terapias/identidade/logo-completa.png" alt="Holos">
+    <div class="titlebox">
+      <h1>Massoterapia — Julho, primeiros 10 dias</h1>
+      <div class="sub">Holos × Rede Publicidade</div>
+      <div class="per">1 a 10 de julho de 2026 · só massoterapia · Google e Instagram</div>
+    </div>
+  </div>
+
+  <div class="win-box">
+    <div class="t">🟢 A dezena que respondeu a pergunta que ficou de junho</div>
+    <p>Lu, no fechamento de junho o retorno do Google tinha caído pra <strong>0,95×</strong> e nós pedimos
+       pra <strong>não cortar a verba</strong> — porque os contatos do fim de junho ainda iam virar
+       matrícula em julho. <strong>Viraram.</strong></p>
+    <p>O Google saltou para <strong>2,26×</strong> e o Instagram para <strong>1,96×</strong>.
+       <strong>Os dois canais se pagam com folga.</strong></p>
+  </div>
+
+  <h2><span class="bar"></span>Os quatro números da dezena</h2>
+  <div class="grid">
+    <div class="kpi win"><div class="num">2,26<small>×</small></div><div class="lbl">Retorno do <strong>Google</strong> — era 0,95× em junho</div></div>
+    <div class="kpi win"><div class="num">1,96<small>×</small></div><div class="lbl">Retorno do <strong>Instagram</strong> — era 1,45× em junho</div></div>
+    <div class="kpi"><div class="num">148</div><div class="lbl">Contatos de massoterapia — <span class="up">+135%</span> vs junho (eram 63)</div></div>
+    <div class="kpi"><div class="num">11</div><div class="lbl">Matrículas novas · <strong>R$ 28.433</strong> em vendas</div></div>
+  </div>
+
+  <h2><span class="bar"></span>Google × Instagram &nbsp;<small>o que cada canal custou e devolveu</small></h2>
+  <table>
+    <tr>
+      <th>Canal</th><th class="r">Investido</th><th class="r">Contatos</th><th class="r">Custo por contato</th>
+      <th class="r">Matrículas</th><th class="r">Vendas geradas</th><th class="r">Retorno</th>
+    </tr>
+    <tr>
+      <td>Google</td><td class="r">R$ 7.642</td><td class="r">84</td><td class="r">R$ 91 <span class="d-pos">−49%</span></td>
+      <td class="r">6</td><td class="r">R$ 17.255</td><td class="r d-pos">2,26×</td>
+    </tr>
+    <tr>
+      <td>Instagram</td><td class="r">R$ 3.752</td><td class="r">55</td><td class="r">R$ 68</td>
+      <td class="r">3</td><td class="r">R$ 7.360</td><td class="r d-pos">1,96×</td>
+    </tr>
+    <tr class="tot">
+      <td>Total</td><td class="r">R$ 11.394</td><td class="r">139</td><td class="r">R$ 82</td>
+      <td class="r">9</td><td class="r">R$ 24.615</td><td class="r">2,16×</td>
+    </tr>
+  </table>
+  <div class="note">
+    As outras <strong>2 matrículas</strong> da dezena (R$ 3.818) vieram de pessoas que chegaram há mais de
+    90 dias — não entram no retorno do mês, mas provam que o anúncio segue pagando depois de o mês virar.
+    Somando: <strong>11 matrículas · R$ 28.433</strong>. Os 148 contatos de masso incluem ainda 9 que chegaram
+    espontaneamente (sem anúncio).
+  </div>
+
+  <h2><span class="bar"></span>Comparado aos mesmos 10 dias de junho</h2>
+  <table>
+    <tr><th>Massoterapia</th><th class="r">1–10 julho</th><th class="r">1–10 junho</th><th class="r">Variação</th></tr>
+    <tr><td>Contatos de massoterapia</td><td class="r">148</td><td class="r">63</td><td class="r d-pos">+135%</td></tr>
+    <tr><td>&nbsp;&nbsp;— pelo Google</td><td class="r">84</td><td class="r">48</td><td class="r d-pos">+75%</td></tr>
+    <tr><td>&nbsp;&nbsp;— pelo Instagram</td><td class="r">55</td><td class="r">15</td><td class="r d-pos">+267%</td></tr>
+    <tr><td>Ticket médio por matrícula</td><td class="r">R$ 2.585</td><td class="r">R$ 2.451</td><td class="r d-pos">+5,5%</td></tr>
+    <tr><td>Matrículas novas</td><td class="r">11</td><td class="r">13</td><td class="r d-att">−15%</td></tr>
+    <tr><td>Vendas de massoterapia</td><td class="r">R$ 28.433</td><td class="r">R$ 31.857</td><td class="r d-att">−10,8%</td></tr>
+    <tr><td>Investimento</td><td class="r">R$ 11.394</td><td class="r">R$ 9.317</td><td class="r d-neu">+22%</td></tr>
+  </table>
+  <div class="note">
+    Vendemos 2 matrículas a menos, <strong>mas cada uma vale mais</strong> — e o que caiu foi só o mensalista
+    (abaixo). As matrículas de formação (integral + intensivo) foram <strong>8 das 11</strong>.
+  </div>
+
+  <div class="alert">
+    <div class="t">🚨 Urgente — a conta do Google pode parar hoje</div>
+    <p>A conta tem <strong>R$ 890,83</strong> de saldo e gasta cerca de <strong>R$ 930 por dia</strong>.
+       Isso é <strong>menos de um dia de anúncio no ar</strong>.</p>
+    <p>Se parar agora, para justo o canal que <strong>acabou de provar 2,26×</strong> — e o funil de agosto
+       seca junto. <strong>Precisamos de recarga com urgência.</strong></p>
+  </div>
+
+  <h2><span class="bar"></span>O ponto que precisa de você: o mensalista</h2>
+  <table>
+    <tr><th>Mensalistas novos por dezena</th><th class="r">Jun 1–10</th><th class="r">Jun 11–20</th><th class="r">Jun 21–30</th><th class="r">Jul 1–10</th></tr>
+    <tr><td>Matrículas de mensalista</td><td class="r">4</td><td class="r">3</td><td class="r d-pos">7</td><td class="r d-neg">3</td></tr>
+  </table>
+  <div class="box">
+    <p>Na última dezena de junho a <strong>oferta de 50% que você aprovou</strong> funcionou: <strong>7
+       mensalistas em 10 dias</strong>, a melhor dezena do mês. <strong>Em julho voltou pra 3.</strong></p>
+    <p>Daqui não conseguimos ver se a oferta <strong>deixou de ser feita</strong>, se <strong>perdeu
+       força</strong>, ou se o time parou de oferecê-la. <strong>É o único motivo de as matrículas terem
+       caído</strong> — por isso é a primeira coisa que queremos ouvir de você.</p>
+  </div>
+
+  <h2><span class="bar"></span>O que estamos fazendo — e o parecer que pedimos</h2>
+
+  <div class="ask">
+    <span class="n">1. Recarga do Google — hoje.</span> A conta gasta R$ 930/dia e tem R$ 890 de saldo.
+    O anúncio para em menos de um dia, justo quando ele provou 2,26×.
+    <div class="q">Qual o caminho mais rápido pra recarga com a Sônia?</div>
+  </div>
+
+  <div class="ask">
+    <span class="n">2. Google: a hora é de escalar, não de cortar.</span> O canal saiu de 0,95× pra 2,26×
+    e o custo por contato <strong>caiu pela metade</strong> (R$ 178 → R$ 91). Nosso plano é
+    <strong>manter o orçamento e ampliar as palavras-chave</strong> — hoje o limite é de alcance, não de preço.
+    <div class="q">Seu parecer?</div>
+  </div>
+
+  <div class="ask">
+    <span class="n">3. Instagram: foi onde mais crescemos.</span> Os contatos de massoterapia pelo Instagram
+    saltaram <strong>de 15 para 55</strong> (+267%) e o canal devolve 1,96×. Queremos continuar aumentando.
+    <div class="q">De acordo?</div>
+  </div>
+
+  <div class="ask">
+    <span class="n">4. Mensalista: queremos retomar a oferta de 50%.</span> Foi a única coisa que mexeu o
+    ponteiro (7 numa dezena).
+    <div class="q">Ela ainda está de pé? Quer que a gente monte uma campanha específica pra ela?</div>
+  </div>
+
+  <div class="foot">
+    <span>Holos × Rede Publicidade · Massoterapia · Julho D1</span>
+    <span>Fontes: Meta de Vendas · ZenPro · Google Ads · Meta Ads · 13/07/2026</span>
+  </div>
+
+</body>
+</html>
