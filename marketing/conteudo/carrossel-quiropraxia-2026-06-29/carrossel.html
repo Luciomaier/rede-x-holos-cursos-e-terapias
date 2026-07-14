@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---- HEADER ---- */
+  .slide-header {
+    position: absolute;
+    top: 52px; left: 68px; right: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 10;
+  }
+  .logo-img { height: 52px; width: auto; display: block; }
+  .slide-escuro .logo-img,
+  .slide-capa .logo-img {
+    background: rgba(255,255,255,0.92);
+    padding: 7px 13px;
+    border-radius: 10px;
+  }
+  .page-counter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 20px; letter-spacing: 0.1em;
+  }
+
+  /* ===== SLIDE 1 — CAPA ===== */
+  .slide-capa { background: #1E0530; }
+  .slide-capa .photo {
+    position: absolute;
+    inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+  }
+  .slide-capa .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(30,5,48,0)     0%,
+      rgba(30,5,48,0)     50%,
+      rgba(30,5,48,0.35)  62%,
+      rgba(30,5,48,0.85)  75%,
+      rgba(30,5,48,1)     83%
+    );
+  }
+  .slide-capa .page-counter { color: rgba(255,255,255,0.35); }
+
+  .capa-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 0 76px 64px;
+  }
+  .capa-badge {
+    display: inline-block;
+    background: rgba(230,160,40,0.15);
+    border: 1.5px solid rgba(230,160,40,0.6);
+    color: #E6A028;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 19px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 10px 24px; border-radius: 40px;
+    margin-bottom: 24px;
+  }
+  .capa-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 82px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF; margin-bottom: 2px;
+  }
+  .capa-cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 122px; line-height: 1.05;
+    color: #E6A028; display: block; margin-bottom: 28px;
+  }
+  .regua { width: 72px; height: 4px; background: #E6A028; border-radius: 2px; margin-bottom: 20px; }
+  .capa-prof {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 28px;
+    color: rgba(255,255,255,0.70); margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 24px;
+    color: rgba(255,255,255,0.40); letter-spacing: 0.02em;
+  }
+
+  /* ===== SLIDES INTERNOS ===== */
+  .slide-escuro { background: #6D4C7F; }
+  .slide-escuro .page-counter { color: rgba(255,255,255,0.35); }
+  .slide-claro { background: #EBE2F3; }
+  .slide-claro .page-counter { color: #9B87F5; }
+
+  .watermark-num {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 480px;
+    line-height: 1; letter-spacing: -0.05em;
+    right: -30px; bottom: -40px;
+    pointer-events: none; user-select: none;
+  }
+  .slide-escuro .watermark-num { color: rgba(255,255,255,0.06); }
+  .slide-claro .watermark-num { color: rgba(89,36,143,0.07); }
+
+  .inner-content {
+    position: absolute;
+    top: 148px; left: 76px; right: 76px; bottom: 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .kicker {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900; font-size: 17px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: #E6A028; margin-bottom: 24px;
+  }
+
+  .inner-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 72px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .slide-escuro .inner-titulo { color: #FFFFFF; }
+  .slide-claro .inner-titulo { color: #3A0B50; }
+
+  .inner-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 28px;
+    margin-bottom: 28px;
+  }
+  .slide-escuro .inner-sub { color: #E6A028; }
+  .slide-claro .inner-sub { color: #8040BF; }
+
+  .inner-regua { width: 60px; height: 4px; background: #E6A028; border-radius: 2px; margin-bottom: 28px; }
+
+  .inner-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 29px;
+    line-height: 1.55;
+  }
+  .slide-escuro .inner-desc { color: rgba(255,255,255,0.82); }
+  .slide-claro .inner-desc { color: #3A3A3A; }
+
+  /* Checklist items */
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .check-item {
+    display: flex; align-items: flex-start; gap: 18px;
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: 30px; line-height: 1.4;
+  }
+  .slide-claro .check-item { color: #3A3A3A; }
+  .slide-escuro .check-item { color: rgba(255,255,255,0.85); }
+  .check-icon {
+    flex-shrink: 0; width: 36px; height: 36px; margin-top: 4px;
+    background: #E6A028; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; color: white;
+  }
+
+  /* Quote slide */
+  .quote-marks {
+    font-family: 'Poppins', sans-serif; font-weight: 900;
+    font-size: 200px; line-height: 0.7; color: rgba(255,255,255,0.08);
+    position: absolute; top: 140px; left: 60px;
+    pointer-events: none;
+  }
+  .quote-text {
+    font-family: 'Poppins', sans-serif; font-weight: 800;
+    font-size: 46px; line-height: 1.22; letter-spacing: -0.02em;
+    color: #FFFFFF; margin-bottom: 32px; position: relative; z-index: 1;
+  }
+  .quote-attr {
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: 24px;
+    color: rgba(255,255,255,0.60); line-height: 1.5;
+  }
+
+  /* ===== CTA ===== */
+  .slide-cta { background: linear-gradient(160deg, #3A0B50 0%, #59248F 55%, #8040BF 100%); }
+  .slide-cta .orb {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 720px; height: 720px; border-radius: 50%;
+    border: 1px solid rgba(230,160,40,0.1);
+  }
+  .slide-cta .orb2 {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px; height: 520px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .slide-cta .page-counter { color: rgba(255,255,255,0.25); }
+
+  .cta-content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px; text-align: center;
+  }
+  .cta-logo {
+    height: 90px; width: auto; margin-bottom: 48px;
+    background: rgba(255,255,255,0.92);
+    padding: 10px 20px; border-radius: 14px;
+  }
+  .cta-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 72px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF; margin-bottom: 4px;
+  }
+  .cta-cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 96px; line-height: 1.1;
+    color: #E6A028; display: block; margin-bottom: 36px;
+  }
+  .cta-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 28px;
+    color: rgba(255,255,255,0.68); line-height: 1.5; margin-bottom: 44px;
+  }
+  .cta-phone {
+    background: #E6A028; color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 34px;
+    letter-spacing: 0.06em;
+    padding: 22px 56px; border-radius: 60px; margin-bottom: 36px;
+  }
+  .cta-handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 25px;
+    color: rgba(255,255,255,0.40); letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 — CAPA ===== -->
+<div class="slide slide-capa">
+  <img class="photo" src="foto-renata.jpg" alt="" style="object-position: center 15%;">
+  <div class="overlay"></div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">1 / 6</span>
+  </div>
+  <div class="capa-content">
+    <div class="capa-badge">Prof.ª Renata Conti · 32h presenciais</div>
+    <p class="capa-titulo">Formação em</p>
+    <span class="capa-cursiva">Quiropraxia.</span>
+    <div class="regua"></div>
+    <p class="capa-prof">4 aulas · prática supervisionada · certificado</p>
+    <p class="handle">@holos_cursos</p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2 — O que você aprende (escuro) ===== -->
+<div class="slide slide-escuro">
+  <div class="watermark-num">1</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">2 / 6</span>
+  </div>
+  <div class="inner-content">
+    <p class="kicker">O que você aprende</p>
+    <p class="inner-titulo">Anatomia</p>
+    <p class="inner-titulo">que funciona</p>
+    <p class="inner-sub">no corpo real</p>
+    <div class="inner-regua"></div>
+    <p class="inner-desc">
+      Anatomia aplicada diretamente no corpo — avaliação corporal e articular. Avaliação funcional simples, rápida e objetiva. Testes clínicos de auxílio diagnóstico para saber exatamente onde intervir.
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3 — Protocolo (claro) ===== -->
+<div class="slide slide-claro">
+  <div class="watermark-num">2</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-claro.png" alt="Holos" style="mix-blend-mode:multiply">
+    <span class="page-counter">3 / 6</span>
+  </div>
+  <div class="inner-content">
+    <p class="kicker">Protocolo exclusivo</p>
+    <p class="inner-titulo">Alinhamento</p>
+    <p class="inner-titulo">Articular</p>
+    <p class="inner-sub">por região e por desequilíbrio</p>
+    <div class="inner-regua"></div>
+    <p class="inner-desc">
+      Manobras articulares por segmento: cervical, torácica, lombar, quadril, membros superiores e inferiores. Protocolo Geral de Alinhamento que prepara o aluno para qualquer momento da carreira — com reavaliação imediata para confirmar o resultado.
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4 — Citação diferencial (escuro) ===== -->
+<div class="slide slide-escuro">
+  <div class="quote-marks">"</div>
+  <div class="watermark-num">3</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">4 / 6</span>
+  </div>
+  <div class="inner-content">
+    <p class="kicker">O diferencial</p>
+    <p class="quote-text">A avaliação não é um obstáculo — é só o suficiente para saber onde mexer, como mexer e quando não mexer.</p>
+    <div class="inner-regua"></div>
+    <p class="quote-attr">Curso 100% presencial · Prática supervisionada · Correção individual · Foco total na segurança</p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5 — O que você sai sabendo (claro) ===== -->
+<div class="slide slide-claro">
+  <div class="watermark-num">4</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-claro.png" alt="Holos" style="mix-blend-mode:multiply">
+    <span class="page-counter">5 / 6</span>
+  </div>
+  <div class="inner-content">
+    <p class="kicker">Ao final da formação</p>
+    <p class="inner-titulo">Você sai</p>
+    <p class="inner-titulo">pronto para</p>
+    <div class="inner-regua" style="margin-top:20px;"></div>
+    <ul class="check-list">
+      <li class="check-item">
+        <div class="check-icon">✓</div>
+        <span>Identificar disfunções articulares básicas</span>
+      </li>
+      <li class="check-item">
+        <div class="check-icon">✓</div>
+        <span>Aplicar manobras com critério e segurança</span>
+      </li>
+      <li class="check-item">
+        <div class="check-icon">✓</div>
+        <span>Reconhecer limites e contraindicações</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6 — CTA ===== -->
+<div class="slide slide-cta">
+  <div class="orb"></div>
+  <div class="orb2"></div>
+  <div class="slide-header">
+    <span></span>
+    <span class="page-counter">6 / 6</span>
+  </div>
+  <div class="cta-content">
+    <img class="cta-logo" src="logo-escuro.png" alt="Holos">
+    <p class="cta-titulo">Garante</p>
+    <span class="cta-cursiva">sua vaga.</span>
+    <p class="cta-sub">Informações e inscrições:</p>
+    <div class="cta-phone">(11) 97699-4647</div>
+    <p class="cta-handle">@holos_cursos</p>
+  </div>
+</div>
+
+</body>
+</html>

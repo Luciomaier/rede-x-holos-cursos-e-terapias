@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    background: #2E0842;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .foto-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(46,8,66,0.30) 0%,
+      rgba(46,8,66,0.10) 35%,
+      rgba(46,8,66,0.55) 60%,
+      rgba(46,8,66,0.92) 80%,
+      rgba(46,8,66,1)    100%
+    );
+  }
+
+  /* Logo */
+  .logo-badge {
+    position: absolute;
+    top: 48px; left: 56px;
+    background: rgba(255,255,255,0.92);
+    padding: 8px 16px;
+    border-radius: 12px;
+  }
+  .logo-badge img { height: 46px; width: auto; display: block; }
+
+  /* Badge */
+  .badge-pill {
+    display: inline-block;
+    background: #E6A028;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 20px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 9px 26px; border-radius: 40px;
+    margin-bottom: 20px;
+  }
+
+  /* Conteúdo inferior */
+  .content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0 64px 56px;
+  }
+
+  .titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 78px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #fff;
+  }
+
+  .cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 90px; line-height: 1.1;
+    color: #E6A028; display: block;
+    margin-bottom: 24px;
+  }
+
+  .regua {
+    width: 64px; height: 4px;
+    background: #E6A028; border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  /* Info row */
+  .info-row {
+    display: flex; align-items: center;
+    gap: 32px; flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .info-item {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .info-item span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 26px;
+    color: rgba(255,255,255,0.85);
+  }
+  .info-item strong {
+    color: #E6A028;
+  }
+
+  /* Bottom row */
+  .bottom-row {
+    display: flex; align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .invest {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .invest-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 15px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.50);
+  }
+  .invest-valor {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 56px;
+    letter-spacing: -0.02em; color: #E6A028;
+    line-height: 1;
+  }
+
+  .prof-info {
+    text-align: right;
+  }
+  .prof-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 15px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: #E6A028; margin-bottom: 4px;
+  }
+  .prof-nome {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 36px;
+    line-height: 1.0; color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 22px;
+    color: rgba(255,255,255,0.38);
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <img class="foto-bg" src="prof-bezerra2.png" alt="">
+  <div class="overlay"></div>
+
+  <div class="logo-badge">
+    <img src="logo.png" alt="Holos">
+  </div>
+
+  <div class="content">
+    <div class="badge-pill">Aulão</div>
+
+    <h1 class="titulo">Shiatsu na visão da</h1>
+    <span class="cursiva">MTC.</span>
+
+    <div class="regua"></div>
+
+    <div class="info-row">
+      <div class="info-item">
+        <span>📅 <strong>Sábado, 18 de julho</strong></span>
+      </div>
+      <div class="info-item">
+        <span>⏰ <strong>09h às 17h</strong></span>
+      </div>
+      <div class="info-item">
+        <span>🔒 Apenas <strong>20 vagas</strong></span>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="invest">
+        <span class="invest-label">Investimento</span>
+        <span class="invest-valor">R$ 153</span>
+        <span class="handle">@holos_cursos</span>
+      </div>
+      <div class="prof-info">
+        <p class="prof-label">Com o professor</p>
+        <p class="prof-nome">Dermeval Bezerra</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

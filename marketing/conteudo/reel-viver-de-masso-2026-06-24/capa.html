@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    background: #2E0842;
+  }
+
+  /* Foto de fundo */
+  .photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Overlay roxo — começa ~52%, sólido ~78% */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(62,14,85,0)    0%,
+      rgba(62,14,85,0)    62%,
+      rgba(62,14,85,0.40) 72%,
+      rgba(62,14,85,0.82) 80%,
+      rgba(62,14,85,0.97) 87%,
+      rgba(62,14,85,1)    92%
+    );
+  }
+
+  /* Logo — círculo branco topo esquerdo */
+  .logo-badge {
+    position: absolute;
+    top: 64px;
+    left: 64px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.28);
+    overflow: hidden;
+  }
+  .logo-badge img {
+    width: 100px;
+    height: auto;
+  }
+
+  /* Conteúdo — ancorado na base */
+  .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 72px 80px;
+  }
+
+  /* Badge pill */
+  .badge-pill {
+    display: inline-block;
+    background: #E6A028;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border-radius: 40px;
+    margin-bottom: 32px;
+  }
+
+  /* Título */
+  .titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 36px;
+  }
+  .titulo .dourado {
+    color: #E6A028;
+  }
+
+  /* Régua dourada */
+  .regua {
+    width: 90px;
+    height: 5px;
+    background: #E6A028;
+    border-radius: 3px;
+    margin-bottom: 32px;
+  }
+
+  /* Rodapé */
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.02em;
+  }
+  .heart {
+    width: 44px;
+    height: 44px;
+    background: rgba(109,76,127,0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <img class="photo" src="foto.png" alt="">
+  <div class="overlay"></div>
+
+  <div class="logo-badge">
+    <img src="logo.png" alt="Holos">
+  </div>
+
+  <div class="content">
+    <div class="badge-pill">Massoterapia</div>
+
+    <h1 class="titulo">
+      Dá mesmo pra<br>
+      viver de<br>
+      <span class="dourado">massoterapia?</span>
+    </h1>
+
+    <div class="regua"></div>
+
+    <div class="footer">
+      <span class="handle">@holos_cursos</span>
+      <div class="heart">♥</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---- HEADER ---- */
+  .slide-header {
+    position: absolute;
+    top: 52px; left: 68px; right: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 10;
+  }
+  .logo-img { height: 50px; width: auto; display: block; }
+  .page-counter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 20px; letter-spacing: 0.1em;
+  }
+
+  /* ---- CAPA ---- */
+  .slide-capa { background: linear-gradient(135deg, #59248F, #8040BF); }
+  .slide-capa .orb-tr {
+    position: absolute; top: -160px; right: -160px;
+    width: 500px; height: 500px; border-radius: 50%;
+    border: 1.5px solid rgba(230,160,40,0.22);
+  }
+  .slide-capa .orb-tr::after {
+    content: ''; position: absolute; inset: 50px;
+    border-radius: 50%; border: 1px solid rgba(230,160,40,0.12);
+  }
+  .slide-capa .orb-bl {
+    position: absolute; bottom: -200px; left: -180px;
+    width: 560px; height: 560px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .slide-capa .page-counter { color: rgba(255,255,255,0.38); }
+
+  .capa-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 0 80px 72px;
+  }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 18px;
+    letter-spacing: 0.28em; color: #E6A028;
+    text-transform: uppercase; margin-bottom: 36px;
+  }
+  .capa-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 100px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF; margin-bottom: 4px;
+  }
+  .capa-cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 148px; line-height: 1.05;
+    color: #E6A028; display: block; margin-bottom: 40px;
+  }
+  .regua { width: 70px; height: 4px; background: #E6A028; border-radius: 2px; margin-bottom: 28px; }
+  .capa-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 30px;
+    color: rgba(255,255,255,0.68); margin-bottom: 30px;
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 25px;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.02em;
+  }
+
+  /* ---- AGENDA CLARO ---- */
+  .slide-claro { background: #EBE2F3; }
+  .slide-claro .page-counter { color: #9B87F5; }
+
+  /* ---- AGENDA ESCURO ---- */
+  .slide-escuro { background: #6D4C7F; }
+  .slide-escuro .page-counter { color: rgba(255,255,255,0.35); }
+
+  /* ---- CONTEÚDO AGENDA ---- */
+  .agenda-content {
+    position: absolute;
+    top: 140px; left: 72px; right: 72px; bottom: 56px;
+  }
+
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 16px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .slide-claro .section-label { color: #8040BF; }
+  .slide-escuro .section-label { color: rgba(255,255,255,0.42); }
+
+  .date-group { margin-bottom: 22px; }
+
+  .date-row {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 10px;
+  }
+  .date-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900; font-size: 38px;
+    letter-spacing: 0.03em; white-space: nowrap;
+  }
+  .slide-claro .date-num { color: #59248F; }
+  .slide-escuro .date-num { color: #E6A028; }
+
+  .date-line { flex: 1; height: 1px; }
+  .slide-claro .date-line { background: rgba(89,36,143,0.18); }
+  .slide-escuro .date-line { background: rgba(230,160,40,0.3); }
+
+  .course-list { padding-left: 0; }
+
+  .course-item {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 38px;
+    line-height: 1.35; padding: 5px 0 5px 18px;
+    border-left: 3px solid #E6A028;
+    margin-bottom: 4px;
+  }
+  .slide-claro .course-item { color: #171717; }
+  .slide-escuro .course-item { color: rgba(255,255,255,0.92); }
+
+  .course-mod { font-style: italic; font-size: 30px; opacity: 0.58; }
+
+  /* ---- CTA ---- */
+  .slide-cta { background: linear-gradient(160deg, #3A0B50 0%, #59248F 50%, #8040BF 100%); }
+  .slide-cta .orb-c {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    border: 1px solid rgba(230,160,40,0.12);
+  }
+  .slide-cta .orb-c2 {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 500px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .slide-cta .page-counter { color: rgba(255,255,255,0.3); }
+
+  .cta-content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px; text-align: center;
+  }
+  .cta-logo { height: 96px; width: auto; margin-bottom: 52px; }
+  .cta-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 80px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF; margin-bottom: 4px;
+  }
+  .cta-cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 104px; line-height: 1.1;
+    color: #E6A028; display: block; margin-bottom: 44px;
+  }
+  .cta-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 30px;
+    color: rgba(255,255,255,0.72); line-height: 1.5; margin-bottom: 52px;
+  }
+  .cta-btn {
+    background: #E6A028; color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 26px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 22px 60px; border-radius: 60px; margin-bottom: 44px;
+  }
+  .cta-handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 26px;
+    color: rgba(255,255,255,0.45); letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 — CAPA ===== -->
+<div class="slide slide-capa">
+  <div class="orb-tr"></div>
+  <div class="orb-bl"></div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">1 / 7</span>
+  </div>
+  <div class="capa-content">
+    <p class="eyebrow">Holos Cursos e Terapias</p>
+    <p class="capa-titulo">Agenda de Cursos —</p>
+    <span class="capa-cursiva">Julho.</span>
+    <div class="regua"></div>
+    <p class="capa-sub">Salve esse carrossel para não perder nenhuma data.</p>
+    <p class="handle">@holos_cursos</p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2 — 03 a 05/07 (claro) ===== -->
+<div class="slide slide-claro">
+  <div class="slide-header">
+    <img class="logo-img" src="logo-claro.png" alt="Holos" style="mix-blend-mode:multiply">
+    <span class="page-counter">2 / 7</span>
+  </div>
+  <div class="agenda-content">
+    <p class="section-label">03 a 05 de julho</p>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">03/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Desportiva 4×1</div>
+        <div class="course-item">Miofascial</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">04/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Pedras Quentes</div>
+        <div class="course-item">Tarô Terapêutico</div>
+        <div class="course-item">Massagem Tântrica</div>
+        <div class="course-item">Massoterapia <span class="course-mod">(fim de semana)</span></div>
+        <div class="course-item">Deep Tissue</div>
+        <div class="course-item">Desportiva pré e pós treino</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">05/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Bandagem Funcional</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3 — 06 a 09/07 (escuro) ===== -->
+<div class="slide slide-escuro">
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">3 / 7</span>
+  </div>
+  <div class="agenda-content">
+    <p class="section-label">06 a 09 de julho</p>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">06/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Atendimento SPA</div>
+        <div class="course-item">Massoterapia 21 dias</div>
+        <div class="course-item">Aromaterapia <span class="course-mod">(híbrida)</span></div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">07/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Desportiva pré-treino</div>
+        <div class="course-item">Massoterapia <span class="course-mod">(ter e qui, manhã)</span></div>
+        <div class="course-item">Relaxante <span class="course-mod">(híbrida)</span></div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">09/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Auriculoterapia <span class="course-mod">(semi presencial)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4 — 11 a 15/07 (claro) ===== -->
+<div class="slide slide-claro">
+  <div class="slide-header">
+    <img class="logo-img" src="logo-claro.png" alt="Holos" style="mix-blend-mode:multiply">
+    <span class="page-counter">4 / 7</span>
+  </div>
+  <div class="agenda-content">
+    <p class="section-label">11 a 15 de julho</p>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">11/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Pedras Quentes</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">13/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Massoterapia <span class="course-mod">(seg, manhã)</span></div>
+        <div class="course-item">Tui-ná</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">14/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Desportiva pós treino</div>
+        <div class="course-item">Reflexologia Podal</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">15/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Aromaterapia</div>
+        <div class="course-item">Tui-ná</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5 — 16 a 21/07 (escuro) ===== -->
+<div class="slide slide-escuro">
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">5 / 7</span>
+  </div>
+  <div class="agenda-content">
+    <p class="section-label">16 a 21 de julho</p>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">16/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Geoterapia <span class="course-mod">(híbrido)</span></div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">18/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Workshop Drenagem e Aromaterapia</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">20/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Reiki I e II</div>
+        <div class="course-item">Bioenergética <span class="course-mod">(híbrido)</span></div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">21/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Bioenergética</div>
+        <div class="course-item">Shiatsu <span class="course-mod">(híbrido)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6 — 23 a 31/07 (claro) ===== -->
+<div class="slide slide-claro">
+  <div class="slide-header">
+    <img class="logo-img" src="logo-claro.png" alt="Holos" style="mix-blend-mode:multiply">
+    <span class="page-counter">6 / 7</span>
+  </div>
+  <div class="agenda-content">
+    <p class="section-label">23 a 31 de julho</p>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">23/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Quiropraxia intensiva</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">24/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Cone Hindu</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">25/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Radiestesia</div>
+        <div class="course-item">Terapias Complementares</div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">27/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Desportiva pré e pós treino <span class="course-mod">(híbrido)</span></div>
+        <div class="course-item">Massoterapia <span class="course-mod">(seg, noite)</span></div>
+      </div>
+    </div>
+
+    <div class="date-group">
+      <div class="date-row"><span class="date-num">31/07</span><div class="date-line"></div></div>
+      <div class="course-list">
+        <div class="course-item">Bambuterapia</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 7 — CTA ===== -->
+<div class="slide slide-cta">
+  <div class="orb-c"></div>
+  <div class="orb-c2"></div>
+  <div class="slide-header">
+    <span></span>
+    <span class="page-counter">7 / 7</span>
+  </div>
+  <div class="cta-content">
+    <img class="cta-logo" src="logo-escuro.png" alt="Holos">
+    <p class="cta-titulo">Garante</p>
+    <span class="cta-cursiva">sua vaga.</span>
+    <p class="cta-sub">Acesse o link na bio e confira todos<br>os cursos com datas e inscrições.</p>
+    <div class="cta-btn">Link na bio</div>
+    <p class="cta-handle">@holos_cursos</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -31,6 +31,10 @@ Textos limpos, acolhedores e sérios. A credibilidade é construída por conteú
 - **Stories:** pode ter datas, urgência e informações de turma
 - **Reels de volume:** desmarcar "publicar no feed"
 
+### Hashtags nas legendas
+- Usar no máximo **5 hashtags** por legenda — as mais virais/relevantes para o nicho
+- Instagram só indexa as primeiras 5 quando coladas em bloco, então menos é mais
+
 ### O que nunca fazer
 - Mencionar Matheus (não faz mais parte da equipe)
 - Atacar CLT ou emprego como "problema"
@@ -41,3 +45,8 @@ Textos limpos, acolhedores e sérios. A credibilidade é construída por conteú
 
 ### Padrão visual — stories com foto de professor
 - Overlay gradiente na base da foto (não faixa de transição separada): gradiente de ~520px de altura, de `rgba(62,14,85,0)` até `rgba(62,14,85,1)` — padrão aprovado em 18/06/2026
+
+### Padrão visual — capa de reel com rosto em destaque
+- `overlay-brand`: `rgba(46,8,66,0.10)` — não 0.22, que escurece demais e some com o rosto
+- Gradiente inferior (`overlay-bottom`): começar transparência em 48% (não 38%) pra não cobrir o rosto
+- Aprovado em 10/07/2026 na capa Aromaterapia (Luciana na lavanda)

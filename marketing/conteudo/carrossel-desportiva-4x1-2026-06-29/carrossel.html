@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---- HEADER ---- */
+  .slide-header {
+    position: absolute;
+    top: 52px; left: 68px; right: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 10;
+  }
+  .logo-img { height: 52px; width: auto; display: block; }
+  .slide-escuro .logo-img,
+  .slide-capa .logo-img {
+    background: rgba(255,255,255,0.92);
+    padding: 7px 13px;
+    border-radius: 10px;
+  }
+  .slide-cta .cta-logo {
+    background: rgba(255,255,255,0.92);
+    padding: 10px 20px;
+    border-radius: 14px;
+  }
+  .page-counter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 20px; letter-spacing: 0.1em;
+  }
+
+  /* ===== SLIDE 1 — CAPA ===== */
+  .slide-capa { background: #2E0842; }
+  .slide-capa .photo {
+    position: absolute;
+    inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+  }
+  .slide-capa .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(46,8,66,0)    0%,
+      rgba(46,8,66,0)    30%,
+      rgba(46,8,66,0.5)  50%,
+      rgba(46,8,66,0.88) 64%,
+      rgba(46,8,66,1)    74%
+    );
+  }
+  .slide-capa .page-counter { color: rgba(255,255,255,0.4); }
+
+  .capa-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 0 76px 68px;
+  }
+  .capa-badge {
+    display: inline-block;
+    background: rgba(230,160,40,0.15);
+    border: 1.5px solid rgba(230,160,40,0.6);
+    color: #E6A028;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 20px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 10px 24px; border-radius: 40px;
+    margin-bottom: 28px;
+  }
+  .capa-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 88px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF; margin-bottom: 4px;
+  }
+  .capa-cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 130px; line-height: 1.05;
+    color: #E6A028; display: block; margin-bottom: 36px;
+  }
+  .regua { width: 72px; height: 4px; background: #E6A028; border-radius: 2px; margin-bottom: 24px; }
+  .capa-datas {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 28px;
+    color: rgba(255,255,255,0.72); margin-bottom: 28px;
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 25px;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.02em;
+  }
+
+  /* ===== SLIDES INTERNOS ===== */
+  .slide-escuro { background: #6D4C7F; }
+  .slide-escuro .page-counter { color: rgba(255,255,255,0.35); }
+  .slide-claro { background: #EBE2F3; }
+  .slide-claro .page-counter { color: #9B87F5; }
+
+  /* Watermark número */
+  .watermark-num {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 480px;
+    line-height: 1; letter-spacing: -0.05em;
+    right: -30px; bottom: -40px;
+    pointer-events: none; user-select: none;
+  }
+  .slide-escuro .watermark-num { color: rgba(255,255,255,0.06); }
+  .slide-claro .watermark-num { color: rgba(89,36,143,0.07); }
+
+  /* Conteúdo interno */
+  .inner-content {
+    position: absolute;
+    top: 148px; left: 76px; right: 76px; bottom: 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .tecnica-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .tecnica-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900; font-size: 18px;
+    letter-spacing: 0.1em; color: #E6A028;
+  }
+  .tecnica-dot { width: 5px; height: 5px; border-radius: 50%; background: #E6A028; }
+  .tecnica-data {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 18px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .slide-escuro .tecnica-data { color: rgba(255,255,255,0.55); }
+  .slide-claro .tecnica-data { color: #8040BF; }
+
+  .tecnica-nome {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 76px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .slide-escuro .tecnica-nome { color: #FFFFFF; }
+  .slide-claro .tecnica-nome { color: #3A0B50; }
+
+  .tecnica-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 30px;
+    margin-bottom: 32px;
+  }
+  .slide-escuro .tecnica-sub { color: #E6A028; }
+  .slide-claro .tecnica-sub { color: #8040BF; }
+
+  .inner-regua { width: 60px; height: 4px; background: #E6A028; border-radius: 2px; margin-bottom: 32px; }
+
+  .tecnica-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 30px;
+    line-height: 1.55;
+  }
+  .slide-escuro .tecnica-desc { color: rgba(255,255,255,0.80); }
+  .slide-claro .tecnica-desc { color: #3A3A3A; }
+
+  /* ===== CTA ===== */
+  .slide-cta { background: linear-gradient(160deg, #3A0B50 0%, #59248F 55%, #8040BF 100%); }
+  .slide-cta .orb {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    border: 1px solid rgba(230,160,40,0.12);
+  }
+  .slide-cta .orb2 {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 500px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .slide-cta .page-counter { color: rgba(255,255,255,0.3); }
+
+  .cta-content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 80px; text-align: center;
+  }
+  .cta-logo { height: 96px; width: auto; margin-bottom: 48px; }
+  .cta-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 76px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF; margin-bottom: 4px;
+  }
+  .cta-cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 100px; line-height: 1.1;
+    color: #E6A028; display: block; margin-bottom: 40px;
+  }
+  .cta-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; font-size: 30px;
+    color: rgba(255,255,255,0.72); line-height: 1.5; margin-bottom: 48px;
+  }
+  .cta-phone {
+    background: #E6A028; color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 34px;
+    letter-spacing: 0.06em;
+    padding: 22px 56px; border-radius: 60px; margin-bottom: 40px;
+  }
+  .cta-handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 26px;
+    color: rgba(255,255,255,0.45); letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 — CAPA ===== -->
+<div class="slide slide-capa">
+  <img class="photo" src="foto-nelson.png" alt="">
+  <div class="overlay"></div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">1 / 6</span>
+  </div>
+  <div class="capa-content">
+    <div class="capa-badge">Prof. Nelson · 4 técnicas</div>
+    <p class="capa-titulo">Massagem</p>
+    <p class="capa-titulo">Desportiva</p>
+    <span class="capa-cursiva">4 em 1.</span>
+    <div class="regua"></div>
+    <p class="capa-datas">03 · 04 · 05 de julho</p>
+    <p class="handle">@holos_cursos</p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2 — Miofascial (escuro) ===== -->
+<div class="slide slide-escuro">
+  <div class="watermark-num">1</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">2 / 6</span>
+  </div>
+  <div class="inner-content">
+    <div class="tecnica-badge">
+      <span class="tecnica-num">TÉCNICA 01</span>
+      <div class="tecnica-dot"></div>
+      <span class="tecnica-data">Sexta · 03/07 · 09h–17h</span>
+    </div>
+    <p class="tecnica-nome">Liberação</p>
+    <p class="tecnica-nome">Miofascial</p>
+    <p class="tecnica-sub">Esporte + recuperação</p>
+    <div class="inner-regua"></div>
+    <p class="tecnica-desc">
+      Cada vez mais praticantes de esporte buscam a Liberação Miofascial para melhorar o rendimento nos treinos e acelerar a recuperação pós-treino. Também muito eficaz no tratamento e alívio de dores no geral.
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3 — Desportiva (claro) ===== -->
+<div class="slide slide-claro">
+  <div class="watermark-num">2</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-claro.png" alt="Holos" style="mix-blend-mode:multiply">
+    <span class="page-counter">3 / 6</span>
+  </div>
+  <div class="inner-content">
+    <div class="tecnica-badge">
+      <span class="tecnica-num">TÉCNICA 02</span>
+      <div class="tecnica-dot"></div>
+      <span class="tecnica-data">Sábado · 04/07 · 09h–12h</span>
+    </div>
+    <p class="tecnica-nome">Desportiva</p>
+    <p class="tecnica-sub">Pré e pós-treino</p>
+    <div class="inner-regua"></div>
+    <p class="tecnica-desc">
+      Técnica de recuperação física que combina diversas manipulações manuais do tecido muscular e conjuntivo. Aplicada em todas as fases do treinamento esportivo.
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4 — Deep Tissue (escuro) ===== -->
+<div class="slide slide-escuro">
+  <div class="watermark-num">3</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-escuro.png" alt="Holos">
+    <span class="page-counter">4 / 6</span>
+  </div>
+  <div class="inner-content">
+    <div class="tecnica-badge">
+      <span class="tecnica-num">TÉCNICA 03</span>
+      <div class="tecnica-dot"></div>
+      <span class="tecnica-data">Sábado · 04/07 · 13h–17h</span>
+    </div>
+    <p class="tecnica-nome">Deep</p>
+    <p class="tecnica-nome">Tissue</p>
+    <p class="tecnica-sub">Profundidade e mobilidade</p>
+    <div class="inner-regua"></div>
+    <p class="tecnica-desc">
+      Realinhamento das fibras musculares mais profundas com toques de deslizamento. Melhora a mobilidade tendínea e muscular, evitando encurtamentos e contraturas musculares.
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5 — Bandagem (claro) ===== -->
+<div class="slide slide-claro">
+  <div class="watermark-num">4</div>
+  <div class="slide-header">
+    <img class="logo-img" src="logo-claro.png" alt="Holos" style="mix-blend-mode:multiply">
+    <span class="page-counter">5 / 6</span>
+  </div>
+  <div class="inner-content">
+    <div class="tecnica-badge">
+      <span class="tecnica-num">TÉCNICA 04</span>
+      <div class="tecnica-dot"></div>
+      <span class="tecnica-data">Domingo · 05/07 · 09h–17h</span>
+    </div>
+    <p class="tecnica-nome">Bandagem</p>
+    <p class="tecnica-sub">Funcional</p>
+    <div class="inner-regua"></div>
+    <p class="tecnica-desc">
+      Previne lesões, facilita movimentos articulares e otimiza a recuperação pós-operatória. Alta eficácia para estabilidade articular, drenagem de edemas e alívio de dores — sem perder amplitude de movimento.
+    </p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6 — CTA ===== -->
+<div class="slide slide-cta">
+  <div class="orb"></div>
+  <div class="orb2"></div>
+  <div class="slide-header">
+    <span></span>
+    <span class="page-counter">6 / 6</span>
+  </div>
+  <div class="cta-content">
+    <img class="cta-logo" src="logo-escuro.png" alt="Holos">
+    <p class="cta-titulo">Garante</p>
+    <span class="cta-cursiva">sua vaga.</span>
+    <p class="cta-sub">Informações e inscrições:</p>
+    <div class="cta-phone">(11) 97699-4647</div>
+    <p class="cta-handle">@holos_cursos</p>
+  </div>
+</div>
+
+</body>
+</html>

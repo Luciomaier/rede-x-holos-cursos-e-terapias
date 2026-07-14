@@ -1,15 +1,16 @@
-# Holos Cursos e Terapias — MazyOS
+# Holos Cursos e Terapias
 
 Operação central da Holos. Cada setor tem sua área, com processos, entregas e documentos. O sistema conhece quem a empresa é, como fala e onde está o atrito — e usa isso antes de qualquer resposta.
 
 **Estrutura de pastas:**
-- `_memoria/` — quem é a empresa, como falamos, foco atual
+- `_memoria/` — quem é a empresa, como falamos, foco atual; inclui `rotinas.md` (rotinas recorrentes) e `afazeres.md` (tarefas do mês)
 - `identidade/` — marca aplicada em tudo que o sistema gera
 - `marketing/` — campanhas, conteúdo, mídia paga
 - `saidas/` — documentos e entregas pontuais
 - `dados/` — arquivos a analisar
 - `scripts/` — automações e templates de código
 - `templates/` — moldes reutilizáveis
+- `holos-universit/` — código do site da Holos (React/Vite, criado no Lovable). Elis edita com Claude → GitHub (branch `Lovable-(elis)`) → PR pra `main` → deploy automático na Vercel. Usar `/site` pra atualizar o site e `/deploy` pra enviar alterações
 
 ## Sobre a empresa
 
@@ -63,6 +64,7 @@ No início de toda conversa, ler os seguintes arquivos (quando existirem e estiv
 1. `_memoria/empresa.md` — quem é a Holos, o que faz, como funciona
 2. `_memoria/preferencias.md` — tom de voz, estilo de escrita, o que evitar
 3. `_memoria/estrategia.md` — foco atual, prioridades, prazos
+4. `_memoria/afazeres.md` — tarefas abertas e entregues do mês atual
 
 Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 

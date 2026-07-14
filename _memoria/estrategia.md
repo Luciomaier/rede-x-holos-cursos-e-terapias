@@ -17,7 +17,7 @@ Automatizar criação de conteúdo e análise de dados — são as duas tarefas 
 Todos os eixos ao mesmo tempo:
 - **Captação:** dificuldade em atrair e converter novos alunos e clientes
 - **Operação:** processos manuais, fluxo interno ainda não otimizado
-- **Conteúdo:** calendário editorial Instagram estruturado e em execução (Seg/Qua/Sex feed + reels diários + stories diários) — gargalo em redução, foco agora em manter consistência e escalar para outros canais
+- **Conteúdo:** calendário editorial Instagram estruturado e em execução (Ter/Qui/Sáb feed — Elis | Seg/Qua/Sex reels — Luciana | stories diários) — gargalo em redução, foco agora em manter consistência e escalar para outros canais
 - **Retenção:** alunos entram mas não ficam ou não recorrrem
 
 ## O que pode esperar
@@ -26,25 +26,74 @@ Projetos de longo prazo que não impactam diretamente os gargalos acima.
 
 ## Contexto com prazo
 
-**Calendário editorial Instagram (junho/2026)**
-- Feed: Seg / Qua / Sex (3x por semana, evergreen)
-- Reels de algoritmo: diários, sem publicar no feed
+**Calendário editorial Instagram (julho/2026)**
+- Feed: Ter / Qui / Sáb (3x por semana, evergreen — Elis)
+- Reels: Seg / Qua / Sex (Luciana)
 - Stories: diários
 
+**Projeto — painel de leads (comercial)**
+- Reunião comercial 07/07: proposta de painel de leads (etiquetas quente/morno/frio + aviso de retorno) dentro da plataforma da Holos — ataca captação e operação de uma vez
+- Dados-base: ~600 leads/mês só da Formação presencial → ~27 matrículas (4,5%); benchmark saudável do setor: 8–12%. Cada +1 p.p. ≈ R$ 27 mil/mês
+- Primeiro passo: Nick monta a lista de quentes com aviso de retorno — aguardando decisão da reunião
+
+**Evento com prazo — julho/2026**
+- Aulão Shiatsu na visão da MTC — Sáb 18/07, 09h–17h, Prof. Bezerra, 20 vagas, R$153 — banner pronto
+
 **Entregues recentemente**
-- Carrossel Massoterapia EAD (13/06) — `marketing/conteudo/carrossel-masso-ead-2026-06-13/`
-- Capa de Reel "Como é estudar aqui?" — Luciana (16/06) — `marketing/conteudo/reel-conheca-escola/`
-- Capa de Reel estágio (04/06) — `marketing/conteudo/reel-estagio-2026-06-04/`
-- Story Massagem Desportiva 4×1 — Prof. Nelson (divulgação 20/06) — `marketing/conteudo/stories-junho-nelson/`
+- Página Desportiva 4×1 do site (13/07) — datas internas corrigidas pra turma de 12, 13 e 14/09 (cards de técnicas, detalhes e SEO) — commit na `Lovable-(elis)`, aguardando PR → `main`
+- Capa/peça Pedras Quentes (09/07) — `marketing/conteudo/feed-pedras-quentes-2026-07-09/`
+- Site da Holos atualizado (10/07) — cronograma: cursos jul→set/2026, Auriculoterapia semi 23/07 (destaque laranja), Desportiva 4x1 datas set/2026, Tarô turma 1 removida — PR #144 mesclado na `main` (deploy feito)
+- Capa Reel Aromaterapia — Luciana na lavanda (10/07) — `marketing/conteudo/feed-aromaterapia-2026-07-10/`
+- Capa Reel depoimento Jéssica (08/07) — reel do dia, depoimento comum (não é o que será fixado) — `marketing/conteudo/reel-depoimento-jessica-2026-07-08/`
+- Capa Reel "Aula Real Tui-ná" — Prof. Nelson (07/07) — `marketing/conteudo/reel-tuina-nelson-2026-07-07/`
+- Carrossel Reflexologia — série técnicas da formação (07/07) — `marketing/conteudo/feed-reflexologia-2026-07-07/`
+- Carrossel Aromaterapia — série técnicas da formação (02/07, postagem 04/07) — `marketing/conteudo/feed-aromaterapia-2026-07-04/`
+- Carrossel Massagem Relaxante — série técnicas da formação (02/07) — `marketing/conteudo/feed-relaxante-2026-07-02/`
+- Banner Aulão Shiatsu na visão da MTC — Prof. Bezerra (02/07) — `marketing/conteudo/feed-shiatsu-mtc-2026-07-02/`
+- Capa Reel "+10 técnicas numa grade só" — Formação Massoterapia (01/07) — `marketing/conteudo/reel-formacao-2026-07-01/`
+- Capa Reel depoimento Tui-ná — Prof.ª Ariadne (29/06) — `marketing/conteudo/reel-depoimento-tuina-2026-06-29/`
+- Carrossel Quiropraxia 32h — Prof.ª Renata Conti (29/06) — `marketing/conteudo/carrossel-quiropraxia-2026-06-29/`
+- Carrossel Massagem Desportiva 4×1 — Prof. Nelson (29/06) — `marketing/conteudo/carrossel-desportiva-4x1-2026-06-29/`
+- Capa de Reel "Qual é a sua prioridade?" — Luciana (26/06) — `marketing/conteudo/reel-prioridade-2026-06-26/`
+- Capa de Reel "Dá mesmo pra viver de massoterapia?" — Luciana (24/06) — `marketing/conteudo/reel-viver-de-masso-2026-06-24/`
+- Carrossel agenda julho (24/06) — `marketing/conteudo/carrossel-agenda-julho-2026-06-24/`
+- Feed banner "Cronograma personalizado" (23/06) — `marketing/conteudo/feed-cronograma-2026-06-23/`
+- Reel "salto" — Luciana (22/06) — `marketing/conteudo/reel-salto-2026-06-22/`
+- Reel "nova profissão" — Luciana (19/06) — `marketing/conteudo/reel-nova-profissao-2026-06-19/`
+- Feed post turma (18/06) — `marketing/conteudo/feed-turma-2026-06-18/`
 - Capa de Reel "Esse dom nas suas mãos não é por acaso" — Luciana (17/06) — `marketing/conteudo/reel-transforme-vidas-2026-06-17/`
+- Capa de Reel "Como é estudar aqui?" — Luciana (16/06) — `marketing/conteudo/reel-conheca-escola/`
+- Carrossel Massoterapia EAD (13/06) — `marketing/conteudo/carrossel-masso-ead-2026-06-13/`
+- Capa de Reel estágio (04/06) — `marketing/conteudo/reel-estagio-2026-06-04/`
+- Story Massagem Desportiva 4×1 — Prof. Nelson (20/06) — `marketing/conteudo/stories-junho-nelson/`
 - Workflow de render operacional: servidor Python (`python -m http.server 7823`) + Python Playwright
+
+**Explorar com Claude**
+- Levantamento de turmas Massoterapia (com Mayara) → Elis traz os dados, Claude processa e entrega formatado
+- ~~Automação planilha de estágio~~ ✅ Resolvido: Elis exporta CSV do Holos Conect, Claude cola no Google Sheets via Playwright. Regra: entradas manuais prevalecem; canceladas não entram.
+
+**Gestão do Lúcio — repo `Luciomaier/rede-x-holos-cursos-e-terapias` (mapeado 14/07)**
+- Lúcio gerencia marketing/governança da Holos em repo próprio (mesma base MazyOS). Acompanhar com a skill `/radar-lucio`
+- Sistema de **gestão dezenal**: fecha relatório pra Luciana a cada 10 dias (D1/D2/D3) — números oficiais de matrícula/lead vêm de lá (`marketing/painel.md` no repo dele)
+- **Régua de "lead masso"** (13/07): só conta lead rastreável por origem (GC-* Google, IS-*/FB-* Meta, OR-massoterapia orgânico) — não usar leads brutos do ZenPro em relatórios
+- Julho D1: 11 matrículas / R$ 28.432 / ROAS Google 2,26× (era 0,95×) — mas mensalistas caíram 7→3 e Google quase sem saldo
+- Diretriz da holding (05/07): Holos em **modo defensivo** ("proteger, não crescer"); exceção é o EaD (Nick + Elis). Prioridades: formalizar contratos verbais, reverter queda de masso, ativar base de ~10 mil ex-alunos
+- Marca é "**o** Rede" (masculino, decisão 07/07)
+- Brief novo de esteira de e-mail no Brevo (`esteira-email-conversao-2026-07.md` no repo dele) — pode virar demanda de conteúdo
+- Meu trabalho é publicado no branch `elis` do repo dele pra acompanhamento em tempo real (via `/salvar`)
+
+**Planilhas de referência**
+- Meta de vendas julho: `https://docs.google.com/spreadsheets/d/1MYA0OhQSBjKDr3hsL-aDK0Vv-_dxCp-0T353E2UIpuU/edit?gid=1457112817` (aba jul26)
+- Estágio: `https://docs.google.com/spreadsheets/d/1fe7pKl4K59LjXHPZUp2bacW3e1Z2GjMbrtgUZcufXeY` (aba JUL26)
+- Desempenho Instagram julho: `marketing/desempenho-instagram-julho-2026.csv`
 
 **Aguardando**
 - Depoimento de ex-aluna em edição → quando pronto: postar e fixar os 3 fixados (1º Depoimento → 2º Carrossel Formação → 3º Reel da Luciana)
 - Ao fixar: trocar legenda do carrossel pela versão "fixado" (mais forte)
-- Roteiros dos Reels 3, 4 e 5 estão prontos — aguardando gravação
+- Roteiros prontos aguardando gravação: tour da escola (28/06) + estágio de acupuntura (28/06) + 5 roteiros Tipo 1 série "técnicas da formação" julho (06, 13, 20, 27/07 + 31/07) — reel de 01/07 já postado
+- Planilha de desempenho Instagram julho criada — `marketing/desempenho-instagram-julho-2026.csv`
 
-**Pendências técnicas**
+**Pendências técnicas** *(lista viva em `_memoria/afazeres.md` — abaixo só o resumo)*
 - Nick: corrigir placeholder `SEU_PIXEL_ID_AQUI` no código da página de links
 - Remover CEP 04018-050 do perfil do Instagram (Editar perfil → Informações de contato)
 - Elis: arquivar posts antigos do feed após fixados no ar (decisão post a post)

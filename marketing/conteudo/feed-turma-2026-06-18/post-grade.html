@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Poppins:wght@800;900&family=Parisienne&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 1080px; height: 1350px; overflow: hidden; background: #3E0E55; }
+
+    .slide {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-foto {
+      position: absolute;
+      top: 0; left: 0;
+      width: 1080px;
+      height: 1350px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(62,14,85,0.00)  0%,
+        rgba(62,14,85,0.00) 20%,
+        rgba(62,14,85,0.55) 40%,
+        rgba(62,14,85,0.93) 54%,
+        rgba(62,14,85,1.00) 62%,
+        rgba(62,14,85,1.00) 100%
+      );
+    }
+
+    .logo-circulo {
+      position: absolute;
+      top: 38px;
+      left: 40px;
+      width: 108px;
+      height: 108px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-circulo img {
+      width: 76px;
+      height: auto;
+    }
+
+    .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 56px 44px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      background: #E6A028;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+
+    .headline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+    }
+
+    .headline .gold { color: #E6A028; }
+
+    .regua {
+      width: 64px;
+      height: 4px;
+      background: #E6A028;
+      border-radius: 2px;
+      margin: 18px 0 16px;
+    }
+
+    /* Grid de técnicas — 2 colunas */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      row-gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .item {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      min-width: 5px;
+      border-radius: 50%;
+      background: #E6A028;
+      margin-top: 1px;
+    }
+
+    /* Estágio — linha inteira com destaque dourado */
+    .estagio {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #E6A028;
+      margin: 6px 0 14px;
+    }
+
+    .estagio::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      min-width: 5px;
+      border-radius: 50%;
+      background: #E6A028;
+    }
+
+    .divisor {
+      height: 1px;
+      background: rgba(230,160,40,0.30);
+      margin-bottom: 12px;
+    }
+
+    .bonus-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #E6A028;
+      margin-bottom: 7px;
+    }
+
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      row-gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .bonus-item {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #9B87F5;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bonus-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      min-width: 4px;
+      border-radius: 50%;
+      background: #9B87F5;
+      margin-top: 1px;
+    }
+
+    .rodape {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .rodape-regua {
+      width: 44px;
+      height: 3px;
+      background: #E6A028;
+      border-radius: 2px;
+    }
+
+    .handle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 17px;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <img class="bg-foto" src="foto-1080.jpeg" alt="">
+  <div class="overlay"></div>
+
+  <div class="logo-circulo">
+    <img src="/identidade/logo/logo-original.png" alt="Holos"
+         onerror="this.src='/identidade/logo/logo-sem-fundo.png'">
+  </div>
+
+  <div class="content">
+    <div class="badge">Formação Presencial</div>
+
+    <div class="headline">O que você vai</div>
+    <div class="headline"><span class="gold">aprender aqui:</span></div>
+
+    <div class="regua"></div>
+
+    <div class="grid">
+      <div class="item">Aromaterapia</div>
+      <div class="item">Massagem Relaxante</div>
+      <div class="item">Auriculoterapia</div>
+      <div class="item">Massagem Tui-na</div>
+      <div class="item">Desportiva Pré e Pós-Treino</div>
+      <div class="item">Pedras Quentes</div>
+      <div class="item">Ética</div>
+      <div class="item">Quiroterapia</div>
+      <div class="item">Geoterapia</div>
+      <div class="item">Reflexologia</div>
+      <div class="item">Massagem Bioenergética</div>
+      <div class="item">Shiatsu</div>
+      <div class="item">Técnica de Atendimento</div>
+    </div>
+
+    <div class="estagio">Estágio Supervisionado</div>
+
+    <div class="divisor"></div>
+
+    <div class="bonus-label">+ Bônus Online</div>
+
+    <div class="bonus-grid">
+      <div class="bonus-item">Anatomia</div>
+      <div class="bonus-item">5 Elementos</div>
+      <div class="bonus-item">Fisiologia</div>
+      <div class="bonus-item">Reequilíbrio dos Chakras</div>
+      <div class="bonus-item">Patologia</div>
+    </div>
+
+    <div class="rodape">
+      <div class="rodape-regua"></div>
+      <div class="handle">@holos_cursos</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

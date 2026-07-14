@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #1A0A2E;
+  }
+
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .overlay-brand {
+    position: absolute;
+    inset: 0;
+    background: rgba(46, 8, 66, 0.10);
+  }
+
+  .overlay-top {
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 320px;
+    background: linear-gradient(to bottom, rgba(26,10,46,0.65) 0%, rgba(26,10,46,0) 100%);
+  }
+
+  .overlay-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 10, 46, 0) 0%,
+      rgba(26, 10, 46, 0) 48%,
+      rgba(26, 10, 46, 0.20) 60%,
+      rgba(26, 10, 46, 0.68) 72%,
+      rgba(26, 10, 46, 0.92) 82%,
+      rgba(26, 10, 46, 1) 90%,
+      rgba(26, 10, 46, 1) 100%
+    );
+  }
+
+  .header {
+    position: absolute;
+    top: 64px; left: 72px; right: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 10;
+  }
+
+  .logo {
+    height: 52px;
+    width: auto;
+  }
+
+  .badge {
+    background: rgba(230, 160, 40, 0.16);
+    border: 1.5px solid rgba(230, 160, 40, 0.65);
+    color: #E6A028;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 20px;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    padding: 11px 26px; border-radius: 40px;
+  }
+
+  .content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0 76px 112px;
+    z-index: 10;
+  }
+
+  .titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 108px;
+    font-weight: 900;
+    color: #F97316;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+
+  .subtitulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-top: 24px;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+  }
+
+  .destaque {
+    font-family: 'Parisienne', cursive;
+    font-size: 100px;
+    color: #F97316;
+    margin-top: 8px;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <img class="bg-photo" src="foto.jpg" alt="">
+  <div class="overlay-brand"></div>
+  <div class="overlay-top"></div>
+  <div class="overlay-bottom"></div>
+
+  <div class="header">
+    <img class="logo" src="logo.png" alt="Holos">
+    <div class="badge">Aromaterapia</div>
+  </div>
+
+  <div class="content">
+    <div class="titulo">Aromaterapia</div>
+    <div class="subtitulo">O diferencial que seu cliente</div>
+    <div class="destaque">sente</div>
+  </div>
+</div>
+</body>
+</html>

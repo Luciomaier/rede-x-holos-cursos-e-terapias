@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #1A0A2E;
+  }
+
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Toque roxo suave pra unir a foto à identidade da marca */
+  .overlay-brand {
+    position: absolute;
+    inset: 0;
+    background: rgba(46, 8, 66, 0.22);
+  }
+
+  /* Vinheta no topo */
+  .overlay-top {
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 320px;
+    background: linear-gradient(to bottom, rgba(26,10,46,0.65) 0%, rgba(26,10,46,0) 100%);
+  }
+
+  /* Gradiente escuro na base pra legibilidade */
+  .overlay-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 10, 46, 0) 0%,
+      rgba(26, 10, 46, 0) 38%,
+      rgba(26, 10, 46, 0.20) 52%,
+      rgba(26, 10, 46, 0.68) 66%,
+      rgba(26, 10, 46, 0.92) 78%,
+      rgba(26, 10, 46, 1) 88%,
+      rgba(26, 10, 46, 1) 100%
+    );
+  }
+
+  /* Header */
+  .header {
+    position: absolute;
+    top: 64px; left: 72px; right: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 10;
+  }
+
+  .badge {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(230, 160, 40, 0.16);
+    border: 1.5px solid rgba(230, 160, 40, 0.65);
+    color: #E6A028;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 20px;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    padding: 11px 26px; border-radius: 40px;
+  }
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #E6A028; flex-shrink: 0;
+  }
+
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 26px;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Content block — fundo */
+  .content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0 76px 96px;
+    z-index: 10;
+  }
+
+  .eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 22px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: #E6A028;
+    margin-bottom: 22px;
+  }
+
+  .headline {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 88px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 44px;
+  }
+
+  .headline em {
+    font-style: italic;
+    color: #E6A028;
+  }
+
+  .regua {
+    width: 72px; height: 4px;
+    background: #E6A028; border-radius: 2px;
+    margin-bottom: 36px;
+  }
+
+  .mencao {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 28px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 32px;
+    letter-spacing: 0.01em;
+  }
+
+  .cta {
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 30px;
+    color: rgba(255, 255, 255, 0.70);
+  }
+
+  .play-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    border: 2px solid rgba(255,255,255,0.45);
+    border-radius: 50%;
+    font-size: 15px;
+    padding-left: 3px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <img class="bg-photo" src="foto3.png" alt="Jessica">
+  <div class="overlay-brand"></div>
+  <div class="overlay-top"></div>
+  <div class="overlay-bottom"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge"><span class="dot"></span>Depoimento Real</div>
+    <span class="handle">@holos_cursos</span>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <span class="eyebrow">Formação em Massoterapia</span>
+    <p class="headline">Hoje eu tenho uma clínica que é <em>só minha.</em></p>
+    <p class="mencao">@jessica.quiropraxia</p>
+    <div class="regua"></div>
+    <div class="cta"><span class="play-btn">▶</span>Assista o depoimento</div>
+  </div>
+</div>
+</body>
+</html>

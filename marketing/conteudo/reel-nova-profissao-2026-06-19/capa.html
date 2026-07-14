@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@500;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 1080px; height: 1920px; overflow: hidden; background: #3E0E55; }
+
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-foto {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1080px;
+      height: 1920px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(62, 14, 85, 0.00)  0%,
+        rgba(62, 14, 85, 0.00) 36%,
+        rgba(62, 14, 85, 0.45) 52%,
+        rgba(62, 14, 85, 0.86) 63%,
+        rgba(62, 14, 85, 1.00) 71%,
+        rgba(62, 14, 85, 1.00) 100%
+      );
+    }
+
+    .logo-circulo {
+      position: absolute;
+      top: 38px;
+      left: 40px;
+      width: 140px;
+      height: 140px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-circulo img {
+      width: 96px;
+      height: auto;
+    }
+
+    .badge {
+      position: absolute;
+      top: 1090px;
+      left: 56px;
+      background: #E6A028;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      padding: 12px 34px;
+      border-radius: 8px;
+    }
+
+    .texto-bloco {
+      position: absolute;
+      bottom: 100px;
+      left: 56px;
+      right: 56px;
+    }
+
+    .titulo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 74px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+
+    .destaque {
+      color: #E6A028;
+    }
+
+    .regua {
+      width: 72px;
+      height: 5px;
+      background: #E6A028;
+      border-radius: 3px;
+      margin: 28px 0 40px;
+    }
+
+    .rodape {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .handle {
+      font-family: 'Inter', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+
+    .coracao {
+      font-size: 36px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+  <img class="bg-foto" src="foto-1080.jpg" alt="">
+  <div class="overlay"></div>
+
+  <div class="logo-circulo">
+    <img src="/identidade/logo/logo-original.png" alt="Holos"
+         onerror="this.src='/identidade/logo/logo-sem-fundo.png'">
+  </div>
+
+  <div class="badge">NOVA PROFISSÃO</div>
+
+  <div class="texto-bloco">
+    <div class="titulo">
+      A sua nova<br>
+      profissão pode<br>
+      estar mais perto<br>
+      do que você<br>
+      <span class="destaque">imagina!</span>
+    </div>
+    <div class="regua"></div>
+    <div class="rodape">
+      <span class="handle">@holos_cursos</span>
+      <span class="coracao">💜</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    background: #2E0842;
+  }
+
+  /* Foto aluna — fundo */
+  .foto-aluna {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Overlay roxo */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(46,8,66,0)    0%,
+      rgba(46,8,66,0)    44%,
+      rgba(46,8,66,0.30) 54%,
+      rgba(46,8,66,0.72) 64%,
+      rgba(46,8,66,0.93) 72%,
+      rgba(46,8,66,1)    78%
+    );
+  }
+
+  /* Logo badge */
+  .logo-badge {
+    position: absolute;
+    top: 64px; left: 64px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.28);
+    overflow: hidden;
+  }
+  .logo-badge img { width: 100px; height: auto; }
+
+  /* Badge pill */
+  .badge-pill {
+    display: inline-block;
+    background: #E6A028;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 24px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 10px 28px;
+    border-radius: 40px;
+    margin-bottom: 28px;
+  }
+
+  /* Conteúdo inferior */
+  .content {
+    position: absolute;
+    top: 920px; left: 0; right: 0; bottom: 0;
+    padding: 0 72px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Prof. Ariadne — foto circular + nome */
+  .prof-row {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 36px;
+  }
+  .prof-circle {
+    width: 190px; height: 190px;
+    border-radius: 50%;
+    border: 5px solid #E6A028;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .prof-circle img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .prof-info {}
+  .prof-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 20px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #E6A028; margin-bottom: 6px;
+  }
+  .prof-nome {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 44px;
+    line-height: 1.0; letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+
+  /* Título */
+  .titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900; font-size: 76px;
+    line-height: 1.0; letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+  .titulo .dourado { color: #E6A028; }
+
+  /* Cursiva */
+  .cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 88px; line-height: 1.1;
+    color: #E6A028; display: block;
+    margin-bottom: 40px;
+  }
+
+  /* Régua */
+  .regua {
+    width: 80px; height: 5px;
+    background: #E6A028; border-radius: 3px;
+    margin-bottom: 36px;
+  }
+
+  /* Handle */
+  .footer {
+    display: flex; align-items: center;
+    justify-content: space-between;
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; font-size: 30px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.02em;
+  }
+  .heart {
+    width: 44px; height: 44px;
+    background: rgba(109,76,127,0.7);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <img class="foto-aluna" src="aluna.png" alt="">
+  <div class="overlay"></div>
+
+  <div class="logo-badge">
+    <img src="logo.png" alt="Holos">
+  </div>
+
+  <!-- Conteúdo inferior -->
+  <div class="content">
+    <div>
+      <!-- Badge pill -->
+      <div class="badge-pill">Vocês que falam</div>
+
+      <!-- Prof. Ariadne -->
+      <div class="prof-row">
+        <div class="prof-circle">
+          <img src="prof-ariadne.png" alt="Prof. Ariadne">
+        </div>
+        <div class="prof-info">
+          <p class="prof-label">Com a professora</p>
+          <p class="prof-nome">Ariadne</p>
+        </div>
+      </div>
+
+      <!-- Título -->
+      <h1 class="titulo">Depoimento real</h1>
+      <h1 class="titulo">sobre massagem</h1>
+      <span class="cursiva">Tui-ná.</span>
+      <div class="regua"></div>
+    </div>
+
+    <div class="footer">
+      <span class="handle">@holos_cursos</span>
+      <div class="heart">♥</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -38,8 +38,10 @@ Detectar com `git rev-parse --is-inside-work-tree`. Se falhar:
 
 4. `git add .` → `git commit -m "<mensagem>"` → `git push`.
 
-5. Confirmar com link do repositório (extrair de `git remote get-url origin`):
-   > "Sincronizado. Ver no GitHub: <URL>"
+5. **Espelhar pro Lúcio** (acompanhamento em tempo real): `git push lucio main:elis`. Isso publica o trabalho da Elis no branch `elis` de `https://github.com/Luciomaier/rede-x-holos-cursos-e-terapias` — nunca no `main` dele. Se o remote `lucio` não existir, criar com `git remote add lucio https://github.com/Luciomaier/rede-x-holos-cursos-e-terapias.git`. Se esse push falhar por permissão, avisar que o Lúcio precisa adicionar a conta como colaboradora do repo e seguir normalmente.
+
+6. Confirmar com link do repositório (extrair de `git remote get-url origin`):
+   > "Sincronizado. Ver no GitHub: <URL> (e espelhado no branch elis do repo do Lúcio)"
 
 ## Regras
 

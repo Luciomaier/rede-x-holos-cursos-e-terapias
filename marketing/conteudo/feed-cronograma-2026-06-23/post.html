@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #3A0B50;
+  }
+
+  /* Fundo gradiente em camadas */
+  .bg-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 110% 0%, #7B3FA0 0%, transparent 55%),
+      radial-gradient(ellipse 90% 70% at -10% 100%, #5C1E7A 0%, transparent 60%),
+      linear-gradient(160deg, #3A0B50 0%, #4A1468 50%, #2E0842 100%);
+  }
+
+  /* Ornamento circular — canto superior direito */
+  .orb-top {
+    position: absolute;
+    top: -160px;
+    right: -160px;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    border: 2px solid rgba(230,160,40,0.18);
+    box-shadow: inset 0 0 0 40px rgba(230,160,40,0.06);
+  }
+  .orb-top::after {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(230,160,40,0.12);
+  }
+
+  /* Ornamento circular — canto inferior esquerdo */
+  .orb-bottom {
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.06);
+  }
+
+  /* Linha diagonal decorativa */
+  .line-deco {
+    position: absolute;
+    top: 0;
+    right: 180px;
+    width: 1.5px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(230,160,40,0.15) 20%,
+      rgba(230,160,40,0.08) 60%,
+      transparent 100%
+    );
+    transform: rotate(8deg);
+    transform-origin: top center;
+  }
+
+  /* Logo — topo esquerda */
+  .logo-wrap {
+    position: absolute;
+    top: 64px;
+    left: 72px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.35);
+    overflow: hidden;
+  }
+  .logo-wrap img {
+    width: 74px;
+    height: auto;
+  }
+
+  /* Badge topo direita */
+  .badge {
+    position: absolute;
+    top: 72px;
+    right: 72px;
+    background: rgba(230,160,40,0.12);
+    border: 1.5px solid rgba(230,160,40,0.5);
+    border-radius: 40px;
+    padding: 10px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: #E6A028;
+    text-transform: uppercase;
+  }
+
+  /* Área principal de texto — centralizada verticalmente */
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-52%);
+    padding: 0 80px;
+  }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.28em;
+    color: #E6A028;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  /* Aspas decorativas */
+  .aspas {
+    font-family: 'Poppins', sans-serif;
+    font-size: 160px;
+    line-height: 0.5;
+    color: rgba(230,160,40,0.18);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  /* Citação — o problema do aluno */
+  .quote {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.72);
+    font-style: italic;
+    margin-bottom: 52px;
+    padding-left: 4px;
+  }
+
+  /* Régua dourada */
+  .regua {
+    width: 70px;
+    height: 4px;
+    background: #E6A028;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+
+  /* Headline principal */
+  .headline {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+  }
+  .headline .dourado {
+    color: #E6A028;
+  }
+
+  /* Palavra cursiva */
+  .cursiva {
+    font-family: 'Parisienne', cursive;
+    font-size: 116px;
+    line-height: 1.1;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 44px;
+  }
+
+  /* Subtexto */
+  .subtext {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.80);
+    max-width: 860px;
+  }
+  .subtext strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  /* Rodapé */
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 80px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+  .cta {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: #E6A028;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cta-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #E6A028;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div class="bg-gradient"></div>
+  <div class="orb-top"></div>
+  <div class="orb-bottom"></div>
+  <div class="line-deco"></div>
+
+  <!-- Logo -->
+  <div class="logo-wrap">
+    <img src="../../../identidade/logo/logo-original.png" alt="Holos" />
+  </div>
+
+  <!-- Badge -->
+  <div class="badge">Para você</div>
+
+  <!-- Conteúdo central -->
+  <div class="content">
+    <p class="eyebrow">Cronograma personalizado</p>
+
+    <span class="aspas">"</span>
+    <p class="quote">
+      Meu tempo é curto, tenho escala<br>
+      alternada e não consigo seguir<br>
+      uma turma normal...
+    </p>
+
+    <div class="regua"></div>
+
+    <p class="headline">A Holos tem a</p>
+    <span class="cursiva">solução.</span>
+
+    <p class="subtext">
+      Você monta os dias que funcionam pra você<br>
+      e ainda estuda com <strong>conteúdo online</strong> junto.
+    </p>
+  </div>
+
+  <!-- Rodapé -->
+  <div class="footer">
+    <span class="handle">@holos_cursos</span>
+    <div class="cta">
+      Saiba mais
+      <div class="cta-arrow">→</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
