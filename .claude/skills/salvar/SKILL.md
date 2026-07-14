@@ -36,12 +36,14 @@ Detectar com `git rev-parse --is-inside-work-tree`. Se falhar:
 
 3. Se o usuário fornecer mensagem, usar. Se não, gerar uma mensagem baseada nos arquivos alterados (1 linha, formato: "Atualiza X" ou "Adiciona Y" ou "Cria proposta pra cliente Z").
 
-4. `git add .` → `git commit -m "<mensagem>"` → `git push`.
+4. `git add .` → `git commit -m "<mensagem>"` → `git push lucio main:elis`.
 
-5. **Espelhar pro Lúcio** (acompanhamento em tempo real): `git push lucio main:elis`. Isso publica o trabalho da Elis no branch `elis` de `https://github.com/Luciomaier/rede-x-holos-cursos-e-terapias` — nunca no `main` dele. Se o remote `lucio` não existir, criar com `git remote add lucio https://github.com/Luciomaier/rede-x-holos-cursos-e-terapias.git`. Se esse push falhar por permissão, avisar que o Lúcio precisa adicionar a conta como colaboradora do repo e seguir normalmente.
+   **Destino do push:** o trabalho da Elis vai pro branch `elis` de `https://github.com/Luciomaier/rede-x-holos-cursos-e-terapias` (remote `lucio`) — é assim que o Lúcio acompanha as execuções dela em tempo real. Nunca pushar no `main` dele. Se o remote `lucio` não existir, criar com `git remote add lucio https://github.com/Luciomaier/rede-x-holos-cursos-e-terapias.git`.
 
-6. Confirmar com link do repositório (extrair de `git remote get-url origin`):
-   > "Sincronizado. Ver no GitHub: <URL> (e espelhado no branch elis do repo do Lúcio)"
+   > ⚠️ O remote `origin` (`mazzeoia/MazyOS`) é o template original do MazyOS — **somente leitura**, o push retorna 403. Não tentar pushar nele.
+
+5. Confirmar:
+   > "Sincronizado. Ver no GitHub: https://github.com/Luciomaier/rede-x-holos-cursos-e-terapias/tree/elis"
 
 ## Regras
 
