@@ -116,6 +116,21 @@ sempre esteve certa. **Junho fez 32 matrículas, não 27** — faturamento e ROA
 
 Detalhe: [campanhas/google-ads.md](campanhas/google-ads.md) · [campanhas/meta-ads.md](campanhas/meta-ads.md)
 
+## 🗂️ Próximo trabalho — reorganização (decidido 13/07, plano a montar)
+
+O Lucio vai segurar esses temas na reunião de 13/07 e organizar depois. **Ordem importa** — mexer fora
+de ordem reseta o aprendizado da campanha duas vezes e cega a atribuição.
+
+| # | Frente | O que já sabemos | Cuidado |
+|---|--------|------------------|---------|
+| 0 | 🚨 **Recarga do Google** | Saldo R$ 890,83 · gasto conta ~R$ 930/dia → **<1 dia no ar** | **Não espera plano nenhum.** Falar com a Sônia |
+| 1 | **Unificar as 2 páginas** | Hoje há 2 (uma delas tem o `CONTATO NEW SITE`; a outra é a `massoterapia-lp` React = `Lead - Masso Presencial LP B`). Detalhe a confirmar com o Lucio | 🔴 **A página nova TEM que nascer carimbando o `#ref` no WhatsApp.** Sem isso a atribuição vai a zero e perdemos o ROAS por canal, a regra dos 90d e a prova do 2,26× — justo quando a Lu passou a confiar no número |
+| 2 | **Corrigir a conversão do Google** | A campanha soma **2 ações** em "Conversões": `CONTATO NEW SITE` (28) + `Lead - Masso Presencial LP B` (150) = **178**. O ZenPro vê **84** leads `GC-*` reais. O lance otimiza no sinal inflado (acha lead a R$ 43; o real é ~R$ 91) | ⏳ **Fazer JUNTO com a unificação, não antes** — senão mexe 2× no aprendizado. Combinar com a Lu que **o CPA vai subir** (é o número saindo da fantasia, não piora) |
+| 3 | **Reorganizar campanhas** | 4 ativas: Masso Geral (R$ 764/dia) + 3 de cursos livres (R$ 168/dia) | Gargalo do masso é **ALCANCE**, não orçamento — ampliar palavras-chave |
+| 4 | **Template de relatório** | O formato enxuto do Jul D1 funcionou (só masso · Google e Instagram · 2 páginas). Virar padrão | Régua de lead masso ≠ bruto ([README](relatorios/README.md)) |
+
+---
+
 ## 🔧 Ciclo em andamento
 
 - [**2026-06-09 — Micro-conversões + LP React**](ciclos/2026-06-09-microconversoes-google-lp-react.md) — **Rodada 2 — fix confirmado (21/06):** auto-apply desligado + lance Max Conversões sem teto **destravou** — gasto rampando R$70→282→365/dia, 15-18 conv/dia a R$15-24 (CPA ótimo). Auto-apply OFF confirmado (otim. score 79%→47%). Saldo R$3.900 (não é o gargalo). **Novo gargalo: ALCANCE** (Google: "segmentando menos pesquisas") → ampliar palavras-chave. ⏳ Cross-check ZenPro + deixar aprendizado fechar (~2 sem).
