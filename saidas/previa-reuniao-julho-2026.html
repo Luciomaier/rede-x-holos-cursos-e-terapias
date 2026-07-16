@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Prévia da Reunião de Campanha — Julho/2026 · Holos</title>
+<style>
+  :root{
+    --navy:#1f2d4d; --navy2:#2c3e63; --ink:#1c2333; --muted:#5b6577;
+    --line:#e2e6ee; --bg:#f6f8fc; --amber:#b8742a; --amberbg:#fdf3e6;
+    --green:#1f7a4d; --greenbg:#e9f6ef; --red:#a8324a; --redbg:#fbeef1;
+    --blue:#2563a8; --bluebg:#eaf2fb;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  body{font-family:"Segoe UI",Helvetica,Arial,sans-serif; color:var(--ink);
+       margin:0; font-size:11.2px; line-height:1.5;}
+  .page{padding:0 6mm;}
+  /* Header */
+  header{background:var(--navy); color:#fff; padding:22px 26px; border-radius:0 0 10px 10px;}
+  header .kick{font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#9fb0d4;}
+  header h1{margin:6px 0 4px; font-size:21px; font-weight:700;}
+  header .sub{font-size:11.5px; color:#c9d4ea;}
+  header .meta{margin-top:12px; display:flex; gap:26px; flex-wrap:wrap; font-size:10.5px; color:#c9d4ea;}
+  header .meta b{color:#fff;}
+  .notice{background:var(--amberbg); border:1px solid #eccfa6; color:#7a4d18;
+          padding:8px 12px; border-radius:6px; font-size:10px; margin:14px 0; font-weight:600;}
+  h2{font-size:14px; color:var(--navy); margin:22px 0 8px; padding-bottom:5px;
+     border-bottom:2px solid var(--line);}
+  h2 .n{display:inline-block; background:var(--navy); color:#fff; width:20px; height:20px;
+        line-height:20px; text-align:center; border-radius:50%; font-size:11px; margin-right:8px;}
+  p.lead{color:var(--muted); margin:6px 0 12px;}
+  /* resolve list */
+  .resolve{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0;}
+  .rcard{background:var(--bg); border:1px solid var(--line); border-left:4px solid var(--amber);
+         border-radius:6px; padding:10px 12px;}
+  .rcard h4{margin:0 0 4px; font-size:11.5px; color:var(--navy);}
+  .rcard p{margin:0; color:var(--muted); font-size:10.3px;}
+  /* table */
+  table{width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:10px;}
+  th{background:var(--navy); color:#fff; text-align:left; padding:7px 8px; font-weight:600; font-size:9.5px;}
+  td{padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#fafbfe;}
+  .tot td{background:var(--navy2)!important; color:#fff; font-weight:700;}
+  .fill{display:inline-block; min-width:54px; border-bottom:1px dotted #9aa4b8; height:13px;}
+  /* badges */
+  .b{display:inline-block; padding:1px 7px; border-radius:20px; font-size:8.6px; font-weight:700; white-space:nowrap;}
+  .b-ok{background:var(--greenbg); color:var(--green);}
+  .b-chk{background:var(--bluebg); color:var(--blue);}
+  .b-new{background:var(--amberbg); color:var(--amber);}
+  .b-dec{background:var(--redbg); color:var(--red);}
+  /* campaign cards */
+  .grp{font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted);
+       margin:16px 0 6px; font-weight:700;}
+  .camp{border:1px solid var(--line); border-radius:8px; padding:11px 13px; margin:8px 0;
+        page-break-inside:avoid; background:#fff;}
+  .camp .top{display:flex; justify-content:space-between; align-items:baseline; gap:10px;}
+  .camp .name{font-size:12.5px; font-weight:700; color:var(--navy);}
+  .camp .date{font-size:10px; color:var(--muted); white-space:nowrap;}
+  .camp .row{margin-top:5px; font-size:10.3px;}
+  .camp a{color:var(--blue); text-decoration:none; word-break:break-all;}
+  .camp .resolve-line{background:var(--amberbg); border-radius:5px; padding:5px 9px; margin-top:7px;
+        font-size:10.2px; color:#7a4d18;}
+  .camp .resolve-line b{color:var(--amber);}
+  .fields{display:flex; gap:18px; margin-top:8px; flex-wrap:wrap; font-size:10px; color:var(--muted);}
+  .fields .f b{color:var(--ink);}
+  .chk{display:inline-block; width:11px; height:11px; border:1.4px solid #97a2b6; border-radius:3px;
+       vertical-align:-1px; margin-right:4px;}
+  .note{font-size:9.6px; color:var(--muted); margin-top:5px; font-style:italic;}
+  ul.clean{margin:5px 0; padding-left:18px;}
+  ul.clean li{margin:2px 0; font-size:10.2px;}
+  footer{margin:22px 6mm 0; padding-top:10px; border-top:1px solid var(--line);
+         font-size:9px; color:var(--muted); text-align:center;}
+  .legend{display:flex; gap:14px; flex-wrap:wrap; font-size:9.4px; color:var(--muted); margin:8px 0;}
+  @page{size:A4; margin:11mm 9mm;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kick">Rede Publicidade · Gestão de Campanhas</div>
+  <h1>Prévia da Reunião de Campanha — Julho/2026</h1>
+  <div class="sub">Cliente: Holos Cursos e Terapias · Conta Google Ads 644-631-5099</div>
+  <div class="meta">
+    <span><b>Para:</b> Luciana (decisão)</span>
+    <span><b>De:</b> Rede Publicidade</span>
+    <span><b>Data:</b> 18/06/2026</span>
+    <span><b>Reunião:</b> a confirmar</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="notice">⚠ Documento interno — prévia de pauta. Como a reunião está corrida, isto adianta o que precisa ser decidido. Abra cada página, confira se há ajustes e já chegue com as verbas pensadas.</div>
+
+  <h2><span class="n">1</span>O que precisa ser resolvido</h2>
+  <p class="lead">As decisões grandes que travam o resto. Tudo o mais é detalhe de execução.</p>
+  <div class="resolve">
+    <div class="rcard">
+      <h4>💰 Verba e divisão Meta × Google</h4>
+      <p>Definir o investimento de julho e como dividir por campanha. Hoje o Google roda <b>R$1.000/dia</b> na Masso Geral — manter dentro desse teto ou aumentar?</p>
+    </div>
+    <div class="rcard">
+      <h4>📊 Tracking de conversões</h4>
+      <p>Quebra na contabilização desde <b>09/06</b> (em correção). Confirmar que voltou antes de subir verba nova — senão otimizamos no escuro.</p>
+    </div>
+    <div class="rcard">
+      <h4>📄 Páginas a criar / decidir</h4>
+      <p>Criar a do <b>Intensivo Flex</b> e a do <b>Reiki</b>. Decidir a da <b>Kabbalah</b> (Magia Antiga ou nova). Quanto antes, antes ficam prontas (fila do Nick).</p>
+    </div>
+    <div class="rcard">
+      <h4>⏰ Prazo aperta o calendário</h4>
+      <p>4 campanhas começam <b>03–06/07</b>. Com 7–10 dias de antecedência, anúncios sobem ~24–26/06 — as decisões não podem passar de <b>~22/06</b>.</p>
+    </div>
+  </div>
+
+  <h2><span class="n">2</span>Visão geral — preencha as verbas</h2>
+  <div class="legend">
+    <span><span class="b b-ok">No ar</span> página confirmada</span>
+    <span><span class="b b-chk">Conferir</span> abrir e confirmar publicação</span>
+    <span><span class="b b-new">Criar</span> não existe ainda</span>
+    <span><span class="b b-dec">Decidir</span> qual página usar</span>
+  </div>
+  <table>
+    <tr><th>Campanha</th><th>Início</th><th>Página</th><th>Verba Meta</th><th>Verba Google</th><th>Entra?</th></tr>
+    <tr><td>Massoterapia Presencial</td><td>contínua</td><td><span class="b b-ok">No ar</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Mensalidades com 50%</td><td>contínua</td><td><span class="b b-ok">No ar</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Aula Experimental</td><td>contínua</td><td><span class="b b-ok">No ar</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Locação de Salas</td><td>contínua</td><td><span class="b b-ok">No ar</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Massoterapia Intensivo Flex 21 dias (SP)</td><td>06/07</td><td><span class="b b-new">Criar</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Desportiva 4x1 (Nelson)</td><td>03–05/07</td><td><span class="b b-ok">No ar</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Quiropraxia Intensivo (Renata)</td><td>23/07</td><td><span class="b b-chk">Conferir</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Auriculoterapia (permanente)</td><td>contínua</td><td><span class="b b-chk">Conferir</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Tarô Terapêutico (Silvia)</td><td>04–05/07</td><td><span class="b b-chk">Conferir</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Reiki (Bezerra)</td><td>20/07 e 29/08</td><td><span class="b b-new">Criar</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr><td>Kabbalah (nova turma)</td><td>23/08</td><td><span class="b b-dec">Decidir</span></td><td><span class="fill"></span></td><td><span class="fill"></span></td><td><span class="fill"></span></td></tr>
+    <tr class="tot"><td colspan="3">TOTAL do mês</td><td>R$ <span class="fill"></span></td><td>R$ <span class="fill"></span></td><td></td></tr>
+  </table>
+
+  <h2><span class="n">3</span>Detalhe e revisão por campanha</h2>
+  <p class="lead">Para cada uma: abra a página, confira se há ajustes (datas, preço, infos de julho) e defina a verba.</p>
+
+  <div class="grp">Contínuas — o motor (rodam o mês todo)</div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Massoterapia Presencial</span><span class="date">contínua · <span class="b b-ok">No ar</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/massoterapia-lp">app.holoscursoseterapias.com.br/massoterapia-lp</a></div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Massoterapia — Mensalidades com 50%</span><span class="date">contínua · <span class="b b-ok">No ar</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/mensalistas/">app.holoscursoseterapias.com.br/mensalistas/</a></div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Massoterapia — Aula Experimental</span><span class="date">contínua · <span class="b b-ok">No ar</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/aula-experimental/">app.holoscursoseterapias.com.br/aula-experimental/</a></div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Locação de Salas</span><span class="date">contínua · <span class="b b-ok">No ar</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/salas-lp/">app.holoscursoseterapias.com.br/salas-lp/</a></div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="grp">Lançamento de julho — data definida</div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Massoterapia Intensivo Flex 21 dias — SP</span><span class="date">início 06/07 · <span class="b b-new">Criar</span></span></div>
+    <div class="row">Não existe página específica. <b>Plano:</b> criar uma própria; enquanto não fica pronta, mandar tráfego pra página principal.</div>
+    <div class="resolve-line"><b>Resolver:</b> criar página própria pra essa turma? (curso com data converte muito melhor com LP dedicada)</div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Criar página dedicada?</span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Desportiva 4 em 1 — Nelson</span><span class="date">03–05/07 · <span class="b b-ok">No ar</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/desportiva-4x1/">app.holoscursoseterapias.com.br/desportiva-4x1/</a></div>
+    <ul class="clean">
+      <li>Sex 03/07 · 09h–17h — Miofascial</li>
+      <li>Sáb 04/07 · 09h–12h30 — Pré e pós treino</li>
+      <li>Sáb 04/07 · 13h30–17h — Deep tissue</li>
+      <li>Dom 05/07 · 09h–17h — Bandagem</li>
+    </ul>
+    <div class="resolve-line"><b>Prazo:</b> data curta — anúncio precisa subir até ~25/06.</div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Tarô Terapêutico — Silvia</span><span class="date">04–05/07 · <span class="b b-chk">Conferir</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/curso-de-taro-terapeutico">app.holoscursoseterapias.com.br/curso-de-taro-terapeutico</a></div>
+    <div class="resolve-line"><b>Conferir:</b> no servidor essa página cai no genérico — abrir no navegador e confirmar que está publicada. <b>Prazo:</b> data curta, subir até ~25/06.</div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página publicada/OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Quiropraxia Intensivo — Renata</span><span class="date">23/07 · <span class="b b-chk">Conferir</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/curso-livre-de-quiropraxia">app.holoscursoseterapias.com.br/curso-livre-de-quiropraxia</a></div>
+    <div class="resolve-line"><b>Conferir:</b> no servidor cai no genérico — abrir no navegador e confirmar publicação.</div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página publicada/OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="grp">Permanente</div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Auriculoterapia</span><span class="date">contínua · <span class="b b-chk">Conferir</span></span></div>
+    <div class="row">🔗 <a href="https://app.holoscursoseterapias.com.br/curso-de-auriculoterapia">app.holoscursoseterapias.com.br/curso-de-auriculoterapia</a></div>
+    <div class="resolve-line"><b>Atenção:</b> campanha ativa hoje, mas a página cai no genérico no servidor — confirmar se está publicada/indexada. Hoje com <b>ROAS ~1,1x e verba mínima</b>: manter, cortar ou reformular?</div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Página OK? <b>ajustes:</b> <span class="fill"></span></span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="grp">Planejar agora, lançar mais pra frente</div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Reiki — Bezerra</span><span class="date">20/07 e 29/08 · <span class="b b-new">Criar</span></span></div>
+    <ul class="clean">
+      <li>Turma 2: Seg 20/07 · 09h–17h</li>
+      <li>Turma 3: Sáb 29/08 · 09h–17h</li>
+    </ul>
+    <div class="resolve-line"><b>Resolver:</b> página nova não existe — confirmar criação e entrar na fila do Nick.</div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Aprovar criação da página?</span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <div class="camp">
+    <div class="top"><span class="name">Kabbalah — nova turma</span><span class="date">23/08 · <span class="b b-dec">Decidir</span></span></div>
+    <div class="row">Encontros mensais — penúltimo domingo do mês · 08h59–12h59.</div>
+    <div class="resolve-line"><b>Decidir:</b> usar a página da <b>Magia Antiga</b> ou criar uma <b>nova</b>? (a da Magia Antiga não respondeu na URL testada — confirmar o endereço)</div>
+    <div class="fields">
+      <span class="f"><span class="chk"></span>Magia Antiga &nbsp; <span class="chk"></span>Nova</span>
+      <span class="f">Verba Meta: <b><span class="fill"></span></b></span>
+      <span class="f">Verba Google: <b><span class="fill"></span></b></span>
+    </div>
+  </div>
+
+  <h2><span class="n">4</span>Decisões que só você fecha</h2>
+  <table>
+    <tr><th>Tema</th><th>Decisão</th><th>Resposta</th></tr>
+    <tr><td>Verba de julho</td><td>Total e divisão Meta × Google — dentro do teto de R$1.000/dia ou aumentar?</td><td><span class="fill"></span></td></tr>
+    <tr><td>Intensivo Flex</td><td>Criar página própria? (provisório = página principal)</td><td><span class="fill"></span></td></tr>
+    <tr><td>Reiki</td><td>Aprovar criação da página nova</td><td><span class="fill"></span></td></tr>
+    <tr><td>Kabbalah</td><td>Página da Magia Antiga ou nova?</td><td><span class="fill"></span></td></tr>
+    <tr><td>Auriculo</td><td>ROAS ~1,1x: manter, cortar ou reformular?</td><td><span class="fill"></span></td></tr>
+  </table>
+
+  <h2><span class="n">5</span>Notas da agência — pra reunião</h2>
+  <ul class="clean">
+    <li><b>Eficiência primeiro.</b> O combinado da Holos é ROAS controlado, não escalar a qualquer custo — antes de abrir 11 frentes, definir o teto total.</li>
+    <li><b>Tracking.</b> Confirmar a correção da quebra de 09/06 antes de subir verba nova.</li>
+    <li><b>Antecedência.</b> Campanhas de data curta (Desportiva, Tarô) sobem 7–10 dias antes — travar verba e criativo até ~25/06.</li>
+    <li><b>Motor × evento.</b> Vale separar a verba das contínuas (Presencial, Mensalidades, Aula, Salas, Auriculo) da verba dos cursos com data.</li>
+    <li><b>Páginas a confirmar.</b> Quiropraxia, Auriculo e Tarô caem no fallback no servidor — abrir cada uma no navegador e confirmar que está publicada (pode ser só renderização client-side).</li>
+  </ul>
+
+</div>
+
+<footer>
+  Rede Publicidade · Prévia para a reunião de campanha de julho/2026 — preencher e devolver antes da reunião. Documento interno.
+</footer>
+
+</body>
+</html>

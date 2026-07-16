@@ -194,19 +194,54 @@ Evitar: linguagem corporativa fria, promessas genéricas, tom acadêmico.
 
 *(Marcar conforme for instalando os MCPs)*
 
-## Ponte com a Rede Publicidade (regra de fronteira — 03/07/2026)
+## 🧭 Onde a Holos vive (mapa único — 16/07/2026)
 
-A Holos também é **cliente da Rede Publicidade** (agência do grupo). O cartão de
-cliente vive em `/home/usuario/Documentos/Projetos/rede-publicidade/clientes/holos/`
-(briefing, escopo, diagnósticos pontuais da agência).
+> Se bater a sensação de "estou em qual pasta mesmo?", é este bloco que responde.
+> **Esta pasta é a bancada do Lucio. Tudo de Holos começa aqui.**
 
-- A **operação contínua** (campanhas, relatórios dezenais pra Luciana, sistema
-  dezenal, skills) permanece AQUI — sistema funcionando, não mover.
+A Holos aparece em mais de um lugar porque o **Lucio tem 3 papéis diferentes com
+a mesma empresa** — não porque a estrutura está bagunçada:
+
+| Onde | Papel do Lucio | Quem opera | Serve pra quê |
+|---|---|---|---|
+| **AQUI** (`holos-cursos-terapias/`) | **sócio da escola** (com a Luciana) | Lucio | tudo: tráfego, campanhas, relatórios, acordos, governança |
+| `../holos-connect/` | dono do produto (50% do EaD) | **Nick + Elis** (via Lovable) | código do app + LPs. Janela: [produto/holos-connect.md](produto/holos-connect.md) |
+| `../rede-publicidade/clientes/holos/` | fornecedor (a agência) | ninguém — **pasta vazia** | só uma placa apontando pra cá (colapsada em 16/07) |
+
+- **`rede-publicidade/clientes/holos/` foi esvaziada em 16/07/2026.** Existiu de
+  17/06 a 16/07 e nunca foi usada — 100% da operação sempre aconteceu aqui. Custou
+  caro: o achado *"gclid não é capturado"* (17/06) ficou órfão lá e foi
+  **redescoberto do zero na auditoria de 16/07**. Não recriar sem contrato assinado.
 - O **contrato Rede×Holos** (R$13.500/mês) segue com fonte da verdade em
   `acordos/rede-publicidade/`.
 - O Lucio costuma trabalhar com a sessão aberta no `rede-publicidade/` — o Claude
   lê e escreve aqui a partir de lá. São **repositórios git separados**: trabalho
   feito aqui precisa de commit/push aqui.
 
-Teste da fronteira: *"se a Holos trocasse de agência amanhã, esse arquivo iria com
-a agência (→ rede-publicidade/clientes/holos) ou ficaria na escola (fica aqui)?"*
+### ⚠️ A doença a vigiar: deriva, não duplicação
+
+O risco desta operação **não** é ter pasta duplicada — é o mesmo fato ser descrito
+em vários lugares e **derivar** até se contradizer. Casos reais já pegos:
+
+| Fato | Um lugar diz | Outro diz |
+|---|---|---|
+| gclid nas LPs | achado em 17/06 | "achado novo" em 16/07 |
+| alunos do EaD | `produto/`: ~460 | este CLAUDE.md: ~1.000 |
+| status do Connect | `produto/`: features congeladas | diretriz 05/07: exceção de crescimento |
+
+**Regra:** ao descobrir algo sobre tráfego/tracking, gravar em UM lugar só —
+`marketing/relatorios/log-google-ads.md` (o log vivo; ler ele antes de reabrir
+qualquer investigação de ads). Ao mexer no produto, atualizar `produto/holos-connect.md`
+**na mesma sessão** — janela desatualizada é pior que janela inexistente.
+
+### O site é 3 stacks em 2 domínios (não confundir)
+
+| Domínio | Stack | Onde mora | Tracking |
+|---|---|---|---|
+| `holoscursoseterapias.com.br` | **WordPress/PHP** | ⚠️ **em pasta nenhuma** | sem tag Google · com Pixel Meta · roda CRM `crm-api.eb4us.com` |
+| `app.holoscursoseterapias.com.br` | HTML estático | `holos-connect/public/` | 10 LPs, todas carimbam `#ref` · só 1 tem tag de conversão |
+| `app.holoscursoseterapias.com.br` | **React** | `holos-connect/src/` | 46 páginas · **atribuição zero** |
+
+⚠️ O WordPress está **vivo** e seu CRM faz request real a `googleads.g.doubleclick.net`
+— pode existir rota de conversão server-side por gclid. **Checar antes de colar gtag
+nas LPs, sob risco de contar conversão em dobro.** (Origem: `marketing/relatorios/2026-06-17-fix-tracking-google.md`.)
