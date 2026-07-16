@@ -12,14 +12,39 @@
 > ativadas pelo Lucio, entrando lead no ZenPro. **Não confiar neste registro sem cruzar com a plataforma.**
 > A causa é estrutural: sem acesso ao Google Ads (Windsor.ai), o estado aqui é **memória**, não leitura.
 
-| Campanha | Tipo | Budget | LP | Tracking | Tag de conversão | Status |
+| Campanha | Tipo | Budget | LP (URL final — **lido do Google Ads 16/07**) | Tracking real | Tag de conversão | Status |
 |----------|------|--------|----|----------|------------------|--------|
-| Masso Geral (PG_B) | Search | R$1.000/dia (teto) · gasta ~R$764 | `massoterapia-lp` (**HTML estático**) | `GC-0hh1dj` | ✅ `AW-752011587` | ✅ **ATIVA** · Maximizar **Cliques** ⚠️ (o registro de tCPA de 23/06 nunca foi aplicado) |
-| **Aurículo** | Search | ⚠️ a descobrir | `curso-de-auriculoterapia` | `GC-ab9924b9` | 🔴 **ZERO** | ✅ **ATIVA** (confirmado 16/07) · resposta mediana **13,5h** 🔴 |
-| **Massagem Desportiva** | Search | ⚠️ a descobrir | `desportiva-4x1` | `IS-9iyrwz` | 🔴 **ZERO** | ✅ **ATIVA** (confirmado 16/07 — **o registro dizia pausada**) |
-| **Quiropraxia** | Search | ⚠️ a descobrir | `curso-livre-de-quiropraxia` | ⚠️ a confirmar | 🔴 **ZERO** | ✅ **ATIVA** (confirmado 16/07 — **o registro dizia pausada + "não subiu"**) |
-| **2 PERFORMAX MASSO** | PMax | ⚠️ a descobrir | — | `GC-DEFAULT` | — | 🔴 **RODANDO** (28 leads em julho) — documentada como pausada (corrigido 14/07) |
+| Masso Geral (PG_B) | Search | R$1.000/dia (teto) · gasta ~R$764 | `massoterapia-lp` (**HTML estático**) · **com UTM** | `GC-0hh1dj` ✅ 213 leads/30d | ✅ `AW-752011587` | ✅ **ATIVA** · Maximizar **Cliques** ⚠️ (o registro de tCPA de 23/06 nunca foi aplicado) |
+| **Aurículo** | Search | ⚠️ a descobrir | `curso-de-auriculoterapia` · **com UTM** | `auriculo_google` ✅ 29 leads/30d — **NÃO é `GC-ab9924b9`** (esse morreu em 01/07) | 🔴 **ZERO** | ✅ **ATIVA** · resposta mediana **13,5h** 🔴 |
+| **Massagem Desportiva** | Search | ⚠️ a descobrir | `desportiva-4x1` (estática) · 🔴 **SEM UTM** | 🔴 **nenhum** — o `IS-9iyrwz` que este registro citava é código de **INSTAGRAM** e nunca recebeu lead. Usar `GC-y5d7r7` | 🔴 **ZERO** | ✅ **ATIVA** — leads entram **sem código** |
+| **Quiropraxia** | Search | ⚠️ a descobrir | `curso-livre-de-quiropraxia` · 🔴 **SEM UTM** | 🔴 **nenhum** — 5 códigos cadastrados, **todos com zero leads desde sempre** | 🔴 **ZERO** | ✅ **ATIVA** — nunca atribuiu na história da conta |
+| **2 PERFORMAX MASSO** | PMax | ⚠️ a descobrir | — | `GC-DEFAULT` ✅ 42 leads/30d | — | 🔴 **RODANDO** — documentada como pausada (corrigido 14/07) |
 | Locação de Salas | Search | R$25–50/dia | `salas-lp` | — | 🔴 zero | 🔵 Criar |
+
+> 🔑 **A DESCOBERTA QUE EXPLICA TUDO (16/07, confirmada no código + no banco):**
+> **O que carimba o lead é a `utm_campaign` do URL do anúncio — não o `#ref`.** As LPs estáticas leem
+> `(#ref || utm_campaign || DEFAULT_REF)` e repassam pro `wa.me`. **O leitor já está instalado em todas.**
+> As 2 campanhas com UTM (Masso, Aurículo) são exatamente as 2 que carimbam; as 2 sem UTM (Desportiva,
+> Quiropraxia) são exatamente as 2 com zero código. **Não falta código — falta a UTM no anúncio.**
+> Prova ao vivo em 16/07: 14:20 lead do aurículo entrou carimbado; **14:22** lead da quiropraxia entrou
+> anônimo. Mesma estrutura, 2 minutos de diferença, a única variável é a UTM.
+> **→ Correção da atribuição = 100% no Google Ads, ZERO código, sem deploy.**
+
+**URLs finais lidos na plataforma (16/07):**
+```
+Masso ......... app.holoscursoseterapias.com.br/massoterapia-lp?utm_source=google&utm_medium=cpc&utm_campaign=GC-0hh1dj
+Aurículo ...... app.holoscursoseterapias.com.br/curso-de-auriculoterapia?utm_source=google&utm_medium=cpc&utm_campaign=auriculo_google
+Desportiva .... app.holoscursoseterapias.com.br/desportiva-4x1/            ← SEM UTM (colar: ?utm_source=google&utm_medium=cpc&utm_campaign=GC-y5d7r7)
+Quiropraxia ... app.holoscursoseterapias.com.br/curso-livre-de-quiropraxia ← SEM UTM (escolher 1 dos 5 códigos; provável GC-kracz0)
+```
+
+> ⚠️ **A Desportiva tem 3 páginas do mesmo curso no ar** (verificado por HTTP em 16/07):
+> `app.../desportiva-4x1/` (estática Vercel — **é a que o anúncio usa**, lê UTM, sem tag) ·
+> `app.../curso-de-massagem-desportiva-4x1` (**React — não lê UTM, não tem tag**: hoje é a pior das três) ·
+> `holoscursoseterapias.com.br/curso-de-desportiva-4x1/` (**WordPress/PHP** — sem tag do Google, **com pixel do Meta**).
+> Lucio quer aposentar o WP e migrar pra React — **nessa ordem: primeiro o leitor de UTM + tag na React,
+> depois trocar o URL, só então aposentar (com 301, não delete)**. Antes de tirar o WP do ar, checar se
+> alguma campanha do **Meta** aponta pra ele — o pixel está lá e o Meta é o canal que funciona.
 
 **Pausadas:** Massoterapia 15 dias, CP Ventura, CP M Desportiva.
 

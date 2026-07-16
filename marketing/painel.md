@@ -164,6 +164,64 @@ a mesma pessoa conta 2×. Google conta **150**; o ZenPro vê **84** leads reais.
 **consertar a tag hoje custa ZERO de aprendizado.** A janela fecha no minuto em que migrarmos o lance.
 **Sinal primeiro, lance depois (28/07). Fora dessa ordem, julho leva dois resets.**
 
+### 🔑 Rodada 2 — 16/07 (tarde) · URLs finais lidos + banco cruzado
+
+**A causa do "sem código" era a UTM, não o `#ref`.** As LPs estáticas leem
+`(#ref || utm_campaign || DEFAULT_REF)` — **o leitor já está instalado em todas.** As 2 campanhas com
+UTM no URL (Masso, Aurículo) são exatamente as 2 que carimbam; as 2 sem UTM (Desportiva, Quiropraxia)
+são exatamente as 2 com zero código. **Prova ao vivo:** 14:20 lead do aurículo entra carimbado; **14:22**
+lead da quiropraxia entra anônimo. Mesma estrutura, 2 min de diferença. → **A correção da atribuição é
+100% no Google Ads, zero código.** (Detalhe + URLs: [google-ads.md](campanhas/google-ads.md))
+
+**O cadastro não descreve mais a realidade — 54 campanhas, 9 vivas:**
+
+| | |
+|---|---|
+| Campanhas cadastradas no ZenPro | **54** |
+| Com lead nos últimos 30 dias | **9** |
+| **Nunca receberam um único lead** | **33** |
+| Morreram sem baixa (ainda "ativas") | 12 |
+
+- **Quiropraxia nunca atribuiu na história da conta** — 5 códigos (`GC-kracz0`, `GC-kll57x`, `GC-p6d92f`,
+  `EM-pj3eb9`, `IS-mo6t9y`), **zero leads em todos, desde sempre**.
+- **Desportiva:** 5 códigos, só `GC-491f5b24` teve leads (13, †11/02). `GC-y5d7r7` ("Massagem desportiva",
+  criado 29/06) está pronto e zerado. O `IS-9iyrwz` que o registro citava **é código de Instagram.**
+- **Aurículo:** 3 códigos. O vivo (`auriculo_google`) está cadastrado com fonte **"outro"** sendo Google —
+  remendo pra escapar da régua. O `GC-ab9924b9` (481 leads históricos) morreu em 01/07.
+- **`GC-a89afa7e` = "Masso Geral (PG_B)"** tem **1.788 leads** e morreu em 27/05 (migrou pro `GC-0hh1dj`).
+  É esse nome que ainda está no registro — é histórico, não campanha viva.
+- **"Acupuntura (descontinuada)"** está marcada inativa e **recebeu 4 leads em julho**.
+- **Órfãos vivos (não cadastrados):** `estagio-social` (43 leads jul — o cadastrado `FB-xpnuqw` tem zero) ·
+  `OR-massoterapia` (20 — é o fallback da LP, não campanha) · `GC-0hh1djol` / `GC-0hh1djn` (typos de UTM
+  em algum anúncio da Masso) · `120246354283200549` (ID cru do Meta vazando).
+
+🔴 **A régua `GC-%` = masso está errada na raiz.** `GC-` só quer dizer **veio do Google** — aurículo,
+quiropraxia, drenagem, kabbalah e shiatsu são todos `GC-`. Hoje o erro é pequeno (6 leads em 132, 4,5%),
+**mas no dia em que a Desportiva ligar com `GC-y5d7r7`, curso livre entra na conta de masso.**
+→ **Corrigir a régua antes do D2 (20/07)**: classificar por produto via `campaigns.name`/`product_id`
+(JOIN em `campaigns`), não por prefixo. Some junto a gambiarra do `auriculo_google` fonte "outro".
+
+### 🧭 Diagnóstico de arquitetura (16/07) — a pergunta do Lucio: "minha estrutura está quebrada?"
+
+**Não.** A divisão **Holos Connect = páginas · ZenPro = origem/conversa/venda** é o desenho padrão pra
+venda por WhatsApp, e funciona: masso atribui **367 leads/30d** ponta a ponta. O que está errado:
+
+1. **A junta é artesanal.** Não existe *o* rastreio — existem **13**, um por página, cada um copiado do
+   anterior perdendo um pedaço: a `massoterapia-lp` lê `#ref` + UTM + fallback; o aurículo só UTM; a
+   desportiva estática só UTM; **a React não lê nada**; o WordPress é outro mundo. Por isso "como o lead
+   é rastreado?" tem 13 respostas — e todo diagnóstico vira arqueologia. **É a doença; o acúmulo de
+   códigos/páginas é sintoma.**
+2. **O loop nunca fecha.** O ZenPro sabe da venda; o Google nunca fica sabendo (pixel de navegador
+   chamado do servidor + `gclid` inexistente em todas as LPs). O Meta recebe por CAPI e aprende.
+   **É por isso que o lead do Google custa R$91 e o do Meta R$19.**
+
+**Direção (não troca arquitetura — padroniza a junta):** ① **um script único de tracking** servido pelo
+Holos Connect e incluído em toda página (lê UTM, captura `gclid`/`fbclid`, monta o `wa.me`) → página nova
+nasce certa · ② **ZenPro guarda o `gclid`** junto do `tracking_code` · ③ **venda → Offline Conversion
+Import** pela API do Google Ads **com o valor real** (R$2.585, não `value=1`). **Um arquivo, uma coluna,
+um job.** ①é pré-requisito de ②③. Piloto sugerido: **só a LP do aurículo** (tem volume, é a mais simples).
+Com isso, "1 curso = 1 página = 1 código" vira faxina — importante, mas não urgente.
+
 | Vazamento | Evidência | Tamanho |
 |---|---|---|
 | Sinal do Google inflado 1,8× | 150 conv. × 84 leads reais | **~R$23k/mês** lançando errado |
