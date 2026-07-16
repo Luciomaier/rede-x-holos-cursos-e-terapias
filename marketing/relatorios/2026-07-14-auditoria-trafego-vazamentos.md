@@ -52,6 +52,33 @@ O Google recebe o hit e não tem a quem atribuir. Não é bug sutil — é endpo
 🔑 **Teste barato que decide muito:** se os leads delas estiverem entrando "sem código" no ZenPro, o
 **template de URL dos anúncios não está passando `utm_campaign`** — correção de 5 minutos no Google Ads.
 
+### 🔴 O buraco real: não são 4 páginas React — são **46**
+
+O repo do `holos-connect` (**= repo `holos-universit` no GitHub** — pasta local e repo remoto têm nomes
+diferentes; é o mesmo projeto) tem **46 páginas `.tsx`** em `src/pages/`. As 7 de curso/masso verificadas
+em 16/07 estão **todas** assim:
+
+| Página React | `wa.me` | `#ref` | tag Google | lê UTM |
+|---|---|---|---|---|
+| `FormacaoMassoterapia` · `FunilMassoterapia` · `FormacaoMassoterapiaLitoralSul` · `FormacaoImersivaHolosNatureza` | ✅ | 🔴 **0** | 🔴 **0** | 🔴 **0** |
+| `CursoMassagemDesportiva4x1` · `CursoLiberacaoMiofascial` · `CursoDrenagemLinfatica` | ✅ | 🔴 **0** | 🔴 **0** | 🔴 **0** |
+
+**Elas não leem UTM** — então não dá nem pra carimbá-las por URL. Todo lead entra **sem código**, o que
+casa com **"sem código" = 58% dos leads de julho**.
+
+🚨 **`CursoMassagemDesportiva4x1.tsx` é uma DUPLICATA** da estática `public/desportiva-4x1/` — **duas
+páginas pro mesmo curso**, e a campanha da Desportiva está **ATIVA**. Se ela aponta pra React: lead sem
+código + zero sinal pro Google. **Mesmo risco vale pra masso** (a estática que rastreia × 4 React que não).
+
+### ❓ A pergunta que NENHUM repo responde — e que decide tudo
+
+**Pra onde cada campanha ativa aponta?** O *URL final* de cada anúncio não está em repositório nenhum —
+só no Google Ads. **É o único dado que precisa vir de fora** (Windsor, print ou CSV). Todo o resto do
+levantamento sai do código, que já está acessível.
+
+> 📌 Sem essa resposta não dá pra saber se estamos consertando a página certa: instalar tag na LP estática
+> não serve de nada se o anúncio manda o tráfego pra React.
+
 ### 🚨 O formato do Ref — uma pendência que QUEBRARIA o que funciona
 
 O ZenPro parseia com `messageText.match(/#ref=([A-Za-z0-9_-]+)/i)`
