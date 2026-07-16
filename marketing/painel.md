@@ -33,7 +33,8 @@ abaixo do passo do mês (22% das matrículas em 1/3 do mês).
 identificado**. E **o tracking NÃO piorou**: os sem-origem ficaram parados (233 → 242); o carimbado é que
 dobrou (89 → 203) — o "45% → 54%" é armadilha de denominador.
 
-🚨 **URGENTE — Google sem saldo:** conta com **R$ 890,83**, gasto ~R$ 930/dia → **menos de 1 dia no ar.**
+✅ **Saldo do Google — resolvido (14/07):** conta recarregada logo cedo (Lucio confirmou). O alerta de 13/07
+(R$ 890,83 · <1 dia no ar) está encerrado — **a campanha não chegou a sair do ar.**
 
 📌 **Orçamento do Google — resolvido (13/07):** a campanha *Masso Geral* está em **R$ 1.000/dia + Maximizar
 cliques** (a mudança pra R$800/dia + tCPA R$45, registrada em 23/06, **nunca foi aplicada** — Lucio confirmou).
@@ -116,18 +117,86 @@ sempre esteve certa. **Junho fez 32 matrículas, não 27** — faturamento e ROA
 
 Detalhe: [campanhas/google-ads.md](campanhas/google-ads.md) · [campanhas/meta-ads.md](campanhas/meta-ads.md)
 
-## 🗂️ Próximo trabalho — reorganização (decidido 13/07, plano a montar)
+## 🔎 AUDITORIA 14/07 — o dinheiro na mesa (dado vivo + código lido)
 
-O Lucio vai segurar esses temas na reunião de 13/07 e organizar depois. **Ordem importa** — mexer fora
-de ordem reseta o aprendizado da campanha duas vezes e cega a atribuição.
+> **Documento completo:** [auditoria de tráfego 14/07](relatorios/2026-07-14-auditoria-trafego-vazamentos.md)
+> ✅ **Verificada no código em 16/07** — o achado principal passou intacto; 3 achados novos; 2 itens corrigidos.
+
+### ✅ Verificação 16/07 — o que mudou
+
+🟢 **O achado nº1 está CONFIRMADO.** A prova a mais: o pixel leva `guid=ON` (= *"identifique pelo cookie do
+Google"*) e **numa edge function não existe cookie**. Não é bug sutil — é endpoint de navegador chamado de servidor.
+
+🆕 **Três achados novos:** (1) **o GA4 tem a mesma doença** — `client_id` = telefone, deveria ser o cookie `_ga`;
+(2) **o valor está fixo** — webhook manda `value=1`, LP manda `value:250`, **nunca o ticket de R$2.585**;
+(3) 🟢 **a correção do sinal é mais simples do que parecia** — o disparo está em **2 handlers**, não nos 8 CTAs.
+
+🔴 **Dois itens da auditoria caíram:** (1) **`OR-massoterapia` não é órfão — é o `DEFAULT_REF` da LP**; a ação
+inverteu: ver se **anúncio pago cai no fallback** → se cair, o **ROAS pago está SUBESTIMADO**. (2) **as 10 LPs
+estáticas TODAS carimbam `#ref`** — o item das "sem atribuição" vale só pras **React**.
+
+🚨 **Uma pendência que quebraria o que funciona:** o `landing-pages.md` mandava migrar a `massoterapia-lp` de
+`#ref=` pra `Ref:`. **O ZenPro só lê `#ref=`** — executar aquilo quebraria a atribuição da campanha principal.
+Registro corrigido; **não recriar.**
+
+📌 **As 4 campanhas estão ATIVAS** (Lucio confirmou 16/07): Masso Geral · Aurículo · **Desportiva** · **Quiropraxia**.
+O `google-ads.md` listava as duas últimas como pausadas — **2ª vez que o registro mente** (a 1ª foi a PMax).
+⏫ **Isso sobe a urgência:** há **verba correndo em 3 LPs sem tag de conversão nenhuma.**
+
+⛔ **Windsor.ai (16/07):** conector do claude.ai ✅ conectado, mas **falta ligar a fonte Google Ads** — e isso
+esbarra em plano pago. **Decisão: não assinar** ($19 Básico / $99 Padrão). O **export CSV nativo do Google Ads
+dá mais informação, de graça** — o Windsor é ETL pra dashboard recorrente, não ferramenta de análise, e
+provavelmente nem traz termos de busca. Só valeria se o painel dezenal virar automático — e aí como custo da
+**Rede Publicidade** (Básico, 75 contas cobrem a carteira toda), não da Holos.
+
+🔴 **A causa-raiz do CPL do Google: o ZenPro devolve a conversão pro Google por um caminho que NÃO
+ATRIBUI.** O `webhook-worker` chama o **pixel de navegador** do Google **de dentro do servidor**, sem cookie
+e sem `gclid` — o Google não tem como ligar a conversão a um clique. O Meta recebe o lead pela
+**Conversions API oficial** e por isso otimiza direito. **É por isso que o lead do Meta custa R$19 e o do
+Google custa R$91** — não é o canal, é o sinal. *(`google-ads.md` registra esse webhook como "✅ funcionando".
+Ele dispara, mas não atribui — corrigir o registro.)*
+
+🔴 **O único sinal que sobra pro Google está inflado ~1,8×.** A LP dispara a conversão **no clique que abre
+o WhatsApp**, sem guarda de disparo único e com `transaction_id` novo a cada clique. A página tem 8 CTAs —
+a mesma pessoa conta 2×. Google conta **150**; o ZenPro vê **84** leads reais.
+
+🪟 **A janela grátis:** a campanha está em **Maximizar Cliques**, que **não usa o sinal de conversão** →
+**consertar a tag hoje custa ZERO de aprendizado.** A janela fecha no minuto em que migrarmos o lance.
+**Sinal primeiro, lance depois (28/07). Fora dessa ordem, julho leva dois resets.**
+
+| Vazamento | Evidência | Tamanho |
+|---|---|---|
+| Sinal do Google inflado 1,8× | 150 conv. × 84 leads reais | **~R$23k/mês** lançando errado |
+| **9 de 10 LPs sem tag de conversão** | só a `massoterapia-lp` tem `AW-752011587` | cursos livres + Aurículo **cegos** |
+| 4 páginas React de masso **sem atribuição** | `wa.me` sem `#ref=` | leads entram como "sem código" |
+| **Estágio Social morreu 08/07 17:28** | 0 leads em 6 dias (fazia ~5/dia) | **~30 leads** — e é o funil do **mensalista** |
+| Vendas em códigos órfãos | R$ 8.812 em 14 dias | **~R$18k/mês de venda invisível** |
+| Aurículo: resposta em **13,5 h** | mediana 813 min (masso: 9 min) | canal pago apodrecendo |
+| 22% dos leads chegam fora do horário | 145 leads · espera mediana **9 h** | 22% do volume esfriando |
+
+⚖️ **Duas réguas a fechar antes do próximo número pra Lu:** (1) o CPL de **masso** no Meta é **R$68**, não
+R$19 (o R$19 inclui estágio social) → **não mover verba de masso do Google pro Meta**; (2) o ROAS Google D1
+dá **2,26×** pela planilha da Elis e **2,88×** pela tabela `sales` do ZenPro — **escolher uma régua**.
+
+## 🗂️ Próximo trabalho — reorganização (plano fechado 14/07)
+
+**Ordem importa** — mexer fora de ordem reseta o aprendizado duas vezes e cega a atribuição.
 
 | # | Frente | O que já sabemos | Cuidado |
 |---|--------|------------------|---------|
-| 0 | 🚨 **Recarga do Google** | Saldo R$ 890,83 · gasto conta ~R$ 930/dia → **<1 dia no ar** | **Não espera plano nenhum.** Falar com a Sônia |
-| 1 | **Unificar as 2 páginas** | Hoje há 2 (uma delas tem o `CONTATO NEW SITE`; a outra é a `massoterapia-lp` React = `Lead - Masso Presencial LP B`). Detalhe a confirmar com o Lucio | 🔴 **A página nova TEM que nascer carimbando o `#ref` no WhatsApp.** Sem isso a atribuição vai a zero e perdemos o ROAS por canal, a regra dos 90d e a prova do 2,26× — justo quando a Lu passou a confiar no número |
-| 2 | **Corrigir a conversão do Google** | A campanha soma **2 ações** em "Conversões": `CONTATO NEW SITE` (28) + `Lead - Masso Presencial LP B` (150) = **178**. O ZenPro vê **84** leads `GC-*` reais. O lance otimiza no sinal inflado (acha lead a R$ 43; o real é ~R$ 91) | ⏳ **Fazer JUNTO com a unificação, não antes** — senão mexe 2× no aprendizado. Combinar com a Lu que **o CPA vai subir** (é o número saindo da fantasia, não piora) |
-| 3 | **Reorganizar campanhas** | 4 ativas: Masso Geral (R$ 764/dia) + 3 de cursos livres (R$ 168/dia) | Gargalo do masso é **ALCANCE**, não orçamento — ampliar palavras-chave |
-| 4 | **Template de relatório** | O formato enxuto do Jul D1 funcionou (só masso · Google e Instagram · 2 páginas). Virar padrão | Régua de lead masso ≠ bruto ([README](relatorios/README.md)) |
+| 0 | ✅ **Recarga do Google** | **FEITO 14/07** — campanha não saiu do ar | Vigiar o saldo toda dezena: a conta gasta ~R$ 930/dia |
+| 1 | 🔴 **Reabrir o Estágio Social** | Morto desde 08/07 17:28. É o funil de entrada do **mensalista** (gargalo do mês) | **Descobrir POR QUE morreu antes de recriar** — senão morre de novo |
+| 2 | 🔴 **Consertar o sinal + tag nas 9 LPs** | Guarda de disparo único + `transaction_id` estável | ⏳ **Janela grátis só enquanto o lance for Max Cliques.** Avisar a Lu: **o CPA vai subir pra ~R$91** — é o número saindo da fantasia, não piora |
+| 3 | **Ampliar palavras-chave** (leva 1: certificação/SINATEN + geo/turno) | Gargalo é **ALCANCE**, não orçamento — gasta R$764 de R$1.000 | **Frase**, nunca ampla, enquanto o lance for Max Cliques. **Não mexer no orçamento** |
+| 4 | **Unificar as páginas de masso** | ❌ Não são 2 — **são 6**: a estática (única que rastreia) + 4 React sem atribuição + a do site (`CONTATO NEW SITE`) | 🔴 **A página nova TEM que nascer carimbando o `#ref`** |
+| 5 | ⏳ **Migrar o lance** (Max Conversões) | **Só em 28/07**, e só se: tag limpa há ≥14d + conversões ≈ leads reais (±15%) + ≥30 conversões limpas | **Sem tCPA.** Se usar, o CPA **real (~R$91)** — nunca os R$43 fantasma (foi o que estrangulou a campanha em 18/06) |
+| 6 | **PMax "2 PERFORMAX MASSO"** (`GC-DEFAULT`) | ❌ Documentada como PAUSADA — **está rodando**: 28 leads em julho | **Não pausar ainda** (volume que não dá pra repor). Descobrir o gasto + excluir marca. **Machado em 28/07** |
+| 7 | **Template de relatório** | O formato enxuto do Jul D1 funcionou. Virar padrão | Régua de lead masso ≠ bruto ([README](relatorios/README.md)) |
+
+♟️ **A jogada de fundo:** capturar o **`gclid`** na LP → levar até o ZenPro → subir a conversão pela **API
+do Google Ads** (*offline conversion import*), **com o valor da venda**. O ZenPro já tem telefone, código,
+conversa e a tabela `sales` com o valor real — falta só o `gclid` e a chamada certa. Aí o Google passa a
+lançar em **faturamento** (ticket R$2.585), não em clique de botão. É o salto que o Meta já deu.
 
 ---
 
