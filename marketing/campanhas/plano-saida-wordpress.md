@@ -91,10 +91,33 @@ Decisão técnica é do Nick; o Lucio precisa saber que a escolha existe.
 Padrão *strangler fig*: põe o Vercel na frente e o WordPress vai encolhendo.
 
 **Fase 0 — Blindar (antes de tudo)**
-- [ ] Confirmar no Google Ads o final URL de cada campanha ativa (mina 4a)
-- [ ] Descobrir se o eb4us manda conversão pro Google (mina 4c) — decide se pode pôr gtag
-- [ ] Confirmar com a Elis: WooCommerce vende alguma coisa hoje? (74 produtos, loja 404)
-- [ ] Backup completo do WP (arquivos + banco) antes de qualquer alteração
+- [ ] **(Lucio, pessoalmente)** Roteiro Google Ads abaixo ⬇️ — itens A, B, C
+- [ ] **(Elis)** WooCommerce vende alguma coisa hoje? (74 produtos no sitemap, loja 404)
+- [ ] **(Nick)** Backup completo do WP (arquivos + banco) antes de qualquer alteração
+
+> ### 📋 Roteiro do Lucio — conta `644-631-5099` "Holos Geral"
+>
+> **A. Pra onde o anúncio leva** (a mina 4a). Nas campanhas ativas — **aurículo,
+> desportiva, quiropraxia** — abrir os anúncios e ler a **URL final**:
+>
+> | Campanha | URL final começa com… | Veredito |
+> |---|---|---|
+> | Aurículo | ⬜ `holoscursoseterapias.com.br` / ⬜ `app.…` | 🔴 WP = reapontar antes de mexer no site |
+> | Desportiva | ⬜ `holoscursoseterapias.com.br` / ⬜ `app.…` | idem |
+> | Quiropraxia | ⬜ `holoscursoseterapias.com.br` / ⬜ `app.…` | idem |
+>
+> **B. Template de URL** (bônus de 5 min, mesma tela). Campanha → **Configurações →
+> Opções de URL**: o modelo de acompanhamento / sufixo final **passa `utm_campaign`?**
+> Auditoria de 14/07: essas 3 LPs usam `(utmCampaign || ref || '')` → **só carimbam se a
+> URL trouxer UTM**. Sem `utm_campaign`, o lead entra **sem código** — e sem código é
+> **58% dos leads de julho**. Se faltar, corrigir na hora.
+>
+> **C. Conversão órfã = o eb4us?** (mina 4c). **Ferramentas → Conversões**: existe alguma
+> ação de conversão **que o Lucio não reconhece**, principalmente marcada como "Recebendo
+> conversões"? Se sim, é candidata a ser o Builderall mandando por baixo → **decide se dá
+> pra colar gtag nas LPs sem contar em dobro.**
+>
+> **Resultado dos 3 → anotar em [../relatorios/log-google-ads.md](../relatorios/log-google-ads.md)** (o log vivo, topo do arquivo).
 
 **Fase 1 — Parar o sangramento (dá pra fazer já, site fica no ar)**
 - [ ] Arrancar do `<head>`: eb4us/Builderall, TikTok, AdSense
