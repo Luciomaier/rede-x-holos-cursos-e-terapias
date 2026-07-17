@@ -30,6 +30,8 @@ Textos limpos, acolhedores e sérios. A credibilidade é construída por conteú
 - **Feed:** evergreen — sem datas específicas, conteúdo atemporal
 - **Stories:** pode ter datas, urgência e informações de turma
 - **Reels de volume:** desmarcar "publicar no feed"
+- **Reels que vão pro feed:** sempre subir com capa desenhada (título Poppins + identidade) — selfies sem capa repetidas deixam a grade monótona
+- **Grade do feed:** manter alternância escuro ↔ claro nas capas — pelo menos 1 capa clara (lavanda) a cada 3 posts
 
 ### Hashtags nas legendas
 - Usar no máximo **5 hashtags** por legenda — as mais virais/relevantes para o nicho

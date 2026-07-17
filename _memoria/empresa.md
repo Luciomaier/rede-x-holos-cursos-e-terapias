@@ -6,7 +6,7 @@
 **Negócio:** Educação terapêutica holística — cursos de formação e atendimentos terapêuticos
 **História:** 18 anos no mercado, +12 mil alunos formados
 **Endereço:** Rua Cel. Artur Godói, 83, Vila Mariana, SP — 5 min a pé do Metrô Ana Rosa
-**Instagram:** @holos_cursos (23,1 mil seguidores)
+**Instagram:** @holos_cursos (23,6 mil seguidores — jul/2026, +500 no mês)
 **Site / links:** holoscursoseterapias.com.br/links — código em `holos-universit/` (Elis edita com Claude → GitHub branch `Lovable-(elis)` → Lúcio faz deploy)
 **Ferramentas ativas (MCP):** Gmail, Google Calendar, Google Drive, Windsor.ai, Playwright
 **Ferramentas operacionais:** ZenPro — registro de vendas para medir ROAS dos anúncios (Elis lança as vendas manualmente)

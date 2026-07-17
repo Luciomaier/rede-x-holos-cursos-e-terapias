@@ -65,6 +65,9 @@ No início de toda conversa, ler os seguintes arquivos (quando existirem e estiv
 2. `_memoria/preferencias.md` — tom de voz, estilo de escrita, o que evitar
 3. `_memoria/estrategia.md` — foco atual, prioridades, prazos
 4. `_memoria/afazeres.md` — tarefas abertas e entregues do mês atual
+5. `_memoria/agenda.md` — pendências de gestão da Elis (agenda com cobrança)
+
+**Regra da agenda de gestão (`_memoria/agenda.md`):** quando Elis trouxer um assunto pra "não deixar cair no esquecimento", registrar lá com a data do pedido (e prazo, se ela definir). Lembrar as pendências abertas em toda abertura de sessão e quando o contexto tocar no assunto. **Nunca marcar item como resolvido por conta própria** — só quando Elis confirmar; aí mover pra "Resolvidas" com a data de execução.
 
 Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 

@@ -40,7 +40,13 @@ Projetos de longo prazo que não impactam diretamente os gargalos acima.
 - Aulão Shiatsu na visão da MTC — Sáb 18/07, 09h–17h, Prof. Bezerra, 20 vagas, R$153 — banner pronto
 
 **Entregues recentemente**
-- Página Desportiva 4×1 do site (13/07) — datas internas corrigidas pra turma de 12, 13 e 14/09 (cards de técnicas, detalhes e SEO) — commit na `Lovable-(elis)`, aguardando PR → `main`
+- Capa Reel Shiatsu "Você acha que shiatsu é força?" — Elis, gancho técnica vs. força, aquece o Aulão de 18/07 (17/07) — `marketing/conteudo/reel-shiatsu-forca-2026-07-17/`
+- Carrossel Massagem Bioenergética — série técnicas da formação (16/07, postado) — capa escura, alterna com a lavanda do Shiatsu de 14/07 — `marketing/conteudo/feed-bioenergetica-2026-07-16/`
+- Site — cronograma atualizado (16/07): Ventosa incluída em 18/07, Massoterapia seg/ter N 27/08→20/07, Reiki I e II removido de 20/07 e movido 19/11→19/10 — commits na `Lovable-(elis)`, aguardando PR → `main`
+- Capa Reel depoimento Willy (15/07) — `marketing/conteudo/reel-depoimento-willy-2026-07-15/`
+- Capa Reel Quiroterapia (13/07) — `marketing/conteudo/reel-quiroterapia-2026-07-13/`
+- Carrossel Shiatsu — série técnicas da formação (14/07, postado) — capa clara lavanda, aquece o Aulão de 18/07 — `marketing/conteudo/feed-shiatsu-2026-07-14/`
+- Página Desportiva 4×1 do site (13/07) — datas internas corrigidas pra turma de 12, 13 e 14/09 (cards de técnicas, detalhes e SEO) — PR #149 mesclado na `main` ✅
 - Capa/peça Pedras Quentes (09/07) — `marketing/conteudo/feed-pedras-quentes-2026-07-09/`
 - Site da Holos atualizado (10/07) — cronograma: cursos jul→set/2026, Auriculoterapia semi 23/07 (destaque laranja), Desportiva 4x1 datas set/2026, Tarô turma 1 removida — PR #144 mesclado na `main` (deploy feito)
 - Capa Reel Aromaterapia — Luciana na lavanda (10/07) — `marketing/conteudo/feed-aromaterapia-2026-07-10/`

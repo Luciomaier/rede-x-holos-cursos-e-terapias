@@ -65,9 +65,12 @@
 - [ ] **"Nome não encontrado"** — identificar quem é essa inscrição no Holos Conect (22/07 Manhã)
 - [ ] **Nick** — corrigir placeholder `SEU_PIXEL_ID_AQUI` no código da página de links
 - [ ] **Instagram** — remover CEP 04018-050 do perfil (Editar perfil → Informações de contato)
+- [x] **Instagram** — bio corrigida: "+12 mil alunos formados" ✅ (14/07)
+- [ ] **Instagram** — arquivar flyer antigo do workshop de Lipedema (fora da identidade atual, com data no feed)
 - [ ] **Elis** — arquivar posts antigos do feed após fixados entrarem no ar
 - [x] **Lúcio** — deploy do cronograma do site — PR #144 mesclado na `main` ✅
-- [ ] **Elis/Lúcio** — abrir e mesclar PR das datas Desportiva 4×1 (12–14/09) — commit já na `Lovable-(elis)` (13/07)
+- [x] **Elis/Lúcio** — PR das datas Desportiva 4×1 (12–14/09) — mesclado via PR #149 ✅
+- [ ] **Elis/Lúcio** — abrir e mesclar PR do cronograma de 16/07 (Ventosa 18/07, Massoterapia N 20/07, ajustes Reiki) — commits já na `Lovable-(elis)`
 - [ ] **Lúcio** — corrigir bug do Holos Conect: CSV exporta com data -1 dia
 - [x] Depoimento Jessica (@jessica.quiropraxia) — postado ✅
 - [ ] Depoimento de ex-aluna (outro, em edição) → quando pronto: postar + fixar os 3 posts (1º Depoimento → 2º Carrossel Formação → 3º Reel Luciana)
@@ -83,6 +86,11 @@
 - [ ] Compras para a Holos
 
 ### Entregues ✅
+- [x] Capa reel Shiatsu "é força?" — Elis, gancho técnica vs. força (17/07)
+- [x] Feed 16/07 — Carrossel Bioenergética (série Técnicas da Formação) — postado
+- [x] Capa reel depoimento Willy — reel de 15/07
+- [x] Capa reel Quiroterapia (13/07)
+- [x] Feed 14/07 — Carrossel Shiatsu "equilíbrio" (série Técnicas da Formação) — postado
 - [x] Capa reel depoimento Jéssica — reel de 08/07 (depoimento comum, não é o fixado)
 - [x] Feed 07/07 — Carrossel Reflexologia "o corpo nos pés." — postar às 19h
 - [x] Planilha de estágio julho preenchida (18/07 e 22/07)
