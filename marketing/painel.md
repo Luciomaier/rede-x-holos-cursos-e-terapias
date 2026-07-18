@@ -2,7 +2,8 @@
 
 > **O dashboard da operação.** Abre aqui pra ver onde estamos no mês: conversas, matrículas, ROAS, faturamento — sempre contra a meta.
 > **Metas oficiais (fonte da verdade):** [acordo-rede-holos.md → Números oficiais](../acordos/rede-publicidade/acordo-rede-holos.md)
-> **Atualizado:** 13/07/2026 (**Jul D1 fechado** — a dezena que confirmou o lag de conversão do Google)
+> **Atualizado:** 17/07/2026 (números da dezena: **Jul D1 fechado em 13/07** — a que confirmou o lag de
+> conversão do Google · registros posteriores: verificação 16/07 + Windsor revertido/contratado 17/07)
 
 ---
 
@@ -148,6 +149,12 @@ esbarra em plano pago. **Decisão: não assinar** ($19 Básico / $99 Padrão). O
 dá mais informação, de graça** — o Windsor é ETL pra dashboard recorrente, não ferramenta de análise, e
 provavelmente nem traz termos de busca. Só valeria se o painel dezenal virar automático — e aí como custo da
 **Rede Publicidade** (Básico, 75 contas cobrem a carteira toda), não da Holos.
+
+✅ **REVERTIDO (registro 17/07):** no acordo do **Painel Holos** (16/07, Lucio+Nick+Elis) o Windsor **foi
+contratado** — plano Básico, com Google Ads + GA4 + Meta Ads. É exatamente o cenário que a análise acima
+previa ("só valeria se o painel dezenal virar automático"): o painel web vai usar o Windsor como ETL diário.
+⬜ Pendente: confirmar se o custo entra na Rede ou na Holos. Janela do projeto:
+[produto/painel-holos.md](../produto/painel-holos.md).
 
 🔴 **A causa-raiz do CPL do Google: o ZenPro devolve a conversão pro Google por um caminho que NÃO
 ATRIBUI.** O `webhook-worker` chama o **pixel de navegador** do Google **de dentro do servidor**, sem cookie

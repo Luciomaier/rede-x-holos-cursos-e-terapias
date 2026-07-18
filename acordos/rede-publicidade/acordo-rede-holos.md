@@ -76,7 +76,7 @@ LP EAD · LP Essencial · LP Flex · LP **Presencial** (turmas 6 e 12 meses) · 
 
 ### ⚠️ CRM: ZenPro, não PulsarZap
 
-O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no circuito agora**. Os HTML (gabarito, checklists, apresentação) citam "PulsarZap" — **corrigir para ZenPro**.
+O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no circuito agora**. Os HTML (gabarito, checklists, apresentação) citavam "PulsarZap" — ✅ **corrigidos para ZenPro em 17/07/2026** (os 3 HTML + as linhas deste próprio documento, que também citavam PulsarZap no pacote e no "quem faz o quê").
 
 ---
 
@@ -88,7 +88,7 @@ O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no
 > 1. **Cadência do relatório p/ Luciana:** semanal, quinzenal ou por dezena (10/20/30)? *(os 4 docs divergem)*
 > 2. ✅ **Valor "antes" real: RESOLVIDO em 07/07/2026 — R$12.500/mês** (confirmado pelo Lucio). Composição: Elis R$4.500 + tráfego R$3.000 + gestão comercial R$3.000 + comissão ~R$1.000 + Holos Connect R$1.000. As duas versões anteriores estavam erradas (R$10.500 da memória e R$11.750 da apresentação). Bate com a planilha de junho: lado Lucio R$8.000 (3k+3k+1k+1k) + Elis R$4.500 por fora. **Corrigir a coluna "antes" na apresentação HTML antes da próxima conversa com a Lu** — com o antes real, o aumento da proposta é de só **+R$1.000/mês** (argumento mais forte).
 >
-> **Depois de fechar:** propagar tudo para os 3 HTML + corrigir PulsarZap→ZenPro + preencher brancos (horários de reunião, datas das LPs) + padronizar nome (Nicholas/Nick) e cor da marca.
+> **Depois de fechar:** propagar tudo para os 3 HTML + ~~corrigir PulsarZap→ZenPro~~ (✅ feito 17/07) + preencher brancos (horários de reunião, datas das LPs) + padronizar nome (Nicholas/Nick) e cor da marca.
 >
 > Análise de prontidão: 14/06/2026 — scorecard inicial ~6,5/10. Meta/funil calibrados em 15/06.
 
@@ -112,7 +112,7 @@ O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no
 | Tráfego Pago | Campanhas Meta + Google · otimização · UTMs · relatório por dezena | Nick + Lucio | R$ 3.000 |
 | Site + LPs + Copy + Email | Landing pages (1/semana) · copy · email marketing · disparos | Nick + Elis | R$ 1.500 |
 | Gerência Geral | Coordenação da equipe · reuniões · relatórios · interface com a direção | Elis | R$ 6.000 |
-| Holos Connect + CRM PulsarZap | Plataforma de alunos · CRM/WhatsApp · rastreamento de leads · infra por conta da Rede (substitui custo variável ~R$992/mês) | Lucio | R$ 1.000 |
+| Holos Connect + CRM ZenPro | Plataforma de alunos · CRM/WhatsApp · rastreamento de leads · infra por conta da Rede (substitui custo variável ~R$992/mês) | Lucio | R$ 1.000 |
 | API Oficial Meta `PRIORIDADE` | Migração do número para API Oficial · elimina risco de bloqueio · escala segura (mercado: R$800–3.000) | Lucio + Nick | incluso |
 | Social + Edição de Vídeo | 3 Reels/semana · posts de feed · stories diários (Lu grava, Nick edita, Elis publica) | Nick + Elis | R$ 2.000 |
 | **TOTAL FIXO** | | | **R$ 13.500** |
@@ -142,7 +142,7 @@ O CRM em uso na operação da Holos é o **ZenPro**. O **PulsarZap não entra no
 
 ## Quem faz o quê
 
-- **Lucio** — Google Ads · Holos Connect + CRM · PulsarZap · API Oficial Meta · estratégia do funil · Google Meu Negócio · diagnóstico de performance
+- **Lucio** — Google Ads · Holos Connect + CRM ZenPro · API Oficial Meta · estratégia do funil · Google Meu Negócio · diagnóstico de performance
 - **Nick** — Meta Ads (todas as campanhas) · relatórios por dezena (dias 10/20/30) · landing pages (1/semana) · copy + email · edição de Reels (3/semana) · UTMs
 - **Elis** — coordenação da equipe · alinhamento semanal com Luciana · publicação de conteúdo · repasse de relatórios com contexto · **ponto de contato oficial da Rede**
 

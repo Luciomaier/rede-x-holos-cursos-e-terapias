@@ -189,6 +189,7 @@ Evitar: linguagem corporativa fria, promessas genéricas, tom acadêmico.
 - [ ] Google Calendar
 - [x] Google Ads — conectado via Windsor.ai (conta "Holos Geral" 644-631-5099), puxa gasto/conversões/leads reais
 - [x] Meta Ads
+- [x] Windsor.ai — **contratado (plano Básico) no acordo de 16/07/2026**: Google Ads + GA4 + Meta Ads. Vira o cano ETL do Painel Holos (janela: `produto/painel-holos.md`). *Reverte a decisão de 14–16/07 de "não assinar" — nota datada em `marketing/painel.md`*
 - [ ] Slack
 - [x] Brevo · [x] Sponte · [x] ZenPro (CRM operacional · PulsarZap fora do circuito agora · **leitura direta no banco Supabase**: usuário `claude_readonly`, credencial `dados/.env.zenpro`, guia `dados/zenpro-acesso-leitura.md`) · [x] Holos Connect
 
@@ -206,6 +207,7 @@ a mesma empresa** — não porque a estrutura está bagunçada:
 |---|---|---|---|
 | **AQUI** (`holos-cursos-terapias/`) | **sócio da escola** (com a Luciana) | Lucio | tudo: tráfego, campanhas, relatórios, acordos, governança |
 | `../holos-connect/` | dono do produto (50% do EaD) | **Nick + Elis** (via Lovable) | código do app + LPs. Janela: [produto/holos-connect.md](produto/holos-connect.md) |
+| `painel-holos` (repo `nick638/painel-holos` — ⚠️ **inacessível em 17/07**, destravar é a pendência nº 1 do Nick) | **dono do projeto** (acordo 16/07 — Claude assina, diretriz do Lucio) | Claude (dev) + Nick (infra/revisão) | dashboard/central de verdade da escola. Janela: [produto/painel-holos.md](produto/painel-holos.md) |
 | `../rede-publicidade/clientes/holos/` | fornecedor (a agência) | ninguém — **pasta vazia** | só uma placa apontando pra cá (colapsada em 16/07) |
 
 - **`rede-publicidade/clientes/holos/` foi esvaziada em 16/07/2026.** Existiu de

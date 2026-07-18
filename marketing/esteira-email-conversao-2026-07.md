@@ -1,8 +1,10 @@
 # Esteira de e-mail — conversão da lista opt-in (Holos / Brevo)
 
 > Brief pra o Nick executar na Brevo. Objetivo: nutrir quem entra na lista opt-in nova e
-> levar pra **matrícula na Formação**, rodando **junto com o funil de WhatsApp (PulsarZap)**
+> levar pra **matrícula na Formação**, rodando **junto com o funil de WhatsApp (ZenPro)**
 > sem sobrepor. Criado 10/07/2026.
+> ✏️ *Corrigido 17/07: o funil de WhatsApp é o **ZenPro** — o brief citava PulsarZap,
+> que está fora do circuito desde a decisão de 15/06 (ver acordo Rede×Holos).*
 
 ## A sequência (evergreen — dispara quando o lead entra na lista)
 
@@ -18,13 +20,13 @@
 
 ## Gatilhos / tags (a lógica pro Nick montar)
 - **Entrou na lista** → dispara a sequência.
-- **Clicou no CTA de matrícula e não comprou** → tag `quente` → joga pro **WhatsApp humano** (PulsarZap).
+- **Clicou no CTA de matrícula e não comprou** → tag `quente` → joga pro **WhatsApp humano** (ZenPro).
 - **Comprou** → sai da esteira, tag `aluno`.
 - **Não abriu** → reenvia com outro assunto (resgatar não-abridores).
 
 ## Integração e-mail × WhatsApp (não repetir)
 - **E-mail (Brevo):** nutre e educa (autoridade, história, objeção).
-- **WhatsApp (PulsarZap):** qualifica e fecha (humano no lead quente).
+- **WhatsApp (ZenPro):** qualifica e fecha (humano no lead quente).
 - Coordenar pra não bater a mesma mensagem nos dois canais.
 
 ## O que falta o Lucio confirmar (pra escrever os textos)
@@ -36,7 +38,7 @@
 ## O que o Nick faz
 - Monta o fluxo de automação na Brevo com os gatilhos/tags acima.
 - Confirma o **sync opt-in → Brevo** (a tabela `leads_campanha` já sincroniza — validar que está caindo na lista certa).
-- Alinha com o **PulsarZap** pra e-mail e WhatsApp não sobreporem.
+- Alinha com o **ZenPro** pra e-mail e WhatsApp não sobreporem.
 
 ## Próximo passo
 Os **textos dos 6 e-mails** o Claude escreve (com a copy no tom da Holos) assim que os 4 pontos acima estiverem travados.
