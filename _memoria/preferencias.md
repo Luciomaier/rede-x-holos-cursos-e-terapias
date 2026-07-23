@@ -55,6 +55,20 @@ Textos limpos, acolhedores e sérios. A credibilidade é construída por conteú
 - Ao montar uma LP nova, trocar o número em **todos os pontos**: hero, detalhes, card da turma, investimento, CTA final, sticky mobile e o `BASE_WPP` do script de captura de lead (7 lugares no molde)
 - Não herdar o número da página antiga do WordPress sem conferir — a da Hawaiana estava certa, mas vale checar caso a caso (confirmado em 23/07/2026)
 
+### Como criar uma LP de curso nova (checklist técnico)
+Fluxo testado nas 6 páginas de 23/07/2026 (Constelação, Hawaiana, Cone Hindu, Radiestesia, Modeladora, Relaxante).
+
+1. **Molde:** copiar de `public/curso-de-auriculoterapia/index.html` — reaproveitar o `<style>` **principal** (o que contém `--roxo`, não o mini do `<noscript>`) e o bloco do modal de captura + scripts. Trocar `LP`, `BASE_WPP`, mensagens e `DATA_TURMA`
+2. **Conteúdo:** puxar do WordPress antigo (`curl` + extrair texto) e adaptar ao tom da Holos
+3. **Imagens:** converter pra `.webp` com Pillow; fotos de professor em quadrado ~600×600
+4. ⚠️ **`scripts/seo-routes.mjs` — o passo que quebra se esquecer:**
+   - a rota **NÃO** pode estar no array de rotas pré-renderizadas nem no mapa `COURSE_ROUTES` — o `postbuild-seo` gera um HTML que **sobrescreve** a LP estática no build
+   - a rota **DEVE** entrar em `staticLandingPages` (com barra no fim), que é a lista das LPs de `public/` — assim entra no sitemap sem ser sobrescrita
+   - sintoma de esquecer: a página vai pro ar mas mostra a versão antiga; dá pra flagrar pelo `<title>` (o de SEO termina em "São Paulo", o da LP em "Vila Mariana")
+5. **Se a página era React**, remover a rota em 3 lugares: `App.tsx` (lazy import, `publicRoutes`, `<Route>`), `config/routes/public-routes.tsx` (import + bloco) e apagar o componente
+6. **Links:** atualizar `TodosOsCursos.tsx` — catálogo A-Z e agenda, com caminho relativo (`/curso-x`). Como `resolverUrlCurso` casa pelo catálogo, o cronograma vivo também passa a resolver certo
+7. **Conferir:** rodar `python -m http.server 7823` em `public/` e renderizar com Playwright; o build da Vercel no PR é a validação final
+
 ### Padrão — investimento na página
 - **Curso livre (ticket baixo):** mostrar o valor na página. Ex.: Hawaiana R$ 290 ou 3x de R$ 96,67
 - **Formação (ticket alto):** **não** mostrar valor — botão leva ao WhatsApp com a mensagem de investimento, pra um humano atender (decisão da Elis em 23/07/2026, na Constelação)
