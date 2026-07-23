@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Parisienne&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .slide {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(165deg, #7A5790 0%, #6D4C7F 60%, #5F4270 100%);
+  }
+
+  /* ── Foto no topo (proporção 3:4 = encaixa sem cortar em 1080x1440) ── */
+  .photo-wrap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 1080px;
+    height: 1440px;
+    overflow: hidden;
+  }
+
+  .bg-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* leve véu roxo pra integrar a foto à marca */
+  .overlay-brand {
+    position: absolute;
+    inset: 0;
+    background: rgba(46, 8, 66, 0.10);
+  }
+
+  /* gradiente que funde a base da foto na faixa roxa */
+  .photo-fade {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 460px;
+    background: linear-gradient(
+      to bottom,
+      rgba(62, 14, 85, 0) 0%,
+      rgba(62, 14, 85, 0.15) 40%,
+      rgba(109, 76, 127, 0.70) 72%,
+      rgba(109, 76, 127, 0.97) 92%,
+      #6D4C7F 100%
+    );
+  }
+
+  .overlay-top {
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 300px;
+    background: linear-gradient(to bottom, rgba(26,10,46,0.55) 0%, rgba(26,10,46,0) 100%);
+  }
+
+  .header {
+    position: absolute;
+    top: 64px; left: 72px; right: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 10;
+  }
+
+  .logo { height: 54px; width: auto; }
+
+  .badge {
+    background: rgba(230, 160, 40, 0.16);
+    border: 1.5px solid rgba(230, 160, 40, 0.70);
+    color: #E6A028;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800; font-size: 21px;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    padding: 12px 28px; border-radius: 40px;
+  }
+
+  /* ── Título na faixa roxa ── */
+  .content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0 84px 130px;
+    z-index: 10;
+  }
+
+  .regua {
+    width: 78px; height: 4px; border-radius: 4px;
+    background: #E6A028;
+    margin-bottom: 34px;
+  }
+
+  .titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 92px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .destaque {
+    font-family: 'Parisienne', cursive;
+    font-size: 118px;
+    color: #E6A028;
+    margin-top: 6px;
+    line-height: 0.9;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="photo-wrap">
+    <img class="bg-photo" src="foto.jpg" alt="">
+    <div class="overlay-brand"></div>
+    <div class="photo-fade"></div>
+  </div>
+  <div class="overlay-top"></div>
+
+  <div class="header">
+    <img class="logo" src="logo.png" alt="Holos">
+    <div class="badge">Auriculoterapia</div>
+  </div>
+
+  <div class="content">
+    <div class="regua"></div>
+    <div class="titulo">Pontos pequenos,<br>efeito</div>
+    <div class="destaque">profundo</div>
+  </div>
+</div>
+</body>
+</html>

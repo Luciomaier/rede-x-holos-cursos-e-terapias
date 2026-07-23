@@ -5,7 +5,7 @@ Operação central da Holos. Cada setor tem sua área, com processos, entregas e
 **Estrutura de pastas:**
 - `_memoria/` — quem é a empresa, como falamos, foco atual; inclui `rotinas.md` (rotinas recorrentes) e `afazeres.md` (tarefas do mês)
 - `identidade/` — marca aplicada em tudo que o sistema gera
-- `marketing/` — campanhas, conteúdo, mídia paga
+- `marketing/` — campanhas, conteúdo, mídia paga; inclui `dezenal/` (base própria de números da massoterapia por dezena D1/D2/D3, de Windsor + ZenPro)
 - `saidas/` — documentos e entregas pontuais
 - `dados/` — arquivos a analisar
 - `scripts/` — automações e templates de código

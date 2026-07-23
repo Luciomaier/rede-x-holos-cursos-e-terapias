@@ -37,9 +37,17 @@ Projetos de longo prazo que não impactam diretamente os gargalos acima.
 - Primeiro passo: Nick monta a lista de quentes com aviso de retorno — aguardando decisão da reunião
 
 **Evento com prazo — julho/2026**
-- Aulão Shiatsu na visão da MTC — Sáb 18/07, 09h–17h, Prof. Bezerra, 20 vagas, R$153 — banner pronto
+- ~~Aulão Shiatsu na visão da MTC — Sáb 18/07, 09h–17h, Prof. Bezerra, 20 vagas, R$153~~ ✅ realizado 18/07
 
 **Entregues recentemente**
+- Site — **LP do Curso de Massagem Hawaiana** (23/07): primeira substituição de página do WordPress. `/curso-de-hawaiana` estática, molde da Constelação, Prof.ª Ariadne, turma seg 03/08 08h–15h, R$ 290 ou 3x. Links do catálogo A-Z e da agenda repontados pro novo endereço — PR #159
+- Site — **redesenho da página de Agenda** (`/todos-os-cursos`) no ar (23/07): hero novo, lista cronológica com quadradinho de calendário, meses reais separados, **semáforo de modalidade** (presencial verde-água #60E4D7 / semi laranja / híbrido vermelho) e aba Massoterapia com os **5 tipos de turma** (12/06/03 meses, Intensiva 21 dias 03/11, Intensiva Guaraú). Integrado ao Cronograma vivo do Nick (`useCronogramaPublico`) — PR #158 mesclado
+- Site — **LP da Formação em Constelação Familiar Holística** (23/07): `/formacao-constelacao-familiar`, 5 módulos/500h, turmas intensiva e modular (ago–dez), Prof.ªs Ariadne e Lucia, aquarela dos ancestrais no hero. Investimento não aparece — CTA vai pro WhatsApp pra atendimento humano
+- Site — **rodapé roxo #52378A** no lugar do navy nas 4 LPs (Luciana não gosta de preto)
+- Site — agenda de cursos atualizada (22/07): Tui-ná incluído em 01/08, Quick Massage movido 03/08→31/07; turmas de Massoterapia remarcadas (seg e ter T 21/07→10/08, ter e qui M/N 21/07→04/08) e com datas extras ((seg) N +31/08, (fds) +08/08 e 05/09, 03 Meses +10/08/24/08/31/08, (seg) M +14/09 e 26/10); novo Aulão de Bioenergética 23/08 (link do grupo WhatsApp) — `holos-universit/src/pages/TodosOsCursos.tsx`, 2 commits na `Lovable-(elis)`, aguardando PR → `main`
+- Base dezenal de números da massoterapia — `marketing/dezenal/numeros-masso-dezenal.md`: gasto (Windsor: Google Ads + Meta) + leads/CPL (ZenPro) por dezena D1/D2/D3, com a régua de "lead masso" formalizada. Base própria pra decidir com dado enquanto o painel do Nick não fica pronto
+- Capa + legenda Reel Bioenergética "A tensão que a massagem comum não resolve" — Elis, gancho de tensão de raiz emocional/energética virando pra Bioenergética/Formação (20/07) — `marketing/conteudo/reel-tensao-2026-07-20/`
+- Site — cronograma e turmas atualizados (20/07): agenda remarcada (Tui-ná 13/07→13/10 +20/10, Geoterapia 16/07→14/09 +18/08/25/08/31/08, Bioenergética 20/07→26/10, Massoterapia 03 Meses 20/07→03/08 e turmas seg/ter pra 21/07 e 27/07, Workshop Drenagem 18/07 removido) + inclusões de ago; páginas de turma de Craniopuntura, Modeladora (Turma 2 nova), Relaxante (3 híbridas) e Auriculoterapia (Turma 2 presencial 19h) — commit na `Lovable-(elis)`, aguardando PR → `main`
 - Capa Reel Shiatsu "Você acha que shiatsu é força?" — Elis, gancho técnica vs. força, aquece o Aulão de 18/07 (17/07) — `marketing/conteudo/reel-shiatsu-forca-2026-07-17/`
 - Carrossel Massagem Bioenergética — série técnicas da formação (16/07, postado) — capa escura, alterna com a lavanda do Shiatsu de 14/07 — `marketing/conteudo/feed-bioenergetica-2026-07-16/`
 - Site — cronograma atualizado (16/07): Ventosa incluída em 18/07, Massoterapia seg/ter N 27/08→20/07, Reiki I e II removido de 20/07 e movido 19/11→19/10 — commits na `Lovable-(elis)`, aguardando PR → `main`
