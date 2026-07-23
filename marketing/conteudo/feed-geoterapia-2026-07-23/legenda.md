@@ -1,12 +1,12 @@
 # Legenda — Carrossel Geoterapia (série Técnicas da Formação)
 
-Argila não é tratamento de spa. É técnica.
+Argila não é só estética. É tratamento.
 
-A Geoterapia usa argilas medicinais aplicadas sobre a pele em temperatura e espessura controladas — e cada tipo de argila tem uma composição mineral diferente. É essa composição que define para que ela serve, onde aplicar e por quanto tempo deixar agir. Verde para absorção, branca para peles sensíveis, vermelha para circulação, preta para dores articulares.
+Na Geoterapia, a argila é aplicada morna sobre a pele em espessura controlada — e o trabalho acontece justamente enquanto ela seca. Nesse processo, puxa o que está retido, mantém o calor no local e devolve minerais ao tecido.
 
-O recurso é antigo: há cerca de 7 mil anos egípcios, chineses e povos indígenas já usavam a terra como cuidado. O que mudou foi o critério — hoje a aplicação é feita com técnica, higiene e indicação.
+Cada tipo tem uma função própria: a verde para absorção, a branca para peles sensíveis, a vermelha para circulação e musculatura, a preta para dores articulares. É a composição mineral que define onde aplicar e por quanto tempo deixar agir.
 
-Para quem atende, é uma das técnicas de melhor relação entre custo e resultado: chega em retenção de líquido, processos inflamatórios e dores musculares que a massagem sozinha não alcança.
+É um recurso antigo, usado há milhares de anos por povos de tradições bem diferentes. O que mudou foi o critério — hoje se aplica com técnica, indicação e higiene.
 
 Arraste pro lado e conheça a técnica por dentro.
 
