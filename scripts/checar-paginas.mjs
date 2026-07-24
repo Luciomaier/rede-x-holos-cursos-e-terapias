@@ -49,7 +49,14 @@ const ITENS = [
   { id: 'T8', bloco: 'T', nome: 'Captura gclid', dono: 'nosso' },
 ];
 
-const sessoes = JSON.parse(readFileSync(join(RAIZ, 'dados/ga4-sessoes-7d.json'), 'utf8'));
+// Sessões do GA4 são um enfeite útil, não um requisito: `dados/` não vai pro git,
+// então num clone limpo o arquivo não existe e o painel roda sem a coluna.
+let sessoes = {};
+try {
+  sessoes = JSON.parse(readFileSync(join(RAIZ, 'dados/ga4-sessoes-7d.json'), 'utf8'));
+} catch {
+  console.error('  (sem dados/ga4-sessoes-7d.json — painel sai sem a coluna de sessões)');
+}
 
 async function baixar(url) {
   try {
