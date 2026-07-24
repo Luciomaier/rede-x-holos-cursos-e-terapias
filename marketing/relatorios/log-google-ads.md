@@ -12,10 +12,20 @@
 
 ### 🔴 A regra que explica tudo (descoberta em 23/07, checada ao vivo)
 
-| Tipo de página | URL de exemplo | Herda GTM? | Medição Google |
+| Tipo de página | URL de exemplo | Herda GTM/GA4? | Conversão no **Ads** |
 |---|---|---|---|
-| **Rota React (SPA)** | `app./curso-de-massagem-desportiva-4x1` | ✅ sim (GTM-PGTFNK2 + GA4) | **medida** |
-| **LP estática** (`public/<nome>/`) | `app./desportiva-4x1/` | ❌ não — `<head>` próprio | **CEGA** |
+| **Rota React (SPA)** | `app./curso-de-massagem-desportiva-4x1` | ✅ sim | ❌ **não** (ver correção) |
+| **LP estática** (`public/<nome>/`) | `app./desportiva-4x1/` | ❌ não — `<head>` próprio | ❌ **não** (sem o patch) |
+
+> ⚠️ **CORREÇÃO da primeira versão desta nota:** escrevi que a rota React era "medida".
+> **Errado.** Ela herda GTM e GA4, mas **não registra conversão no Google Ads**:
+> (a) o SPA carrega `G-YV8T6YK9N9` (GA4), **não** `AW-752011587`;
+> (b) o `DynamicWhatsAppButton` usa `onClick` + `window.open()` — **não é `<a href>`**,
+> então gatilho de clique do GTM que casa por *Click URL* não dispara nele;
+> (c) os `gtag('event','whatsapp_click')` de `src/components/funnel/` são eventos de
+> **GA4**, sem `send_to: 'AW-.../label'` — não viram conversão no Ads. E a página da
+> desportiva nem usa esses componentes.
+> **Herdar GTM ≠ medir conversão.** Segunda vez no dia que cravei rápido demais.
 
 > **Toda migração "página React → LP estática" apaga o rastreamento do Google, em
 > silêncio.** Ninguém percebe: o pixel do Meta continua lá, a página fica mais rápida,
@@ -32,14 +42,30 @@
 | `src/pages/CursoMassagemDesportiva4x1.tsx` | `app./curso-de-massagem-desportiva-4x1` | rota React — medida via GTM |
 | *(a campanha aponta hoje)* | `holoscursoseterapias.com.br/curso-de-desportiva-4x1/` | **WordPress** — medida via GTM |
 
-**Decidir para qual das duas a campanha vai apontar antes de qualquer coisa** — é isso
-que define onde a tag precisa estar.
+### ✅ DECIDIDO em 23/07 (Lucio): a campanha **NÃO** vai pra rota React
+
+O Lucio abriu a página React e viu que está **em modelo defasado** (último commit
+10/07, sem o padrão novo). Decisão: **a Elis refaz a LP na mesma URL**, no padrão novo
+que ela e o Nick estão produzindo — popup que colhe o e-mail e depois manda pro
+WhatsApp, com imagem e visual melhor.
+
+A verificação técnica bate com a leitura visual dele: apontar a campanha pra rota React
+**teria repetido o 09/06**, porque a rota React não registra conversão no Ads (motivos
+na correção acima). **Não trocar o destino da campanha agora.** A campanha segue no
+WordPress, onde a tag comprovadamente dispara (112 conversões em 01–22/07), até a LP
+nova estar no ar **com a tag validada**.
+
+> O padrão novo (popup e-mail → WhatsApp) **já é o das 16 LPs estáticas** — todas usam
+> `lm-form`. Ou seja: a LP nova da Elis nasce nesse molde. **É por isso que consertar o
+> molde resolve o problema inteiro, e não só a desportiva.**
 
 ### O que fazer amanhã, nesta ordem
 
-1. **Antes de recriar qualquer página: consertar o MOLDE** da LP estática pra já nascer
-   com o bloco gtag + captura de gclid. Se recriar antes, cada página nova nasce cega
-   **e o patch do PR #162 na desportiva é jogado fora junto.**
+1. **Passar pra Elis/Nick o `docs/TRACKING_LP.md`** (criado em 23/07, na branch
+   `fix/gtag-lps-cegas`) — são 3 trechos pra colar. **Se a LP nova nascer com eles, o
+   problema morre na origem** e o patch do PR #162 não precisa nem sobreviver.
+   ⚠️ Sem isso, a LP nova sobrescreve `public/desportiva-4x1/index.html` e **o patch é
+   jogado fora junto** — e ninguém percebe, porque o Meta continua medindo.
 2. **Lucio (~15 min):** criar 3 ações de conversão no Google Ads (Ferramentas >
    Conversões), uma por curso, e passar os rótulos → eu colo em `ADS_LABEL`.
 3. Mergear o [PR #162](https://github.com/Luciomaier/holos-universit/pull/162) e validar
