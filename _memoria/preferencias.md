@@ -65,7 +65,8 @@ Fluxo testado nas 6 páginas de 23/07/2026 (Constelação, Hawaiana, Cone Hindu,
    - a rota **NÃO** pode estar no array de rotas pré-renderizadas nem no mapa `COURSE_ROUTES` — o `postbuild-seo` gera um HTML que **sobrescreve** a LP estática no build
    - a rota **DEVE** entrar em `staticLandingPages` (com barra no fim), que é a lista das LPs de `public/` — assim entra no sitemap sem ser sobrescrita
    - sintoma de esquecer: a página vai pro ar mas mostra a versão antiga; dá pra flagrar pelo `<title>` (o de SEO termina em "São Paulo", o da LP em "Vila Mariana")
-5. **Se a página era React**, remover a rota em 3 lugares: `App.tsx` (lazy import, `publicRoutes`, `<Route>`), `config/routes/public-routes.tsx` (import + bloco) e apagar o componente
+5. ⚠️ **Rastreamento (tags) — toda LP precisa da camada base**, senão o Google fica cego (o Analytics e as campanhas do Lúcio não veem a página). As páginas React herdam do `index.html` automaticamente; as LPs de `public/` NÃO — cada uma precisa ter, no `<head>`, o **GTM `GTM-PGTFNK2` + GA4 `G-YV8T6YK9N9`** (o mesmo do site) e o **Meta Pixel** (`fbq init 902498357163312`), mais o `<noscript>` do GTM logo após `<body>`. O molde de auriculoterapia já traz tudo isso — se copiar dele por inteiro, nasce pronto. Rodar `node scripts/check-tracking.mjs` antes do PR pra confirmar. A **conversão de Google Ads** (`AW-...` com rótulo/valor) é por campanha e fica com o Lúcio — não inventar
+6. **Se a página era React**, remover a rota em 3 lugares: `App.tsx` (lazy import, `publicRoutes`, `<Route>`), `config/routes/public-routes.tsx` (import + bloco) e apagar o componente
 6. **Links:** atualizar `TodosOsCursos.tsx` — catálogo A-Z e agenda, com caminho relativo (`/curso-x`). Como `resolverUrlCurso` casa pelo catálogo, o cronograma vivo também passa a resolver certo
 7. **Conferir:** rodar `python -m http.server 7823` em `public/` e renderizar com Playwright; o build da Vercel no PR é a validação final
 
