@@ -16,8 +16,20 @@ VS Code/Claude Code. Também é o protótipo do produto "IA sob medida" pra empr
 **Acordo (16/07/2026, Lucio + Nick + Elis):**
 - Claude assina o desenvolvimento, com diretrizes do Lucio, em equipe com o Nick
 - **Nick foca em VENDER o EaD** — o painel não pode canibalizar a performance do resto
-- **Nada é construído dentro do holos-connect** (produção congelada) — o painel é um
-  hub separado que *conecta* as fontes
+- **Este painel não é construído dentro do holos-connect** — ele é um hub separado que
+  *conecta* as fontes
+
+> **Precisão da regra (24/07/2026).** O que fica fora do Connect é **este painel — o
+> painel novo do Nick**, o artefato. **Não são as pessoas:** Nick e Elis trabalham
+> dentro do Connect, é a casa deles. A regra separa produto de painel, não gente de
+> repositório.
+>
+> Consequência prática: rota de **diagnóstico** pode morar dentro do Connect. É o caso
+> da `/api/checagem` (PR #173) — confere se as páginas do próprio Connect estão
+> instrumentadas. **O limite:** ela responde *"a medição está certa?"*. No dia em que
+> publicar número comercial (vendas, caixa, matrículas), virou um segundo painel de
+> negócio e a deriva começou — e aí sai do Connect. Verdade de negócio segue em
+> `marketing/painel.md` até o Portão 4.
 - Windsor.ai contratado (plano Básico: Google Ads + GA4 + Meta Ads) como cano de dados
   — *reverte a decisão de 14–16/07 de "não assinar"; ver nota em
   [marketing/painel.md](../marketing/painel.md)*
@@ -126,6 +138,10 @@ canônico até o Portão 4.
 
 ## Log de decisões
 
+- **24/07/2026** — Precisada a regra do "fora": o que fica fora do Connect é **este
+  painel** (o artefato), não as pessoas — Nick e Elis seguem trabalhando dentro. Rota de
+  diagnóstico pode ficar dentro (`/api/checagem`, PR #173), com o limite de nunca
+  publicar número comercial.
 - **17/07/2026** — Plano de implementação aprovado pelo Lucio (fases 0–4, portões).
   Análise do protótipo feita a partir do deploy (repo inacessível). Detectado e
   registrado o incidente `/api/meta` aberto. Criada esta janela.
