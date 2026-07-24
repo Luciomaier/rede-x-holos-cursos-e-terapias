@@ -5,6 +5,56 @@
 
 ---
 
+## ▶️ RETOMAR AQUI — 24/07/2026 (deixado em 23/07)
+
+> **Contexto:** o Lucio avisou que em 24/07 a desportiva e outras páginas **serão
+> recriadas**. Isso torna urgente o que era P3.
+
+### 🔴 A regra que explica tudo (descoberta em 23/07, checada ao vivo)
+
+| Tipo de página | URL de exemplo | Herda GTM? | Medição Google |
+|---|---|---|---|
+| **Rota React (SPA)** | `app./curso-de-massagem-desportiva-4x1` | ✅ sim (GTM-PGTFNK2 + GA4) | **medida** |
+| **LP estática** (`public/<nome>/`) | `app./desportiva-4x1/` | ❌ não — `<head>` próprio | **CEGA** |
+
+> **Toda migração "página React → LP estática" apaga o rastreamento do Google, em
+> silêncio.** Ninguém percebe: o pixel do Meta continua lá, a página fica mais rápida,
+> o SEO melhora — e a conversão do Google some. Foi assim que a masso quebrou em 09/06.
+> Os commits de 22–23/07 (Modeladora, Relaxante) fizeram exatamente essa migração.
+
+**Hoje: das 16 LPs estáticas, só a `massoterapia-lp` tem tag. As outras 15 estão cegas.**
+
+### ⚠️ Existem DUAS desportivas (o Lucio suspeitou certo)
+
+| Arquivo | URL | Estado |
+|---|---|---|
+| `public/desportiva-4x1/` | `app./desportiva-4x1/` | LP estática — cega (patch no PR #162) |
+| `src/pages/CursoMassagemDesportiva4x1.tsx` | `app./curso-de-massagem-desportiva-4x1` | rota React — medida via GTM |
+| *(a campanha aponta hoje)* | `holoscursoseterapias.com.br/curso-de-desportiva-4x1/` | **WordPress** — medida via GTM |
+
+**Decidir para qual das duas a campanha vai apontar antes de qualquer coisa** — é isso
+que define onde a tag precisa estar.
+
+### O que fazer amanhã, nesta ordem
+
+1. **Antes de recriar qualquer página: consertar o MOLDE** da LP estática pra já nascer
+   com o bloco gtag + captura de gclid. Se recriar antes, cada página nova nasce cega
+   **e o patch do PR #162 na desportiva é jogado fora junto.**
+2. **Lucio (~15 min):** criar 3 ações de conversão no Google Ads (Ferramentas >
+   Conversões), uma por curso, e passar os rótulos → eu colo em `ADS_LABEL`.
+3. Mergear o [PR #162](https://github.com/Luciomaier/holos-universit/pull/162) e validar
+   conversão real 24–72h.
+4. **Só então** reapontar a Desportiva pra fora do WordPress. Nunca antes.
+
+### Estado em 23/07 (fim do dia)
+- PR #162 aberto, branch `fix/gtag-lps-cegas`, **+78/−0**, produção intacta (não foi
+  pra main). Inerte de propósito até os rótulos chegarem.
+- `massoterapia-lp` **não** foi tocada — confirmado no diff. A masso segue medindo.
+- Repo `holos-connect` estava atrasado localmente; foi feito `git pull` em 23/07.
+  **Puxar de novo antes de mexer** — o time (Nick/Elis via Lovable) commita direto na main.
+
+---
+
 ## 2026-07-23 — Risco de conversão em dobro: item C do roteiro RESPONDIDO (não há conversão órfã)
 
 Verificação do medo registrado em 17/06 e reafirmado no plano de saída do WordPress:
