@@ -49,3 +49,23 @@ Quando você roda uma skill que precisa de script ausente, o Claude vai:
 5. Rodar a skill
 
 Você não precisa decorar nada. Roda a skill, segue o fluxo.
+
+## checar-paginas.mjs — verificador das páginas
+
+```bash
+node scripts/checar-paginas.mjs
+```
+
+Descobre as páginas pelo **sitemap do app** (mais as do WordPress que ainda recebem
+campanha), baixa cada uma **no ar** e confere os itens do checklist
+(`marketing/painel-validacao-lp.md`). Gera:
+
+- `dados/lps-status.json` — resultado cru
+- `saidas/painel-lps.html` — o painel visual (publicável como artifact)
+
+Página nova entra sozinha na próxima rodada, porque a lista vem do sitemap.
+Só marca os itens de atribuição (T*) nas páginas que capturam lead — as outras
+ficam como "não se aplica" em vez de falso alarme.
+
+Sessões vêm de `dados/ga4-sessoes-7d.json` (GA4 "Holos Cursos e Terapias 23",
+via Windsor) — atualizar quando quiser número fresco.

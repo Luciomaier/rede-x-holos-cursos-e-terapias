@@ -1,0 +1,413 @@
+<title>Checagem das páginas — Holos</title>
+
+<style>
+  /* Paleta herdada das próprias LPs (public/*/index.html) — o painel é da casa. */
+  :root {
+    --roxo:       #6B4A9E;
+    --roxo-dark:  #52378A;
+    --roxo-light: #EDE8F5;
+    --roxo-pale:  #F7F4FC;
+    --navy:       #0C1436;
+    --chama:      #E8621A;
+
+    --ground:     #FAF8F5;
+    --surface:    #FFFFFF;
+    --surface-2:  #F7F4FC;
+    --linha:      #E8E2F4;
+    --texto:      #0C1436;
+    --texto-2:    #5C5570;
+    --texto-3:    #8A8299;
+
+    --ok:         #2F7A5B;
+    --ok-bg:      #E4F1EA;
+    --falta:      #C2410C;
+    --falta-bg:   #FCE9DF;
+    --na:         #D6D1E0;
+
+    --sombra:     0 1px 2px rgba(12,20,54,.06), 0 8px 24px rgba(107,74,158,.07);
+    --raio:       10px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:    #0B1020;
+      --surface:   #141A2E;
+      --surface-2: #1B2238;
+      --linha:     #2A3350;
+      --texto:     #ECEAF3;
+      --texto-2:   #A7A3B8;
+      --texto-3:   #7A7690;
+      --roxo:      #A88BD6;
+      --roxo-dark: #C4AEE8;
+      --roxo-light:#2A2140;
+      --roxo-pale: #1B2238;
+      --ok:        #5FBF92;
+      --ok-bg:     #14301F;
+      --falta:     #F08A4B;
+      --falta-bg:  #3A2113;
+      --na:        #39415C;
+      --sombra:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0B1020; --surface:#141A2E; --surface-2:#1B2238; --linha:#2A3350;
+    --texto:#ECEAF3; --texto-2:#A7A3B8; --texto-3:#7A7690;
+    --roxo:#A88BD6; --roxo-dark:#C4AEE8; --roxo-light:#2A2140; --roxo-pale:#1B2238;
+    --ok:#5FBF92; --ok-bg:#14301F; --falta:#F08A4B; --falta-bg:#3A2113; --na:#39415C;
+    --sombra:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+  :root[data-theme="light"] {
+    --ground:#FAF8F5; --surface:#FFFFFF; --surface-2:#F7F4FC; --linha:#E8E2F4;
+    --texto:#0C1436; --texto-2:#5C5570; --texto-3:#8A8299;
+    --roxo:#6B4A9E; --roxo-dark:#52378A; --roxo-light:#EDE8F5; --roxo-pale:#F7F4FC;
+    --ok:#2F7A5B; --ok-bg:#E4F1EA; --falta:#C2410C; --falta-bg:#FCE9DF; --na:#D6D1E0;
+    --sombra:0 1px 2px rgba(12,20,54,.06), 0 8px 24px rgba(107,74,158,.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--texto);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .env { max-width: 1240px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* ── cabeçalho ── */
+  .topo { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end;
+          justify-content: space-between; padding-bottom: 24px;
+          border-bottom: 2px solid var(--roxo); margin-bottom: 28px; }
+  h1 { font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+       font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 700; margin: 0 0 6px;
+       letter-spacing: -.02em; text-wrap: balance; }
+  .sub { color: var(--texto-2); font-size: .93rem; max-width: 62ch; }
+  .carimbo { font-family: ui-monospace, "SF Mono", Menlo, monospace;
+             font-size: .78rem; color: var(--texto-3); white-space: nowrap; }
+
+  /* ── tiles ── */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+           gap: 12px; margin-bottom: 28px; }
+  .tile { background: var(--surface); border: 1px solid var(--linha);
+          border-radius: var(--raio); padding: 16px 18px; box-shadow: var(--sombra); }
+  .tile .n { font-family: ui-monospace, "SF Mono", Menlo, monospace;
+             font-size: 1.85rem; font-weight: 600; line-height: 1.1;
+             font-variant-numeric: tabular-nums; }
+  .tile .r { font-size: .76rem; text-transform: uppercase; letter-spacing: .07em;
+             color: var(--texto-3); margin-top: 5px; }
+  .tile.alerta { border-color: var(--falta); background: var(--falta-bg); }
+  .tile.alerta .n, .tile.alerta .r { color: var(--falta); }
+
+  /* ── barras por item ── */
+  .secao { font-family: Georgia, serif; font-size: 1.15rem; font-weight: 700;
+           margin: 34px 0 14px; }
+  .itens { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+           gap: 8px 20px; margin-bottom: 8px; }
+  .item { display: grid; grid-template-columns: 2.4rem 1fr auto; gap: 10px;
+          align-items: center; padding: 6px 0; border-bottom: 1px solid var(--linha); }
+  .cod { font-family: ui-monospace, monospace; font-size: .72rem; font-weight: 600;
+         color: var(--roxo); }
+  .item .nm { font-size: .85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item .fr { font-family: ui-monospace, monospace; font-size: .78rem;
+              font-variant-numeric: tabular-nums; color: var(--texto-2); }
+  .item.pend .fr { color: var(--falta); font-weight: 600; }
+  .barra { grid-column: 1 / -1; height: 3px; background: var(--na);
+           border-radius: 2px; overflow: hidden; }
+  .barra i { display: block; height: 100%; background: var(--ok); }
+  .item.pend .barra i { background: var(--falta); }
+
+  /* ── controles ── */
+  .ctrl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 18px 0 14px; }
+  .btn { font: inherit; font-size: .82rem; padding: 7px 14px; border-radius: 999px;
+         border: 1px solid var(--linha); background: var(--surface); color: var(--texto-2);
+         cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .btn:hover { border-color: var(--roxo); color: var(--roxo); }
+  .btn[aria-pressed="true"] { background: var(--roxo); border-color: var(--roxo); color: #fff; }
+  :root[data-theme="dark"] .btn[aria-pressed="true"],
+  .btn[aria-pressed="true"] { color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn[aria-pressed="true"] { color: #0B1020; } }
+  :root[data-theme="light"] .btn[aria-pressed="true"] { color: #fff; }
+  .busca { font: inherit; font-size: .85rem; padding: 7px 14px; border-radius: 999px;
+           border: 1px solid var(--linha); background: var(--surface); color: var(--texto);
+           min-width: 190px; }
+  .btn:focus-visible, .busca:focus-visible, .lupa:focus-visible, .lin:focus-visible {
+    outline: 2px solid var(--roxo); outline-offset: 2px; }
+
+  /* ── tabela ── */
+  .rolagem { overflow-x: auto; border: 1px solid var(--linha); border-radius: var(--raio);
+             background: var(--surface); box-shadow: var(--sombra); }
+  table { border-collapse: collapse; width: 100%; min-width: 900px; }
+  th { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em;
+       color: var(--texto-3); font-weight: 600; text-align: left;
+       padding: 12px 10px; border-bottom: 1px solid var(--linha);
+       position: sticky; top: 0; background: var(--surface); z-index: 2; }
+  th.c, td.c { text-align: center; }
+  th.n, td.n { text-align: right; font-variant-numeric: tabular-nums;
+               font-family: ui-monospace, monospace; }
+  td { padding: 10px; border-bottom: 1px solid var(--linha); font-size: .87rem;
+       vertical-align: middle; }
+  tbody tr.lin { cursor: pointer; }
+  tbody tr.lin:hover td { background: var(--roxo-pale); }
+  tr.temcampanha td:first-child { box-shadow: inset 3px 0 0 var(--roxo); }
+
+  .pag { display: flex; flex-direction: column; gap: 2px; min-width: 210px; }
+  .pag b { font-weight: 600; }
+  .pag code { font-family: ui-monospace, monospace; font-size: .72rem; color: var(--texto-3); }
+  .chip { display: inline-block; font-size: .66rem; text-transform: uppercase;
+          letter-spacing: .05em; padding: 2px 7px; border-radius: 999px;
+          background: var(--roxo-light); color: var(--roxo-dark); font-weight: 600; }
+  .chip.wp { background: var(--falta-bg); color: var(--falta); }
+
+  /* matriz de células */
+  .cels { display: flex; gap: 3px; align-items: center; }
+  .cel { width: 15px; height: 15px; border-radius: 3px; background: var(--ok);
+         display: inline-block; }
+  .cel.f { background: var(--falta); }
+  .cel.na { background: var(--na); opacity: .5; }
+  .sep { width: 1px; height: 15px; background: var(--linha); margin: 0 3px; }
+
+  .lupa { background: none; border: 1px solid var(--linha); border-radius: 7px;
+          width: 30px; height: 30px; cursor: pointer; color: var(--texto-2);
+          display: inline-flex; align-items: center; justify-content: center;
+          text-decoration: none; transition: border-color .15s, color .15s; }
+  .lupa:hover { border-color: var(--roxo); color: var(--roxo); }
+  .lupa svg { width: 15px; height: 15px; }
+
+  /* ── detalhe ── */
+  tr.det td { background: var(--surface-2); padding: 18px 16px 22px; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+           gap: 6px 18px; margin-bottom: 16px; }
+  .lin-item { display: flex; gap: 8px; align-items: baseline; font-size: .82rem; }
+  .pt { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none;
+        transform: translateY(-1px); }
+  .pt.f { background: var(--falta); }
+  .pt.na { background: var(--na); }
+  .dono { font-size: .66rem; text-transform: uppercase; letter-spacing: .05em;
+          color: var(--texto-3); margin-left: auto; }
+
+  .utm { border-top: 1px solid var(--linha); padding-top: 14px; }
+  .utm h4 { margin: 0 0 4px; font-size: .74rem; text-transform: uppercase;
+            letter-spacing: .07em; color: var(--texto-3); font-weight: 600; }
+  .utm p { margin: 0 0 10px; font-size: .8rem; color: var(--texto-2); max-width: 68ch; }
+  .url { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+  .url code { font-family: ui-monospace, monospace; font-size: .74rem;
+              background: var(--surface); border: 1px solid var(--linha);
+              padding: 6px 9px; border-radius: 6px; word-break: break-all; flex: 1;
+              min-width: 240px; color: var(--texto-2); }
+  .copiar { font: inherit; font-size: .74rem; padding: 6px 12px; border-radius: 6px;
+            border: 1px solid var(--roxo); background: transparent; color: var(--roxo);
+            cursor: pointer; white-space: nowrap; }
+  .copiar:hover { background: var(--roxo); color: #fff; }
+  .copiar.feito { background: var(--ok); border-color: var(--ok); color: #fff; }
+
+  .legenda { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px;
+             font-size: .76rem; color: var(--texto-3); }
+  .legenda span { display: inline-flex; align-items: center; gap: 6px; }
+  .vazio { padding: 40px; text-align: center; color: var(--texto-3); }
+
+  footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--linha);
+           font-size: .78rem; color: var(--texto-3); }
+  footer code { font-family: ui-monospace, monospace; color: var(--roxo); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media (max-width: 640px) { .env { padding: 26px 14px 60px; } }
+</style>
+
+<div class="env">
+  <header class="topo">
+    <div>
+      <h1>Checagem das páginas</h1>
+      <p class="sub">Cada página no ar, conferida item a item contra o checklist.
+        O que é do time (página e analytics) e o que é nosso (atribuição e campanha).</p>
+    </div>
+    <div class="carimbo" id="carimbo"></div>
+  </header>
+
+  <div class="tiles" id="tiles"></div>
+
+  <h2 class="secao">Quantas páginas passam em cada item</h2>
+  <div class="itens" id="itens"></div>
+
+  <h2 class="secao">Página a página</h2>
+  <div class="ctrl">
+    <button class="btn" data-f="todas" aria-pressed="true">Todas</button>
+    <button class="btn" data-f="pend" aria-pressed="false">Com pendência</button>
+    <button class="btn" data-f="camp" aria-pressed="false">Com campanha</button>
+    <button class="btn" data-f="capt" aria-pressed="false">De captura</button>
+    <input class="busca" id="busca" type="search" placeholder="Buscar página…" aria-label="Buscar página">
+  </div>
+
+  <div class="rolagem">
+    <table>
+      <thead><tr>
+        <th>Página</th><th class="n">Sessões 7d</th><th>Campanha</th>
+        <th class="c">Itens conferidos</th><th class="n">OK</th><th class="c">Ver</th>
+      </tr></thead>
+      <tbody id="corpo"></tbody>
+    </table>
+  </div>
+  <div class="legenda">
+    <span><i class="cel"></i> passa</span>
+    <span><i class="cel f"></i> falta</span>
+    <span><i class="cel na"></i> não se aplica</span>
+    <span>Barra roxa à esquerda = página com verba rodando</span>
+    <span>Clique na linha para abrir o detalhe</span>
+  </div>
+
+  <footer>
+    Gerado por <code>scripts/checar-paginas.mjs</code> — a lista de páginas vem do
+    sitemap, então página nova entra sozinha na próxima rodada.
+    Sessões: GA4 “Holos Cursos e Terapias 23”, últimos 7 dias.
+  </footer>
+</div>
+
+<script>
+const D = {"resumo":{"gerado":"2026-07-24T15:39:08.240Z","paginas":40,"captura":21,"perfeitas":16,"porItem":{"P1":{"ok":40,"de":40},"P2":{"ok":37,"de":40},"P3":{"ok":40,"de":40},"P4":{"ok":33,"de":40},"P5":{"ok":37,"de":40},"A1":{"ok":40,"de":40},"A2":{"ok":40,"de":40},"A3":{"ok":37,"de":40},"T1":{"ok":21,"de":21},"T2":{"ok":4,"de":21},"T3":{"ok":21,"de":21},"T4":{"ok":0,"de":21},"T8":{"ok":0,"de":21}}},"itens":[{"id":"P1","bloco":"P","nome":"Página responde 200","dono":"time"},{"id":"P2","bloco":"P","nome":"Title e description","dono":"time"},{"id":"P3","bloco":"P","nome":"Canonical","dono":"time"},{"id":"P4","bloco":"P","nome":"Imagem de compartilhamento","dono":"time"},{"id":"P5","bloco":"P","nome":"Schema JSON-LD","dono":"time"},{"id":"A1","bloco":"A","nome":"Meta Pixel","dono":"time"},{"id":"A2","bloco":"A","nome":"GTM","dono":"time"},{"id":"A3","bloco":"A","nome":"GA4","dono":"time"},{"id":"T1","bloco":"T","nome":"Carimbo #ref","dono":"nosso"},{"id":"T2","bloco":"T","nome":"DEFAULT_REF (orgânico)","dono":"nosso"},{"id":"T3","bloco":"T","nome":"Grava lead no Supabase","dono":"nosso"},{"id":"T4","bloco":"T","nome":"Evento lead_capturado","dono":"nosso"},{"id":"T8","bloco":"T","nome":"Captura gclid","dono":"nosso"}],"paginas":[{"url":"https://app.holoscursoseterapias.com.br/","caminho":"/","origem":"app","nome":"home","status":200,"captura":false,"gtagAds":false,"tamanho":6808,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":374,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/todos-os-cursos","caminho":"/todos-os-cursos","origem":"app","nome":"todos-os-cursos","status":200,"captura":false,"gtagAds":false,"tamanho":6887,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":347,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/masso_21-dias","caminho":"/masso_21-dias","origem":"app","nome":"masso21-dias","status":200,"captura":false,"gtagAds":false,"tamanho":7785,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":220,"campanha":null},{"url":"https://holoscursoseterapias.com.br/curso-de-desportiva-4x1/","caminho":"/curso-de-desportiva-4x1/","origem":"wordpress","nome":"desportiva-4x1","status":200,"captura":false,"gtagAds":false,"tamanho":107228,"checks":{"P1":true,"P2":false,"P3":true,"P4":false,"P5":false,"A1":true,"A2":true,"A3":false,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":4,"total":8,"faltando":["P2","P4","P5","A3"],"sessoes":149,"campanha":{"nome":"(CP) Busca M.Desportiva","gasto":585.99,"cliques":330,"conv":53}},{"url":"https://holoscursoseterapias.com.br/massoterapia-presencial-g/","caminho":"/massoterapia-presencial-g/","origem":"wordpress","nome":"massoterapia-presencial-g","status":200,"captura":false,"gtagAds":false,"tamanho":104770,"checks":{"P1":true,"P2":false,"P3":true,"P4":false,"P5":false,"A1":true,"A2":true,"A3":false,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":4,"total":8,"faltando":["P2","P4","P5","A3"],"sessoes":68,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/massoterapia-lp/","caminho":"/massoterapia-lp/","origem":"app","nome":"massoterapia-lp","status":200,"captura":true,"gtagAds":true,"tamanho":58969,"checks":{"P1":true,"P2":true,"P3":true,"P4":false,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":true,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["P4","T4","T8"],"sessoes":50,"campanha":{"nome":"Masso Geral (PG_B)","gasto":4554.96,"cliques":729,"conv":134}},{"url":"https://app.holoscursoseterapias.com.br/curso-de-terapias-complementares/","caminho":"/curso-de-terapias-complementares/","origem":"app","nome":"terapias-complementares","status":200,"captura":true,"gtagAds":false,"tamanho":47246,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":33,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-massagem-relaxante/","caminho":"/curso-de-massagem-relaxante/","origem":"app","nome":"massagem-relaxante","status":200,"captura":true,"gtagAds":false,"tamanho":46827,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":32,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-pedras-quentes/","caminho":"/curso-de-pedras-quentes/","origem":"app","nome":"pedras-quentes","status":200,"captura":true,"gtagAds":false,"tamanho":45254,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":22,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/cursos","caminho":"/cursos","origem":"app","nome":"cursos","status":200,"captura":false,"gtagAds":false,"tamanho":6615,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":17,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-drenagem-linfatica/","caminho":"/curso-de-drenagem-linfatica/","origem":"app","nome":"drenagem-linfatica","status":200,"captura":true,"gtagAds":false,"tamanho":45747,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":16,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-miofascial","caminho":"/curso-de-miofascial","origem":"app","nome":"miofascial","status":200,"captura":false,"gtagAds":false,"tamanho":7740,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":16,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-hawaiana/","caminho":"/curso-de-hawaiana/","origem":"app","nome":"hawaiana","status":200,"captura":true,"gtagAds":false,"tamanho":44902,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":15,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-radiestesia/","caminho":"/curso-de-radiestesia/","origem":"app","nome":"radiestesia","status":200,"captura":true,"gtagAds":false,"tamanho":45611,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":14,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-craniopuntura","caminho":"/curso-de-craniopuntura","origem":"app","nome":"craniopuntura","status":200,"captura":false,"gtagAds":false,"tamanho":7757,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":10,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-modeladora/","caminho":"/curso-de-modeladora/","origem":"app","nome":"modeladora","status":200,"captura":true,"gtagAds":false,"tamanho":45883,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":9,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-cone-hindu/","caminho":"/curso-de-cone-hindu/","origem":"app","nome":"cone-hindu","status":200,"captura":true,"gtagAds":false,"tamanho":45065,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":8,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-taro-terapeutico","caminho":"/curso-de-taro-terapeutico","origem":"app","nome":"taro-terapeutico","status":200,"captura":false,"gtagAds":false,"tamanho":7709,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":4,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-auriculoterapia/","caminho":"/curso-de-auriculoterapia/","origem":"app","nome":"auriculoterapia","status":200,"captura":true,"gtagAds":false,"tamanho":46887,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":3,"campanha":{"nome":"Auriculo","gasto":131.25,"cliques":99,"conv":3}},{"url":"https://holoscursoseterapias.com.br/curso-de-auriculoterapia/","caminho":"/curso-de-auriculoterapia/","origem":"wordpress","nome":"auriculoterapia","status":200,"captura":false,"gtagAds":false,"tamanho":97441,"checks":{"P1":true,"P2":false,"P3":true,"P4":false,"P5":false,"A1":true,"A2":true,"A3":false,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":4,"total":8,"faltando":["P2","P4","P5","A3"],"sessoes":3,"campanha":{"nome":"Auriculo","gasto":131.25,"cliques":99,"conv":3}},{"url":"https://app.holoscursoseterapias.com.br/curso-de-massagem-desportiva-4x1","caminho":"/curso-de-massagem-desportiva-4x1","origem":"app","nome":"massagem-desportiva-4x1","status":200,"captura":false,"gtagAds":false,"tamanho":7897,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":1,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/aula-experimental/","caminho":"/aula-experimental/","origem":"app","nome":"aula-experimental","status":200,"captura":true,"gtagAds":false,"tamanho":33232,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":true,"T3":true,"T4":false,"T8":false},"ok":11,"total":13,"faltando":["T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-acupuntura","caminho":"/curso-de-acupuntura","origem":"app","nome":"acupuntura","status":200,"captura":false,"gtagAds":false,"tamanho":7751,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-bambuterapia/","caminho":"/curso-de-bambuterapia/","origem":"app","nome":"bambuterapia","status":200,"captura":true,"gtagAds":false,"tamanho":43798,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-eneagrama","caminho":"/curso-de-eneagrama","origem":"app","nome":"eneagrama","status":200,"captura":false,"gtagAds":false,"tamanho":7616,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-de-quick-massage/","caminho":"/curso-de-quick-massage/","origem":"app","nome":"quick-massage","status":200,"captura":true,"gtagAds":false,"tamanho":43416,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-drenagem-linfatica-presencial","caminho":"/curso-drenagem-linfatica-presencial","origem":"app","nome":"curso-drenagem-linfatica-presencial","status":200,"captura":false,"gtagAds":false,"tamanho":7823,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-forca-das-ervas","caminho":"/curso-forca-das-ervas","origem":"app","nome":"curso-forca-das-ervas","status":200,"captura":false,"gtagAds":false,"tamanho":7667,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/curso-livre-de-quiropraxia/","caminho":"/curso-livre-de-quiropraxia/","origem":"app","nome":"quiropraxia","status":200,"captura":true,"gtagAds":false,"tamanho":41449,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":0,"campanha":{"nome":"Busca Quiro Modular","gasto":249.39,"cliques":178,"conv":1}},{"url":"https://app.holoscursoseterapias.com.br/desportiva-4x1/","caminho":"/desportiva-4x1/","origem":"app","nome":"desportiva-4x1","status":200,"captura":true,"gtagAds":false,"tamanho":42289,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/estagio-social/","caminho":"/estagio-social/","origem":"app","nome":"estagio-social","status":200,"captura":true,"gtagAds":false,"tamanho":23219,"checks":{"P1":true,"P2":true,"P3":true,"P4":false,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":9,"total":13,"faltando":["P4","T2","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/formacao-constelacao-familiar/","caminho":"/formacao-constelacao-familiar/","origem":"app","nome":"constelacao-familiar","status":200,"captura":true,"gtagAds":false,"tamanho":55515,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/formacao-ead/","caminho":"/formacao-ead/","origem":"app","nome":"ead","status":200,"captura":true,"gtagAds":false,"tamanho":47617,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":true,"T3":true,"T4":false,"T8":false},"ok":11,"total":13,"faltando":["T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/formacao-imersiva-holos-natureza","caminho":"/formacao-imersiva-holos-natureza","origem":"app","nome":"imersiva-holos-natureza","status":200,"captura":false,"gtagAds":false,"tamanho":7766,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/formacao-massoterapia","caminho":"/formacao-massoterapia","origem":"app","nome":"massoterapia","status":200,"captura":false,"gtagAds":false,"tamanho":7793,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/formacao-massoterapia-litoral-sul","caminho":"/formacao-massoterapia-litoral-sul","origem":"app","nome":"massoterapia-litoral-sul","status":200,"captura":false,"gtagAds":false,"tamanho":7865,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/massoterapia-ead/","caminho":"/massoterapia-ead/","origem":"app","nome":"massoterapia-ead","status":200,"captura":true,"gtagAds":false,"tamanho":36869,"checks":{"P1":true,"P2":true,"P3":true,"P4":false,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":true,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["P4","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/mensalistas/","caminho":"/mensalistas/","origem":"app","nome":"mensalistas","status":200,"captura":true,"gtagAds":false,"tamanho":52897,"checks":{"P1":true,"P2":true,"P3":true,"P4":false,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":9,"total":13,"faltando":["P4","T2","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/salas-lp/","caminho":"/salas-lp/","origem":"app","nome":"salas-lp","status":200,"captura":true,"gtagAds":false,"tamanho":40792,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":true,"T2":false,"T3":true,"T4":false,"T8":false},"ok":10,"total":13,"faltando":["T2","T4","T8"],"sessoes":0,"campanha":null},{"url":"https://app.holoscursoseterapias.com.br/sobre-nos","caminho":"/sobre-nos","origem":"app","nome":"sobre-nos","status":200,"captura":false,"gtagAds":false,"tamanho":6827,"checks":{"P1":true,"P2":true,"P3":true,"P4":true,"P5":true,"A1":true,"A2":true,"A3":true,"T1":null,"T2":null,"T3":null,"T4":null,"T8":null},"ok":8,"total":8,"faltando":[],"sessoes":0,"campanha":null}]};
+
+const olho = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num = n => n.toLocaleString('pt-BR');
+
+document.getElementById('carimbo').textContent =
+  new Date(D.resumo.gerado).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+
+// ── tiles ──
+const semT2 = D.paginas.filter(p => p.checks.T2 === false).length;
+const tiles = [
+  { n: D.resumo.paginas,  r: 'páginas conferidas' },
+  { n: D.resumo.captura,  r: 'capturam lead' },
+  { n: D.resumo.perfeitas, r: 'sem pendência' },
+  { n: semT2, r: 'sem carimbo no orgânico', alerta: semT2 > 0 },
+];
+document.getElementById('tiles').innerHTML = tiles.map(t =>
+  `<div class="tile${t.alerta ? ' alerta' : ''}"><div class="n">${num(t.n)}</div><div class="r">${t.r}</div></div>`
+).join('');
+
+// ── barras por item ──
+document.getElementById('itens').innerHTML = D.itens.map(i => {
+  const s = D.resumo.porItem[i.id];
+  const pend = s.ok < s.de;
+  const pc = s.de ? (s.ok / s.de) * 100 : 0;
+  return `<div class="item${pend ? ' pend' : ''}">
+    <span class="cod">${i.id}</span>
+    <span class="nm" title="${esc(i.nome)}">${esc(i.nome)}</span>
+    <span class="fr">${s.ok}/${s.de}</span>
+    <span class="barra"><i style="width:${pc}%"></i></span>
+  </div>`;
+}).join('');
+
+// ── tabela ──
+let filtro = 'todas', busca = '';
+const corpo = document.getElementById('corpo');
+
+function utmDe(p, rede) {
+  const slug = p.nome || 'home';
+  const q = rede === 'google'
+    ? `utm_source=google&utm_medium=cpc&utm_campaign=GC-${slug}`
+    : `utm_source=instagram&utm_medium=paid&utm_campaign=ME-${slug}`;
+  return p.url + (p.url.includes('?') ? '&' : '?') + q;
+}
+
+function celulas(p) {
+  let h = '<div class="cels">';
+  let blocoAnterior = null;
+  for (const i of D.itens) {
+    if (blocoAnterior && i.bloco !== blocoAnterior) h += '<span class="sep"></span>';
+    blocoAnterior = i.bloco;
+    const v = p.checks[i.id];
+    const cls = v === null ? 'na' : v ? '' : 'f';
+    const txt = v === null ? 'não se aplica' : v ? 'passa' : 'falta';
+    h += `<i class="cel ${cls}" title="${i.id} · ${esc(i.nome)} — ${txt}"></i>`;
+  }
+  return h + '</div>';
+}
+
+function detalhe(p) {
+  const itens = D.itens.map(i => {
+    const v = p.checks[i.id];
+    const cls = v === null ? 'na' : v ? '' : 'f';
+    return `<div class="lin-item"><i class="pt ${cls}"></i>
+      <span class="cod">${i.id}</span><span>${esc(i.nome)}</span>
+      <span class="dono">${i.dono}</span></div>`;
+  }).join('');
+  const g = utmDe(p, 'google'), m = utmDe(p, 'meta');
+  return `<td colspan="6">
+    <div class="grade">${itens}</div>
+    <div class="utm">
+      <h4>Link com UTM pronto</h4>
+      <p>Sem <code>utm_campaign</code> na URL do anúncio, a página não carimba o
+         <code>#ref</code> e o lead chega no ZenPro sem origem. Use estes:</p>
+      <div class="url"><code>${esc(g)}</code><button class="copiar" data-u="${esc(g)}">Copiar Google</button></div>
+      <div class="url"><code>${esc(m)}</code><button class="copiar" data-u="${esc(m)}">Copiar Meta</button></div>
+    </div></td>`;
+}
+
+function desenhar() {
+  const lista = D.paginas.filter(p => {
+    if (filtro === 'pend' && p.faltando.length === 0) return false;
+    if (filtro === 'camp' && !p.campanha) return false;
+    if (filtro === 'capt' && !p.captura) return false;
+    if (busca && !(p.caminho + ' ' + p.nome).toLowerCase().includes(busca)) return false;
+    return true;
+  });
+
+  if (!lista.length) { corpo.innerHTML = '<tr><td colspan="6" class="vazio">Nenhuma página com esse filtro.</td></tr>'; return; }
+
+  corpo.innerHTML = lista.map((p, idx) => {
+    const camp = p.campanha
+      ? `${esc(p.campanha.nome)}<br><span class="pag"><code>R$ ${num(Math.round(p.campanha.gasto))} · ${p.campanha.conv} conv</code></span>`
+      : '<span style="color:var(--texto-3)">—</span>';
+    return `<tr class="lin${p.campanha ? ' temcampanha' : ''}" data-i="${idx}">
+      <td><div class="pag"><b>${esc(p.nome)}</b><code>${esc(p.caminho)}</code>
+        <span><span class="chip${p.origem === 'wordpress' ? ' wp' : ''}">${p.origem}</span>
+        ${p.captura ? '<span class="chip">captura</span>' : ''}</span></div></td>
+      <td class="n">${p.sessoes ? num(p.sessoes) : '<span style="color:var(--texto-3)">·</span>'}</td>
+      <td>${camp}</td>
+      <td class="c">${celulas(p)}</td>
+      <td class="n">${p.ok}/${p.total}</td>
+      <td class="c"><a class="lupa" href="${esc(p.url)}" target="_blank" rel="noopener"
+         title="Abrir a página" aria-label="Abrir ${esc(p.nome)}">${olho}</a></td>
+    </tr>`;
+  }).join('');
+
+  corpo.querySelectorAll('tr.lin').forEach(tr => {
+    tr.addEventListener('click', e => {
+      if (e.target.closest('a,button')) return;
+      const prox = tr.nextElementSibling;
+      if (prox && prox.classList.contains('det')) { prox.remove(); return; }
+      corpo.querySelectorAll('tr.det').forEach(d => d.remove());
+      const nova = document.createElement('tr');
+      nova.className = 'det';
+      nova.innerHTML = detalhe(lista[+tr.dataset.i]);
+      tr.after(nova);
+    });
+  });
+}
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('.copiar');
+  if (!b) return;
+  navigator.clipboard.writeText(b.dataset.u).then(() => {
+    const t = b.textContent;
+    b.textContent = 'Copiado'; b.classList.add('feito');
+    setTimeout(() => { b.textContent = t; b.classList.remove('feito'); }, 1400);
+  });
+});
+
+document.querySelectorAll('.btn[data-f]').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.btn[data-f]').forEach(o => o.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', 'true');
+    filtro = b.dataset.f; desenhar();
+  });
+});
+document.getElementById('busca').addEventListener('input', e => {
+  busca = e.target.value.trim().toLowerCase(); desenhar();
+});
+
+desenhar();
+</script>
