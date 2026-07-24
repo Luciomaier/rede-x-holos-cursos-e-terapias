@@ -82,6 +82,32 @@ formação). É a contaminação diagnosticada em 23/07 — agora **sistematizad
 
 O caminho A aproveita o molde, o checklist e o detector que o time acabou de construir.
 
+### 📄 Nossa parte, especificada: [padrao-lp-nossa-parte.md](../campanhas/padrao-lp-nossa-parte.md)
+
+Leitura do Lucio (24/07), confirmada na inspeção: **o time entregou a camada de
+analytics** (GTM/GA4/Meta, com molde + checklist + detector) e **o que sobra é a camada
+de atribuição — `#ref=` e conversão do Google por curso.** Dois furos concretos achados:
+
+**Furo 1 — lead sem UTM entra no ZenPro sem código.** O molde novo usa
+`(utmCampaign || ref || '')` **sem fallback**: visitante sem `utm_campaign` (orgânico,
+Instagram, indicação) não recebe `#ref=` nenhum. A masso não tem o furo porque declara
+`DEFAULT_REF = 'OR-massoterapia'`. É o mesmo achado da auditoria de 14/07 — **os 58% de
+leads sem código de julho** — que sobreviveu à reconstrução das páginas.
+→ Pedir `DEFAULT_REF` por LP no padrão `OR-<curso>`, e checar isso no detector.
+
+**Furo 2 — a conversão contaria o momento errado.** Nas LPs novas o link `wa.me` é
+**isca**: o clique sofre `preventDefault()` e abre o modal que exige nome+e-mail. O
+`preventDefault` **não impede o GTM de disparar** (cancela a navegação, não o evento),
+então gatilho por *Click URL contém wa.me* fira **no abre-modal**, antes de existir lead.
+A masso dispara no **submit** (verificado em 17/06: 0 disparos no abre-modal).
+→ Abrir modal é bem mais frequente que preencher: as LPs novas **inflariam** frente à
+masso e o CPL entre cursos deixa de ser comparável.
+→ Pedir `dataLayer.push({event:'lead_capturado'})` no submit do molde e prender a
+conversão nesse evento, **não** no clique.
+
+*(Isto refina a previsão da linha de base acima: se o gatilho for por clique, o volume
+não só sobe — sobe demais, porque conta modal aberto.)*
+
 ### O que fazer hoje
 
 1. **NÃO mergear o #162** (já fechado — não reabrir sem decidir o caminho acima).
