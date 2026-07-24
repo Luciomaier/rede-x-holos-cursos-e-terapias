@@ -5,7 +5,96 @@
 
 ---
 
-## ▶️ RETOMAR AQUI — 24/07/2026 (deixado em 23/07)
+## ▶️ RETOMAR AQUI — 24/07/2026 · o time resolveu a cegueira por OUTRO caminho (GTM)
+
+> ⚠️ **O plano de ontem virou armadilha.** Ler isto antes de qualquer coisa.
+
+O assistente da Elis mergeou o **PR #164** (já em produção): colou **GTM-PGTFNK2 + GA4**
+nas **16 LPs**, criou molde com as tags, checklist e um detector
+(`scripts/check-tracking.mjs`) que falha o PR se alguma LP ficar sem tag. **A cegueira
+foi resolvida** — e de forma mais durável que o meu patch, porque ataca o molde.
+
+### 🚨 Por que o plano de ontem causaria conversão DUPLA
+
+O container GTM-PGTFNK2 **já contém as tags de conversão do Ads** ("Conversão Google Ads -
+Massoterapia LP B - WhatsApp" e "CONTATOS NEW SITE"). Se, por cima disso, preenchêssemos
+`ADS_LABEL` e mergeássemos o PR #162, cada lead dispararia:
+
+1. a conversão **genérica** do container (via GTM), **e**
+2. a conversão **por curso** (via `gtag` direto)
+
+São **ações diferentes** — e `ONE_PER_CLICK` **não deduplica entre ações distintas**
+(só dentro da mesma). Um lead viraria 2–3 conversões.
+→ **PR #162 FECHADO em 24/07** com o motivo registrado. Reabrir só se a decisão for
+medir por curso via `gtag` **e** escopar as tags genéricas do container.
+
+### Estado real em produção (verificado ao vivo, 24/07)
+
+| LP | GTM | GA4 | gtag AW direto | links `<a href=wa.me>` |
+|---|---|---|---|---|
+| `desportiva-4x1` (reconstruída) | ✅ | ✅ | — | **5** |
+| `curso-de-auriculoterapia` | ✅ | ✅ | — | **9** |
+| `massoterapia-lp` | ✅ | ✅ | ✅ (2 fire points) | **0** (usa `window.open`) |
+
+**A masso não corre risco de dobro:** as LPs novas usam `<a href="wa.me">` (o gatilho de
+clique do GTM casa), enquanto a masso usa `window.open()` sem âncora — o gatilho por
+*Click URL* não casa nela. E, se casasse, seria o **mesmo rótulo**
+(`aPfMCILdg9gaEMOSy-YC`) → `ONE_PER_CLICK` deduplica. Os dois mecanismos não se somam.
+
+### ⚠️ O que ainda NÃO está provado
+
+> **"dataLayer ativo, zero erro" prova que o GTM CARREGOU — não que a conversão do Ads
+> DISPARA.** GA4 e pageview funcionando são compatíveis com a tag de conversão nunca
+> firar. Foi assim que a masso quebrou em 09/06.
+
+**Linha de base pra medir isso (all_conversions/dia, conta 644-631-5099):**
+
+| Data | Lead LP B | CONTATO NEW SITE |
+|---|---|---|
+| 20/07 | 33 | 5,3 |
+| 21/07 | 25,7 | 16,7 |
+| 22/07 | 29,3 | 8 |
+| 23/07 | 27 | 11 |
+| **24/07 (parcial, dia do merge)** | **1** | **4** |
+
+**Prova a colher em 25–26/07:** se o GTM está mesmo disparando nas LPs novas, o volume de
+`Lead LP B` e/ou `CONTATO NEW SITE` deve **subir** (aurículo, quiro e desportiva passam a
+contribuir, coisa que não faziam). Se ficar igual à média de 20–23/07, o container carrega
+mas **não converte** — e as LPs seguem cegas com aparência de instrumentadas.
+
+### 🎯 O problema que o GTM NÃO resolve (e que era o objetivo do Lucio)
+
+Todas as LPs disparam as **mesmas duas ações genéricas**. Ou seja: um lead de aurículo
+entra como **"Lead - Massoterapia Presencial LP B", valorado em R$ 250** (preço de
+formação). É a contaminação diagnosticada em 23/07 — agora **sistematizada**.
+
+- ✅ **CPL por campanha continua confiável** (a atribuição por campanha está certa).
+- ❌ **Valor/ROAS por curso vira ficção** — tudo a R$ 250. Piora o "R$ 90.250 de receita
+  fictícia" já registrado.
+- ❌ Nome da ação engana em relatório.
+
+**Para medir por curso, escolher UM caminho — nunca os dois:**
+
+| Caminho | Como | Custo |
+|---|---|---|
+| **A — via GTM** (recomendado) | criar ação por curso no Ads + gatilho por página no container | sem código; Lucio faz no GTM |
+| **B — via `gtag` por curso** | reabrir #162 **e** escopar as tags genéricas pra não firar nessas LPs | mexe em código + container |
+
+O caminho A aproveita o molde, o checklist e o detector que o time acabou de construir.
+
+### O que fazer hoje
+
+1. **NÃO mergear o #162** (já fechado — não reabrir sem decidir o caminho acima).
+2. **Perguntar ao assistente da Elis:** qual é a condição do gatilho "Click - WhatsApp LP B"
+   e do "CONTATOS NEW SITE" no container? É *Click URL contém wa.me*? Isso decide se as
+   LPs novas realmente convertem e se a masso pode ser afetada.
+3. **Em 25–26/07: conferir a linha de base acima.** É a prova real.
+4. Decidir A ou B para medição por curso.
+5. Só depois reapontar a Desportiva pra fora do WordPress.
+
+---
+
+## ▶️ (histórico) plano de 23/07 — superado pelo bloco acima
 
 > **Contexto:** o Lucio avisou que em 24/07 a desportiva e outras páginas **serão
 > recriadas**. Isso torna urgente o que era P3.
