@@ -70,8 +70,9 @@ Score afunda.** Mesma família do acidente de 09/06.
 **(c) Scripts podres no `<head>` do WP** (inline, linha ~99 — **não vêm de plugin**):
 - `crm-api.eb4us.com/js/tracking.min.js` — **Builderall** (id `bacrmtrk`, `__baCRMTracking.init`,
   cKey `493c8b3821e768713a4d1c5b1e7f5ad4`). Plataforma **abandonada** (Lucio, 16/07).
-  ⚠️ Faz request real a `googleads.g.doubleclick.net` → **pode já mandar conversão pro Google.**
-  **Colar gtag nas LPs sem checar isso = contar conversão em dobro** → lance smart infla e gasta mais.
+  Faz request real a `googleads.g.doubleclick.net`. ✅ **Checado em 23/07: NÃO manda conversão**
+  (a conta não tem nenhuma ação de conversão órfã). Segue como lixo a arrancar, mas
+  **não bloqueia mais colar gtag nas LPs.**
 - Pixel do **TikTok** — ninguém documentou.
 - **Google AdSense** `ca-pub-9521104886250024` — tag de quem *exibe* anúncio de terceiro.
   Na home da escola. Provavelmente resto de era antiga.
@@ -112,10 +113,11 @@ Padrão *strangler fig*: põe o Vercel na frente e o WordPress vai encolhendo.
 > URL trouxer UTM**. Sem `utm_campaign`, o lead entra **sem código** — e sem código é
 > **58% dos leads de julho**. Se faltar, corrigir na hora.
 >
-> **C. Conversão órfã = o eb4us?** (mina 4c). **Ferramentas → Conversões**: existe alguma
-> ação de conversão **que o Lucio não reconhece**, principalmente marcada como "Recebendo
-> conversões"? Se sim, é candidata a ser o Builderall mandando por baixo → **decide se dá
-> pra colar gtag nas LPs sem contar em dobro.**
+> **C. Conversão órfã = o eb4us?** (mina 4c). ✅ **RESPONDIDO em 23/07 — não precisa fazer.**
+> Puxadas todas as ações de conversão da conta via Windsor: só **2** contam no lance
+> (`Lead - Massoterapia Presencial LP B` e `CONTATO NEW SITE`), ambas reconhecidas.
+> **Nenhuma ação órfã do Builderall.** → **Pode colar gtag nas LPs sem contar em dobro.**
+> Detalhe em [../relatorios/log-google-ads.md](../relatorios/log-google-ads.md) (topo).
 >
 > **Resultado dos 3 → anotar em [../relatorios/log-google-ads.md](../relatorios/log-google-ads.md)** (o log vivo, topo do arquivo).
 

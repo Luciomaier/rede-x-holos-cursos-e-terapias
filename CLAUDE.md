@@ -244,6 +244,7 @@ qualquer investigação de ads). Ao mexer no produto, atualizar `produto/holos-c
 | `app.holoscursoseterapias.com.br` | HTML estático | `holos-connect/public/` | 10 LPs, todas carimbam `#ref` · só 1 tem tag de conversão |
 | `app.holoscursoseterapias.com.br` | **React** | `holos-connect/src/` | 46 páginas · **atribuição zero** |
 
-⚠️ O WordPress está **vivo** e seu CRM faz request real a `googleads.g.doubleclick.net`
-— pode existir rota de conversão server-side por gclid. **Checar antes de colar gtag
-nas LPs, sob risco de contar conversão em dobro.** (Origem: `marketing/relatorios/2026-06-17-fix-tracking-google.md`.)
+⚠️ O WordPress está **vivo** e seu CRM (eb4us/Builderall) faz request real a
+`googleads.g.doubleclick.net`. ✅ **Resolvido em 23/07:** a conta não tem nenhuma ação de
+conversão órfã → o eb4us **não** manda conversão. **Liberado colar gtag nas LPs.**
+(Rastro: `marketing/relatorios/log-google-ads.md`, topo — o log vivo.)

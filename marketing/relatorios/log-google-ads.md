@@ -5,6 +5,194 @@
 
 ---
 
+## 2026-07-23 — Risco de conversão em dobro: item C do roteiro RESPONDIDO (não há conversão órfã)
+
+Verificação do medo registrado em 17/06 e reafirmado no plano de saída do WordPress:
+*"o eb4us/Builderall pode estar mandando conversão server-side; colar gtag nas LPs
+contaria em dobro"*. Puxado via Windsor (Google Ads) + inspeção ao vivo das páginas.
+
+**1. Não existe conversão órfã na conta da Holos.** Ações de conversão da
+`Holos Geral` (644-631-5099), 01–22/07 — a lista inteira:
+
+| Ação | ID | all_conv | Conta no lance? |
+|---|---|---|---|
+| Lead - Massoterapia Presencial LP B | 7163932290 | 435 | ✅ sim |
+| CONTATO NEW SITE | 6566704991 | 135 | ✅ sim |
+| Local actions - Other engagements | 1060577679 | 266 | não |
+| Local actions - Website visits | 1059741800 | 58 | não |
+| Store visits | 7340031067 | 34,8 | não |
+| Ligação do Anúncio | 471576135 | 7,0 | não |
+
+⚠️ **Armadilha evitada:** puxar sem filtrar conta traz ações de OUTROS clientes do MCC
+(`Gracielly` 871-963-3517, `Daiana - Angelus` 367-202-7642, `Dra Jacira` 930-468-5264) —
+"CHAMA AQUI NO WHATSAPP", "Chame no WhatsApp", "Clique no WhatsApp", "(31) 99158-0239",
+"Conversation started", "Calls from ads". **Nenhuma é da Holos.** Sempre filtrar por
+`account_id` antes de cravar qualquer coisa.
+
+→ **Só 2 ações alimentam o smart bidding, ambas reconhecidas.** Se o Builderall
+estivesse importando conversão, ela apareceria como ação própria "recebendo conversões" —
+não aparece. **Item C do roteiro do Lucio: respondido. Dá pra colar gtag nas LPs.**
+
+**2. A LP que já tem gtag não pode duplicar — confirmado no ar.**
+`app.…/massoterapia-lp` hoje: gtag base `AW-752011587` carrega, **2** chamadas
+`gtag('event','conversion')` com send_to `AW-752011587/aPfMCILdg9gaEMOSy-YC` (os 2 fire
+points de 17/06), **zero GTM, zero eb4us**. Caminho isolado → 1 clique = 1 conversão.
+O fix de 17/06 segue no ar, intacto, 5 semanas depois.
+
+**3. O lixo do WordPress continua lá** (Fase 1 do plano de saída **não foi executada**).
+`holoscursoseterapias.com.br/curso-de-desportiva-4x1/` em 23/07 ainda carrega:
+`crm-api.eb4us.com/js/tracking.min.js` · GTM-PGTFNK2 · pixel do TikTok ·
+AdSense `ca-pub-9521104886250024` · 5 links WhatsApp p/ `5511976994647`.
+
+**4. Fica ABERTO (risco menor, mora só no WordPress):** o GTM-PGTFNK2 tem as duas tags
+("CONTATOS NEW SITE" em vários botões WhatsApp + "Massoterapia LP B - WhatsApp"). Se os
+dois gatilhos casarem no MESMO clique de WhatsApp numa página WP, é 1 clique → 2
+conversões contadas. Sintoma compatível: `(CP) Busca M.Desportiva` registra as duas
+ações juntas quase todo dia. **Não é o eb4us — é o container.** Explicação alternativa
+inocente: atribuição cross-campanha (o lead navegou até a LP masso). Só se resolve
+abrindo os 2 gatilhos no GTM ou com Tag Assistant numa página WP.
+
+**5. As duas ações contadas são `ONE_PER_CLICK`** — um clique de anúncio gera no máximo
+**1** conversão *daquela ação*, por mais vezes que a tag dispare.
+
+| Ação contada no lance | Contagem |
+|---|---|
+| Lead - Massoterapia Presencial LP B | `ONE_PER_CLICK` ✅ |
+| CONTATO NEW SITE | `ONE_PER_CLICK` ✅ |
+
+✅ Isso **encerra** o medo dos 2 fire points da LP masso (skip + submit): disparando os
+dois, o Google conta **1**.
+⚠️ **CORREÇÃO (mesmo dia, ver bloco de 23/07 abaixo):** `ONE_PER_CLICK` protege *dentro de
+uma ação*, **não entre ações diferentes**. Um mesmo clique de WhatsApp numa página com GTM
+pode disparar `CONTATO NEW SITE` **e** `Lead LP B` = 2 conversões contadas. Escrevi antes
+que "o dobro é impossível por configuração" — **estava forte demais**. O dobro segue
+possível no WordPress; só não vem do eb4us nem dos fire points da LP.
+
+## 2026-07-23 (fim do dia) — 🔴 Aurículo e Quiro estão CEGAS. E mover a Desportiva do WP cega ela também.
+
+**Item A do roteiro respondido pelo Lucio** (ele abriu as campanhas): só a **Desportiva**
+ainda aponta pro WordPress. Aurículo, Quiro e Masso já apontam pro `app.`.
+
+Verificado ao vivo (curl, 23/07) o que cada página de destino carrega:
+
+| Campanha | Página de destino | Tag Google? | Gasto 01–22/07 |
+|---|---|---|---|
+| Masso Geral (PG_B) | `app./massoterapia-lp/` | ✅ gtag `AW-752011587` direto | R$ 16.231,68 |
+| **Aurículo** | `app./curso-de-auriculoterapia` | ❌ **NENHUMA** | R$ 825,53 |
+| **Quiro Modular** | `app./curso-livre-de-quiropraxia` | ❌ **NENHUMA** | R$ 1.042,11 |
+| Desportiva | WP `/curso-de-desportiva-4x1/` | ✅ via GTM-PGTFNK2 | R$ 1.803,05 |
+
+⚠️ **Aurículo e Quiro NÃO são páginas do SPA.** São HTML avulso com `<head>` próprio
+(sem o bundle `/assets/index-*.js` da raiz, `<title>` próprio, só pixel Meta). A raiz do
+app (`app./`) tem GTM-PGTFNK2 + GA4 `G-YV8T6YK9N9`, **mas elas não herdam** — mesma
+armadilha das 5 LPs estáticas. Zero GTM, zero gtag, zero GA4, zero dataLayer.
+
+**Consequência: as conversões que o Aurículo (16) e a Quiro (13) mostram não vêm das
+páginas delas** — é crédito emprestado. A pessoa clica no anúncio do aurículo, cai numa
+página sem tag, navega até a LP masso (ou o WP) e converte lá; o Google credita o
+Aurículo. Prova: as duas têm **9 conversões "Lead - Massoterapia Presencial LP B"** cada,
+e essa tag só existe na LP de massoterapia. **O lead real do aurículo — quem clicou no
+WhatsApp na página do aurículo — não é contado por ninguém.**
+→ R$ 1.867,64 em 22 dias em campanhas com página de destino cega. O "CPA R$ 51,60" do
+Aurículo e "R$ 80,16" da Quiro são calculados em cima de conversão dos outros.
+
+### 🚨 A armadilha da migração (o acidente de 09/06 prestes a se repetir)
+
+A Desportiva é hoje a **mais bem rastreada** das três secundárias justamente porque
+**ainda está no WordPress** (GTM completo). A LP React que vai receber ela —
+`app./desportiva-4x1/` — foi verificada hoje: **só pixel Meta, zero Google.**
+
+> **Mover a Desportiva pro React sem colar a tag antes = conversão vai a zero no dia
+> seguinte.** Foi exatamente isso que aconteceu com a masso em 09/06 (−98%), e o
+> estrago não foi só medir errado: o smart bidding cegou e estrangulou a entrega.
+
+**Ordem obrigatória:** colar o gtag na `desportiva-4x1` **primeiro**, validar conversão
+real 24–72h, **só então** reapontar a campanha. Nunca o contrário.
+
+### 🔴 A doença é o MOLDE, não as 3 páginas
+
+Auditadas as **16 LPs estáticas** de `holos-connect/public/`: **só a `massoterapia-lp` tem
+tag do Google. As outras 15 estão cegas.** E a migração WordPress→LP estática está a todo
+vapor (Radiestesia, Cone Hindu, Modeladora, Relaxante migraram nos últimos dias) —
+**cada página nova nasce cega**, porque o molde não traz a tag.
+
+> Corrigir 3 páginas resolve hoje. **Corrigir o molde resolve amanhã.** Enquanto o molde
+> não mudar, toda página que sair do WordPress perde a medição do Google no caminho.
+
+### ✅ Feito em 23/07 — PR #162 (aguardando rótulos)
+
+[PR #162](https://github.com/Luciomaier/holos-universit/pull/162) ·
+branch `fix/gtag-lps-cegas` · **+78/−0** nas 3 LPs com campanha ativa:
+gtag `AW-752011587` no `<head>` (liga vinculador → grava **gclid**) + constante
+`ADS_LABEL` por LP + disparo no submit, ao lado do `fbq` que já existia.
+
+**Guard:** `ADS_LABEL` vazio → **não dispara conversão**, só grava gclid. Preencher o
+rótulo liga a medição **sem novo deploy de código**.
+**Isolamento da masso confirmado:** `massoterapia-lp/` não tocado; rótulo
+`aPfMCILdg9gaEMOSy-YC` **não** reusado. Sem valor monetário no disparo, de propósito.
+**Verificado:** sintaxe JS ok nos 4 arquivos · guard testado (0 disparos vazio / 1 com
+rótulo, `send_to` correto) · 1 fire point por LP.
+
+### Pendências abertas (prioridade)
+- [ ] **P1 (Lucio, ~15 min no Google Ads)** — criar 3 ações de conversão (Ferramentas >
+      Conversões), uma por curso, e me passar os rótulos. Sem isso o PR fica inerte.
+- [ ] **P2** — mergear o #162 e validar conversão real 24–72h **antes** de reapontar a
+      Desportiva pro `app.`. Nunca reapontar primeiro.
+- [ ] **P3 — consertar o molde das LPs** pra toda página nova nascer com gtag + captura
+      de gclid. Sem isso a dívida volta a cada migração.
+- [ ] Estender pras outras 12 LPs cegas conforme forem recebendo verba.
+
+---
+
+## 2026-07-23 — Leitura da Masso Geral (PG_B): CPA real e o que o número É
+
+**01–22/07** · estratégia **TARGET_SPEND (Maximizar cliques)** — a troca de 17/06 foi
+mantida, 5 semanas sem mexer. Disciplina cumprida. (O `target_cpa: 15` que aparece na API
+é resíduo herdado; TARGET_SPEND não usa tCPA.)
+
+| Métrica | Valor |
+|---|---|
+| Gasto | **R$ 16.231,68** (~R$ 738/dia) |
+| Cliques | 2.444 · CPC médio **R$ 6,64** |
+| Conversões | **429** (361 Lead LP B + 68 CONTATO NEW SITE) |
+| Taxa de conversão | **17,6%** |
+| **Custo por conversão** | **R$ 37,84** |
+| Valor declarado | R$ 90.250 (=361 × R$250) — **fictício, não é receita** |
+
+CPA diário oscila R$ 19,69–69,80 sem saltos; nenhum cliff em 22 dias. Últimos 3 dias
+(20–22/07) com gasto maior (R$ 844→1.048→936) e CPA estável (R$ 32/36/33) — escala sem
+piorar o custo.
+
+**⚠️ Como ler o R$ 37,84 (a régua):** é **custo por clique-no-WhatsApp**, não por lead no
+ZenPro e muito menos por matrícula. A tag dispara quando a pessoa **abre** o WhatsApp —
+parte nunca manda mensagem. **O custo por lead real é maior; o gap só sai cruzando com o
+ZenPro** (é o widget de reconciliação da Fase 2 do Painel).
+
+**⚠️ 68 das 429 (16%) não vêm da LP.** "CONTATO NEW SITE" dispara via GTM, que **não** está
+na LP estática — está no WordPress e na raiz do app React. Quando as páginas WP morrerem
+na migração, essas 68 mudam de lugar ou somem. **Contar com isso no plano de saída.**
+
+**⚠️ A Desportiva pega carona na masso.** `(CP) Busca M.Desportiva`: 112 conversões, valor
+R$ 14.000 → **56 delas são "Lead - Massoterapia Presencial LP B"**. Metade das conversões
+da Desportiva são leads de massoterapia (atribuição data-driven repartindo crédito — os
+decimais 22,3333 / 12,6667 são a assinatura). **O CPA de R$ 16,10 dela é enganoso.**
+Mesma coisa, menor: Auriculo e Quiro Modular têm 9 Lead-LP-B cada.
+
+### Pendências abertas
+- [ ] Cruzar as 361 conversões de Lead LP B com os leads reais do ZenPro no mesmo período
+      → só aí sai o **custo por lead de verdade**.
+- [ ] Voltar pro lance por conversão? Já são 5 semanas de conversão estável (a pendência
+      de 17/06 pedia 2–3 dias). Se voltar, mirar **tCPA ~R$ 40–45** (o CPA real), **não**
+      os R$ 80–130 chutados em junho nem os R$ 13,57 que estrangularam a campanha.
+- [ ] Abrir os gatilhos "Click - WhatsApp LP B" × "CONTATOS NEW SITE" no GTM e ver se
+      colidem na mesma página WP (crédito trocado entre ações — não infla volume).
+- [ ] Fase 1 do plano de saída: arrancar eb4us/TikTok/AdSense do `<head>` do WP.
+- [ ] Roteiro do Lucio itens **A** (URL final de aurículo/desportiva/quiropraxia) e
+      **B** (template de URL passa `utm_campaign`?) seguem sem resposta.
+- [ ] Liberado colar gtag nas outras 4 LPs (label/valor próprios) — sem risco de dobro.
+
+---
+
 ## 2026-06-18 (tarde) — Tracking de UTM da massoterapia-lp + mensagem por origem (Instagram)
 
 **Onde vive o código (fonte de verdade):** repo GitHub `Luciomaier/holos-universit`
