@@ -24,12 +24,45 @@ VS Code/Claude Code. Também é o protótipo do produto "IA sob medida" pra empr
 > dentro do Connect, é a casa deles. A regra separa produto de painel, não gente de
 > repositório.
 >
-> Consequência prática: rota de **diagnóstico** pode morar dentro do Connect. É o caso
-> da `/api/checagem` (PR #173) — confere se as páginas do próprio Connect estão
-> instrumentadas. **O limite:** ela responde *"a medição está certa?"*. No dia em que
-> publicar número comercial (vendas, caixa, matrículas), virou um segundo painel de
-> negócio e a deriva começou — e aí sai do Connect. Verdade de negócio segue em
-> `marketing/painel.md` até o Portão 4.
+> Consequência prática: o painel **interno** mora dentro do Connect — é a
+> `/api/checagem` (PR #173).
+
+### Os dois painéis, e para que serve cada um (24/07/2026)
+
+| | **Painel do Nick** (fora) | **Painel interno** (dentro do Connect) |
+|---|---|---|
+| Dono | **Nick** — ele cuida, ele faz | Lucio (Claude executa) |
+| Papel do Lucio | conectar dados e **pedir dados** nele | dono |
+| Pergunta que responde | *como o negócio está indo?* | *a medição está certa, e o que otimizar?* |
+| Serve pra | **relatórios pra Luciana**, quando estiver funcionando | checagem, correção e **otimização de campanhas e páginas** |
+| Entrega | verdade de negócio | performance: ROAS, ROI, lucro **por campanha** |
+
+**A linha entre os dois — é sutil e é ela que evita a deriva:**
+
+- ✅ **Nosso pode** mostrar ROAS, ROI e lucro **de campanha e de página**. São
+  instrumentos de decisão de mídia — é literalmente o trabalho do gestor de tráfego, e
+  sem eles a bússola não aponta nada.
+- ❌ **Nosso não pode** virar a fonte de **quanto a escola faturou/vendeu/tem em caixa**.
+  Quando precisar de receita pra calcular ROAS, ela vem da **fonte canônica**
+  (`marketing/painel.md` hoje, painel do Nick depois) — nunca calculada por fora e
+  publicada como resultado da escola.
+
+> Em uma frase: **medimos mídia para decidir; não emitimos o resultado da empresa.**
+> Dois lugares emitindo receita = duas receitas diferentes em três semanas.
+
+### Quem mexe em quê (mapa real da operação)
+
+| Pessoa | O que faz no Connect |
+|---|---|
+| **Elis** | atualiza e cria páginas |
+| **Nick** | mexe nas mesmas coisas + o painel dele |
+| **Lucio** | o que está mais fundo no sistema |
+
+> É por isso que **molde e detector valem mais que correção pontual**: quem mais toca nas
+> páginas é justamente quem não enxerga a camada de tracking. Correção em arquivo é
+> sobrescrita na próxima criação; no molde, sobrevive.
+
+Demais assuntos do Connect seguem sendo tocados aqui, com segurança e controle.
 - Windsor.ai contratado (plano Básico: Google Ads + GA4 + Meta Ads) como cano de dados
   — *reverte a decisão de 14–16/07 de "não assinar"; ver nota em
   [marketing/painel.md](../marketing/painel.md)*
@@ -139,9 +172,11 @@ canônico até o Portão 4.
 ## Log de decisões
 
 - **24/07/2026** — Precisada a regra do "fora": o que fica fora do Connect é **este
-  painel** (o artefato), não as pessoas — Nick e Elis seguem trabalhando dentro. Rota de
-  diagnóstico pode ficar dentro (`/api/checagem`, PR #173), com o limite de nunca
-  publicar número comercial.
+  painel** (o artefato), não as pessoas — Nick e Elis seguem trabalhando dentro.
+  Definidos os dois painéis: o do Nick entrega **verdade de negócio** (e os relatórios
+  da Luciana); o interno entrega **performance de mídia** (ROAS/ROI/lucro por campanha)
+  para checar, corrigir e otimizar. O interno **pode** calcular ROAS; **não pode** virar
+  a fonte do faturamento da escola — receita vem sempre da fonte canônica.
 - **17/07/2026** — Plano de implementação aprovado pelo Lucio (fases 0–4, portões).
   Análise do protótipo feita a partir do deploy (repo inacessível). Detectado e
   registrado o incidente `/api/meta` aberto. Criada esta janela.
