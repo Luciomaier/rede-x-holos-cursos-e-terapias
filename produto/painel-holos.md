@@ -34,21 +34,29 @@ VS Code/Claude Code. Também é o protótipo do produto "IA sob medida" pra empr
 | Dono | **Nick** — ele cuida, ele faz | Lucio (Claude executa) |
 | Papel do Lucio | conectar dados e **pedir dados** nele | dono |
 | Pergunta que responde | *como o negócio está indo?* | *a medição está certa, e o que otimizar?* |
-| Serve pra | **relatórios pra Luciana**, quando estiver funcionando | checagem, correção e **otimização de campanhas e páginas** |
-| Entrega | verdade de negócio | performance: ROAS, ROI, lucro **por campanha** |
+| Serve pra | **relatórios pra Luciana**, quando estiver funcionando | checagem, correção e **otimização das páginas** |
+| Entrega | verdade de negócio · **ROAS, ROI, lucro** | páginas instrumentadas + fatos de mídia (gasto, cliques, conversões) |
 
-**A linha entre os dois — é sutil e é ela que evita a deriva:**
+**Decisão do Lucio (24/07): o painel interno NÃO carrega ROAS nem ROI.** Fica na
+otimização das páginas, do jeito que já está. ROAS/ROI/lucro vivem no painel do Nick,
+onde a receita é canônica.
 
-- ✅ **Nosso pode** mostrar ROAS, ROI e lucro **de campanha e de página**. São
-  instrumentos de decisão de mídia — é literalmente o trabalho do gestor de tráfego, e
-  sem eles a bússola não aponta nada.
-- ❌ **Nosso não pode** virar a fonte de **quanto a escola faturou/vendeu/tem em caixa**.
-  Quando precisar de receita pra calcular ROAS, ela vem da **fonte canônica**
-  (`marketing/painel.md` hoje, painel do Nick depois) — nunca calculada por fora e
-  publicada como resultado da escola.
+*(Isto revisa o que este arquivo dizia horas antes — "o interno pode mostrar ROAS/ROI".
+A decisão veio depois e é mais conservadora.)*
 
-> Em uma frase: **medimos mídia para decidir; não emitimos o resultado da empresa.**
-> Dois lugares emitindo receita = duas receitas diferentes em três semanas.
+**Por que a decisão é boa, e não só cautelosa:** ROAS exige receita, e receita mora nas
+tabelas sensíveis do Connect (`orders`, `financial_transactions`) junto com PII de aluno
+(CPF, RG, endereço, telefone). Não carregar ROAS significa que **o painel interno não
+precisa de acesso nenhum ao banco** — ele só lê HTML público das páginas. Um painel sem
+credencial de banco não pode vazar dado de cliente nem de faturamento, nem por engano,
+nem se o link circular. **A propriedade de segurança é consequência da decisão de escopo.**
+
+⚠️ **E há um motivo a mais, específico deste sistema:** a análise de junho
+(`holos-connect/docs/ANALISE_SISTEMA_2026-06.md`) registrou que o módulo financeiro
+**não é mock** — lê e escreve em tabelas reais — e que dados de teste inseridos em
+produção contaminavam as métricas de receita. Ou seja: o faturamento que vive no Connect
+**não serve como fonte de verdade**. Receita canônica segue em `marketing/painel.md`
+(planilha de vendas confirmadas da Elis) até o Portão 4.
 
 ### Quem mexe em quê (mapa real da operação)
 
