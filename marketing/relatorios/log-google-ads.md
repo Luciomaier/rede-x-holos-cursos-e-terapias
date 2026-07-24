@@ -108,6 +108,37 @@ conversão nesse evento, **não** no clique.
 *(Isto refina a previsão da linha de base acima: se o gatilho for por clique, o volume
 não só sobe — sobe demais, porque conta modal aberto.)*
 
+### 📊 Propriedades GA4 — pendência de 17/06 RESOLVIDA (24/07)
+
+Aberto desde 17/06: *"GA4 do WP `G-1ZVTBMN0QY` ≠ do app `G-YV8T6YK9N9` — investigar à parte."*
+Consultado via Windsor: existem **2 propriedades GA4 da Holos**, e só uma está viva.
+
+| Propriedade | ID | Sessões 7d | Situação |
+|---|---|---|---|
+| **Holos Cursos e Terapias 23** | `373776224` | **2.678** | ✅ **a que vale** — é a do `G-YV8T6YK9N9` |
+| `http://www.holoscursoseterapias.com.br - GA4` | `396586998` | **0 / sem dado** | ⚰️ legado, provavelmente a do `G-1ZVTBMN0QY` |
+
+**Não há dado sendo perdido numa propriedade paralela** — o medo de 17/06 não se
+confirmou. *(A associação da 2ª ao `G-1ZVTBMN0QY` é inferência: o Windsor não expõe o
+measurement ID. Confirmar no admin do GA4 antes de arquivar/excluir.)*
+
+**A propriedade viva recebe os DOIS sites** (o container GTM-PGTFNK2 está nos dois):
+
+- WordPress: `/formacao-em-massoterapia-presencial-b/` (549) · `/curso-de-desportiva-4x1/` (149) ·
+  `/massoterapia-presencial-g/` (68) · shiatsu, ventosa, pedras quentes, drenagem…
+- App: `/massoterapia-lp` (554) · `/todos-os-cursos` (347) · `/aluno/*` · `/student/*`
+
+⚠️ **Dois problemas de qualidade que isso cria:**
+1. **`/massoterapia-lp` (554) e `/massoterapia-lp/` (50) contam separado** — a barra final
+   racha a mesma página em duas linhas. Some ~10% do volume da LP principal se ninguém
+   somar na mão.
+2. **WordPress e app misturados sem separação por hostname.** Enquanto o WP existir, "qual
+   site converte" só sai com dimensão de hostname no relatório. Vira não-problema quando o
+   WP morrer.
+
+> ℹ️ **"Vista" (view) não existe mais no GA4** — era do Universal Analytics, desligado em
+> jul/2023. Não há vista a criar; a hierarquia hoje é Conta → Propriedade → Fluxo de dados.
+
 ### O que fazer hoje
 
 1. **NÃO mergear o #162** (já fechado — não reabrir sem decidir o caminho acima).
