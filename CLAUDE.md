@@ -195,6 +195,26 @@ Evitar: linguagem corporativa fria, promessas genéricas, tom acadêmico.
 
 *(Marcar conforme for instalando os MCPs)*
 
+## ▶️ Ao abrir esta pasta (rotina de retomada)
+
+Antes de responder qualquer coisa de tráfego, tracking ou LP, o Claude faz isso
+**sozinho, sem o Lucio pedir**:
+
+1. **Ler `marketing/relatorios/log-google-ads.md`** — se houver bloco
+   **"▶️ RETOMAR AQUI"** no topo, dizer ao Lucio, em 2–3 linhas, onde paramos e
+   qual é o próximo passo. É o primeiro assunto da conversa, não um rodapé.
+2. **Checar o `../holos-connect/`** e avisar se:
+   - está **atrás do `origin/main`** → **Nick ou Elis commitaram** (eles trabalham
+     direto na main via Lovable). **`git pull` ANTES de editar** — senão o push é
+     rejeitado e há risco de perder trabalho. Já aconteceu em 17/06 e em 23/07.
+   - tem alteração não commitada, ou está numa branch que não é a `main`.
+3. **Checar a própria bancada** — arquivo sem commit ou commit sem push → sugerir `/salvar`.
+
+> ⚠️ **A regra que protege o trabalho:** o que a gente escreve nas LPs pode ser
+> **sobrescrito** quando a Elis recria a página. Toda correção de tracking precisa
+> estar **no molde** (`holos-connect/docs/TRACKING_LP.md`), não só no arquivo.
+> Patch em arquivo é remendo; molde é a cura.
+
 ## 🧭 Onde a Holos vive (mapa único — 16/07/2026)
 
 > Se bater a sensação de "estou em qual pasta mesmo?", é este bloco que responde.
